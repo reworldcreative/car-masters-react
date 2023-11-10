@@ -1,0 +1,16 @@
+@import "rfs/scss";
+
+$base-color: #7481ff;
+$main: #41456b;
+$second: #606276;
+$font: "Gilroy", sans-serif;
+
+@mixin Font($font-size: 14px, $font-weight: 700, $color: $main) {
+  font-family: $font;
+  @include font-size($font-size);
+  font-style: normal;
+  font-weight: $font-weight;
+  line-height: normal;
+  color: $color;
+  margin: 0px;
+}

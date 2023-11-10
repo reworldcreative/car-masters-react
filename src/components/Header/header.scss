@@ -1,0 +1,18 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+.logo {
+  &__icon {
+    &.accent {
+      filter: invert(54%) sepia(75%) saturate(3388%) hue-rotate(213deg)
+        brightness(101%) contrast(101%);
+    }
+  }
+
+  &__text {
+    color: #7380ff;
+    font-size: 28px;
+    line-height: 108.5%;
+    letter-spacing: 0.56px;
+  }
+}
