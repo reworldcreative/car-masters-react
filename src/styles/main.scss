@@ -4,10 +4,18 @@
 @import "variables";
 @import "rfs/scss";
 
+a {
+  text-decoration: none;
+}
+
+*:focus {
+  outline: 1px solid $base-color;
+}
+
 .visibility-hidden {
   position: absolute;
-  width: 1px;
-  height: 1px;
+  width: 0px;
+  height: 0px;
   margin: -1px;
   border: 0;
   padding: 0;
@@ -23,6 +31,73 @@
   /* visibility: hidden; */
 }
 
+.main-title {
+  @include Font(60px, 800, 108.5%, $white);
+  letter-spacing: 1.2px;
+}
+
 .section-title {
-  @include Font(45px, 700);
+  @include Font(45px, 700, 140.5%, $main);
+}
+
+.title-text {
+  @include Font(30px, 700, 140%);
+}
+
+.caption {
+  @include Font(25px, 700, 140.5%);
+  letter-spacing: 0.5px;
+}
+
+.title {
+  @include Font(20px, 600, 125%);
+}
+
+.secondary-text {
+  @include Font(16px, 400, 180%, $second);
+  letter-spacing: 0.32px;
+}
+
+@media screen and (max-width: 650px) {
+  .main-title {
+    font-size: 35px;
+    letter-spacing: 0.7px;
+  }
+
+  .section-title {
+    font-size: 30px;
+  }
+
+  .title-text {
+    font-size: 24px;
+  }
+
+  .title {
+    font-size: 18px;
+    line-height: 138.889%;
+  }
+
+  .caption {
+    font-size: 20px;
+    line-height: 140%;
+    letter-spacing: 0.4px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .main-title {
+    @include font-size(28px);
+  }
+
+  .section-title {
+    @include font-size(20px);
+  }
+
+  .secondary-text {
+    @include font-size(14px);
+  }
+
+  .title-text {
+    @include font-size(18px);
+  }
 }

@@ -4,13 +4,20 @@ $base-color: #7481ff;
 $main: #41456b;
 $second: #606276;
 $font: "Gilroy", sans-serif;
+$white: #fff;
 
-@mixin Font($font-size: 14px, $font-weight: 700, $color: $main) {
+@mixin Font(
+  $font-size: 16px,
+  $font-weight: 700,
+  $line-height: normal,
+  $color: $main
+) {
   font-family: $font;
-  @include font-size($font-size);
+  // @include font-size($font-size);
+  font-size: $font-size;
   font-style: normal;
   font-weight: $font-weight;
-  line-height: normal;
+  line-height: $line-height;
   color: $color;
   margin: 0px;
 }

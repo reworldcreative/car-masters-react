@@ -1,0 +1,41 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+.socialsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+
+  height: fit-content;
+
+  &__item {
+    padding: 6.5px;
+    border-radius: 2px;
+    background: $base-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: transform 0.5s ease-out;
+    height: fit-content;
+    &:hover {
+      background: #6270ff;
+      filter: drop-shadow(2px 4px 6px black);
+      transform: scale(1.1);
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:focus {
+      background: #6270ff;
+      filter: drop-shadow(2px 4px 6px black);
+      transform: scale(1.1);
+    }
+  }
+}

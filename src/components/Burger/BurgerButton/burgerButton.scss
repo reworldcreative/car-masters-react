@@ -1,0 +1,42 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+.burgerButton {
+  width: 37px;
+  // height: 30px;
+  height: auto;
+  display: grid;
+  gap: 9px;
+  padding: 0px;
+  background: none;
+  border: none;
+
+  cursor: pointer;
+  transition: transform 0.5s ease-out;
+
+  &__line {
+    background-color: $main;
+    height: 4px;
+    width: 100%;
+    border-radius: 7px;
+  }
+
+  &:hover,
+  &:focus {
+    filter: invert(47%) sepia(13%) saturate(3409%) hue-rotate(202deg)
+      brightness(110%) contrast(106%) drop-shadow(0px 0px 1px black);
+    transform: scale(1.1);
+    outline: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .burgerButton {
+    width: 30px;
+    gap: 8px;
+
+    &__line {
+      height: 3px;
+    }
+  }
+}

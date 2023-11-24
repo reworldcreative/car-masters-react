@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "icon": "./img/icons/Delivery.svg",
+    "title": "Vehicle Delivery",
+    "text": "We deliver your vehicle directly to your door. You don’t sign anything until you test drive the vehicle. There is never any obligation to buy beforehand."
+  },
+  {
+    "id": 2,
+    "icon": "./img/icons/Finance.svg",
+    "title": "Auto Financing",
+    "text": "We partner with the largest lenders in Canada to offer the strongest financing options in the industry—including rates as low as 4%"
+  },
+  {
+    "id": 3,
+    "icon": "./img/icons/Car.svg",
+    "title": "Huge Inventory",
+    "text": "We have access to thousands of high‑quality vehicles and offer them to you at wholesale prices. Your dream car is waiting for you"
+  },
+  {
+    "id": 4,
+    "icon": "./img/icons/Car.svg",
+    "title": "Huge Inventory",
+    "text": "We have access to thousands of high‑quality vehicles and offer them to you at wholesale prices. Your dream car is waiting for you"
+  },
+  {
+    "id": 5,
+    "icon": "./img/icons/Car.svg",
+    "title": "Huge Inventory",
+    "text": "We have access to thousands of high‑quality vehicles and offer them to you at wholesale prices. Your dream car is waiting for you"
+  },
+  {
+    "id": 6,
+    "icon": "./img/icons/Car.svg",
+    "title": "Huge Inventory",
+    "text": "We have access to thousands of high‑quality vehicles and offer them to you at wholesale prices. Your dream car is waiting for you"
+  }
+]

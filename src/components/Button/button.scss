@@ -1,0 +1,74 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+.button {
+  @include Font(16px, 700, 89.775%);
+  border-radius: 2px;
+  border: 1px solid $base-color;
+  padding: 16px 20px 15px;
+
+  color: $base-color;
+  background-color: $white;
+
+  letter-spacing: 0.32px;
+  text-transform: uppercase;
+  padding: 16px 24px;
+  text-align: center;
+  cursor: pointer;
+
+  padding: 16px 23px;
+
+  transition: transform 0.5s ease-out;
+
+  &.accent {
+    border: none;
+    color: $white;
+    background-color: $base-color;
+    padding: 16px 39px;
+
+    &:hover,
+    &:focus {
+      color: $white;
+      background-color: #6270ff;
+    }
+  }
+
+  &.disabled {
+    opacity: 0.5;
+  }
+
+  &:hover,
+  &:focus {
+    color: #6270ff;
+    border: 1px solid #6270ff;
+    filter: drop-shadow(2px 4px 6px black);
+    transform: scale(1.1);
+    outline: none;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .button {
+    &.accent {
+      padding: 16px 29px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .button {
+    padding: 10px;
+    font-size: 14px;
+    line-height: 14.364px;
+    letter-spacing: 0.28px;
+    &.accent {
+      padding: 10px 12px;
+    }
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .button {
+    font-size: 10px;
+  }
+}

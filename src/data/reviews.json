@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "image": "./img/reviews/review_1.jpg",
+    "imageDescription": "The image depicts a man and a woman who stay in front of the car and holding a sign - 'from my app to my house'.",
+    "userName": "Laura Chaisson",
+    "text": "In irure et ipsum eiusmod adipisicing id elit cillum proident. Adipisicing ullamco nisi veniam occaecat id excepteur ad non. Sunt occaecat elit ullamco commodo exercitation. Anim mollit irure Lorem proident veniam excepteur non irure Lorem. Lorem esse sint in nisi id esse."
+  },
+  {
+    "id": 2,
+    "image": "./img/reviews/review_2.jpg",
+    "imageDescription": "The image shows a person standing next to a classic red car.",
+    "userName": "Michale Leuschke",
+    "text": "CarsMaster impresses with its efficiency and convenience. Easily find the right car thanks to their intuitive interface. I recommend it for a quick search for the perfect car!"
+  },
+  {
+    "id": 3,
+    "image": "./img/reviews/review_3.jpg",
+    "imageDescription": "The image shows a person standing next to a classic car. The person is next to the vehicle's door, and the car appears to be a muscle car.",
+    "userName": "Pierre Jaskolski",
+    "text": " CarsMaster provides a wide selection of cars, but sometimes the interface may not be so user-friendly. Overall, the service fulfills its basic function, but there are improvements that can be made to improve the user experience."
+  },
+  {
+    "id": 4,
+    "image": "./img/reviews/review_4.jpg",
+    "imageDescription": "The image appears to show a person standing next to two cars.",
+    "userName": "Deshawn Kessler",
+    "text": " Our family is grateful to CarsMaster for being able to quickly find the perfect car. A convenient choice, but sometimes you need more options in the filters for an accurate search. Still, we are satisfied with our choice thanks to this service."
+  }
+]

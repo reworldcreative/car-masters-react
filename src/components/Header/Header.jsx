@@ -1,21 +1,40 @@
-import React from "react";
-import logoIcon from "@/img/logo/logo.svg";
+import React, { useState } from "react";
 import "./header.scss";
+import Logo from "../Logo/Logo";
+import Button from "../Button/Button";
+import BurgerButton from "../Burger/BurgerButton/BurgerButton";
+import Burger from "../Burger/Burger";
 
 export default function Header() {
-  return (
-    <header>
-      <a href="#" className="logo">
-        <img
-          className="logo__icon accent"
-          src={logoIcon}
-          alt="logo icon"
-          width="42.5"
-          height="31.2"
-        />
+  const [isOpenBurger, setIsOpenBurger] = useState(false);
 
-        <p className="logo__text">CarMasters</p>
-      </a>
-    </header>
+  const [BurgerButtonFocus, setBurgerButtonFocus] = useState(false);
+  const toggleMenu = () => {
+    setIsOpenBurger(!isOpenBurger);
+
+    if (!isOpenBurger) {
+      document.body.style.overflow = "hidden";
+      setBurgerButtonFocus(false);
+    } else {
+      document.body.style.overflow = "auto";
+      setBurgerButtonFocus(true);
+    }
+  };
+  return (
+    <>
+      {isOpenBurger ? <Burger close={toggleMenu} /> : false}
+      <header className="header">
+        <Logo />
+
+        <div className="header__navigation">
+          <div className="header__buttons">
+            <Button addclass="header__inventory">Inventory</Button>
+            <Button addclass="accent">Request a car</Button>
+          </div>
+
+          <BurgerButton onClick={toggleMenu} focus={BurgerButtonFocus} />
+        </div>
+      </header>
+    </>
   );
 }
