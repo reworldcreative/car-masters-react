@@ -1,0 +1,79 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+.calculator {
+  &__wrapper {
+    padding: 0px 120px;
+    display: grid;
+    gap: 60px;
+  }
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .section-title {
+    max-width: 500px;
+  }
+
+  .secondary-text {
+    max-width: 600px;
+  }
+
+  &__container {
+    display: flex;
+    gap: 30px;
+  }
+
+  &__block {
+    padding: 60px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: $white;
+    box-shadow: 0px 20px 25px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  .calculator-form {
+    display: grid;
+    gap: 60px;
+  }
+
+  &__type {
+    border: none;
+    margin: 0px;
+    padding: 0px;
+
+    display: flex;
+
+    // input[type="radio"] {
+    //   display: none;
+    // }
+
+    input[type="radio"]:checked + label {
+      background: $base-color;
+      color: $white;
+    }
+
+    .radio-label {
+      font-weight: 700;
+      line-height: 89.775%;
+      text-transform: uppercase;
+      color: $base-color;
+      padding: 17px 25px;
+      text-align: center;
+      border: 1px solid $base-color;
+    }
+  }
+}
+
+.slider-group {
+  display: grid;
+  gap: 20px;
+  border: none;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
