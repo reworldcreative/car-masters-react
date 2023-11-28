@@ -1,0 +1,238 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+.interesting {
+  &__wrapper {
+    padding: 220px 120px 00px;
+    box-sizing: border-box;
+
+    // display: grid;
+    // gap: 60px;
+
+    // max-width: 1440px;
+    margin: auto;
+  }
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+
+  &__button {
+    text-transform: uppercase;
+    padding: 16px 37px !important;
+  }
+
+  &__container {
+    // display: flex;
+    // gap: 20px;
+    // max-width: 1200px;
+    // max-width: 83.3vw;
+    max-width: fit-content;
+    margin: auto;
+    position: relative;
+  }
+
+  &__item {
+    background: $white;
+    filter: drop-shadow(0px 20px 25px rgba(0, 0, 0, 0.1));
+    border-radius: 5px;
+    width: fit-content;
+    margin-bottom: 40px;
+  }
+
+  &__img {
+    max-width: 100%;
+    object-fit: cover;
+  }
+
+  &__content {
+    padding: 20px 30px 30px;
+  }
+
+  &__data {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 180px;
+  }
+
+  &__title {
+    max-width: 300px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    // max-height: 80px;
+    height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__slider-icon {
+    display: flex;
+    filter: invert(30%) sepia(440%) saturate(510%) hue-rotate(200deg)
+      brightness(600%) contrast(500%);
+  }
+
+  &__slider-prev,
+  &__slider-next {
+    border: none;
+    color: $white;
+    font-size: 20px;
+    background-color: $base-color;
+    border-radius: 50%;
+    padding: 15px 21px;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 10;
+
+    &.swiper-button-disabled {
+      opacity: 0.5;
+      &:hover {
+        background-color: rgb(190, 190, 190);
+
+        .interesting__slider-icon {
+          filter: none;
+        }
+      }
+    }
+  }
+
+  &__slider-next {
+    right: 0px;
+    top: 43%;
+  }
+
+  &__slider-prev {
+    transform: rotate(180deg);
+    left: 0;
+    top: 43%;
+  }
+
+  &__slider-next:hover,
+  &__slider-prev:hover {
+    background-color: $white;
+    border: 2px solid $base-color;
+    .interesting__slider-icon {
+      filter: invert(45%) sepia(74%) saturate(2597%) hue-rotate(216deg)
+        brightness(107%) contrast(101%);
+    }
+  }
+
+  &__slider-next:focus,
+  &__slider-prev:focus {
+    outline: 3px solid $base-color;
+    filter: drop-shadow(0px 0px 3px black);
+  }
+
+  // swiper-slide {
+  //   width: auto !important;
+  // }
+}
+
+@media screen and (min-width: 1700px) {
+  .interesting {
+    &__wrapper {
+      max-width: 1440px;
+      padding: 220px 0px 0px;
+    }
+    &__container {
+      max-width: 1440px;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .interesting {
+    &__wrapper {
+      padding: 160px 84px 0px;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .interesting {
+    &__wrapper {
+      padding: 160px 24px 0px;
+    }
+
+    &__content {
+      padding: 20px 20px 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .interesting {
+    &__wrapper {
+      padding: 70px 20px 30px;
+    }
+
+    &__item {
+      margin-bottom: 30px;
+    }
+
+    swiper-slide {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__slider-prev,
+    &__slider-next {
+      width: 35px;
+      height: 35px;
+      padding: 9px 13.5px;
+      top: 41%;
+    }
+
+    &__slider-icon {
+      width: 7px;
+      height: 14.5px;
+    }
+
+    &__head {
+      margin-bottom: 30px;
+    }
+
+    &__container {
+      margin-bottom: 0px;
+    }
+
+    &__button {
+      width: 100%;
+      padding: 10px 5px !important;
+    }
+
+    &__title {
+      height: 50px;
+    }
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .interesting {
+    &__head {
+      margin-bottom: 30px;
+    }
+    &__title {
+      height: 70px;
+    }
+
+    &__img-wrapper {
+      height: 200px !important;
+    }
+
+    &__img {
+      height: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 250px) {
+  .interesting {
+    &__img-wrapper {
+      height: 180px !important;
+    }
+  }
+}

@@ -6,6 +6,10 @@ $second: #606276;
 $font: "Gilroy", sans-serif;
 $white: #fff;
 
+:root {
+  --base-color: #7481ff;
+}
+
 @mixin Font(
   $font-size: 16px,
   $font-weight: 700,

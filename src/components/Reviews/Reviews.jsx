@@ -61,7 +61,7 @@ export default function Reviews() {
             a11y-slide-label-message="null"
           >
             {reviewsData.length ? (
-              reviewsData.map((review) => (
+              reviewsData.slice(0, 10).map((review) => (
                 <swiper-slide aria-label="user review" key={review.id}>
                   <div
                     className="reviews__slider-img-wrapper"

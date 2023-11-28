@@ -62,11 +62,11 @@ export default function HomeSwiper({ handleSlideChange }) {
         navigation-next-el=".home-hero__slider-next"
         class="home-hero__slider"
         ref={swiperRef}
-        // a11y="true"
-        // keyboard="true"
-        // mousewheel="true"
-        // mousewheel-threshold-delta="70"
-        // mousewheel-force-to-axis="true"
+        a11y="true"
+        keyboard="true"
+        mousewheel="true"
+        mousewheel-threshold-delta="70"
+        mousewheel-force-to-axis="true"
       >
         <swiper-slide>
           <PictureComponent

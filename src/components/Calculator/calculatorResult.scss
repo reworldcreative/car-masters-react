@@ -1,0 +1,30 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+.calculator-results {
+  display: grid;
+  gap: 41px;
+
+  &__container {
+    display: grid;
+    gap: 21px;
+  }
+
+  &__button {
+    width: 100%;
+    padding: 16px 19px !important;
+    // margin-top: 20px;
+  }
+
+  &__block {
+    // display: grid;
+    height: fit-content;
+  }
+  &__amount {
+    &.accent {
+      color: $base-color;
+      font-size: 45px;
+      margin-bottom: 10px;
+    }
+  }
+}

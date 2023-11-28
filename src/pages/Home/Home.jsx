@@ -26,10 +26,15 @@ import InfoList from "@/components/InfoList/InfoList";
 import InfoItem from "@/components/InfoList/InfoItem";
 import Reviews from "@/components/Reviews/Reviews";
 import Calculator from "@/components/Calculator/Calculator";
+import Interesting from "@/components/Interesting/Interesting";
+import Footer from "@/components/Footer/Footer";
+
+import articles from "@/data/articles.json";
 
 export default function Home() {
   const [buttonText, setbuttonText] = useState("suv");
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1350);
+  const [isMobileScreen, setIsMobileScreen] = useState(window.innerWidth < 500);
 
   const handleSlideChange = (activeSlideNumber) => {
     switch (activeSlideNumber) {
@@ -53,6 +58,7 @@ export default function Home() {
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth < 1350);
+      setIsMobileScreen(window.innerWidth < 500);
     };
 
     window.addEventListener("resize", handleResize);
@@ -289,7 +295,15 @@ export default function Home() {
         <Reviews />
 
         <Calculator />
+
+        <Interesting
+          sliderNavidation={isMobileScreen ? true : false}
+          caption="Interesting to read"
+          articles={articles.slice(0, 6)}
+        />
       </main>
+
+      <Footer />
     </>
   );
 }

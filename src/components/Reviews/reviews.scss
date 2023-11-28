@@ -59,6 +59,10 @@
     border-radius: 5px;
   }
 
+  &__slider-img-wrapper {
+    border-radius: 5px;
+  }
+
   swiper-slide {
     display: flex !important;
     align-items: center;
@@ -218,13 +222,29 @@
       height: 200px;
       -webkit-line-clamp: 8;
     }
+
+    &__text-container {
+      width: 56%;
+    }
+
+    &__slider-img {
+      height: auto;
+      width: auto;
+      max-height: 320px;
+      object-fit: contain;
+    }
+
+    &__slider-img-wrapper {
+      width: 320px;
+      overflow: hidden;
+    }
   }
 }
 
 @media screen and (max-width: 760px) {
   .reviews {
     &__wrapper {
-      padding: 90px 20px;
+      padding: 90px 20px 80px;
       gap: 30px;
     }
 
@@ -234,12 +254,17 @@
       padding-bottom: 20px;
     }
 
+    &__slider-img-wrapper {
+      margin: auto;
+    }
+
     &__container {
       width: 94vw;
     }
 
     &__text-container {
       padding: 0px 20px;
+      width: auto;
     }
 
     &__text {
@@ -289,19 +314,14 @@
     &__text-container {
       gap: 13px;
     }
-  }
-}
-
-@media screen and (max-width: 450px) {
-  .reviews {
-    &__text {
-      height: 225px;
-      -webkit-line-clamp: 9;
-    }
 
     &__slider-img {
-      width: 100%;
       height: auto;
+      max-height: 255px;
+      max-width: 348px;
+
+      // position: relative;
+      // top: -20px;
     }
 
     &__container {
@@ -317,12 +337,47 @@
     &__slider-img-wrapper {
       max-height: 215px;
       overflow: hidden;
+      width: fit-content;
+      max-width: 100%;
     }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .reviews {
+    &__text {
+      height: 225px;
+      -webkit-line-clamp: 9;
+    }
+
+    // &__slider-img {
+    //   width: 100%;
+    //   height: auto;
+    // }
+
+    // &__container {
+    //   margin: auto;
+    //   width: calc(2.5rem + 78vw);
+    // }
+
+    // &__slider-next,
+    // &__slider-prev {
+    //   top: 17.5%;
+    // }
+
+    // &__slider-img-wrapper {
+    //   max-height: 215px;
+    //   overflow: hidden;
+    // }
   }
 }
 
 @media screen and (max-width: 350px) {
   .reviews {
+    &__wrapper {
+      padding: 0px 20px 80px;
+    }
+
     &__container {
       margin: auto;
       width: calc(2.5rem + 75vw);
@@ -335,6 +390,10 @@
     &__text {
       -webkit-line-clamp: 10;
       height: 250px;
+    }
+
+    &__slider-img-wrapper {
+      width: 100%;
     }
   }
 }

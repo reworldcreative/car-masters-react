@@ -11,14 +11,17 @@
   &__head {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    gap: 50px;
+    .secondary-text {
+      max-width: 600px;
+      width: 50%;
+    }
   }
 
   .section-title {
     max-width: 500px;
-  }
-
-  .secondary-text {
-    max-width: 600px;
   }
 
   &__container {
@@ -35,8 +38,16 @@
   }
 
   .calculator-form {
-    display: grid;
-    gap: 60px;
+    width: 73.4%;
+    &__wrapper {
+      height: fit-content;
+      display: grid;
+      gap: 60px;
+    }
+  }
+
+  .calculator-results {
+    width: 33.3%;
   }
 
   &__type {
@@ -45,6 +56,7 @@
     padding: 0px;
 
     display: flex;
+    height: fit-content;
 
     // input[type="radio"] {
     //   display: none;
@@ -60,20 +72,202 @@
       line-height: 89.775%;
       text-transform: uppercase;
       color: $base-color;
-      padding: 17px 25px;
+      padding: 17px 32px;
       text-align: center;
       border: 1px solid $base-color;
+
+      display: flex;
+      cursor: pointer;
     }
   }
 }
 
-.slider-group {
-  display: grid;
-  gap: 20px;
-  border: none;
-  &__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+@media screen and (min-width: 1650px) {
+  .calculator {
+    &__wrapper {
+      max-width: 1440px;
+      margin: auto;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .calculator {
+    &__wrapper {
+      padding: 0px 84px;
+    }
+    &__block {
+      padding: 40px;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .calculator {
+    &__container {
+      display: grid;
+      gap: 0;
+    }
+
+    &__head {
+      .secondary-text {
+        width: 80%;
+      }
+    }
+    .calculator-form {
+      width: 100%;
+      &__wrapper {
+        gap: 42px;
+      }
+    }
+    .calculator-results {
+      width: 100%;
+      background: none;
+      box-shadow: none;
+      padding: 0px;
+
+      &__container {
+        display: flex;
+        gap: 40px;
+
+        &.first {
+          justify-content: space-between;
+          flex-wrap: wrap;
+        }
+      }
+
+      &__amount {
+        &.accent {
+          margin-bottom: 0px;
+        }
+      }
+
+      &__button-wrapper {
+        width: fit-content !important;
+      }
+
+      &__button {
+        width: 212px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .calculator {
+    &__head {
+      gap: 70px;
+      .secondary-text {
+        width: 100%;
+      }
+    }
+    &__wrapper {
+      padding: 0 24px;
+    }
+
+    .calculator-results {
+      &__button {
+        width: 250px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .calculator {
+    &__wrapper {
+      gap: 30px;
+      padding: 0 20px;
+    }
+
+    &__head {
+      display: grid;
+      gap: 10px;
+    }
+
+    &__block {
+      padding: 20px;
+    }
+
+    .slider-group {
+      gap: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .calculator {
+    .calculator-results {
+      &__container {
+        &.first {
+          gap: 10px;
+        }
+      }
+    }
+
+    .calculator-form {
+      &__wrapper {
+        gap: 40px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .calculator {
+    .calculator-form {
+      &__wrapper {
+        &.sliders {
+          gap: 30px;
+        }
+      }
+    }
+    &__type {
+      .radio-label {
+        padding: 10px 17.5px;
+      }
+    }
+    .calculator-results {
+      &__container {
+        gap: 15px;
+        flex-wrap: wrap;
+
+        &.first {
+          margin-top: 10px;
+        }
+      }
+
+      &__amount {
+        &.accent {
+          font-size: 35px;
+        }
+      }
+
+      &__button-wrapper {
+        width: 100% !important;
+        height: 35px !important;
+      }
+
+      &__button {
+        width: 100%;
+        padding: 10px 12px !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .calculator {
+    &__type {
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .slider-group {
+      &__container {
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+    }
   }
 }
