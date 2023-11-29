@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import logoIcon from "@/img/logo/logo.svg";
 import "./logo.scss";
+import { Link } from "react-router-dom";
 
 export default function Logo() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -26,8 +27,8 @@ export default function Logo() {
 
   return (
     <>
-      <a
-        href="#"
+      <Link
+        to={"/"}
         className="logo"
         aria-label="Car Masters logo, move to main page"
       >
@@ -41,7 +42,7 @@ export default function Logo() {
         />
 
         <p className="logo__text main-title">{logoText}</p>
-      </a>
+      </Link>
     </>
   );
 }

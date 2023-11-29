@@ -1,6 +1,7 @@
 import React from "react";
 import "./calculatorResult.scss";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 
 export default function CalculatorResult({ priceAmount, months, status }) {
   const [biWeeklyPayment, setBiWeeklyPayment] = useState(0);
@@ -86,9 +87,16 @@ export default function CalculatorResult({ priceAmount, months, status }) {
         style={{ width: "100%", height: "45px" }}
         className="calculator-results__button-wrapper"
       >
-        <Button addclass="calculator-results__button accent">
+        <Link
+          className="calculator-results__button accent button"
+          to={"/calculator"}
+          aria-label="Move to calculator page"
+        >
           Request a car
-        </Button>
+        </Link>
+        {/* <Button addclass="calculator-results__button accent">
+          Request a car
+        </Button> */}
       </div>
     </div>
   );

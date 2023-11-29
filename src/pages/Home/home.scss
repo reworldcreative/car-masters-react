@@ -86,6 +86,7 @@ $lengthOfAdvantages: 3;
   &__slider-next:hover,
   &__slider-prev:hover {
     background-color: #7380ff;
+    outline: 3px solid $white;
     // color: $white;
     .home-hero__slider-icon {
       filter: invert(30%) sepia(440%) saturate(510%) hue-rotate(200deg)

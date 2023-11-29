@@ -1,0 +1,50 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+.calculator-page {
+  &__title {
+    background: $base-color;
+    padding: 40px 124px;
+    background-image: url("@/img/Bg-pattern.jpg");
+    background-repeat: no-repeat;
+    background-position: right;
+
+    .main-title {
+      max-width: 1440px;
+      margin: auto;
+    }
+  }
+
+  &__container {
+    padding: 40px 0px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .calculator-page {
+    &__title {
+      padding: 40px 84px;
+      background-position: 0%;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .calculator-page {
+    &__title {
+      padding: 40px 24px;
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .calculator-page {
+    &__title {
+      padding: 20px;
+    }
+
+    &__container {
+      padding: 30px 0px;
+    }
+  }
+}

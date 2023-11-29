@@ -3,8 +3,14 @@ import "./styles/main.scss";
 
 import React from "react";
 import { createRoot } from "react-dom/client";
+import { HashRouter } from "react-router-dom";
 import App from "./App";
 
 const domNode = document.getElementById("root");
 const root = createRoot(domNode);
-root.render(<App />);
+
+root.render(
+  <HashRouter>
+    <App />
+  </HashRouter>
+);
