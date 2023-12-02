@@ -1,2 +1,49 @@
 @import "@/styles/variables";
 @import "rfs/scss";
+
+.page-title {
+  background: $base-color;
+  padding: 40px 124px;
+  background-image: url("@/img/Bg-pattern.jpg");
+  background-repeat: no-repeat;
+  background-position: right;
+
+  .main-title {
+    max-width: 1440px;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .page-title {
+    padding: 40px 84px;
+    background-position: 0%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .page-title {
+    padding: 40px 24px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .page-title {
+    // padding: 20px;
+    padding: 0px 20px;
+    height: 116px;
+    align-items: center;
+    display: flex;
+
+    .main-title {
+      margin: 0px;
+    }
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .page-title {
+    height: fit-content;
+    padding: 20px;
+  }
+}

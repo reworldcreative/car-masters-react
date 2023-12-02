@@ -49,7 +49,7 @@ export default function CalculatorSlider({
         defaultValue={defaultValue}
         onChange={handleSliderChange}
         className="slider"
-        id="AmountRange"
+        id={type + "Range"}
         style={fillStyle}
         step="1"
       ></input>

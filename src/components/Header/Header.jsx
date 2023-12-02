@@ -13,10 +13,10 @@ export default function Header() {
     setIsOpenBurger(!isOpenBurger);
 
     if (!isOpenBurger) {
-      document.body.style.overflow = "hidden";
+      // document.body.style.overflow = "hidden";
       setBurgerButtonFocus(false);
     } else {
-      document.body.style.overflow = "auto";
+      // document.body.style.overflow = "auto";
       setBurgerButtonFocus(true);
     }
   };

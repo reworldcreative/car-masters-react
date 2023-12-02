@@ -24,7 +24,8 @@ export default function InterestingItem({
       <div className="interesting__content">
         <p className="interesting__data secondary-text">
           <span className="visibility-hidden">date of publication is </span>
-          <time>{data}</time>
+          {data}
+          {/* <time>{data}</time> */}
         </p>
         <p className="interesting__title title">
           <span className="visibility-hidden">article title - </span>

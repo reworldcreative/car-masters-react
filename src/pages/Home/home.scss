@@ -1390,3 +1390,17 @@ $lengthOfAdvantages: 3;
     }
   }
 }
+
+@media screen and (max-width: 350px) {
+  .perfect-car {
+    &__step {
+      display: grid;
+    }
+    &__step-description {
+      .title {
+        max-width: 100%;
+        word-wrap: break-word;
+      }
+    }
+  }
+}

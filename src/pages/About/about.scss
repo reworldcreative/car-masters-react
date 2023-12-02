@@ -1,0 +1,493 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+.mission {
+  &__wrapper {
+    padding: 40px 120px 225px;
+  }
+
+  &__text {
+    max-width: 464px;
+  }
+
+  &__button-wrapper {
+    margin-top: 20px;
+  }
+
+  &__button {
+    width: fit-content;
+
+    padding: 16px 39px !important;
+  }
+
+  &__img {
+    max-width: 542px;
+    max-height: 255px;
+    height: calc(2.71875rem + 14.7vw);
+    width: calc(4.5125rem + 32.63vw);
+  }
+}
+
+.dream {
+  &__title {
+    max-width: 450px;
+  }
+
+  &__text-wrapper {
+    max-width: 568px;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+    gap: 43px;
+    width: 46%;
+  }
+}
+
+.convenience {
+  &__wrapper {
+    padding: 220px 120px;
+  }
+
+  &__title {
+    max-width: 480px;
+  }
+
+  &__text-wrapper {
+    max-width: 550px;
+  }
+
+  &__img {
+    max-width: 567px;
+    max-height: 274px;
+    height: calc(2.71875rem + 16.01vw);
+    width: calc(4.5125rem + 34.37vw);
+  }
+}
+
+.bestPrices {
+  &__wrapper {
+    align-items: flex-start;
+  }
+  &__block {
+    display: grid;
+    gap: 20px;
+    // max-width: 550px;
+    max-width: 45.84%;
+    margin-top: 13px;
+  }
+
+  &__title {
+    max-width: 450px;
+  }
+}
+
+.qualified {
+  &__wrapper {
+    padding: 195px 120px 0px;
+    align-items: flex-start;
+  }
+
+  &__card-title {
+    max-width: 460px;
+  }
+
+  &__container {
+    &.card {
+      margin-top: 15px;
+
+      .button.accent {
+        padding: 16px 28px !important;
+      }
+    }
+  }
+}
+
+.AboutTeam {
+  &__wrapper {
+    align-items: center;
+  }
+
+  &__text-wrapper {
+    gap: 13px;
+    max-width: 522px;
+  }
+
+  &__image-container {
+    // width: fit-content;
+    // height: fit-content;
+    margin: auto;
+
+    overflow: hidden;
+
+    max-width: 600px;
+    max-height: 540px;
+
+    width: calc(4.5125rem + 84.3vw);
+    height: calc(2.71875rem + 34.7vw);
+
+    border-radius: 5px;
+  }
+
+  &__img {
+    display: block;
+    // max-width: 600px;
+    // max-height: 540px;
+
+    // height: calc(2.71875rem + 34.7vw);
+    // width: calc(4.5125rem + 36.7vw);
+    width: calc(4.5125rem + 52.3vw);
+    height: calc(2.71875rem + 34.5vw);
+
+    max-width: 812px;
+    object-fit: cover;
+
+    left: -17.5%;
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .mission {
+    &__wrapper {
+      padding: 40px 84px 160px;
+    }
+  }
+
+  .dream {
+    &__wrapper {
+      padding: 0px 84px;
+    }
+  }
+
+  .convenience {
+    &__wrapper {
+      padding: 155px 84px;
+    }
+  }
+
+  .qualified {
+    &__wrapper {
+      padding: 160px 84px 0px;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .mission {
+    &__wrapper {
+      justify-content: center;
+    }
+
+    &__decoration {
+      justify-content: center;
+      display: flex;
+    }
+
+    &__text {
+      max-width: 100%;
+    }
+
+    &__img {
+      max-height: 285px;
+      max-width: 600px;
+
+      height: calc(2.71875rem + 30.7vw);
+      width: calc(4.5125rem + 68.63vw);
+    }
+  }
+
+  .dream {
+    &__list {
+      width: 100%;
+      gap: 33px;
+
+      .perfect-car__step-description .secondary-text {
+        max-width: 410px !important;
+      }
+    }
+
+    &__text-wrapper {
+      max-width: 100%;
+    }
+  }
+
+  .convenience {
+    &__text-wrapper {
+      max-width: 99%;
+    }
+
+    &__decoration {
+      order: 2;
+      display: flex;
+      justify-content: center;
+    }
+
+    &__img {
+      height: calc(2.71875rem + 32.1vw);
+      max-height: 290px;
+      max-width: 600px;
+      width: calc(4.5125rem + 74.37vw);
+    }
+  }
+
+  .bestPrices {
+    &__wrapper {
+      gap: 30px;
+    }
+
+    &__title {
+      max-width: 100%;
+    }
+
+    &__block {
+      max-width: 100%;
+    }
+  }
+
+  .qualified {
+    &__container {
+      &.card {
+        order: 2;
+        margin: 0;
+      }
+    }
+  }
+
+  .AboutTeam {
+    &__text-wrapper {
+      max-width: 100%;
+    }
+
+    &__image-container {
+      max-width: 600px;
+      max-height: 428px;
+
+      width: calc(4.5125rem + 68.9vw);
+      height: calc(2.71875rem + 54.7vw);
+    }
+
+    &__img {
+      max-width: 600px;
+      max-height: 428px;
+
+      width: calc(4.5125rem + 68.9vw);
+      height: calc(2.71875rem + 54.7vw);
+
+      left: 0%;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .mission {
+    &__text {
+      max-width: 521px;
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .mission {
+    &__wrapper {
+      padding: 30px 24px 80px;
+      gap: 30px;
+    }
+
+    &__container {
+      padding: 20px;
+    }
+  }
+
+  .dream {
+    &__wrapper {
+      padding: 0px 24px;
+    }
+  }
+
+  .convenience {
+    &__wrapper {
+      padding: 90px 24px 82px;
+    }
+
+    &__title {
+      max-width: 100%;
+    }
+  }
+
+  .qualified {
+    &__wrapper {
+      padding: 80px 24px 0px;
+      gap: 20px;
+    }
+  }
+
+  .AboutTeam {
+    &__wrapper {
+      gap: 20px;
+    }
+
+    &__text-wrapper {
+      gap: 7px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .mission {
+    &__wrapper {
+      padding: 30px 20px 75px;
+    }
+
+    &__button-wrapper {
+      height: 35px !important;
+      width: 100% !important;
+    }
+
+    &__button {
+      width: 100%;
+    }
+
+    .button {
+      &.accent {
+        padding: 10px 12px !important;
+      }
+    }
+  }
+
+  .dream {
+    &__wrapper {
+      padding: 0px 20px;
+      gap: 25px;
+    }
+
+    &__list {
+      gap: 20px;
+    }
+
+    &__text-wrapper {
+      gap: 10px;
+    }
+  }
+
+  .convenience {
+    &__wrapper {
+      padding: 90px 20px 82px;
+      gap: 30px;
+    }
+
+    &__img {
+      max-height: 154px;
+      max-width: 320px;
+
+      height: calc(2.71875rem + 30.67vw);
+      width: calc(4.5125rem + 68.9vw);
+    }
+
+    &__text-wrapper {
+      gap: 10px;
+      max-width: 100%;
+    }
+
+    &__text {
+      &:first-child {
+        max-width: 97%;
+      }
+    }
+  }
+
+  .bestPrices {
+    &__wrapper {
+      gap: 10px;
+    }
+
+    &__text-wrapper {
+      gap: 10px;
+    }
+
+    &__block {
+      gap: 10px;
+
+      .button.accent {
+        padding: 10px 12px !important;
+      }
+    }
+  }
+
+  .qualified {
+    &__wrapper {
+      padding: 80px 20px 0px;
+    }
+  }
+
+  .reviewsAbout {
+    .reviews__wrapper {
+      padding: 80px 20px;
+    }
+  }
+
+  .AboutTeam {
+    &__image-container {
+      max-width: 319px;
+      max-height: 227px;
+
+      width: calc(4.5125rem + 68.9vw);
+      height: calc(2.71875rem + 50.7vw);
+    }
+
+    &__img {
+      max-width: 319px;
+      max-height: 227px;
+
+      width: calc(4.5125rem + 68.9vw);
+      height: calc(2.71875rem + 50.7vw);
+    }
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .mission {
+    &__wrapper {
+      padding: 30px 0px 80px;
+      overflow: clip;
+    }
+  }
+
+  .convenience {
+    &__wrapper {
+      padding: 80px 20px;
+      overflow: clip;
+    }
+    &__img {
+      height: calc(2.71875rem + 12.67vw);
+      max-height: 105px;
+      max-width: 290px;
+      width: calc(4.5125rem + 48.9vw);
+    }
+
+    &__text-wrapper {
+      max-width: 90%;
+    }
+
+    &__text {
+      &:first-child {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .AboutTeam {
+    &__img {
+      width: auto;
+      max-width: 100%;
+    }
+
+    &__image-container {
+      width: auto;
+      max-width: 100%;
+    }
+  }
+}

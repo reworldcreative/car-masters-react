@@ -36,8 +36,8 @@ export default function Logo() {
           className="logo__icon accent"
           src={logoIcon}
           alt="logo icon"
-          width="42.5"
-          height="31.2"
+          width="42"
+          height="31"
           aria-hidden="true"
         />
 

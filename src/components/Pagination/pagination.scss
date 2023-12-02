@@ -1,0 +1,46 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+.pagination {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  padding: 0px;
+  margin: 0px auto 40px;
+  justify-content: center;
+
+  &__button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: 0.3;
+    background: $second;
+    border: none;
+    padding: 0;
+
+    cursor: pointer;
+
+    &:hover {
+      background: $base-color;
+      .pagination__button {
+        opacity: 0.5;
+      }
+    }
+  }
+  &__item {
+    width: 10px;
+    height: 10px;
+    display: flex;
+    &.active {
+      .pagination__button {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .pagination {
+    margin-bottom: 30px;
+  }
+}

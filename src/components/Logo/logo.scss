@@ -7,6 +7,8 @@
   gap: 5px;
   transition: transform 0.5s ease-in-out;
   &__icon {
+    width: 42.5px;
+    height: 31.2px;
     &.accent {
       filter: invert(54%) sepia(75%) saturate(3388%) hue-rotate(213deg)
         brightness(101%) contrast(101%);

@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "image": "./img/videoImage/video_1-2.jpg",
+    "imageDescription": "The photo shows a red Chevrolet Cruze hatchback driving in the snow.",
+    "title": "CM's Vehicle Shoot #10: 2018 Chevy Cruze Hatchback",
+    "link": "reaRk-ThBEQ"
+  },
+  {
+    "id": 2,
+    "image": "./img/videoImage/video_2-2.jpg",
+    "imageDescription": "The photo shows a Mazda CX-5 parked in the snow.",
+    "title": "CM's Vehicle Shoot #11: Toyota Highlander",
+    "link": "kKk0f10ntw0"
+  },
+  {
+    "id": 3,
+    "image": "./img/videoImage/video_3-2.jpg",
+    "imageDescription": "The photo shows a black Toyota Highlander parked on a snowy road. A bridge and a blurred city can be seen in the background.",
+    "title": "CM's Vehicle Shoot #09: 2019 Mazda CX-5",
+    "link": "6Q1UrlMPtpo"
+  },
+  {
+    "id": 4,
+    "image": "./img/videoImage/video_4-2.jpg",
+    "imageDescription": "The photo shows an orange Hyundai Veloster parked in front of a graffiti wall.",
+    "title": "Some Vehicles CM Offers!",
+    "link": "6IVmqqC7Voo"
+  },
+  {
+    "id": 5,
+    "image": "./img/videoImage/video_4-2.jpg",
+    "imageDescription": "The photo shows an orange Hyundai Veloster parked in front of a graffiti wall.",
+    "title": "Some Vehicles CM Offers!",
+    "link": "6IVmqqC7Voo"
+  },
+  {
+    "id": 6,
+    "image": "./img/videoImage/video_4-2.jpg",
+    "imageDescription": "The photo shows an orange Hyundai Veloster parked in front of a graffiti wall.",
+    "title": "Some Vehicles CM Offers!",
+    "link": "6IVmqqC7Voo"
+  }
+]

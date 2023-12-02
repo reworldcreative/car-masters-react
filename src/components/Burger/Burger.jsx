@@ -2,11 +2,18 @@ import React, { useEffect, useRef } from "react";
 import "./burger.scss";
 import closeIcon from "@/img/icons/close_icon.svg";
 import SocialsList from "../Socials/SocialsList";
+import { Link } from "react-router-dom";
 
 export default function Burger({ close }) {
   const burgerMenuRef = useRef(null);
 
   useEffect(() => {
+    document.body.style.overflow = "hidden";
+
+    const resetOverflow = () => {
+      document.body.style.overflow = "auto";
+    };
+
     if (burgerMenuRef.current) {
       burgerMenuRef.current.focus();
     }
@@ -37,11 +44,13 @@ export default function Burger({ close }) {
     }
 
     return () => {
+      resetOverflow();
       if (burgerMenuRef.current) {
         burgerMenuRef.current.removeEventListener("keydown", handleKeyDown);
       }
     };
   }, []);
+
   return (
     <>
       <nav
@@ -72,9 +81,9 @@ export default function Burger({ close }) {
             </a>
           </li>
           <li className="burgerMenu__item">
-            <a href="#" className="burgerMenu__link caption">
+            <Link to={"/about"} className="burgerMenu__link caption">
               About CM
-            </a>
+            </Link>
           </li>
           <li className="burgerMenu__item">
             <a href="#" className="burgerMenu__link caption">
@@ -82,9 +91,9 @@ export default function Burger({ close }) {
             </a>
           </li>
           <li className="burgerMenu__item">
-            <a href="#" className="burgerMenu__link caption">
+            <Link to={"/videos"} className="burgerMenu__link caption">
               Video
-            </a>
+            </Link>
           </li>
           <li className="burgerMenu__item">
             <a href="#" className="burgerMenu__link caption">
