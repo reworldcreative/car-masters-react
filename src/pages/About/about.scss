@@ -150,6 +150,60 @@
   }
 }
 
+.AboutFeatures {
+  &__wrapper {
+    padding: 220px 120px;
+    align-items: flex-start;
+  }
+
+  &__text-wrapper {
+    max-width: 600px;
+  }
+
+  &__image-container {
+    margin-top: 10px;
+  }
+
+  &__statistic {
+    max-width: 600px;
+    margin-top: 20px;
+  }
+
+  &__image-container {
+    overflow: hidden;
+
+    max-width: 540px;
+    max-height: 494px;
+
+    width: calc(4.5125rem + 32.5vw);
+    height: calc(2.71875rem + 31.3vw);
+
+    border-radius: 5px;
+  }
+
+  &__img {
+    display: block;
+    max-width: 747px;
+    max-height: 494px;
+    width: calc(4.5125rem + 46.9vw);
+    height: calc(2.71875rem + 31.3vw);
+
+    object-fit: cover;
+    left: -19%;
+    position: relative;
+  }
+
+  .info-list {
+    &__item {
+      width: 19.4vw;
+    }
+  }
+}
+
+.aboutCalculator {
+  margin-bottom: 40px;
+}
+
 @media screen and (max-width: 1200px) {
   .mission {
     &__wrapper {
@@ -172,6 +226,18 @@
   .qualified {
     &__wrapper {
       padding: 160px 84px 0px;
+    }
+  }
+
+  .AboutFeatures {
+    &__wrapper {
+      padding: 160px 84px;
+    }
+
+    .info-list {
+      &__item {
+        width: 19.7vw;
+      }
     }
   }
 }
@@ -280,12 +346,51 @@
       left: 0%;
     }
   }
+
+  .AboutFeatures {
+    &__statistic {
+      max-width: 100%;
+    }
+
+    .info-list__item {
+      width: 280px;
+    }
+
+    &__text-wrapper {
+      max-width: 100%;
+    }
+
+    &__image-container {
+      order: 2;
+      margin: 0px auto;
+      max-width: 600px;
+      max-height: 428px;
+
+      width: calc(4.5125rem + 68.9vw);
+      height: calc(2.71875rem + 54.7vw);
+    }
+
+    &__img {
+      max-width: 600px;
+      max-height: 428px;
+
+      width: calc(4.5125rem + 68.9vw);
+      height: calc(2.71875rem + 54.7vw);
+
+      left: 0%;
+    }
+  }
 }
 
 @media screen and (max-width: 800px) {
   .mission {
     &__text {
       max-width: 521px;
+    }
+  }
+  .AboutFeatures {
+    .info-list__item {
+      width: 36.4vw;
     }
   }
 }
@@ -332,6 +437,16 @@
 
     &__text-wrapper {
       gap: 7px;
+    }
+  }
+
+  .AboutFeatures {
+    &__wrapper {
+      padding: 80px 24px;
+    }
+
+    .info-list__item {
+      width: 40vw;
     }
   }
 }
@@ -431,7 +546,7 @@
 
   .AboutTeam {
     &__image-container {
-      max-width: 319px;
+      max-width: 90vw;
       max-height: 227px;
 
       width: calc(4.5125rem + 68.9vw);
@@ -444,6 +559,71 @@
 
       width: calc(4.5125rem + 68.9vw);
       height: calc(2.71875rem + 50.7vw);
+    }
+  }
+
+  .AboutFeatures {
+    &__wrapper {
+      padding: 80px 20px;
+      gap: 20px;
+    }
+
+    .info-list {
+      gap: 10px;
+      &__item {
+        width: 100%;
+        padding: 20px 30px 20px;
+      }
+    }
+
+    &__statistic {
+      margin-top: 10px;
+    }
+
+    &__image-container {
+      max-width: 90vw;
+      max-height: 228px;
+
+      width: calc(4.5125rem + 68.9vw);
+      height: calc(2.71875rem + 50.7vw);
+    }
+
+    &__img {
+      max-width: 320px;
+      max-height: 228px;
+
+      width: calc(4.5125rem + 68.9vw);
+      height: calc(2.71875rem + 50.7vw);
+    }
+  }
+
+  .aboutCalculator {
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .AboutTeam {
+    &__img {
+      width: auto;
+      max-width: 100%;
+    }
+
+    &__image-container {
+      width: auto;
+      max-width: 100%;
+    }
+  }
+
+  .AboutFeatures {
+    &__img {
+      width: auto;
+      max-width: 100%;
+    }
+
+    &__image-container {
+      width: auto;
+      max-width: 100%;
     }
   }
 }
@@ -476,18 +656,6 @@
       &:first-child {
         max-width: 100%;
       }
-    }
-  }
-
-  .AboutTeam {
-    &__img {
-      width: auto;
-      max-width: 100%;
-    }
-
-    &__image-container {
-      width: auto;
-      max-width: 100%;
     }
   }
 }

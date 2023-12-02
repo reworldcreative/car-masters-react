@@ -7,11 +7,14 @@ import Button from "@/components/Button/Button";
 import PictureComponent from "@/../plugins/PictureComponent";
 import CarStep from "../Home/components/CarStep";
 import Reviews from "@/components/Reviews/Reviews";
+import InfoList from "@/components/InfoList/InfoList";
+import InfoItem from "@/components/InfoList/InfoItem";
+import Calculator from "@/components/Calculator/Calculator";
 
 import missionDecoration from "@/img/cars/Kia.png";
 import convenienceDecoration from "@/img/cars/Nissan.png";
 import teamImage from "@/img/TeamPhoto_2.jpg";
-import teamFeatures from "@/img/TeamFeatures.jpg";
+import teamFeatures from "@/img/TeamFeatures_2.jpg";
 
 export default function About() {
   return (
@@ -256,6 +259,46 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      <section className="AboutFeatures page-row">
+        <div className="AboutFeatures__wrapper page-row__wrapper">
+          <div className="AboutFeatures__image-container" aria-hidden="true">
+            <PictureComponent
+              src={teamFeatures}
+              alt="team features image"
+              width="540"
+              height="494"
+              className="AboutFeatures__img"
+            />
+          </div>
+
+          <div className="page-row__container AboutFeatures__container">
+            <h2 className="AboutFeatures__title section-title">
+              Main features
+            </h2>
+
+            <div className="AboutFeatures__text-wrapper page-row__text-wrapper">
+              <p className="AboutFeatures__text secondary-text">
+                We are your one stop shop. We believe that vehicle shopping
+                should be a fun and painless process and with years of
+                experience, we make it just that.
+              </p>
+            </div>
+
+            <div className="AboutFeatures__statistic">
+              <InfoList ariaLabel="our statistic">
+                <InfoItem title="7,988+" text="Sold Cars" />
+                <InfoItem title="123" text="Working Experts" />
+                <InfoItem title="1560+" text="Happy Clients" />
+              </InfoList>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="aboutCalculator">
+        <Calculator />
+      </div>
       <Footer />
     </>
   );
