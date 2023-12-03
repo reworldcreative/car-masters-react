@@ -400,10 +400,21 @@
 
 @media screen and (max-width: 300px) {
   .reviews {
+    &__wrapper {
+      padding: 0px 0px 80px;
+    }
+
+    .section-title {
+      padding: 0px 20px;
+    }
+
     &__container {
       margin: auto;
       width: calc(2.5rem + 72vw);
       max-width: 83vw;
+
+      max-width: 100%;
+      width: 98vw;
     }
   }
 }

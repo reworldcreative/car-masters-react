@@ -258,6 +258,15 @@
 
 @media screen and (max-width: 350px) {
   .calculator {
+    &__wrapper {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    &__head {
+      padding: 0px 20px;
+    }
+
     &__type {
       flex-wrap: wrap;
       gap: 10px;

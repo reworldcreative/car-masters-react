@@ -229,6 +229,18 @@
   }
 }
 
+@media screen and (max-width: 300px) {
+  .interesting {
+    &__wrapper {
+      padding: 70px 0px 30px;
+    }
+
+    &__head {
+      padding: 0px 20px;
+    }
+  }
+}
+
 @media screen and (max-width: 250px) {
   .interesting {
     &__img-wrapper {

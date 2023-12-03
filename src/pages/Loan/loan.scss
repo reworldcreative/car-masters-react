@@ -1,0 +1,322 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+.creditPolicy {
+  &__wrapper {
+    padding-top: 40px;
+    padding-bottom: 220px;
+  }
+
+  &__text {
+    max-width: 464px;
+  }
+
+  &__button-wrapper {
+    margin-top: 20px;
+  }
+
+  &__button {
+    width: fit-content;
+
+    padding: 16px 39px !important;
+  }
+
+  &__img {
+    max-width: 548px;
+    max-height: 242px;
+    height: calc(2.71875rem + 13.8vw);
+    width: calc(4.5125rem + 32.63vw);
+  }
+}
+
+.InterestRates {
+  &__wrapper {
+    display: grid;
+    gap: 60px;
+    padding-bottom: 220px;
+  }
+
+  &__block {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  &__container {
+    box-sizing: border-box;
+    align-items: flex-start;
+    display: block;
+  }
+
+  &__container-top {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  &__caption {
+    max-width: 320px;
+  }
+
+  &__text {
+    max-width: 460px;
+  }
+}
+
+.benefits {
+  &__wrapper {
+    padding-bottom: 220px;
+  }
+
+  &__container {
+    max-width: 540px;
+  }
+
+  &__button-wrapper {
+    margin-top: 20px;
+  }
+
+  &__img {
+    max-width: 600px;
+    max-height: 295px;
+    height: calc(2.71875rem + 17.5vw);
+    width: calc(4.5125rem + 36.7vw);
+  }
+}
+
+.loanCalculator {
+  padding-bottom: 40px;
+}
+
+@media screen and (min-width: 1600px) {
+  .creditPolicy {
+    &__text {
+      max-width: 550px;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .creditPolicy {
+    &__wrapper {
+      padding-bottom: 155px;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .creditPolicy {
+    &__wrapper {
+      justify-content: center;
+    }
+
+    &__decoration {
+      justify-content: center;
+      display: flex;
+    }
+
+    &__text {
+      max-width: 100%;
+    }
+
+    &__img {
+      max-height: 265px;
+      max-width: 600px;
+
+      height: calc(2.71875rem + 30.7vw);
+      width: calc(4.5125rem + 68.63vw);
+    }
+  }
+
+  .InterestRates {
+    &__wrapper {
+      padding-bottom: 160px;
+    }
+
+    &__block {
+      display: grid;
+      gap: 20px;
+    }
+
+    &__text {
+      max-width: 100%;
+    }
+
+    &__title {
+      max-width: 602px;
+      width: 100.2%;
+    }
+  }
+
+  .benefits {
+    &__wrapper {
+      justify-content: center;
+      padding-bottom: 160px;
+    }
+
+    &__container {
+      max-width: 100%;
+    }
+
+    &__decoration {
+      justify-content: center;
+      display: flex;
+    }
+
+    &__text {
+      max-width: 100%;
+    }
+
+    &__img {
+      max-width: 600px;
+      max-height: 295px;
+
+      height: calc(2.71875rem + 32.8vw);
+      width: calc(4.5125rem + 69vw);
+    }
+
+    .button.accent {
+      padding: 16px 39px !important;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .creditPolicy {
+    &__text {
+      max-width: 521px;
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .creditPolicy {
+    &__wrapper {
+      padding-top: 30px;
+      padding-bottom: 75px;
+      gap: 30px;
+    }
+
+    &__container {
+      padding: 20px;
+    }
+  }
+
+  .InterestRates {
+    &__wrapper {
+      gap: 30px;
+      padding-bottom: 80px;
+    }
+
+    &__container-top {
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    &__icon {
+      width: 50px;
+      height: 50px;
+    }
+
+    &__title {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+
+  .benefits {
+    &__wrapper {
+      padding-bottom: 75px;
+      gap: 30px;
+    }
+
+    .title {
+      margin-top: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .creditPolicy {
+    &__button-wrapper {
+      height: 35px !important;
+      width: 100% !important;
+    }
+
+    &__button {
+      width: 100%;
+    }
+
+    .button {
+      &.accent {
+        padding: 10px 12px !important;
+      }
+    }
+
+    &__img {
+      height: calc(2.71875rem + 27.7vw);
+    }
+  }
+
+  .benefits {
+    &__wrapper {
+      display: block;
+    }
+
+    &__button-wrapper {
+      height: 35px !important;
+      width: 100% !important;
+    }
+
+    &__button {
+      width: 100%;
+    }
+
+    .button {
+      &.accent {
+        padding: 10px 12px !important;
+      }
+    }
+
+    &__decoration {
+      margin-top: 30px;
+    }
+
+    &__img {
+      max-height: 157px;
+      max-width: 320px;
+      height: calc(2.71875rem + 31.6vw);
+      width: calc(4.5125rem + 69vw);
+    }
+  }
+
+  .loanCalculator {
+    padding-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .creditPolicy {
+    &__wrapper {
+      padding: 30px 0px 80px;
+      overflow: clip;
+    }
+  }
+
+  .InterestRates {
+    &__wrapper {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    &__title {
+      padding: 0px 20px;
+      box-sizing: border-box;
+    }
+
+    &__container-top {
+      display: grid;
+    }
+  }
+}

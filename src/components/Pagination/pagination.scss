@@ -44,3 +44,9 @@
     margin-bottom: 30px;
   }
 }
+
+@media screen and (max-width: 300px) {
+  .pagination {
+    margin-bottom: 20px;
+  }
+}

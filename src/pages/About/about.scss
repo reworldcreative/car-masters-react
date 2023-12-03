@@ -204,6 +204,14 @@
   margin-bottom: 40px;
 }
 
+@media screen and (min-width: 1600px) {
+  .mission {
+    &__text {
+      max-width: 550px;
+    }
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .mission {
     &__wrapper {
@@ -634,6 +642,10 @@
       padding: 30px 0px 80px;
       overflow: clip;
     }
+  }
+
+  .reviewsAbout .reviews__wrapper {
+    padding: 80px 0px;
   }
 
   .convenience {

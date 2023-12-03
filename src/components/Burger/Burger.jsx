@@ -86,9 +86,9 @@ export default function Burger({ close }) {
             </Link>
           </li>
           <li className="burgerMenu__item">
-            <a href="#" className="burgerMenu__link caption">
+            <Link to={"/loan"} className="burgerMenu__link caption">
               Loan Rates
-            </a>
+            </Link>
           </li>
           <li className="burgerMenu__item">
             <Link to={"/videos"} className="burgerMenu__link caption">
