@@ -2,23 +2,35 @@
 @import "rfs/scss";
 
 .burgerMenu {
-  width: 39.58vw;
+  // width: 39.58vw;
+  // max-width: 385px;
   height: 100vh;
   background-color: $white;
   position: absolute;
   right: 0px;
   top: 0px;
   z-index: 50;
-  padding: 130px 125px 105px 60px;
+  // padding: 130px 125px 105px 60px;
   box-sizing: border-box;
 
-  // display: grid;
-  //   gap: 240px;
+  overflow-y: scroll;
+  padding: 15.85vh 8.69vw 10.38vh 60px;
+  // padding-top: 15.85vh;
+  // padding-bottom: 10.38vh;
+  // padding-right:  8.69vw ;
+
+  height: 100vh;
+  display: block;
+
+  &__wrapper {
+    width: 390px;
+  }
 
   &__close {
     position: absolute;
     top: 27px;
-    right: 126px;
+    // right: 126px;
+    right: 8.75vw;
     background: none;
     border: none;
     padding: 0px;
@@ -37,39 +49,18 @@
     z-index: 45;
     position: absolute;
   }
-
-  &__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 20px;
-  }
-
-  &__link {
-    &:hover {
-      color: $base-color;
-    }
-  }
-
-  .socialsList {
-    bottom: 105px;
-    position: absolute;
-  }
 }
 
 @media screen and (max-width: 800px) {
   .burgerMenu {
-    width: 65.625vw;
+    // width: 65.625vw;
+    // max-width: 390px;
+    padding: 15.85vh 7.04vw 10.38vh 60px;
 
-    &__close {
-      right: 28px;
-      top: 28px;
-    }
-
-    &__link {
-      font-size: 25px;
-    }
+    // &__close {
+    //   right: 28px;
+    //   top: 28px;
+    // }
   }
 }
 
@@ -78,22 +69,13 @@
     width: 100vw;
     padding: 100px 44px;
 
-    &__close {
-      right: 17px;
-      top: 14px;
-    }
+    // &__close {
+    //   right: 17px;
+    //   top: 14px;
+    // }
 
-    &__list {
-      gap: 25px;
-    }
-
-    &__link {
-      font-size: 20px;
-      letter-spacing: 0.4px;
-    }
-
-    .socialsList {
-      bottom: 50px;
+    &__wrapper {
+      width: auto;
     }
   }
 }

@@ -1,0 +1,23 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+.successfulContact {
+  &__wrapper {
+    display: grid;
+    gap: 40px;
+  }
+
+  &__icon {
+    filter: invert(41%) sepia(93%) saturate(575%) hue-rotate(202deg)
+      brightness(108%) contrast(102%);
+  }
+
+  &__text-wrapper {
+    display: grid;
+    gap: 5px;
+  }
+
+  &__text {
+    max-width: 230px;
+  }
+}

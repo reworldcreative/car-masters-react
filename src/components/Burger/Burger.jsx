@@ -1,11 +1,33 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./burger.scss";
 import closeIcon from "@/img/icons/close_icon.svg";
-import SocialsList from "../Socials/SocialsList";
-import { Link } from "react-router-dom";
+// import SocialsList from "../Socials/SocialsList";
+// import { Link } from "react-router-dom";
+import BurgerMenu from "./BurgerMenu/BurgerMenu";
+import ContactMenu from "./ContactMenu/ContactMenu";
+import Successful from "./ContactMenu/Successful/Successful";
 
 export default function Burger({ close }) {
   const burgerMenuRef = useRef(null);
+  const [isContact, setIsContact] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const successMenu = () => {
+    setIsSuccess(true);
+  };
+
+  const closeContactMenu = () => {
+    setIsContact(false);
+    setIsSuccess(false);
+  };
+
+  const closeMenu = () => {
+    isContact ? closeContactMenu() : isSuccess ? closeContactMenu() : close();
+  };
+
+  const openContactMenu = () => {
+    setIsContact(true);
+  };
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -45,6 +67,7 @@ export default function Burger({ close }) {
 
     return () => {
       resetOverflow();
+      setIsSuccess(false);
       if (burgerMenuRef.current) {
         burgerMenuRef.current.removeEventListener("keydown", handleKeyDown);
       }
@@ -62,7 +85,7 @@ export default function Burger({ close }) {
         <button
           className="burgerMenu__close"
           aria-label="close burger menu"
-          onClick={close}
+          onClick={closeMenu}
           tabIndex="0"
         >
           <img
@@ -74,40 +97,21 @@ export default function Burger({ close }) {
           />
         </button>
 
-        <ul className="burgerMenu__list" aria-label="navigation links">
-          <li className="burgerMenu__item">
-            <a href="#" className="burgerMenu__link caption">
-              Contact us
-            </a>
-          </li>
-          <li className="burgerMenu__item">
-            <Link to={"/about"} className="burgerMenu__link caption">
-              About CM
-            </Link>
-          </li>
-          <li className="burgerMenu__item">
-            <Link to={"/loan"} className="burgerMenu__link caption">
-              Loan Rates
-            </Link>
-          </li>
-          <li className="burgerMenu__item">
-            <Link to={"/videos"} className="burgerMenu__link caption">
-              Video
-            </Link>
-          </li>
-          <li className="burgerMenu__item">
-            <a href="#" className="burgerMenu__link caption">
-              Blog
-            </a>
-          </li>
-          <li className="burgerMenu__item">
-            <a href="#" className="burgerMenu__link caption">
-              Calculate
-            </a>
-          </li>
-        </ul>
+        <div className="burgerMenu__wrapper">
+          {!isContact && !isSuccess ? (
+            <BurgerMenu openContact={openContactMenu} />
+          ) : (
+            <></>
+          )}
 
-        <SocialsList />
+          {isContact && !isSuccess ? (
+            <ContactMenu success={successMenu} />
+          ) : (
+            <></>
+          )}
+
+          {isSuccess ? <Successful /> : <></>}
+        </div>
       </nav>
 
       <div className="burgerMenu__background"></div>

@@ -1,0 +1,56 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+.burgerMenu {
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 20px;
+  }
+
+  &__link {
+    background: none;
+    border: none;
+    padding: 0;
+    &:hover {
+      color: $base-color;
+    }
+  }
+
+  .socialsList {
+    // bottom: 105px;
+    // position: absolute;
+
+    // margin-top: 40vh;
+    margin-top: 29.5vh;
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .burgerMenu {
+    &__link {
+      font-size: 25px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .burgerMenu {
+    &__list {
+      gap: 25px;
+    }
+
+    &__link {
+      font-size: 20px;
+      letter-spacing: 0.4px;
+    }
+
+    .socialsList {
+      // bottom: 50px;
+      margin-top: 17vh;
+    }
+  }
+}

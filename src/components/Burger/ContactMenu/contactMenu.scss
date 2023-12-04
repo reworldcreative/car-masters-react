@@ -1,0 +1,86 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+.contactMenu {
+  display: grid;
+  gap: 60px;
+
+  &__form {
+    display: grid;
+    gap: 10px;
+  }
+
+  &__input-wrapper {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__input {
+    border-radius: 2px;
+    border: 1px solid #d7d7d7;
+    outline: none;
+    width: 100%;
+    padding: 10px 10px 10px 44px;
+
+    @include Font(16px, 500, 159%, $main);
+
+    &::placeholder {
+      @include Font(16px, 500, 159%, #d7d7d7);
+    }
+
+    &:hover,
+    &:focus {
+      border: 1px solid $base-color;
+    }
+
+    &.car-model {
+      padding: 10px 20px;
+
+      &::placeholder {
+        @include Font(16px, 500, 159%, $second);
+      }
+    }
+  }
+
+  &__errorMessage {
+    @include Font(14px, 400, 159%, #f54e4e);
+  }
+
+  .contact-button {
+    text-transform: uppercase;
+    width: 100%;
+  }
+
+  .contact__button-wrapper {
+    margin-top: 30px;
+  }
+
+  &__links {
+    display: grid;
+    gap: 25px;
+  }
+
+  .socialsList {
+    margin-top: 0px;
+  }
+
+  &__icon-wrapper {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+
+    left: 13px;
+  }
+
+  &__icon {
+    filter: invert(39%) sepia(9%) saturate(902%) hue-rotate(197deg)
+      brightness(93%) contrast(83%);
+  }
+}
