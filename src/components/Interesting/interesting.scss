@@ -46,6 +46,7 @@
   &__img {
     max-width: 100%;
     object-fit: cover;
+    border-radius: 5px 5px 0px 0px;
   }
 
   &__content {
@@ -101,13 +102,15 @@
 
   &__slider-next {
     right: 0px;
-    top: 43%;
+    // top: 43%;
+    top: 37%;
   }
 
   &__slider-prev {
     transform: rotate(180deg);
     left: 0;
-    top: 43%;
+    // top: 43%;
+    top: 37%;
   }
 
   &__slider-next:hover,
@@ -237,6 +240,13 @@
 
     &__head {
       padding: 0px 20px;
+    }
+
+    &__button {
+      &:hover,
+      &:focus {
+        transform: scale(1);
+      }
     }
   }
 }

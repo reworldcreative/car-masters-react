@@ -11,9 +11,12 @@ export default function InfoList({ children, ariaLabel }) {
         aria-labelledby="info-label"
         role="group"
       >
-        <p id="info-label" className="visibility-hidden">
-          {ariaLabel}
-        </p>
+        <li className="visibility-hidden" role="group">
+          <p id="info-label" className="visibility-hidden">
+            {ariaLabel}
+          </p>
+        </li>
+
         {children}
       </ul>
     </>

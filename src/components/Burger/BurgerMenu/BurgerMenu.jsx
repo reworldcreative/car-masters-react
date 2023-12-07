@@ -33,14 +33,14 @@ export default function BurgerMenu({ openContact }) {
           </Link>
         </li>
         <li className="burgerMenu__item">
-          <a href="#" className="burgerMenu__link caption">
+          <Link to={"/blog"} className="burgerMenu__link caption">
             Blog
-          </a>
+          </Link>
         </li>
         <li className="burgerMenu__item">
-          <a href="#" className="burgerMenu__link caption">
+          <Link to={"/calculator"} className="burgerMenu__link caption">
             Calculate
-          </a>
+          </Link>
         </li>
       </ul>
 

@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "Terms",
+    "text": "We commit to collecting and processing users' personal data solely for the purpose of providing services and in accordance with all applicable legislative requirements regarding confidentiality. By using our website, you automatically agree to the terms of personal information processing as outlined in our privacy policy."
+  },
+  {
+    "id": 2,
+    "title": "Authorization",
+    "text": "Upon authorization, we ensure the secure handling of your credentials and pledge to protect your personal information in compliance with privacy regulations. By logging in, you acknowledge and agree to our terms of authentication and data security."
+  },
+  {
+    "id": 3,
+    "title": "Links",
+    "text": "The provided information is not directly related to the 'Links' section. However, if you need assistance with writing content for a 'Links' section on a website, please let me know, and I'll be happy to help."
+  },
+  {
+    "id": 4,
+    "title": "Site terms of use modifications",
+    "text": "We reserve the right to modify the site's terms of use at any time. Any changes will be effective immediately upon posting, and your continued use of the site constitutes acceptance of these modifications."
+  },
+  {
+    "id": 5,
+    "title": "Governing law",
+    "text": "This agreement is governed by and construed in accordance with the laws of Canada. Any legal disputes arising from or related to this agreement will be exclusively resolved by the courts of Canada."
+  },
+  {
+    "id": 6,
+    "title": "How we treat your personal information",
+    "text": "Our approach to handling your personal information involves utmost respect for privacy. We adhere to stringent data protection standards and use your information solely for the intended purposes outlined in our privacy policy, ensuring confidentiality and security."
+  },
+  {
+    "id": 7,
+    "title": "Cookies",
+    "text": "Our website uses cookies to enhance user experience and optimize site functionality. By continuing to use the site, you consent to the use of cookies in accordance with our Cookie Policy."
+  }
+]

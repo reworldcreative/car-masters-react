@@ -1,7 +1,7 @@
 import React from "react";
 import "./pagination.scss";
 
-export default function Paginatin({ currentPage, totalPages, onPageChange }) {
+export default function Pagination({ currentPage, totalPages, onPageChange }) {
   const pageNumbers = [];
 
   for (let i = 1; i <= totalPages; i++) {

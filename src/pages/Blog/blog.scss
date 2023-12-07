@@ -1,0 +1,135 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+.blogSection {
+  &__wrapper {
+    // padding: 40px 119px;
+    padding: 40px 8.27vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 10px;
+    justify-content: space-between;
+
+    max-width: 1440px;
+    margin: auto;
+  }
+
+  .interesting {
+    &__item {
+      margin: 0;
+      max-width: 32.3%;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .blogSection {
+    &__wrapper {
+      padding: 40px 84px;
+    }
+
+    .interesting {
+      &__title {
+        -webkit-line-clamp: 3;
+        height: 70px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .blogSection {
+    &__wrapper {
+      padding: 40px 24px;
+      gap: 21px 10px;
+    }
+
+    .interesting {
+      &__item {
+        max-width: 48.5%;
+      }
+
+      &__title {
+        -webkit-line-clamp: 2;
+        height: 50px;
+      }
+
+      &__img {
+        object-fit: fill;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .blogSection {
+    &__wrapper {
+      padding: 30px 20px;
+    }
+
+    .interesting {
+      &__title {
+        -webkit-line-clamp: 3;
+        height: 70px;
+      }
+
+      &__img {
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .blogSection {
+    &__wrapper {
+      justify-content: center;
+    }
+    .interesting {
+      &__item {
+        max-width: 100%;
+      }
+
+      &__title {
+        -webkit-line-clamp: 2;
+        height: 50px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .blogSection {
+    &__wrapper {
+      padding: 30px 10px;
+    }
+    .interesting {
+      &__title {
+        -webkit-line-clamp: 3;
+        height: 70px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .blogSection {
+    .interesting {
+      &__title {
+        -webkit-line-clamp: 4;
+        height: 100px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 200px) {
+  .blogSection {
+    .interesting {
+      &__title {
+        -webkit-line-clamp: 5;
+        height: 120px;
+      }
+    }
+  }
+}

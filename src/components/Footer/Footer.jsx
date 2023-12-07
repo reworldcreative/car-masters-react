@@ -2,6 +2,7 @@ import React from "react";
 import "./footer.scss";
 import Logo from "../Logo/Logo";
 import SocialsList from "../Socials/SocialsList";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -11,12 +12,12 @@ export default function Footer() {
           <Logo />
 
           <div className="footer__links">
-            <a href="#" className="footer__link footer-text">
+            <Link to={"/terms"} className="footer__link footer-text">
               Terms
-            </a>
-            <a href="#" className="footer__link footer-text">
+            </Link>
+            <Link to={"/privacy"} className="footer__link footer-text">
               Privacy
-            </a>
+            </Link>
           </div>
         </div>
 

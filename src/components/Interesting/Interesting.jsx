@@ -8,13 +8,17 @@ import interesting_3 from "@/img/interesting/interesting_3.jpg";
 import interesting_4 from "@/img/interesting/interesting_4.jpg";
 import interesting_5 from "@/img/interesting/interesting_5.jpg";
 import interesting_6 from "@/img/interesting/interesting_6.jpg";
+import interesting_7 from "@/img/interesting/interesting_7.jpg";
+import interesting_8 from "@/img/interesting/interesting_8.jpg";
+import interesting_9 from "@/img/interesting/interesting_9.jpg";
 import InterestingItem from "./InterestingItem";
 
 import nextArrow from "@/img/icons/next_arrow.svg";
+import { Link } from "react-router-dom";
 
 // import articles from "@/data/articles.json";
 
-export default function Interesting({ sliderNavidation, caption, articles }) {
+export default function Interesting({ sliderNavigation, caption, articles }) {
   const swiperInterestingRef = useRef(null);
   const [isMobileScreen, setIsMobileScreen] = useState(window.innerWidth < 500);
 
@@ -36,7 +40,10 @@ export default function Interesting({ sliderNavidation, caption, articles }) {
           <h2 className="section-title">{caption}</h2>
           {!isMobileScreen ? (
             <>
-              <Button addclass="interesting__button">all articles</Button>
+              {/* <Button addclass="interesting__button">all articles</Button> */}
+              <Link to={"/blog"} className="interesting__button button">
+                all articles
+              </Link>
             </>
           ) : (
             <></>
@@ -45,7 +52,7 @@ export default function Interesting({ sliderNavidation, caption, articles }) {
 
         <div className="interesting__container">
           <p className="visibility-hidden">list of interesting articles</p>
-          {sliderNavidation === true ? (
+          {sliderNavigation === true ? (
             <>
               <button
                 className="interesting__slider-prev"
@@ -105,6 +112,7 @@ export default function Interesting({ sliderNavidation, caption, articles }) {
                     imageDescription={article.imageDescription}
                     data={article.data}
                     title={article.title}
+                    id={article.id}
                   />
                 </swiper-slide>
               ))

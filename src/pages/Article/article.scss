@@ -1,0 +1,261 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+.article-banner {
+  &__wrapper {
+    // max-width: 1440px;
+    // height: 200px;
+    max-width: 3000px;
+    min-height: 200px;
+    width: 100%;
+    height: 20vh;
+
+    margin: auto;
+  }
+
+  &__img {
+    object-fit: cover;
+    max-width: 100vw;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.article-back {
+  margin: 58px 0 0 -160px;
+  position: absolute;
+
+  display: flex;
+  gap: 13px;
+  align-items: center;
+
+  .secondary-text {
+    color: $second;
+    font-family: "Gilroy", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 14.364px; /* 89.775% */
+    letter-spacing: 0.32px;
+    text-transform: uppercase;
+  }
+
+  cursor: pointer;
+  &__icon {
+    transform: rotate(90deg);
+    filter: invert(100%) sepia(11%) saturate(2050%) hue-rotate(197deg)
+      brightness(96%) contrast(87%);
+  }
+}
+
+.article-body {
+  background: $white;
+  border-radius: 5px 5px 0px 0px;
+
+  position: relative;
+  padding: 60px 60px 45px;
+  box-sizing: border-box;
+  max-width: 1000px;
+  margin: auto;
+  margin-top: -83px;
+
+  &__title {
+    color: $main;
+    max-width: 640px;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__container {
+    margin-top: 20px;
+    display: grid;
+    gap: 23px;
+
+    // h3 {
+    //   @include Font(25px, 700, 140.5%, $main);
+    //   letter-spacing: 0.5px;
+    // }
+
+    // p {
+    //   @include Font(16px, 400, 180%, #7c7a84);
+    //   letter-spacing: 0.32px;
+    // }
+  }
+
+  &__container--second {
+    margin-top: 30px;
+  }
+
+  &__text-block-second {
+    display: grid;
+    gap: 10px;
+  }
+
+  &__image-description {
+    font-size: 14px;
+  }
+
+  &__img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  &__caption {
+    @include Font(25px, 700, 140.5%, $main);
+    letter-spacing: 0.5px;
+  }
+
+  &__text {
+    @include Font(16px, 400, 180%, #7c7a84);
+    letter-spacing: 0.32px;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    margin-bottom: 10px;
+    .article-body__img {
+      max-width: 430px;
+      width: 29.87vw;
+      height: auto;
+    }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .article-back {
+    margin: 60px 0 0 -140px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .article-banner {
+    &__wrapper {
+      min-height: auto;
+      height: 194px;
+    }
+  }
+
+  .article-body {
+    max-width: 800px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .article-body {
+    max-width: 93.75vw;
+    margin: -75px auto auto;
+    padding: 40px 60px 43px;
+
+    &__text {
+      line-height: 181%;
+    }
+
+    &__row {
+      .article-body__img {
+        // width: 290px;
+        width: 37.77vw;
+      }
+    }
+
+    &__container--second {
+      margin-top: 35px;
+      gap: 22px;
+    }
+
+    &__image-description {
+      line-height: 159%;
+    }
+
+    &__img {
+      max-height: 337px;
+    }
+  }
+
+  .article-back {
+    position: relative;
+    margin: 0px;
+  }
+
+  .article-page__interesting {
+    .interesting__item {
+      margin-bottom: 60px;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .article-body {
+    max-width: 100vw;
+
+    &__top {
+      margin-bottom: 5px;
+    }
+
+    &__title {
+      max-width: 100%;
+    }
+
+    &__row {
+      display: grid;
+      margin-bottom: 4px;
+      gap: 8px;
+
+      .article-body__img {
+        width: 100%;
+      }
+    }
+
+    &__container {
+      margin-top: 10px;
+      gap: 13px;
+    }
+
+    &__container--second {
+      gap: 10px;
+    }
+
+    &__text-block-second {
+      gap: 5px;
+    }
+
+    &__caption {
+      font-size: 20px;
+      letter-spacing: 0.4px;
+    }
+  }
+
+  .article-back {
+    gap: 10px;
+    .secondary-text {
+      font-size: 14px;
+      font-weight: 700;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .article-banner {
+    &__wrapper {
+      height: 140px;
+    }
+  }
+
+  .article-body {
+    margin: 0px auto;
+    padding: 30px 20px 0px;
+  }
+
+  .article-page__interesting {
+    .interesting__item {
+      margin-bottom: 32px;
+    }
+  }
+}
