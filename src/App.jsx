@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home/Home";
@@ -11,27 +11,51 @@ import Terms from "./pages/Terms/Terms";
 import Privacy from "./pages/Privacy/Privacy";
 import Blog from "./pages/Blog/Blog";
 import Article from "./pages/Article/Article";
+import Inventory from "./pages/Inventory/Inventory";
+import NotFound from "./pages/NotFound/NotFound";
+import Preloader from "./components/Preloader/Preloader ";
 register();
 
 export default function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // const handleLoad = () => {
+    //   setLoading(false);
+    // };
+    // window.addEventListener("load", handleLoad);
+    // return () => {
+    //   window.removeEventListener("load", handleLoad);
+    // };
+
+    const simulatePageLoad = () => {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    };
+    simulatePageLoad();
+  }, []);
+
   return (
     <>
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/calculator" element={<Calculator />} />
-        <Route exact path="/videos" element={<VideosPage />} />
-        <Route exact path="/about" element={<About />} />
-        <Route exact path="/loan" element={<Loan />} />
-        <Route exact path="/terms" element={<Terms />} />
-        <Route exact path="/privacy" element={<Privacy />} />
-        <Route exact path="/blog" element={<Blog />} />
-        <Route exact path="/article/:id" element={<Article />} />
-        <Route
-          exact
-          path="*"
-          element={<div className="section-title">404 Page not found</div>}
-        />
-      </Routes>
+      {loading ? (
+        <Preloader />
+      ) : (
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/calculator" element={<Calculator />} />
+          <Route exact path="/videos" element={<VideosPage />} />
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/loan" element={<Loan />} />
+          <Route exact path="/terms" element={<Terms />} />
+          <Route exact path="/privacy" element={<Privacy />} />
+          <Route exact path="/blog" element={<Blog />} />
+          <Route exact path="/article/:id" element={<Article />} />
+          <Route exact path="/inventory" element={<Inventory />} />
+          <Route exact path="/404" element={<NotFound />} />
+          <Route exact path="*" element={<NotFound />} />
+        </Routes>
+      )}
     </>
   );
 }

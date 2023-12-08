@@ -4,6 +4,7 @@ import Logo from "../Logo/Logo";
 import Button from "../Button/Button";
 import BurgerButton from "../Burger/BurgerButton/BurgerButton";
 import Burger from "../Burger/Burger";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [isOpenBurger, setIsOpenBurger] = useState(false);
@@ -28,7 +29,10 @@ export default function Header() {
 
         <div className="header__navigation">
           <div className="header__buttons">
-            <Button addclass="header__inventory">Inventory</Button>
+            {/* <Button addclass="header__inventory">Inventory</Button> */}
+            <Link to={"/inventory"} className="button header__inventory">
+              Inventory
+            </Link>
             <Button addclass="accent">Request a car</Button>
           </div>
 

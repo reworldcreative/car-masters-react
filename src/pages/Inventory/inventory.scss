@@ -1,0 +1,45 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+.inventory-header {
+  box-shadow: 0px 1px 0px 0px #d7d7d7;
+  .header {
+    &__navigation {
+      width: 79.6%;
+    }
+
+    &__buttons {
+      width: 100%;
+      max-height: 45px;
+      // align-items: flex-end;
+      align-items: center;
+    }
+
+    &__inventory {
+      font-family: Gilroy;
+      font-size: 25px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 140%;
+      letter-spacing: 0.5px;
+      color: #41456b;
+      padding: 0px;
+      border: none;
+      text-transform: capitalize;
+
+      &:hover,
+      &:focus {
+        transform: scale(1);
+        filter: none;
+      }
+    }
+  }
+}
+
+.inventory {
+  &__wrapper {
+    padding: 40px 120px;
+    max-width: 1200px;
+    margin: auto;
+  }
+}
