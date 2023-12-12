@@ -114,7 +114,7 @@ export default function Burger({ close }) {
         </div>
       </nav>
 
-      <div className="burgerMenu__background"></div>
+      <div className="burgerMenu__background" onClick={closeMenu}></div>
     </>
   );
 }

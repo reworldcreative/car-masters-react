@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "title": "Trucks",
+    "icon": "./img/BodyTypes/Truck-icon.svg",
+    "iconWidth": "34",
+    "iconHeight": "16"
+  },
+  {
+    "id": 2,
+    "title": "SUV",
+    "icon": "./img/BodyTypes/SUV-icon.svg",
+    "iconWidth": "34",
+    "iconHeight": "16"
+  },
+  {
+    "id": 3,
+    "title": "Sedan",
+    "icon": "./img/BodyTypes/Sedan-icon.svg",
+    "iconWidth": "34",
+    "iconHeight": "15"
+  },
+  {
+    "id": 4,
+    "title": "Hatchback",
+    "icon": "./img/BodyTypes/Hatchback-icon.svg",
+    "iconWidth": "34",
+    "iconHeight": "16"
+  },
+  {
+    "id": 5,
+    "title": "Coupe",
+    "icon": "./img/BodyTypes/Coupe-icon.svg",
+    "iconWidth": "34",
+    "iconHeight": "15"
+  },
+  {
+    "id": 6,
+    "title": "Convertiable",
+    "icon": "./img/BodyTypes/Convertiable-icon.svg",
+    "iconWidth": "34",
+    "iconHeight": "15"
+  },
+  {
+    "id": 7,
+    "title": "VAN",
+    "icon": "./img/BodyTypes/VAN-icon.svg",
+    "iconWidth": "34",
+    "iconHeight": "16"
+  }
+]

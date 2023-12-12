@@ -1,0 +1,72 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+.detailsDropDown {
+  &__item {
+    max-width: 300px;
+    border-radius: 2px;
+    border: 1px solid #d7d7d7;
+    background: var(--primary-white, #fff);
+
+    &[open] {
+      border: 1px solid $base-color;
+
+      .detailsDropDown {
+        &__icon {
+          transform: rotate(180deg);
+        }
+
+        &__tags {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__top {
+    list-style: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__title-wrapper {
+    padding: 10px 20px;
+    color: $main;
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    cursor: pointer;
+  }
+
+  &__title {
+    font-weight: 500;
+    line-height: 159%;
+  }
+
+  &__tags {
+    padding: 10px 20px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  &__icon {
+    user-select: none;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: invert(50%) sepia(0%) saturate(2050%) hue-rotate(197deg)
+      brightness(26%) contrast(87%);
+  }
+
+  &__content {
+    padding: 10px 20px 20px;
+  }
+}

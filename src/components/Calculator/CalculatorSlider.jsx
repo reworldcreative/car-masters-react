@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./calculatorSlider.scss";
 
 export default function CalculatorSlider({
@@ -11,6 +11,10 @@ export default function CalculatorSlider({
   change,
 }) {
   const [loanAmount, setLoanAmount] = useState(defaultValue);
+
+  useEffect(() => {
+    setLoanAmount(defaultValue);
+  }, [defaultValue]);
 
   const handleSliderChange = (event) => {
     setLoanAmount(parseInt(event.target.value, 10));
@@ -36,6 +40,15 @@ export default function CalculatorSlider({
             <>
               {loanAmount} <span className="secondary-text">month</span>
             </>
+          ) : type === "kilometers" ? (
+            <>
+              {loanAmount}{" "}
+              {loanAmount > 0 ? (
+                <span className="secondary-text"> or less</span>
+              ) : (
+                <></>
+              )}
+            </>
           ) : (
             <></>
           )}
@@ -46,12 +59,13 @@ export default function CalculatorSlider({
         aria-label={`${ariaLabel}, in range from ${min} to ${max}`}
         min={min}
         max={max}
-        defaultValue={defaultValue}
+        // defaultValue={defaultValue}
         onChange={handleSliderChange}
         className="slider"
         id={type + "Range"}
         style={fillStyle}
         step="1"
+        value={loanAmount}
       ></input>
     </fieldset>
   );

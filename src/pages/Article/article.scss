@@ -22,7 +22,7 @@
 }
 
 .article-back {
-  margin: 58px 0 0 -160px;
+  margin: 115px 0 0 -160px;
   position: absolute;
 
   display: flex;
@@ -52,6 +52,10 @@
     .article-back__icon {
       filter: invert(51%) sepia(23%) saturate(4444%) hue-rotate(211deg)
         brightness(100%) contrast(103%);
+    }
+
+    .secondary-text {
+      color: $base-color;
     }
   }
 }

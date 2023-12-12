@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./contactMenu.scss";
 
 import { useForm } from "react-hook-form";
@@ -10,7 +10,13 @@ import phoneIcon from "@/img/icons/phone_icon.svg";
 import avatarIcon from "@/img/icons/avatar_icon.svg";
 
 export default function ContactMenu({ success }) {
-  const [selectedCar, setSelectedCar] = useState(true);
+  const [selectedCar, setSelectedCar] = useState(false);
+
+  useEffect(() => {
+    if (window.location.hash === "#/inventory") {
+      setSelectedCar(true);
+    }
+  }, [window.location.hash]);
 
   const {
     register,

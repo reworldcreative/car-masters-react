@@ -43,3 +43,72 @@
     margin: auto;
   }
 }
+
+.inventory-characteristics {
+  &__top {
+    width: fit-content;
+    margin-bottom: 31px;
+    margin-top: 9px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__clean {
+    font-weight: 500;
+    line-height: 159%;
+
+    color: $base-color;
+
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0px;
+  }
+
+  &__form {
+    display: grid;
+    gap: 8px;
+  }
+
+  &__dropdownCaption {
+    font-weight: 600;
+    line-height: 14.364px;
+  }
+
+  &__container {
+    display: grid;
+    gap: 10px;
+
+    &:nth-child(2) {
+      margin-top: 20px;
+    }
+  }
+
+  .bodyTypesList {
+    display: grid;
+    gap: 15px;
+  }
+
+  &__kilometers {
+    .slider-group {
+      gap: 10px;
+      .caption {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 25px;
+      }
+      &__container {
+        justify-content: flex-start;
+        .secondary-text {
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 25px;
+          text-transform: none;
+          color: $second;
+        }
+      }
+    }
+  }
+}

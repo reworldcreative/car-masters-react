@@ -1,0 +1,54 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+.slider-group.DualRangeSlider {
+  gap: 10px;
+  &__container {
+    justify-content: space-between;
+  }
+
+  .caption {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 25px;
+  }
+
+  .slider {
+    position: absolute;
+    pointer-events: none;
+    width: -webkit-fill-available;
+
+    &__inputsWrapper {
+      position: relative;
+      height: 15px;
+    }
+
+    &:last-child {
+      background: none;
+    }
+
+    &::-webkit-slider-runnable-track {
+      background: none;
+    }
+
+    &::-moz-range-track {
+      background: none;
+    }
+
+    &::-ms-track {
+      background: none;
+    }
+
+    &::-webkit-slider-thumb {
+      pointer-events: all;
+    }
+
+    &::-moz-range-thumb {
+      pointer-events: all;
+    }
+
+    &::-ms-thumb {
+      pointer-events: all;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+.detailsTag {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+
+  border-radius: 2px;
+  background: rgba(116, 129, 255, 0.2);
+
+  &__remove {
+    background: none;
+    border: none;
+    padding: 0;
+
+    cursor: pointer;
+  }
+
+  &__remove_icon {
+    filter: invert(47%) sepia(13%) saturate(3409%) hue-rotate(202deg)
+      brightness(110%) contrast(106%);
+    display: block;
+
+    &:hover {
+      filter: invert(47%) sepia(13%) saturate(3409%) hue-rotate(202deg)
+        brightness(110%) contrast(106%) drop-shadow(0 0 1px black);
+    }
+  }
+  &__text {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 14.364px;
+    letter-spacing: 0.32px;
+    text-transform: uppercase;
+    color: $main;
+  }
+}
