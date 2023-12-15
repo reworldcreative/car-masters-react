@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./contactMenu.scss";
 
 import { useForm } from "react-hook-form";
+import { useLocation } from "react-router-dom";
 
 import SocialsList from "../../Socials/SocialsList";
 
@@ -12,11 +13,16 @@ import avatarIcon from "@/img/icons/avatar_icon.svg";
 export default function ContactMenu({ success }) {
   const [selectedCar, setSelectedCar] = useState(false);
 
+  const location = useLocation();
+
+  // Отримуємо загальний шлях без ідентифікатора
+  // const generalPath = location.pathname.split('/').slice(0, 2).join('/');
+
   useEffect(() => {
-    if (window.location.hash === "#/inventory") {
+    if (location.pathname === "/inventory") {
       setSelectedCar(true);
     }
-  }, [window.location.hash]);
+  }, [location]);
 
   const {
     register,

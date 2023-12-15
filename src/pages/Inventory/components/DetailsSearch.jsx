@@ -90,8 +90,11 @@ export default function DetailsSearch({
     if (lowerCaseSuggestions.includes(lowerCaseValue)) {
       setValue(eventValue);
       setData(eventValue);
-      onInputClear();
+      // onInputClear();
     }
+    setTimeout(() => {
+      onInputClear();
+    }, 100);
   };
 
   return (

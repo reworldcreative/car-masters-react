@@ -37,6 +37,7 @@ export default function DetailsCheckbox({
         id={text}
         value={checkboxValue}
         onChange={handleCheckboxChange}
+        aria-label={checkboxValue}
       />
       <label className="detailsCheckbox__label secondary-text" htmlFor={text}>
         {icon ? (
@@ -51,7 +52,7 @@ export default function DetailsCheckbox({
         ) : (
           <></>
         )}
-        <span>{text}</span>
+        <span aria-hidden="true">{text}</span>
       </label>
     </div>
   );

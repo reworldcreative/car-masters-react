@@ -1,0 +1,131 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+// .carCard__slider::part(pagination) {
+//   position: absolute !important;
+//   top: auto !important;
+//   bottom: 5px !important;
+//   width: 90%;
+//   margin: auto;
+//   border-radius: 28px;
+//   background: rgba(255, 255, 255, 0.2);
+// }
+
+.carCard {
+  width: fit-content;
+  max-width: 420px;
+  border-radius: 0px 0px 5px 5px;
+  background: $white;
+  box-shadow: 0px 20px 25px 0px rgba(0, 0, 0, 0.1);
+
+  &__slider {
+    display: flex;
+    justify-content: center;
+
+    &::part(pagination) {
+      position: absolute !important;
+      top: auto !important;
+      bottom: 5px !important;
+      left: auto !important;
+      width: 90%;
+      margin: auto;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.2);
+      &.swiper-pagination-progressbar-fill {
+        border-radius: 28px !important;
+        background: rgba(255, 255, 255, 0.7) !important;
+      }
+    }
+
+    &::part(container) {
+      display: flex !important;
+      justify-content: center;
+    }
+
+    // & .swiper-pagination-progressbar {
+    //   position: relative !important;
+    //   bottom: 5px !important;
+    //   width: 90%;
+    //   margin: auto;
+    //   border-radius: 28px;
+    //   background: rgba(255, 255, 255, 0.2);
+
+    //   &-fill {
+    //     border-radius: 28px;
+    //     background: rgba(255, 255, 255, 0.7);
+    //   }
+    // }
+  }
+
+  &__pictures {
+    max-width: 420px;
+  }
+
+  &__img {
+    display: flex;
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
+
+    &_empty {
+      width: 100%;
+      height: 216px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        filter: invert(54%) sepia(75%) saturate(3388%) hue-rotate(213deg)
+          brightness(101%) contrast(101%);
+      }
+    }
+  }
+
+  &__content {
+    padding: 20px;
+    box-sizing: border-box;
+    display: grid;
+    gap: 20px;
+
+    height: 204px;
+    align-content: space-between;
+  }
+
+  &__name {
+    max-width: -webkit-fill-available;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    // height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__price {
+    margin-top: 10px;
+    color: $base-color;
+
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__characteristics {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    overflow: hidden;
+
+    width: 80%;
+    justify-content: space-between;
+  }
+
+  &__characteristicItem {
+    padding: 0px 20px 0px 0px;
+    border-right: 1px solid #d7d7d7;
+
+    &:last-child {
+      border: none;
+    }
+  }
+}

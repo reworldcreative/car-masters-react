@@ -1,0 +1,217 @@
+[
+  {
+    "id": 1,
+    "images": [
+      {
+        "id": 1,
+        "image": "./img/cars/Porsche/Porsche_1.jpg",
+        "imageDescription": "The photo shows a black Porsche Panamera driving on the highway.",
+        "imageType": "Exterior"
+      },
+      {
+        "id": 2,
+        "image": "./img/cars/Porsche/Porsche_2.jpg",
+        "imageDescription": "The photo shows a gray Porsche Panamera parked on a cobblestone street in front of a brick building."
+      },
+      {
+        "id": 3,
+        "image": "./img/cars/Porsche/Porsche_3.jpg",
+        "imageDescription": "The photo shows the interior of a Porsche Panamera car. The car's center console has a large touch screen that displays various car functions such as navigation, radio and climate control. Below the screen are buttons for controlling some of the main functions of the car. Next to the screen is the drive mode selector, which allows the driver to choose between different drive modes, such as economy, sport or comfort.",
+        "imageType": "Exterior"
+      },
+      {
+        "id": 4,
+        "image": "./img/cars/Porsche/Porsche_4.jpg",
+        "imageDescription": "The photo shows the thresholds of the Porsche Panamera Turbo S. The thresholds have a chrome finish and the Porsche and Panamera Turbo S logos are applied to them. The threshold has a smooth surface and a small protrusion that makes it easier to get in and out of the car.",
+        "imageType": "Interior"
+      },
+      {
+        "id": 5,
+        "image": "./img/cars/Porsche/Porsche_5.jpg",
+        "imageDescription": "The photo shows the interior of a Porsche Panamera car. The dashboard has two main parts: a digital instrument panel and a central touch screen. The photo also shows that the car has red leather seats and door trim. The seats have a sporty design.",
+        "imageType": "Interior"
+      },
+      {
+        "id": 6,
+        "image": "./img/cars/Porsche/Porsche_6.jpg",
+        "imageDescription": "The photo shows the engine of the Porsche Panamera Turbo S E-Hybrid. It is a hybrid engine consisting of a 4.0-liter V8 gasoline engine and an electric motor. The total power of the engine is 680 horsepower.",
+        "imageType": "Interior"
+      }
+    ],
+    "name": "Porsche Panamera II Turbo S E-Hybrid",
+    "price": "150 000",
+    "marke": "Porsche",
+    "model": "Panamera",
+    "bodyType": "Sedan",
+    "year": "2018",
+    "transmission": "Automatic",
+    "mileage": "10 000"
+  },
+  {
+    "id": 2,
+    "images": [
+      {
+        "id": 1,
+        "image": "./img/cars/Mitsubishi/Mitsubishi_1.jpg",
+        "imageDescription": "The photo shows a car parked on the side of the road at night. Silhouettes of trees and stars are visible in the background.",
+        "imageType": "Exterior"
+      },
+      {
+        "id": 2,
+        "image": "./img/cars/Mitsubishi/Mitsubishi_2.jpg",
+        "imageDescription": "The photo shows a white Mitsubishi Outlander crossover parked on the side of the road in front of the building.",
+        "imageType": "Exterior"
+      },
+      {
+        "id": 3,
+        "image": "./img/cars/Mitsubishi/Mitsubishi_3.jpg",
+        "imageDescription": "The photo shows the back seat of the car with black leather seats. The seats have a sporty design with pronounced side ridges.",
+        "imageType": "Interior"
+      }
+    ],
+    "name": "Mitsubishi Outlander III Restyling 3",
+    "price": "15 500",
+    "marke": "Mitsubishi",
+    "model": "Outlander",
+    "bodyType": "SUV",
+    "year": "2013",
+    "transmission": "Automatic",
+    "mileage": "160 000"
+  },
+  {
+    "id": 3,
+    "images": [
+      {
+        "id": 1,
+        "image": "./img/cars/Mercedes-Benz/Mercedes-Benz_1.jpg",
+        "imageDescription": "The photo shows a red Mercedes sports car parked on the side of the road in the forest. It has a sporty design with pronounced side ridges.",
+        "imageType": "Exterior"
+      },
+      {
+        "id": 2,
+        "image": "./img/cars/Mercedes-Benz/Mercedes-Benz_2.jpg",
+        "imageDescription": "The photo shows a red Mercedes-Benz parked in the snow.",
+        "imageType": "Exterior"
+      },
+      {
+        "id": 3,
+        "image": "./img/cars/Mercedes-Benz/Mercedes-Benz_3.jpg",
+        "imageDescription": "The photo shows a red Mercedes-Benz parked in the snow. The photo shows the back of the car.",
+        "imageType": "Exterior"
+      },
+      {
+        "id": 4,
+        "image": "./img/cars/Mercedes-Benz/Mercedes-Benz_4.jpg",
+        "imageDescription": "The photo shows the digital instrument panel of a Mercedes-Benz car. The instrument panel has a 10.25-inch touchscreen that displays data such as speed, engine rpm, fuel level, coolant temperature, and more. In addition, there are several physical buttons and knobs on the instrument panel to control functions such as navigation, music player and phone.",
+        "imageType": "Interior"
+      },
+      {
+        "id": 5,
+        "image": "./img/cars/Mercedes-Benz/Mercedes-Benz_5.jpg",
+        "imageDescription": "The photo shows a door handle of a Mercedes-Benz car. The handle has a chrome finish and a shape that resembles a triangle. There is also a Mercedes-Benz logo on the arm.",
+        "imageType": "Interior"
+      }
+    ],
+    "name": "Mercedes-Benz CLA I (C117, X117) 200",
+    "price": "24 000",
+    "marke": "Mercedes-Benz",
+    "model": " CLA",
+    "bodyType": "Coupe",
+    "year": "2014",
+    "transmission": "Automatic",
+    "mileage": "60 000"
+  },
+  {
+    "id": 4,
+    "images": [
+      {
+        "id": 1,
+        "image": "./img/cars/Mercedes-Benz/Mercedes-Benz_6.jpg",
+        "imageDescription": "The photo shows a silver Mercedes-Benz parked in a parking lot.",
+        "imageType": "Exterior"
+      },
+      {
+        "id": 2,
+        "image": "./img/cars/Mercedes-Benz/Mercedes-Benz_7.jpg",
+        "imageDescription": "The photo shows a silver Mercedes-Benz parked in a parking lot.",
+        "imageType": "Exterior"
+      },
+      {
+        "id": 3,
+        "image": "./img/cars/Mercedes-Benz/Mercedes-Benz_8.jpg",
+        "imageDescription": "The photo shows a silver Mercedes-Benz parked on the sidewalk.",
+        "imageType": "Exterior"
+      }
+    ],
+    "name": "Mercedes-Benz W124 420",
+    "price": "8 500",
+    "marke": "Mercedes-Benz",
+    "model": "E-Class",
+    "bodyType": "Sedan",
+    "year": "1992",
+    "transmission": "Automatic",
+    "mileage": "320 000"
+  },
+  {
+    "id": 5,
+    "images": [
+      {
+        "id": 1,
+        "image": "./img/cars/Mercedes-Benz/Mercedes-Benz_10.jpg",
+        "imageDescription": "The photo shows a black 2002 Mercedes-Benz E-Class driving down a country road.",
+        "imageType": "Exterior"
+      },
+      {
+        "id": 2,
+        "image": "./img/cars/Mercedes-Benz/Mercedes-Benz_11.jpg",
+        "imageDescription": "The photo shows a black 2002 Mercedes-Benz E-Class driving down a country road.",
+        "imageType": "Exterior"
+      }
+    ],
+    "name": "Mercedes-Benz E-Class III (W211, S211) Restyling 230",
+    "price": "150 000",
+    "marke": "Mercedes-Benz",
+    "model": "E-Class",
+    "bodyType": "Sedan",
+    "year": "2002",
+    "transmission": "Automatic",
+    "mileage": "250 000"
+  },
+  {
+    "id": 6,
+    "images": [
+      {
+        "id": 1,
+        "image": "./img/cars/Audi/Audi_1.jpg",
+        "imageDescription": "The photo shows a parked Audi A7 Sportback.",
+        "imageType": "Exterior"
+      },
+      {
+        "id": 2,
+        "image": "./img/cars/Audi/Audi_2.jpg",
+        "imageDescription": "The photo shows a parked Audi A7 Sportback.",
+        "imageType": "Exterior"
+      }
+    ],
+    "name": "Audi A7 I (4G) S-tronic",
+    "price": "14 700",
+    "marke": "Audi",
+    "model": "A7",
+    "bodyType": "Coupe",
+    "year": "2014",
+    "transmission": "Automatic",
+    "mileage": "150 000"
+  },
+  {
+    "id": 7,
+    "images": [],
+    "name": "Lamborghini Huracan 2023",
+    "price": "500 500",
+    "marke": "Lamborghini",
+    "model": "Huracan",
+    "bodyType": "Sedan",
+    "year": "2023",
+    "transmission": "Automatic",
+    "mileage": "30 000"
+  }
+]

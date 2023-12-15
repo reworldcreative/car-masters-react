@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: space-between;
   // padding: 15px 120px 18px 127.4px;
-  @include padding(16px 8.4vw 18px 8.9vw);
+  padding: 16px 8.4vw 18px 8.9vw;
 
   &__navigation {
     display: flex;
@@ -29,6 +29,12 @@
   .header {
     max-width: 1440px;
     margin: auto;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .header {
+    @include padding(17px 8.4vw 18px 8.9vw);
   }
 }
 

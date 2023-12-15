@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import "./inventory.scss";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
@@ -8,6 +8,7 @@ import DetailsSearch from "./components/DetailsSearch";
 import DetailsCheckbox from "./components/DetailsCheckbox";
 
 import bodyTypesData from "@/data/bodyTypes.json";
+import carEmpty from "@/img/icons/moving-car_icon.svg";
 
 import bodyType from "@/img/BodyTypes/Truck-icon.svg";
 import bodyType2 from "@/img/BodyTypes/SUV-icon.svg";
@@ -17,9 +18,16 @@ import bodyType5 from "@/img/BodyTypes/Coupe-icon.svg";
 import bodyType6 from "@/img/BodyTypes/Convertiable-icon.svg";
 import bodyType7 from "@/img/BodyTypes/VAN-icon.svg";
 
+import share from "@/img/icons/Share.svg";
+
 import carsModels from "@/data/car_brands.json";
-import CalculatorSlider from "../../components/Calculator/CalculatorSlider";
-import DualRangeSlider from "../../components/Calculator/DualRangeSlider";
+// import carsFullData from "@/data/cars.json";
+import CalculatorSlider from "@/components/Calculator/CalculatorSlider";
+import DualRangeSlider from "@/components/Calculator/DualRangeSlider";
+import InventorySelect from "./components/InventorySelect/InventorySelect";
+import CarCard from "./components/CarCard/CarCard";
+import carsData from "@/data/cars.json";
+import Pagination from "@/components/Pagination/Pagination";
 
 export default function Inventory() {
   // useEffect(() => {
@@ -36,6 +44,9 @@ export default function Inventory() {
   const [carMark, setCarMark] = useState("");
   const [carModel, setCarModel] = useState("");
   const [carName, setCarName] = useState([]);
+
+  const [carFull, setCarFull] = useState("");
+
   const [transmission, setTransmission] = useState([]);
 
   const [kilometers, setKilometers] = useState([0]);
@@ -46,6 +57,7 @@ export default function Inventory() {
 
   const [prices, setPrices] = useState(["1000", "1000000"]);
   const [pricesTags, setPricesTags] = useState([]);
+  const [sortedBy, setSortedBy] = useState("Recommendations");
 
   const [changes, setChanges] = useState(false);
 
@@ -93,6 +105,10 @@ export default function Inventory() {
       document.querySelector("#" + TransmissionType).checked = false;
       setTransmission(newArray);
     }
+  };
+
+  const handleSetCarFull = (carFullNew) => {
+    setCarFull(carFullNew);
   };
 
   const handleSetCarMark = (carMark) => {
@@ -191,6 +207,43 @@ export default function Inventory() {
     });
   };
 
+  const sortedByChange = (sortedValue) => {
+    setSortedBy(sortedValue);
+  };
+
+  const copiedData = useMemo(
+    () =>
+      carsData.map((item) => ({
+        ...item,
+        price: parseFloat(item.price.replace(/\s/g, "").replace(",", ".")) || 0,
+        mileage:
+          parseFloat(item.mileage.replace(/\s/g, "").replace(",", ".")) || 0,
+      })),
+    [carsData]
+  );
+  const [sortedDataAsc, setSortedDataAsc] = useState(copiedData);
+
+  useEffect(() => {
+    if (sortedBy !== "Recommendations") {
+      setSortedDataAsc(
+        copiedData
+          .slice()
+          .sort((a, b) => a[sortedBy.toLowerCase()] - b[sortedBy.toLowerCase()])
+      );
+    } else {
+      setSortedDataAsc(copiedData);
+    }
+    
+  }, [sortedBy, copiedData]);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
+  const maxPages = 3;
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = sortedDataAsc.slice(indexOfFirstItem, indexOfLastItem);
+
   return (
     <>
       <div className="inventory-header">
@@ -222,16 +275,16 @@ export default function Inventory() {
               id="inventory-characteristics__form"
             >
               <DetailsDropDown
-                title="Make, Model"
+                title="Marke, Model"
                 tags={carName}
                 removeTag={carNameRemove}
               >
                 <div className="inventory-characteristics__container">
                   <p className="secondary-text inventory-characteristics__dropdownCaption">
-                    Make
+                    Marke
                   </p>
                   <DetailsSearch
-                    placeholder="Search Make..."
+                    placeholder="Search Marke..."
                     suggestions={Object.keys(carsModels)}
                     setData={handleSetCarMark}
                     id="carMark"
@@ -344,6 +397,83 @@ export default function Inventory() {
                 </div>
               </DetailsDropDown>
             </div>
+          </div>
+
+          <div className="inventory-content">
+            <div className="inventory-content__top">
+              <div className="inventory-content__search">
+                <DetailsSearch
+                  placeholder="Find a dream car..."
+                  suggestions={Object.values(carsData).map((car) => car.name)}
+                  setData={handleSetCarFull}
+                  id="carMarkTop"
+                  inputValue={carFull}
+                />
+
+                <button className="share" aria-label="share cars">
+                  <img
+                    className="share__icon"
+                    src={share}
+                    alt="share icon"
+                    width="22"
+                    height="22"
+                    aria-hidden="true"
+                  />
+                </button>
+              </div>
+
+              <div className="inventory-content__sorted">
+                <p className="secondary-text">Sorted by</p>
+
+                <InventorySelect
+                  defaultValue="Recommendations"
+                  getValue={sortedByChange}
+                />
+              </div>
+            </div>
+
+            <div className="inventory-content__list">
+              {currentItems.length ? (
+                currentItems.map((car) => (
+                  <CarCard key={car.id} carData={car} />
+                ))
+              ) : (
+                <div className="inventory-content__empty">
+                  <img
+                    src={carEmpty}
+                    alt="moving car icon"
+                    width="69"
+                    height="30"
+                    aria-hidden="true"
+                    // className="inventory-content__empty-icon"
+                  />
+
+                  <p className="title">
+                    Unfortunately there are no matches for your query.
+                  </p>
+                  <p className="secondary-text">
+                    Try using other filter settings or request a car of your
+                    choice.
+                  </p>
+
+                  <a
+                    className="secondary-text inventory-content__emptyLink"
+                    href="#"
+                  >
+                    Request a car
+                  </a>
+                </div>
+              )}
+            </div>
+
+            <Pagination
+              currentPage={currentPage}
+              totalPages={Math.min(
+                Math.ceil(carsData.length / itemsPerPage),
+                maxPages
+              )}
+              onPageChange={setCurrentPage}
+            />
           </div>
         </div>
       </section>

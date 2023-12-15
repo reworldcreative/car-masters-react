@@ -11,7 +11,7 @@ export default function DetailsTag({ name, removeTag }) {
     <div className="detailsTag" aria-label={"selected tag " + name}>
       <button
         className="detailsTag__remove"
-        aria-label="remove tag"
+        aria-label={"remove tag" + name}
         onClick={handleRemoveTag}
       >
         <img
