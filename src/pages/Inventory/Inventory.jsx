@@ -49,17 +49,74 @@ export default function Inventory() {
 
   const [transmission, setTransmission] = useState([]);
 
-  const [kilometers, setKilometers] = useState([0]);
+  const [kilometers, setKilometers] = useState([1000000]);
   const [kilometersTag, setKilometersTag] = useState([]);
 
-  const [years, setYears] = useState(["1980", new Date().getFullYear()]);
+  const [years, setYears] = useState([1980, new Date().getFullYear()]);
   const [yearsTags, setYearsTags] = useState([]);
 
-  const [prices, setPrices] = useState(["1000", "1000000"]);
+  const [prices, setPrices] = useState([1000, 1000000]);
   const [pricesTags, setPricesTags] = useState([]);
   const [sortedBy, setSortedBy] = useState("Recommendations");
 
   const [changes, setChanges] = useState(false);
+
+  const [searchedData, setSearchedData] = useState(carsData);
+
+  const meetsFilterCriteria = (car) => {
+    // Фільтр за типом кузова
+    const passesBodyTypeFilter =
+      bodyTypes.length === 0 || bodyTypes.includes(car.bodyType);
+
+    // Фільтр за маркою
+    const passesCarMarkFilter =
+      carMark === "" || carMark.toLowerCase() === car.marke.toLowerCase();
+
+    // Фільтр за моделлю
+    const passesCarModelFilter =
+      carModel === "" || carModel.toLowerCase() === car.model.toLowerCase();
+
+    // Фільтр за трансмісією
+    const passesCarTransmissionFilter =
+      transmission.length === 0 || transmission.includes(car.transmission);
+
+    // Фільтр за ціною
+    const passesCarPricesFilter =
+      parseFloat(car.price.replace(/\s/g, "")) >= parseFloat(prices[0]) &&
+      parseFloat(car.price.replace(/\s/g, "")) <= parseFloat(prices[1]);
+
+    // Фільтр за роком
+    const passesCarYearFilter =
+      parseFloat(car.year.replace(/\s/g, "")) >= parseFloat(years[0]) &&
+      parseFloat(car.year.replace(/\s/g, "")) <= parseFloat(years[1]);
+
+    // Фільтр за кілометрами
+    const passesCarKilometersFilter =
+      parseFloat(car.mileage.replace(/\s/g, "")) <= parseFloat(kilometers[0]);
+
+    return (
+      passesBodyTypeFilter &&
+      passesCarMarkFilter &&
+      passesCarModelFilter &&
+      passesCarTransmissionFilter &&
+      passesCarPricesFilter &&
+      passesCarYearFilter &&
+      passesCarKilometersFilter
+    );
+  };
+
+  useEffect(() => {
+    setSearchedData(carsData.filter(meetsFilterCriteria));
+  }, [
+    carMark,
+    carModel,
+    bodyTypes,
+    transmission,
+    prices,
+    years,
+    kilometers,
+    carFull,
+  ]);
 
   useEffect(() => {
     if (
@@ -67,11 +124,11 @@ export default function Inventory() {
       carMark != "" ||
       carModel != "" ||
       transmission.length > 0 ||
-      kilometers[0] != 0 ||
-      years[0] != "1980" ||
+      kilometers[0] != 1000000 ||
+      years[0] != 1980 ||
       years[1] != new Date().getFullYear() ||
-      prices[0] != "1000" ||
-      prices[1] != "1000000"
+      prices[0] != 1000 ||
+      prices[1] != 1000000
     ) {
       setChanges(true);
     } else {
@@ -108,13 +165,23 @@ export default function Inventory() {
   };
 
   const handleSetCarFull = (carFullNew) => {
-    setCarFull(carFullNew);
+    if (carFullNew === "") {
+      setSearchedData(carsData.filter(meetsFilterCriteria));
+      setCarFull(carFullNew);
+    } else {
+      setSearchedData([carsData.find((item) => item.name === carFullNew)]);
+    }
   };
 
   const handleSetCarMark = (carMark) => {
     const lowerCaseCarMark = Object.keys(carsModels).map((item) =>
       item.toLowerCase()
     );
+    if (carMark === "") {
+      setCarMark("");
+      setCarModel("");
+      setCarName([]);
+    }
     if (lowerCaseCarMark.includes(carMark.toLowerCase())) {
       const lowerCaseCarName = carName.map((item) => item.toLowerCase());
       if (!lowerCaseCarName.includes(carMark.toLowerCase())) {
@@ -129,11 +196,15 @@ export default function Inventory() {
     const lowerCaseCarModel = carsModels[carMark].map((item) =>
       item.toLowerCase()
     );
+    if (carModel === "") {
+      setCarModel("");
+      setCarName([carName[0]]);
+    }
     if (lowerCaseCarModel.includes(carModel.toLowerCase())) {
       const lowerCaseCarName = carName.map((item) => item.toLowerCase());
       if (!lowerCaseCarName.includes(carModel.toLowerCase())) {
         setCarModel(carModel);
-        setCarName([...carName, carModel]);
+        setCarName([carName[0], carModel]);
       }
     }
   };
@@ -154,11 +225,11 @@ export default function Inventory() {
 
   const kilometersChange = (newKilometers) => {
     setKilometers([newKilometers]);
-    setKilometersTag([kilometers[0] + " km or less"]);
+    setKilometersTag([kilometers[0].toLocaleString() + " km or less"]);
   };
 
   const kilometersRemove = () => {
-    setKilometers([0]);
+    setKilometers([1000000]);
     setKilometersTag([]);
     // document.querySelector("#kilometersRange").value = 0;
   };
@@ -169,17 +240,23 @@ export default function Inventory() {
   };
 
   const yearsRemove = () => {
-    setYears(["1980", new Date().getFullYear()]);
+    setYears([1980, new Date().getFullYear()]);
     setYearsTags([]);
   };
 
   const pricesChange = (newPrice) => {
     setPrices(newPrice);
-    setPricesTags(["$" + newPrice[0] + " - " + "$" + newPrice[1]]);
+    setPricesTags([
+      "$" +
+        newPrice[0].toLocaleString() +
+        " - " +
+        "$" +
+        newPrice[1].toLocaleString(),
+    ]);
   };
 
   const pricesRemove = () => {
-    setPrices(["1000", "1000000"]);
+    setPrices([1000, 1000000]);
     setPricesTags([]);
   };
 
@@ -211,30 +288,52 @@ export default function Inventory() {
     setSortedBy(sortedValue);
   };
 
-  const copiedData = useMemo(
+  const DataToSort = useMemo(
     () =>
-      carsData.map((item) => ({
+      searchedData.map((item) => ({
         ...item,
         price: parseFloat(item.price.replace(/\s/g, "").replace(",", ".")) || 0,
         mileage:
           parseFloat(item.mileage.replace(/\s/g, "").replace(",", ".")) || 0,
       })),
-    [carsData]
+    [searchedData]
   );
-  const [sortedDataAsc, setSortedDataAsc] = useState(copiedData);
+
+  const [sortedData, setSortedData] = useState(DataToSort);
 
   useEffect(() => {
-    if (sortedBy !== "Recommendations") {
-      setSortedDataAsc(
-        copiedData
-          .slice()
-          .sort((a, b) => a[sortedBy.toLowerCase()] - b[sortedBy.toLowerCase()])
-      );
-    } else {
-      setSortedDataAsc(copiedData);
+    switch (sortedBy) {
+      case "Recommendations":
+        setSortedData(DataToSort);
+        break;
+
+      case "Lowest price":
+        setSortedData(
+          DataToSort.slice().sort((a, b) => a["price"] - b["price"])
+        );
+        break;
+      case "Highest prices":
+        setSortedData(
+          DataToSort.slice().sort((a, b) => b["price"] - a["price"])
+        );
+        break;
+      case "Newest inventory":
+        setSortedData(DataToSort.slice().sort((a, b) => b["year"] - a["year"]));
+        break;
+
+      default:
+        setSortedData(DataToSort);
     }
-    
-  }, [sortedBy, copiedData]);
+    // if (sortedBy !== "Recommendations") {
+    //   setSortedData(
+    //     DataToSort
+    //       .slice()
+    //       .sort((a, b) => a[sortedBy.toLowerCase()] - b[sortedBy.toLowerCase()])
+    //   );
+    // } else {
+    //   setSortedData(DataToSort);
+    // }
+  }, [sortedBy, DataToSort]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
@@ -242,7 +341,7 @@ export default function Inventory() {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = sortedDataAsc.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = sortedData.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
     <>
@@ -404,7 +503,10 @@ export default function Inventory() {
               <div className="inventory-content__search">
                 <DetailsSearch
                   placeholder="Find a dream car..."
-                  suggestions={Object.values(carsData).map((car) => car.name)}
+                  suggestions={Object.values(searchedData).map(
+                    (car) => car.name
+                  )}
+                  // suggestions={Object.values(carsData).map((car) => car.name)}
                   setData={handleSetCarFull}
                   id="carMarkTop"
                   inputValue={carFull}
@@ -469,7 +571,7 @@ export default function Inventory() {
             <Pagination
               currentPage={currentPage}
               totalPages={Math.min(
-                Math.ceil(carsData.length / itemsPerPage),
+                Math.ceil(sortedData.length / itemsPerPage),
                 maxPages
               )}
               onPageChange={setCurrentPage}

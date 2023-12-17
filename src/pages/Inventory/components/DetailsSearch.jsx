@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./detailsSearch.scss";
 // import Autosuggest from "react-autosuggest";
 
@@ -42,6 +42,7 @@ export default function DetailsSearch({
   // };
 
   const [value, setValue] = useState(inputValue);
+  const inputRef = useRef(null);
 
   useEffect(() => {
     setValue(inputValue);
@@ -82,20 +83,73 @@ export default function DetailsSearch({
     onInputClear();
   };
 
-  const onInputBlur = (event) => {
-    const eventValue = event.target.value;
-    const lowerCaseSuggestions = suggestions.map((item) => item.toLowerCase());
-    const lowerCaseValue = eventValue.toLowerCase();
+  // const onInputBlur = (event) => {
+  //   const eventValue = event.target.value;
+  //   const lowerCaseSuggestions = suggestions.map((item) => item.toLowerCase());
+  //   const lowerCaseValue = eventValue.toLowerCase();
 
-    if (lowerCaseSuggestions.includes(lowerCaseValue)) {
-      setValue(eventValue);
-      setData(eventValue);
-      // onInputClear();
+  //   if (lowerCaseSuggestions.includes(lowerCaseValue)) {
+  //     setValue(eventValue);
+  //     setData(eventValue);
+  //     // onInputClear();
+  //   }
+  //   setTimeout(() => {
+  //     onInputClear();
+  //   }, 100);
+  // };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      if (inputRef.current) {
+        const eventValue = inputRef.current.value;
+        const lowerCaseSuggestions = suggestions.map((item) =>
+          item.toLowerCase()
+        );
+        const lowerCaseValue = eventValue.toLowerCase();
+
+        if (
+          lowerCaseSuggestions.includes(lowerCaseValue) ||
+          lowerCaseValue === ""
+        ) {
+          setValue(eventValue);
+          setData(eventValue);
+          onInputClear();
+        }
+      }
     }
-    setTimeout(() => {
-      onInputClear();
-    }, 100);
   };
+
+  const handleClickOutside = (event) => {
+    if (filteredSuggestions.length === 0) {
+      return;
+    }
+    // const selectWrapper = document.querySelector(".detailsSearch__wrapper");
+
+    if (inputRef.current && !inputRef.current.contains(event.target)) {
+      const eventValue = inputRef.current.value;
+      const lowerCaseSuggestions = suggestions.map((item) =>
+        item.toLowerCase()
+      );
+      const lowerCaseValue = eventValue.toLowerCase();
+
+      if (
+        lowerCaseSuggestions.includes(lowerCaseValue) ||
+        lowerCaseValue === ""
+      ) {
+        setValue(eventValue);
+        setData(eventValue);
+      }
+      onInputClear();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [filteredSuggestions]);
 
   return (
     <div className="detailsSearch">
@@ -110,11 +164,13 @@ export default function DetailsSearch({
       /> */}
       <div className="detailsSearch__wrapper">
         <input
+          ref={inputRef}
           className="detailsSearch__input"
           type="text"
           placeholder={placeholder}
           onChange={onInputChange}
-          onBlur={onInputBlur}
+          onKeyDown={handleKeyDown}
+          // onBlur={onInputBlur}
           value={value}
           id={id}
         />

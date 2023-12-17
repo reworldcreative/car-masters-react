@@ -138,11 +138,14 @@
 
     .suggestions-list {
       max-width: -webkit-fill-available !important;
+
       &__wrapper {
         z-index: 10;
         position: absolute !important;
         width: 340px;
         background: white;
+        border: 1px solid #d7d7d7;
+        border-top: none;
       }
     }
   }

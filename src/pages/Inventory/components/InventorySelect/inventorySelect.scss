@@ -10,7 +10,7 @@
   &__select-list {
     z-index: 10;
 
-    display: none;
+    display: grid;
     list-style: none;
     width: 100%;
     margin: 0;
@@ -23,6 +23,7 @@
     border-radius: 2px;
     border: 1px solid #d7d7d7;
     border-top: none;
+    gap: 5px;
   }
 
   &__select-item {
@@ -32,6 +33,9 @@
     text-align: start;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-weight: 500;
+    line-height: 159%;
+    color: $main;
 
     &:hover {
       color: $base-color;
@@ -54,6 +58,7 @@
     .secondary-text {
       font-weight: 500;
       line-height: 159%;
+      color: #41456b;
 
       max-width: -webkit-fill-available;
       overflow: hidden;
@@ -79,7 +84,7 @@
 
       & + .inventory-content {
         &__select-list {
-          display: block;
+          // display: block;
           border-color: $base-color;
         }
       }

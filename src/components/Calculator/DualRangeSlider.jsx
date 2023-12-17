@@ -66,12 +66,18 @@ export default function DualRangeSlider({
     <fieldset className="slider-group DualRangeSlider" role="group">
       <div className="slider-group__container">
         <p className="caption" aria-hidden="true">
-          {type === "money" ? <span>$ </span> : <></>}
-          {minValue}
+          {type === "money" ? (
+            <span>$ {parseInt(minValue).toLocaleString()}</span>
+          ) : (
+            <>{minValue}</>
+          )}
         </p>
         <p className="caption" aria-hidden="true">
-          {type === "money" ? <span>$ </span> : <></>}
-          {maxValue}
+          {type === "money" ? (
+            <span>$ {parseInt(maxValue).toLocaleString()}</span>
+          ) : (
+            <>{maxValue}</>
+          )}
         </p>
       </div>
       <div className="slider__inputsWrapper">

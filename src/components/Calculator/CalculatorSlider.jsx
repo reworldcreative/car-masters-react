@@ -42,7 +42,7 @@ export default function CalculatorSlider({
             </>
           ) : type === "kilometers" ? (
             <>
-              {loanAmount}{" "}
+              {parseInt(loanAmount).toLocaleString()}
               {loanAmount > 0 ? (
                 <span className="secondary-text"> or less</span>
               ) : (
