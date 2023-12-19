@@ -4,12 +4,17 @@
 .inventory-header {
   box-shadow: 0px 1px 0px 0px #d7d7d7;
   .header {
+    gap: 10px;
     &__navigation {
       width: 79.6%;
+      // width: 66vw;
+      justify-content: space-between;
+      gap: 10px;
     }
 
     &__buttons {
-      width: 90%;
+      // width: 90%;
+      width: 89.5%;
       max-height: 45px;
       // align-items: flex-end;
       align-items: center;
@@ -44,11 +49,39 @@
 
     display: flex;
     justify-content: space-between;
+    gap: 20px;
   }
 }
 
 .inventory-characteristics {
-  width: 20.84vw;
+  width: 21.84vw;
+  .closeButton {
+    padding: 0px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    left: 24px;
+    top: 40px;
+
+    img {
+      opacity: 0.5;
+      display: flex;
+    }
+
+    &:hover {
+      img {
+        opacity: 1;
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
   &__top {
     width: fit-content;
     margin-bottom: 31px;
@@ -73,6 +106,11 @@
   &__form {
     display: grid;
     gap: 8px;
+
+    .detailsSearch {
+      max-width: 260px;
+      width: 18vw !important;
+    }
   }
 
   &__dropdownCaption {
@@ -146,6 +184,40 @@
         background: white;
         border: 1px solid #d7d7d7;
         border-top: none;
+        width: inherit;
+        box-sizing: border-box;
+      }
+
+      &__item {
+        line-height: 130% !important;
+      }
+    }
+  }
+
+  &__filter {
+    // display: flex;
+    display: none;
+    gap: 10px;
+    align-items: center;
+  }
+
+  &__filter-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    img {
+      display: flex;
+    }
+
+    &:hover {
+      img {
+        filter: invert(0%) sepia(50) saturate(1000%) hue-rotate(165deg)
+          brightness(95%) contrast(335%);
       }
     }
   }
@@ -155,9 +227,9 @@
     align-items: center;
     gap: 20px;
 
-    .detailsSearch__input {
+    .detailsSearch {
       max-width: 350px;
-      width: 350px;
+      width: 24.4vw !important;
       box-sizing: border-box;
     }
   }
@@ -173,7 +245,8 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 20px 0px;
+
     padding-bottom: 25px;
     margin-bottom: 40px;
   }
@@ -208,5 +281,397 @@
 
   .pagination {
     margin: 0px auto;
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  .inventory__wrapper {
+    max-width: 1400px;
+    padding: 40px 0px;
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  .inventory-characteristics__form {
+    .detailsSearch {
+      width: 17.7vw !important;
+    }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .inventory-header {
+    .header {
+      padding: 17px 5.4vw 18px 5.9vw;
+    }
+  }
+
+  .inventory__wrapper {
+    padding: 40px 84px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .inventory-header {
+    .header {
+      &__navigation {
+        width: 67vw;
+      }
+    }
+  }
+
+  .inventory-content {
+    &__sorted {
+      .sorted-text {
+        display: none;
+      }
+    }
+  }
+
+  .inventory-characteristics {
+    &__form {
+      .DualRangeSlider {
+        .slider-group__container {
+          .caption {
+            &:last-child {
+              text-align: end;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .inventory-characteristics__form {
+    .detailsSearch {
+      width: 17vw !important;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .inventory-header {
+    .header {
+      padding: 17px 3.4vw 18px 4.1vw;
+      &__navigation {
+        width: 69%;
+      }
+
+      &__buttons {
+        width: 100%;
+      }
+    }
+  }
+
+  .inventory-characteristics {
+    position: absolute;
+    left: 0px;
+    top: 1px;
+    width: 100%;
+    justify-content: center;
+    display: grid;
+    background: $white;
+    z-index: 10;
+    padding: 40px 0px;
+
+    height: 40vh;
+    overflow: scroll;
+    min-height: 200px;
+
+    &__top {
+      margin-bottom: 20px;
+      margin-top: 0px;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .closeButton {
+      display: flex;
+    }
+    &__bg {
+      width: 100vw;
+      height: 100vh;
+      left: 0px;
+      position: absolute;
+      z-index: 9;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .detailsDropDown__item {
+      max-width: 100%;
+      // width: 60vw;
+      width: 54.7vw;
+    }
+
+    &__form {
+      .detailsSearch {
+        max-width: 100%;
+        width: 100% !important;
+      }
+    }
+  }
+
+  .inventory__wrapper {
+    position: relative;
+    padding: 40px 24px;
+    display: block;
+  }
+
+  .inventory-content {
+    width: 100%;
+    &__filter {
+      display: flex;
+    }
+
+    &__search {
+      .detailsSearch {
+        width: 31.3vw !important;
+      }
+    }
+
+    .carCard {
+      &__img {
+        height: revert-layer;
+      }
+
+      &__img_empty {
+        // height: calc(2.71875rem + 19vw);
+        height: 216px;
+      }
+
+      &__characteristics {
+        width: 90%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .inventory-header {
+    .header {
+      &__buttons {
+        width: 80%;
+      }
+    }
+  }
+
+  .inventory-content {
+    .carCard {
+      &__img,
+      &__img_empty {
+        max-height: 180px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .inventory-header {
+    .header {
+      padding: 17px 20px 18px 25px;
+      &__navigation {
+        width: 55%;
+      }
+
+      &__buttons {
+        width: 100%;
+      }
+    }
+  }
+
+  .inventory-content {
+    &__top {
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    &__search {
+      .detailsSearch {
+        width: 45vw !important;
+        // width: 100% !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .inventory-header {
+    .header {
+      &__navigation {
+        width: fit-content;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .inventory__wrapper {
+    padding: 30px 20px;
+  }
+
+  .inventory-content {
+    &__list {
+      justify-content: center;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      padding-bottom: 0px;
+    }
+    .carCard {
+      &__img,
+      &__img_empty {
+        max-height: 200px;
+      }
+
+      width: 100%;
+    }
+
+    &__empty {
+      padding: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .inventory-header {
+    .header {
+      padding: 10px 20px 10px 25px;
+      &__navigation {
+        gap: 23px;
+      }
+
+      &__buttons {
+        width: fit-content;
+      }
+    }
+  }
+
+  .inventory-content {
+    &__filter {
+      .search-text {
+        display: none;
+      }
+    }
+
+    &__search {
+      .detailsSearch {
+        width: 60vw !important;
+      }
+    }
+
+    &__top {
+      .suggestions-list__item {
+        font-size: 14p;
+      }
+    }
+
+    &__sorted {
+      .inventory-content {
+        &__select {
+          padding: 9px 19px;
+          .secondary-text {
+            font-size: 14px;
+            letter-spacing: 0px;
+          }
+        }
+        &__select-item {
+          font-size: 14px;
+        }
+      }
+    }
+
+    &__list {
+      margin-top: 31px;
+    }
+  }
+
+  .inventory-characteristics {
+    display: block;
+    padding: 40px 20px 20px;
+    width: -webkit-fill-available;
+
+    &__top {
+      padding-left: 10vw;
+      box-sizing: border-box;
+    }
+
+    .detailsDropDown__item {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .inventory-content {
+    &__sorted {
+      width: 100%;
+      .inventory-content__select-wrapper {
+        width: 100%;
+      }
+    }
+
+    &__search {
+      .detailsSearch {
+        width: 64.2vw !important;
+      }
+    }
+
+    .carCard {
+      &__img,
+      &__img_empty {
+        max-height: 165px;
+      }
+
+      &__characteristics {
+        width: 100%;
+      }
+
+      &__content {
+        height: 200px;
+      }
+
+      &__characteristicItem {
+        padding: 0 10px 0 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .inventory-content {
+    &__search {
+      .detailsSearch {
+        width: 60vw !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .inventory-content {
+    &__top {
+      .suggestions-list__wrapper {
+        width: 69%;
+      }
+    }
+    &__search {
+      width: 100%;
+      flex-wrap: wrap;
+      gap: 10px;
+      .detailsSearch {
+        width: 69vw !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 250px) {
+  .inventory-content {
+    &__search {
+      .detailsSearch {
+        width: 82vw !important;
+      }
+    }
   }
 }

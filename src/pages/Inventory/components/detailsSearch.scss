@@ -106,3 +106,14 @@
     }
   }
 }
+
+@media screen and (max-width: 500px) {
+  .detailsSearch {
+    &__input {
+      // padding: 9px 53px 10px 19px;
+      &::placeholder {
+        font-size: 14px;
+      }
+    }
+  }
+}

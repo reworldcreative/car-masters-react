@@ -9,6 +9,8 @@ import DetailsCheckbox from "./components/DetailsCheckbox";
 
 import bodyTypesData from "@/data/bodyTypes.json";
 import carEmpty from "@/img/icons/moving-car_icon.svg";
+import filterIcon from "@/img/icons/Filter_icon.svg";
+import closeIcon from "@/img/icons/close_icon.svg";
 
 import bodyType from "@/img/BodyTypes/Truck-icon.svg";
 import bodyType2 from "@/img/BodyTypes/SUV-icon.svg";
@@ -39,6 +41,43 @@ export default function Inventory() {
   //     headerInventory.classList.add("caption");
   //   }
   // }, []);
+
+  const [FilterSettings, setFilterSettings] = useState(true);
+
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1000);
+  const [isMobileScreen, setIsMobileScreen] = useState(window.innerWidth < 650);
+
+  const handleFilterSettings = () => {
+    setFilterSettings(!FilterSettings);
+    !FilterSettings
+      ? document.body.classList.add("no-scroll")
+      : document.body.classList.remove("no-scroll");
+  };
+
+  const handleResize = () => {
+    setIsSmallScreen(window.innerWidth < 1000);
+    setIsMobileScreen(window.innerWidth < 650);
+
+    window.innerWidth < 1000
+      ? setFilterSettings(false)
+      : setFilterSettings(true);
+    window.innerWidth < 650 ? setItemsPerPage(4) : setItemsPerPage(6);
+    window.innerWidth < 650 ? setMaxPages(6) : setMaxPages(3);
+
+    !FilterSettings
+      ? document.body.classList.add("no-scroll")
+      : document.body.classList.remove("no-scroll");
+  };
+
+  useEffect(() => {
+    window.innerWidth < 1000
+      ? setFilterSettings(false)
+      : setFilterSettings(true);
+    window.innerWidth < 650 ? setItemsPerPage(4) : setItemsPerPage(6);
+    window.innerWidth < 650 ? setMaxPages(6) : setMaxPages(3);
+
+    window.addEventListener("resize", handleResize);
+  }, []);
 
   const [bodyTypes, setBodyTypes] = useState([]);
   const [carMark, setCarMark] = useState("");
@@ -336,8 +375,8 @@ export default function Inventory() {
   }, [sortedBy, DataToSort]);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
-  const maxPages = 3;
+  const [itemsPerPage, setItemsPerPage] = useState(6);
+  const [maxPages, setMaxPages] = useState(3);
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -351,161 +390,207 @@ export default function Inventory() {
 
       <section className="inventory">
         <div className="inventory__wrapper">
-          <div className="inventory-characteristics">
-            <div className="inventory-characteristics__top">
-              <p className="inventory-characteristics__title title">
-                Detailed search
-              </p>
-
-              {changes ? (
+          {FilterSettings ? (
+            <>
+              <div className="inventory-characteristics">
                 <button
-                  className="inventory-characteristics__clean .secondary-text"
-                  onClick={clearAll}
+                  className="closeButton"
+                  aria-label="close filter settings"
+                  onClick={handleFilterSettings}
                 >
-                  Clear filters
+                  <img
+                    src={closeIcon}
+                    alt="close icon"
+                    width="24"
+                    height="24"
+                    aria-hidden="true"
+                  />
                 </button>
-              ) : (
-                <></>
-              )}
-            </div>
-
-            <div
-              className="inventory-characteristics__form"
-              id="inventory-characteristics__form"
-            >
-              <DetailsDropDown
-                title="Marke, Model"
-                tags={carName}
-                removeTag={carNameRemove}
-              >
-                <div className="inventory-characteristics__container">
-                  <p className="secondary-text inventory-characteristics__dropdownCaption">
-                    Marke
+                <div className="inventory-characteristics__top">
+                  <p className="inventory-characteristics__title title">
+                    Detailed search
                   </p>
-                  <DetailsSearch
-                    placeholder="Search Marke..."
-                    suggestions={Object.keys(carsModels)}
-                    setData={handleSetCarMark}
-                    id="carMark"
-                    inputValue={carMark}
-                  />
+
+                  {changes ? (
+                    <button
+                      className="inventory-characteristics__clean .secondary-text"
+                      onClick={clearAll}
+                    >
+                      Clear filters
+                    </button>
+                  ) : (
+                    <></>
+                  )}
                 </div>
 
-                <div className="inventory-characteristics__container">
-                  <p className="secondary-text inventory-characteristics__dropdownCaption">
-                    Model
-                  </p>
-                  <DetailsSearch
-                    placeholder="Search Model..."
-                    suggestions={carMark ? carsModels[CarsModelByIndex] : []}
-                    setData={handleSetCarModel}
-                    id="carModel"
-                    inputValue={carModel}
-                  />
-                </div>
-              </DetailsDropDown>
-              <DetailsDropDown
-                title="Body type"
-                tags={bodyTypes}
-                removeTag={bodyTypesRemove}
-              >
-                <div className="bodyTypesList">
-                  {bodyTypesData &&
-                    bodyTypesData.map((bodyType) => (
-                      <DetailsCheckbox
-                        key={bodyType.id}
-                        icon={bodyType.icon}
-                        text={bodyType.title}
-                        iconWidth={bodyType.iconWidth}
-                        iconHeight={bodyType.iconHeight}
-                        TypesChange={bodyTypesChange}
-                        TypesRemove={bodyTypesRemove}
-                        checked={bodyTypes.includes(bodyType.title)}
+                <div
+                  className="inventory-characteristics__form"
+                  id="inventory-characteristics__form"
+                >
+                  <DetailsDropDown
+                    title="Marke, Model"
+                    tags={carName}
+                    removeTag={carNameRemove}
+                  >
+                    <div className="inventory-characteristics__container">
+                      <p className="secondary-text inventory-characteristics__dropdownCaption">
+                        Marke
+                      </p>
+                      <DetailsSearch
+                        placeholder="Search Marke..."
+                        suggestions={Object.keys(carsModels)}
+                        setData={handleSetCarMark}
+                        id="carMark"
+                        inputValue={carMark}
                       />
-                    ))}
-                </div>
-              </DetailsDropDown>
-              <DetailsDropDown
-                title="Transmission"
-                tags={transmission}
-                removeTag={transmissionRemove}
-              >
-                <div className="inventory-characteristics__container">
-                  <DetailsCheckbox
-                    text="Automatic"
-                    TypesChange={transmissionChange}
-                    TypesRemove={transmissionRemove}
-                    checked={transmission.includes("Automatic")}
-                  />
+                    </div>
 
-                  <DetailsCheckbox
-                    text="Manual"
-                    TypesChange={transmissionChange}
-                    TypesRemove={transmissionRemove}
-                    checked={transmission.includes("Manual")}
-                  />
+                    <div className="inventory-characteristics__container">
+                      <p className="secondary-text inventory-characteristics__dropdownCaption">
+                        Model
+                      </p>
+                      <DetailsSearch
+                        placeholder="Search Model..."
+                        suggestions={
+                          carMark ? carsModels[CarsModelByIndex] : []
+                        }
+                        setData={handleSetCarModel}
+                        id="carModel"
+                        inputValue={carModel}
+                      />
+                    </div>
+                  </DetailsDropDown>
+                  <DetailsDropDown
+                    title="Body type"
+                    tags={bodyTypes}
+                    removeTag={bodyTypesRemove}
+                  >
+                    <div className="bodyTypesList">
+                      {bodyTypesData &&
+                        bodyTypesData.map((bodyType) => (
+                          <DetailsCheckbox
+                            key={bodyType.id}
+                            icon={bodyType.icon}
+                            text={bodyType.title}
+                            iconWidth={bodyType.iconWidth}
+                            iconHeight={bodyType.iconHeight}
+                            TypesChange={bodyTypesChange}
+                            TypesRemove={bodyTypesRemove}
+                            checked={bodyTypes.includes(bodyType.title)}
+                          />
+                        ))}
+                    </div>
+                  </DetailsDropDown>
+                  <DetailsDropDown
+                    title="Transmission"
+                    tags={transmission}
+                    removeTag={transmissionRemove}
+                  >
+                    <div className="inventory-characteristics__container">
+                      <DetailsCheckbox
+                        text="Automatic"
+                        TypesChange={transmissionChange}
+                        TypesRemove={transmissionRemove}
+                        checked={transmission.includes("Automatic")}
+                      />
+
+                      <DetailsCheckbox
+                        text="Manual"
+                        TypesChange={transmissionChange}
+                        TypesRemove={transmissionRemove}
+                        checked={transmission.includes("Manual")}
+                      />
+                    </div>
+                  </DetailsDropDown>
+                  <DetailsDropDown
+                    title="Price"
+                    tags={pricesTags}
+                    removeTag={pricesRemove}
+                  >
+                    <DualRangeSlider
+                      min="1000"
+                      max="1000000"
+                      fromValue={prices[0]}
+                      toValue={prices[1]}
+                      ariaLabel="select car price"
+                      change={pricesChange}
+                      type="money"
+                    />
+                  </DetailsDropDown>
+                  <DetailsDropDown
+                    title="Year"
+                    tags={yearsTags}
+                    removeTag={yearsRemove}
+                  >
+                    <DualRangeSlider
+                      // min="100"
+                      // max="1000"
+                      min="1980"
+                      max={new Date().getFullYear()}
+                      fromValue={years[0]}
+                      toValue={years[1]}
+                      ariaLabel="select car year"
+                      change={yearsChange}
+                      type="years"
+                    />
+                  </DetailsDropDown>
+                  <DetailsDropDown
+                    title="Kilometers"
+                    tags={kilometersTag}
+                    removeTag={kilometersRemove}
+                  >
+                    <div className="inventory-characteristics__kilometers">
+                      <CalculatorSlider
+                        defaultValue={kilometers[0]}
+                        text=""
+                        type="kilometers"
+                        min="0"
+                        max="500000"
+                        ariaLabel="select car mileage"
+                        change={kilometersChange}
+                      />
+                    </div>
+                  </DetailsDropDown>
                 </div>
-              </DetailsDropDown>
-              <DetailsDropDown
-                title="Price"
-                tags={pricesTags}
-                removeTag={pricesRemove}
-              >
-                <DualRangeSlider
-                  min="1000"
-                  max="1000000"
-                  fromValue={prices[0]}
-                  toValue={prices[1]}
-                  ariaLabel="select car price"
-                  change={pricesChange}
-                  type="money"
-                />
-              </DetailsDropDown>
-              <DetailsDropDown
-                title="Year"
-                tags={yearsTags}
-                removeTag={yearsRemove}
-              >
-                <DualRangeSlider
-                  // min="100"
-                  // max="1000"
-                  min="1980"
-                  max={new Date().getFullYear()}
-                  fromValue={years[0]}
-                  toValue={years[1]}
-                  ariaLabel="select car year"
-                  change={yearsChange}
-                  type="years"
-                />
-              </DetailsDropDown>
-              <DetailsDropDown
-                title="Kilometers"
-                tags={kilometersTag}
-                removeTag={kilometersRemove}
-              >
-                <div className="inventory-characteristics__kilometers">
-                  <CalculatorSlider
-                    defaultValue={kilometers[0]}
-                    text=""
-                    type="kilometers"
-                    min="0"
-                    max="500000"
-                    ariaLabel="select car mileage"
-                    change={kilometersChange}
-                  />
-                </div>
-              </DetailsDropDown>
-            </div>
-          </div>
+              </div>
+
+              <div
+                className="inventory-characteristics__bg"
+                aria-hidden="true"
+                onClick={handleFilterSettings}
+              />
+            </>
+          ) : (
+            <></>
+          )}
 
           <div className="inventory-content">
             <div className="inventory-content__top">
+              <div className="inventory-content__filter">
+                <button
+                  aria-label={
+                    !FilterSettings ? "open " : "close " + "filter settings"
+                  }
+                  className="inventory-content__filter-button"
+                  onClick={handleFilterSettings}
+                >
+                  <img
+                    src={filterIcon}
+                    alt="filter icon"
+                    width="26"
+                    height="22"
+                    aria-hidden="true"
+                  />
+                </button>
+
+                <p className="secondary-text search-text" aria-hidden="true">
+                  Search Filter
+                </p>
+              </div>
               <div className="inventory-content__search">
                 <DetailsSearch
                   placeholder="Find a dream car..."
-                  suggestions={Object.values(searchedData).map(
-                    (car) => car.name
-                  )}
+                  suggestions={Object.values(sortedData).map((car) => car.name)}
                   // suggestions={Object.values(carsData).map((car) => car.name)}
                   setData={handleSetCarFull}
                   id="carMarkTop"
@@ -525,7 +610,7 @@ export default function Inventory() {
               </div>
 
               <div className="inventory-content__sorted">
-                <p className="secondary-text">Sorted by</p>
+                <p className="secondary-text sorted-text">Sorted by</p>
 
                 <InventorySelect
                   defaultValue="Recommendations"
