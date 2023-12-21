@@ -664,6 +664,35 @@
       }
     }
   }
+
+  .inventory-characteristics {
+    &__top {
+      padding-left: 0px;
+    }
+
+    .closeButton {
+      left: 20px;
+      top: 10px;
+    }
+    &__form {
+      .DualRangeSlider {
+        .slider-group__container {
+          flex-wrap: wrap;
+          gap: 10px;
+          .caption {
+            font-size: 16px;
+          }
+        }
+      }
+
+      .slider-group__container {
+        .caption,
+        .secondary-text {
+          font-size: 16px;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 250px) {

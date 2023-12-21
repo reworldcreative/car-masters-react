@@ -14,6 +14,7 @@ import Article from "./pages/Article/Article";
 import Inventory from "./pages/Inventory/Inventory";
 import NotFound from "./pages/NotFound/NotFound";
 import Preloader from "./components/Preloader/Preloader ";
+import CarPage from "./pages/CarPage/CarPage";
 register();
 
 export default function App() {
@@ -50,6 +51,7 @@ export default function App() {
           <Route exact path="/privacy" element={<Privacy />} />
           <Route exact path="/blog" element={<Blog />} />
           <Route exact path="/article/:id" element={<Article />} />
+          <Route exact path="/car/:id" element={<CarPage />} />
           <Route exact path="/inventory" element={<Inventory />} />
           <Route exact path="/404" element={<NotFound />} />
           <Route exact path="*" element={<NotFound />} />

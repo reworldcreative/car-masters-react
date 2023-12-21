@@ -10,6 +10,12 @@ import car3 from "@/img/cars/Porsche/Porsche_3.jpg";
 import car4 from "@/img/cars/Porsche/Porsche_4.jpg";
 import car5 from "@/img/cars/Porsche/Porsche_5.jpg";
 import car6 from "@/img/cars/Porsche/Porsche_6.jpg";
+import car27 from "@/img/cars/Porsche/Porsche_7.jpg";
+import car28 from "@/img/cars/Porsche/Porsche_8.jpg";
+import car29 from "@/img/cars/Porsche/Porsche_9.jpg";
+import car30 from "@/img/cars/Porsche/Porsche_10.jpg";
+import car31 from "@/img/cars/Porsche/Porsche_11.jpg";
+import car32 from "@/img/cars/Porsche/Porsche_12.jpg";
 
 import car7 from "@/img/cars/Mitsubishi/Mitsubishi_1.jpg";
 import car8 from "@/img/cars/Mitsubishi/Mitsubishi_2.jpg";
@@ -32,6 +38,7 @@ import car20 from "@/img/cars/Audi/Audi_1.jpg";
 import car21 from "@/img/cars/Audi/Audi_2.jpg";
 
 import log from "@/img/logo/logo.svg";
+import { Link } from "react-router-dom";
 
 export default function CarCard({ carData }) {
   const swiperRef = useRef(null);
@@ -98,9 +105,9 @@ export default function CarCard({ carData }) {
 
       <div className="carCard__content">
         <div>
-          <p className="carCard__name title">
+          <Link to={`/car/${carData.id}`} className="carCard__name title">
             {carData.name ? carData.name : "perfect car"}
-          </p>
+          </Link>
 
           <p className="carCard__price title" aria-hidden="true">
             $ {carData.price ? carData.price.toLocaleString() : "000"}
