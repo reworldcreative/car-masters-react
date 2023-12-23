@@ -15,6 +15,7 @@ import Inventory from "./pages/Inventory/Inventory";
 import NotFound from "./pages/NotFound/NotFound";
 import Preloader from "./components/Preloader/Preloader ";
 import CarPage from "./pages/CarPage/CarPage";
+import Quiz from "./pages/Quiz/Quiz";
 register();
 
 export default function App() {
@@ -53,6 +54,7 @@ export default function App() {
           <Route exact path="/article/:id" element={<Article />} />
           <Route exact path="/car/:id" element={<CarPage />} />
           <Route exact path="/inventory" element={<Inventory />} />
+          <Route exact path="/quiz" element={<Quiz />} />
           <Route exact path="/404" element={<NotFound />} />
           <Route exact path="*" element={<NotFound />} />
         </Routes>

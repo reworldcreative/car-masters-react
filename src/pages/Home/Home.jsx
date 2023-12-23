@@ -30,6 +30,7 @@ import Interesting from "@/components/Interesting/Interesting";
 import Footer from "@/components/Footer/Footer";
 
 import articles from "@/data/articles.json";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const [buttonText, setbuttonText] = useState("suv");
@@ -236,9 +237,16 @@ export default function Home() {
                   style={{ height: "50px", width: "fit-content" }}
                   className="home-choose__button-wrapper"
                 >
-                  <Button addclass="home-choose__button accent">
+                  {/* <Button addclass="home-choose__button accent">
                     Inventory
-                  </Button>
+                  </Button> */}
+
+                  <Link
+                    to={"/inventory"}
+                    className="button home-choose__button accent"
+                  >
+                    Inventory
+                  </Link>
                 </div>
               </div>
             </div>
@@ -273,9 +281,16 @@ export default function Home() {
                   style={{ width: "fit-content", height: "45px" }}
                   className="happy-customers__button-wrapper"
                 >
-                  <Button addclass="happy-customers__button accent">
+                  {/* <Button addclass="happy-customers__button accent">
                     Request a Car
-                  </Button>
+                  </Button> */}
+
+                  <Link
+                    to={"/quiz"}
+                    className="button happy-customers__button accent"
+                  >
+                    Request a car
+                  </Link>
                 </div>
               </div>
             </div>

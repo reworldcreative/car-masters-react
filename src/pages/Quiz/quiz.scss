@@ -1,0 +1,259 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+.quiz {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  &__header {
+    .header {
+      &__buttons {
+        width: fit-content;
+      }
+      .RequestCar {
+        display: none;
+      }
+    }
+  }
+
+  &__wrapper {
+    padding-top: 39px;
+    padding-bottom: 40px;
+    width: fit-content;
+    margin: auto;
+  }
+
+  &__title {
+    margin-bottom: 5px;
+  }
+
+  &__content {
+    width: 454px;
+  }
+
+  &__progressbar {
+    width: 100%;
+
+    height: 8px;
+    border-radius: 2px;
+  }
+
+  &__question {
+    margin-top: 60px;
+  }
+
+  &__question-text {
+    line-height: 159%;
+  }
+
+  &__answer {
+    margin: 38px 0px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px 0px;
+  }
+
+  &__radio-wrapper {
+    cursor: pointer;
+    position: relative;
+    width: 49%;
+
+    &:hover {
+      //   border: 1px solid $base-color;
+      outline: 1px solid $base-color;
+    }
+  }
+
+  &__radio {
+    position: absolute;
+    display: none;
+    &:checked + label {
+      //   border: 1px solid $base-color;
+      outline: 1px solid $base-color;
+    }
+  }
+
+  &__radio-label {
+    cursor: pointer;
+    color: #7c7a84;
+    text-align: center;
+    font-weight: 600;
+    line-height: 89.775%;
+    padding: 15px 5px;
+    border-radius: 2px;
+    border: 1px solid #f1f1f1;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: block;
+  }
+
+  &__input {
+    width: 100%;
+    color: $main;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 159%;
+
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    border: 1px solid #f1f1f1;
+    &::placeholder {
+      color: #d7d7d7;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 159%;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 66px;
+    .back-button {
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+
+      gap: 15px;
+      color: $second;
+
+      &:hover {
+        color: $base-color;
+
+        img {
+          filter: invert(54%) sepia(75%) saturate(3388%) hue-rotate(213deg)
+            brightness(101%) contrast(101%);
+        }
+      }
+
+      img {
+        transform: rotate(90deg);
+        filter: invert(100%) sepia(11%) saturate(2050%) hue-rotate(197deg)
+          brightness(96%) contrast(87%);
+      }
+    }
+
+    .continue {
+      width: 220px;
+    }
+  }
+
+  &__inputEmployment {
+    .quiz__input {
+      &:first-child {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+    gap: 10px;
+    .quiz__input {
+      width: 49%;
+    }
+  }
+
+  &__address {
+    display: grid;
+    gap: 10px;
+  }
+
+  &__success {
+    .success-icon {
+      filter: invert(54%) sepia(75%) saturate(3388%) hue-rotate(213deg)
+        brightness(101%) contrast(101%);
+      margin-bottom: 20px;
+    }
+  }
+
+  &__success-title {
+    margin-bottom: 5px;
+  }
+
+  &__confirmation {
+    margin-top: 33px;
+    &_code {
+      margin-top: 5px;
+      padding: 10px 20px;
+      box-sizing: border-box;
+      font-weight: 500;
+      line-height: 159%;
+
+      border-radius: 2px;
+      border: 1px solid #d7d7d7;
+      background: $white;
+    }
+  }
+
+  &__successButton_wrapper {
+    margin-top: 40px;
+  }
+
+  .successButton {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .quiz {
+    &__header {
+      .header {
+        &__inventory {
+          display: block;
+        }
+
+        &__navigation {
+          gap: 23px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .quiz {
+    &__wrapper {
+      padding: 40px 20px;
+    }
+
+    &__content {
+      width: 100%;
+    }
+
+    &__buttons {
+      .back-button {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    &__Button_wrapper {
+      width: 100% !important;
+    }
+
+    .continue {
+      width: 100%;
+
+      &:hover,
+      &:focus {
+        transform: scale(1);
+      }
+    }
+
+    &__success {
+      .success-icon {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+}

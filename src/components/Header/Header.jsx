@@ -33,7 +33,10 @@ export default function Header() {
             <Link to={"/inventory"} className="button header__inventory">
               Inventory
             </Link>
-            <Button addclass="accent RequestCar">Request a car</Button>
+            {/* <Button addclass="accent RequestCar">Request a car</Button> */}
+            <Link to={"/quiz"} className="button accent RequestCar">
+              Request a car
+            </Link>
           </div>
 
           <BurgerButton onClick={toggleMenu} focus={BurgerButtonFocus} />

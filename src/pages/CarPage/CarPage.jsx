@@ -254,9 +254,9 @@ export default function CarPage() {
               <div className="carPage__info-wrapper">
                 <div className="carPage__info">
                   <div className="carPage__infoItem">
-                    <p className="carPage__infoItem_title secondary-text">
+                    <h2 className="carPage__infoItem_title secondary-text">
                       Price
-                    </p>
+                    </h2>
                     <p className="carPage__price caption" aria-hidden="true">
                       {parseInt(
                         currentCar.price.replace(/\s/g, ""),
@@ -310,9 +310,9 @@ export default function CarPage() {
               {currentCar.detail.length > 0 ? (
                 <div className="carPage__info-wrapper carPage__details-wrapper">
                   <div className="carPage__info">
-                    <p className="carPage__infoItem_title secondary-text">
+                    <h2 className="carPage__infoItem_title secondary-text">
                       Detail
-                    </p>
+                    </h2>
                   </div>
 
                   <div className="carPage__details">
@@ -327,9 +327,9 @@ export default function CarPage() {
 
               {currentCar.description !== "" ? (
                 <div className="carPage__description-wrapper">
-                  <p className="carPage__infoItem_title carPage__description_title secondary-text">
+                  <h2 className="carPage__infoItem_title carPage__description_title secondary-text">
                     Description
-                  </p>
+                  </h2>
 
                   <p className="secondary-text carPage__description">
                     {currentCar.description.split("\n").map((line, index) => (

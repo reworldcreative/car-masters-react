@@ -1,0 +1,109 @@
+[
+  {
+    "id": 1,
+    "title": "What's your budget?",
+    "text": "Find vehicle options that fit your budget.",
+    "answers": [
+      "Under $250/Month",
+      "$250-374/Month",
+      "$374-500/Month",
+      "Over $500/Month"
+    ],
+    "type": "radio"
+  },
+  {
+    "id": 2,
+    "title": "What's your employment status?",
+    "text": "Your employment status will help determine the best vehicle and financing options for you.",
+    "answers": [
+      "Employed",
+      "Self-Employed",
+      "Student",
+      "Retired / Pension",
+      "Other"
+    ],
+    "type": "radio"
+  },
+  {
+    "id": 3,
+    "title": "How do you earn income?",
+    "text": "Your employment status will help determine the best vehicle and financing options for you.",
+    "answers": [
+      "Long-term disability",
+      "Spousal support / Alimony",
+      "Child support",
+      "Social assistance / Welfare",
+      "Maternity leave",
+      "Baby bonus / Child tax",
+      "Unemployed / EI",
+      "Other / Not listed"
+    ],
+    "type": "radio"
+  },
+  {
+    "id": 4,
+    "title": "Enter your monthly income",
+    "text": "Your income details help us make sure your vehicle payments are easy and affordable. Before taxes and deductions.",
+    "placeholder": "Monthly income",
+    "type": "input"
+  },
+  {
+    "id": 5,
+    "title": "Are you currently working?",
+    "text": "Your employment status will help determing the best vehicle and financing options for you.",
+    "answers": ["Yes", "No"],
+    "type": "radio"
+  },
+  {
+    "id": 6,
+    "title": "Tell us about your employment",
+    "text": "We won’t come visit but we need these details to confirm your employment status so you can get the best rates possible.",
+    "placeholderEmployer": "Employer",
+    "placeholderTitle": "Title",
+    "type": "inputEmployment"
+  },
+  {
+    "id": 7,
+    "title": "How long have you been earning this income?",
+    "text": "Your income details help us make sure your vehicle payments are easy and affordable.",
+    "placeholderYears": "Years",
+    "placeholderMonths": "Months",
+    "type": "inputData"
+  },
+  {
+    "id": 8,
+    "title": "How long receiving?",
+    "text": "Your income details help us make sure your vehicle payments are easy and affordable.",
+    "placeholder": "Time",
+    "type": "input"
+  },
+  {
+    "id": 9,
+    "title": "Where do you live?",
+    "text": "Providing your location helps find the best deals near you.",
+    "placeholderStreet": "Street address",
+    "placeholderCity": "City",
+    "placeholderProvince": "Province",
+    "placeholderPostal": "Postal code",
+    "type": "address"
+  },
+  {
+    "id": 10,
+    "title": "When were you born?",
+    "text": "",
+    "placeholderYear": "Year",
+    "placeholderMonth": "Month",
+    "placeholderDay": "Day",
+    "type": "born"
+  },
+  {
+    "id": 11,
+    "title": "Congratulations! Last step.",
+    "text": "Get access to your vehicle and financing options by creating your account. There is no obligation to continue with financing if you change your mind. ",
+    "placeholderFirstName": "First name",
+    "placeholderLastName": "Last name",
+    "placeholderEmail": "Email",
+    "placeholderPhone": "Phone number",
+    "type": "personal"
+  }
+]
