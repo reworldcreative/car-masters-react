@@ -49,29 +49,29 @@ export default function App() {
 
   const location = useLocation();
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "auto" });
-    document.activeElement.blur();
+  // useEffect(() => {
+  //   window.scrollTo({ top: 0, behavior: "auto" });
+  //   document.activeElement.blur();
 
-    const handleBeforeUnload = () => {
-      window.scrollTo(0, 0);
-    };
+  //   const handleBeforeUnload = () => {
+  //     window.scrollTo(0, 0);
+  //   };
 
-    window.addEventListener("beforeunload", handleBeforeUnload);
-    setLoad(false);
-    document.body.classList.add("no-scroll");
+  //   window.addEventListener("beforeunload", handleBeforeUnload);
+  //   setLoad(false);
+  //   document.body.classList.add("no-scroll");
 
-    const handlePageLoad = () => {
-      setTimeout(() => {
-        handleLoad();
-      }, 1000);
-    };
-    window.addEventListener("load", handlePageLoad);
-    return () => {
-      window.removeEventListener("load", handlePageLoad);
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-    };
-  }, []);
+  //   const handlePageLoad = () => {
+  //     setTimeout(() => {
+  //       handleLoad();
+  //     }, 1000);
+  //   };
+  //   window.addEventListener("load", handlePageLoad);
+  //   return () => {
+  //     window.removeEventListener("load", handlePageLoad);
+  //     window.removeEventListener("beforeunload", handleBeforeUnload);
+  //   };
+  // }, []);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
