@@ -63,7 +63,7 @@ export default function Home() {
       setIsMobileScreen(window.innerWidth < 500);
     };
 
-    window.addEventListener("resize", handleResize, { passive: true });
+    window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
