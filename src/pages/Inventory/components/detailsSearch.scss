@@ -94,6 +94,10 @@
       &:focus {
         color: $base-color;
       }
+
+      &.focused {
+        background-color: rgb(215, 215, 215);
+      }
     }
 
     &__decoration {

@@ -211,6 +211,11 @@ export default function Inventory() {
     } else {
       setSearchedData([carsData.find((item) => item.name === carFullNew)]);
     }
+
+    window.scrollTo({ top: 0, behavior: "auto" });
+    if (listRef.current) {
+      listRef.current.focus();
+    }
   };
 
   const handleSetCarMark = (carMark) => {
@@ -382,6 +387,21 @@ export default function Inventory() {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = sortedData.slice(indexOfFirstItem, indexOfLastItem);
+
+  const listRef = useRef(null);
+
+  // useEffect(() => {
+  //   window.scrollTo({ top: 0, behavior: "auto" });
+  //   if (listRef.current) {
+  //     listRef.current.focus();
+  //   }
+  // }, [DataToSort]);
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     document.activeElement.blur();
+  //   }, 10);
+  // }, []);
 
   return (
     <>
@@ -620,7 +640,7 @@ export default function Inventory() {
               </div>
             </div>
 
-            <div className="inventory-content__list">
+            <div className="inventory-content__list" tabIndex="0" ref={listRef}>
               {currentItems.length ? (
                 currentItems.map((car) => (
                   <CarCard key={car.id} carData={car} />

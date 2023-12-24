@@ -249,6 +249,10 @@
 
     padding-bottom: 25px;
     margin-bottom: 40px;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &__empty {

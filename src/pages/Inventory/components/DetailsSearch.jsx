@@ -43,6 +43,7 @@ export default function DetailsSearch({
 
   const [value, setValue] = useState(inputValue);
   const inputRef = useRef(null);
+  const [focusedSuggestion, setFocusedSuggestion] = useState(null);
 
   useEffect(() => {
     setValue(inputValue);
@@ -55,6 +56,7 @@ export default function DetailsSearch({
   const onInputChange = (event) => {
     const inputValue = event.target.value;
     setValue(inputValue);
+    setFocusedSuggestion(null);
 
     // Фільтруємо весь список підказок на основі введеного тексту
     let filtered;
@@ -71,6 +73,7 @@ export default function DetailsSearch({
   const onInputClear = () => {
     // Очищуємо введене значення та відображаємо повний список підказок
     // setValue("");
+    setFocusedSuggestion(null);
     setFilteredSuggestions([]);
   };
 
@@ -98,6 +101,25 @@ export default function DetailsSearch({
   //   }, 100);
   // };
 
+  const suggestionsRef = useRef(null);
+  const scrollContainerToFocusedItem = () => {
+    if (suggestionsRef.current) {
+      // Отримання активного елемента з класом .suggestions-list__item.focused
+      const focusedItem = document.querySelector(
+        ".suggestions-list__item.focused"
+      );
+
+      if (focusedItem) {
+        // Визначте відстань між верхом контейнера і верхом активного елемента
+        const distanceToTop =
+          focusedItem.offsetTop - suggestionsRef.current.offsetTop;
+        // Прокрутіть контейнер вниз на відстань до верху активного елемента
+        suggestionsRef.current.scrollTop = distanceToTop;
+        focusedItem.focus();
+      }
+    }
+  };
+
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       if (inputRef.current) {
@@ -115,6 +137,41 @@ export default function DetailsSearch({
           setData(eventValue);
           onInputClear();
         }
+      }
+
+      if (
+        event.target.className ===
+        "suggestions-list__item secondary-text focused"
+      ) {
+        setValue(event.target.innerText);
+        setData(event.target.innerText);
+        onInputClear();
+      }
+    } else if (event.key === "ArrowDown") {
+      event.preventDefault();
+      const nextIndex = focusedSuggestion === null ? 0 : focusedSuggestion + 1;
+      if (nextIndex < filteredSuggestions.length) {
+        setFocusedSuggestion(nextIndex);
+        setTimeout(() => {
+          scrollContainerToFocusedItem();
+        }, 10);
+      }
+    } else if (event.key === "ArrowUp") {
+      // Обробка натискання стрілки вгору (перехід фокусу на попередню підказку)
+      event.preventDefault();
+      const prevIndex =
+        focusedSuggestion === null
+          ? filteredSuggestions.length - 1
+          : focusedSuggestion - 1;
+      if (prevIndex >= 0) {
+        setFocusedSuggestion(prevIndex);
+        setTimeout(() => {
+          scrollContainerToFocusedItem();
+        }, 10);
+      }
+
+      if (prevIndex < 0) {
+        inputRef.current.focus();
       }
     }
   };
@@ -185,12 +242,29 @@ export default function DetailsSearch({
       </div>
       {filteredSuggestions && filteredSuggestions.length > 0 && (
         <div className="suggestions-list__wrapper">
-          <ul className="suggestions-list" role="group">
+          <ul
+            className="suggestions-list"
+            // role="group"
+            role="listbox"
+            ref={suggestionsRef}
+            aria-live="polite"
+            aria-relevant="additions"
+            aria-activedescendant={
+              focusedSuggestion !== null
+                ? `suggestion-${focusedSuggestion}`
+                : null
+            }
+          >
             {filteredSuggestions.map((suggestion, index) => (
               <li
-                className="suggestions-list__item secondary-text"
+                className={`suggestions-list__item secondary-text ${
+                  index === focusedSuggestion ? "focused" : ""
+                }`}
                 key={index}
                 onClick={() => onSuggestionClick(suggestion)}
+                tabIndex="0"
+                onKeyDown={handleKeyDown}
+                role="option"
               >
                 {suggestion}
               </li>
