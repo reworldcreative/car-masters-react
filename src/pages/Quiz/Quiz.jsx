@@ -7,9 +7,11 @@ import questionsData from "@/data/quiz.json";
 import backIcon from "@/img/icons/arrow-down.svg";
 import successIcon from "@/img/icons/Success.svg";
 import QuizInput from "./QuizInput";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Quiz() {
+  const title = useRef(null);
+
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [maxQuestion, setMaxQuestion] = useState(questionsData.length + 1);
   const [currentItem, setCurrentItem] = useState(
@@ -43,6 +45,16 @@ export default function Quiz() {
 
   const [success, setSuccess] = useState(false);
   const [confirmation, setСonfirmation] = useState("");
+
+  const [error, setError] = useState(false);
+
+  const handleSetError = () => {
+    setError(true);
+  };
+
+  const handleRemoveError = () => {
+    setError(false);
+  };
 
   function generateRandomString(length) {
     const characters =
@@ -126,71 +138,75 @@ export default function Quiz() {
     if (currentQuestion + 1 <= maxQuestion) {
       switch (currentQuestion) {
         case 1:
-          budget !== "" ? setCurrentQuestion(currentQuestion + 1) : false;
+          budget !== ""
+            ? (setCurrentQuestion(currentQuestion + 1), handleRemoveError())
+            : handleSetError();
           break;
         case 2:
           employmentStatus !== ""
-            ? setCurrentQuestion(currentQuestion + 1)
-            : false;
+            ? (setCurrentQuestion(currentQuestion + 1), handleRemoveError())
+            : handleSetError();
 
           if (employmentStatus !== "Other") {
-            employmentStatus !== "" ? setCurrentQuestion(4) : false;
+            employmentStatus !== ""
+              ? (setCurrentQuestion(4), handleRemoveError())
+              : handleSetError();
           }
           break;
         case 3:
           employmentStatus !== "" && employmentStatus !== "Other"
-            ? setCurrentQuestion(currentQuestion + 1)
-            : false;
+            ? (setCurrentQuestion(currentQuestion + 1), handleRemoveError())
+            : handleSetError();
           break;
         case 4:
           monthlyIncome !== ""
             ? employmentStatus === "Retired / Pension" && monthlyIncome !== ""
-              ? setCurrentQuestion(5)
+              ? (setCurrentQuestion(5), handleRemoveError())
               : employmentStatus === "Employed" && monthlyIncome !== ""
-              ? setCurrentQuestion(6)
+              ? (setCurrentQuestion(6), handleRemoveError())
               : employmentStatus === "Self-Employed" && monthlyIncome !== ""
-              ? setCurrentQuestion(7)
+              ? (setCurrentQuestion(7), handleRemoveError())
               : employmentStatus === "Student" && monthlyIncome !== ""
-              ? setCurrentQuestion(7)
-              : setCurrentQuestion(8)
-            : false;
+              ? (setCurrentQuestion(7), handleRemoveError())
+              : (setCurrentQuestion(8), handleRemoveError())
+            : handleSetError();
           break;
         case 5:
           employmentStatus !== "" &&
           employmentStatus === "Retired / Pension" &&
           workingNow !== ""
-            ? setCurrentQuestion(8)
-            : false;
+            ? (setCurrentQuestion(8), handleRemoveError())
+            : handleSetError();
           break;
         case 6:
           employmentEmployer !== "" && employmentTitle !== ""
-            ? setCurrentQuestion(currentQuestion + 1)
-            : false;
+            ? (setCurrentQuestion(currentQuestion + 1), handleRemoveError())
+            : handleSetError();
           break;
         case 7:
           years !== "" && months !== ""
-            ? setCurrentQuestion(currentQuestion + 1)
-            : false;
+            ? (setCurrentQuestion(currentQuestion + 1), handleRemoveError())
+            : handleSetError();
           break;
         case 8:
           receivingTime !== ""
-            ? setCurrentQuestion(currentQuestion + 1)
-            : false;
+            ? (setCurrentQuestion(currentQuestion + 1), handleRemoveError())
+            : handleSetError();
           break;
         case 9:
           street !== "" && city !== "" && province !== "" && postal !== ""
-            ? setCurrentQuestion(currentQuestion + 1)
-            : false;
+            ? (setCurrentQuestion(currentQuestion + 1), handleRemoveError())
+            : handleSetError();
           break;
         case 10:
           bornYear !== "" && bornMonth !== "" && bornDay !== ""
-            ? setCurrentQuestion(currentQuestion + 1)
-            : false;
+            ? (setCurrentQuestion(currentQuestion + 1), handleRemoveError())
+            : handleSetError();
           break;
         case 11:
           firstName !== "" && lastName !== "" && email !== "" && phone !== ""
-            ? handleSetSuccess()
-            : false;
+            ? (handleSetSuccess(), handleRemoveError())
+            : handleSetError();
           break;
 
         default:
@@ -203,6 +219,7 @@ export default function Quiz() {
   const handlePrevQuestion = () => {
     if (currentQuestion - 1 >= 1) {
       setCurrentQuestion(currentQuestion - 1);
+      handleRemoveError();
 
       switch (currentQuestion) {
         case 4:
@@ -253,6 +270,10 @@ export default function Quiz() {
     }%, #d7d7d7 ${(currentQuestion / maxQuestion) * 100}%, #d7d7d7 100%)`,
   };
 
+  const errorStyle = {
+    display: `${error ? "block" : "none"}`,
+  };
+
   useEffect(() => {
     setCurrentItem(
       questionsData.find((element) => element.id === currentQuestion)
@@ -296,6 +317,18 @@ export default function Quiz() {
     }
   };
 
+  useEffect(() => {
+    title.current.blur();
+  }, []);
+
+  useEffect(() => {
+    if (title.current && currentQuestion > 1) {
+      setTimeout(() => {
+        title.current.focus();
+      }, 100);
+    }
+  }, [currentItem, success]);
+
   return (
     <>
       <div className="quiz__header">
@@ -304,14 +337,34 @@ export default function Quiz() {
 
       <section className="quiz">
         <div className="quiz__wrapper">
-          <div className="quiz__content">
+          {!success ? (
+            <p className="visibility-hidden">
+              little quiz for more information
+            </p>
+          ) : (
+            <></>
+          )}
+          <div
+            className="quiz__content"
+            // aria-live="polite"
+          >
             {!success ? (
               <>
-                <div className="quiz__progressbar" style={fillStyle} />
+                <div
+                  className="quiz__progressbar"
+                  style={fillStyle}
+                  aria-hidden="true"
+                />
 
                 {questionsData.length > 0 ? (
                   <div className="quiz__question">
-                    <h1 className="quiz__title caption">{currentItem.title}</h1>
+                    <h1
+                      className="quiz__title caption"
+                      ref={title}
+                      tabIndex="0"
+                    >
+                      {currentItem.title}
+                    </h1>
                     <p className="quiz__question-text secondary-text">
                       {currentItem.text}
                     </p>
@@ -435,10 +488,16 @@ export default function Quiz() {
                   <></>
                 )}
 
+                <div className="quiz__error" style={errorStyle}>
+                  <p className="quiz__error-text secondary-text">
+                    select one or fill all fields
+                  </p>
+                </div>
+
                 <div className="quiz__buttons">
                   {currentQuestion > 1 ? (
                     <button
-                      className="back-button"
+                      className="back-button secondary-text "
                       // aria-label="back to previous question"
                       onClick={handlePrevQuestion}
                     >
@@ -482,7 +541,11 @@ export default function Quiz() {
                   aria-hidden="true"
                 />
 
-                <h1 className="caption quiz__success-title">
+                <h1
+                  className="caption quiz__success-title"
+                  ref={title}
+                  tabIndex="0"
+                >
                   Application successful!
                 </h1>
                 <p className="secondary-text">

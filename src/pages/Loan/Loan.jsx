@@ -12,6 +12,8 @@ import benefitsImg from "@/img/cars/Ford-Escape.png";
 
 import procent from "@/img/icons/Procent.svg";
 import clock from "@/img/icons/Clock.svg";
+import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Loan() {
   return (
@@ -35,9 +37,13 @@ export default function Loan() {
               style={{ height: "45px", width: "fit-content" }}
               className="creditPolicy__button-wrapper"
             >
-              <Button addclass="creditPolicy__button accent">
+              {/* <Button addclass="creditPolicy__button accent">
                 Request a Car
-              </Button>
+              </Button> */}
+
+              <Link to={"/quiz"} className="button accent creditPolicy__button">
+                Request a Car
+              </Link>
             </div>
           </div>
 
@@ -133,7 +139,11 @@ export default function Loan() {
               style={{ height: "45px", width: "fit-content" }}
               className="benefits__button-wrapper"
             >
-              <Button addclass="benefits__button accent">Request a Car</Button>
+              {/* <Button addclass="benefits__button accent">Request a Car</Button> */}
+
+              <Link to={"/quiz"} className="button accent benefits__button">
+                Request a Car
+              </Link>
             </div>
           </div>
 

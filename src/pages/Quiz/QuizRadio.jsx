@@ -26,8 +26,17 @@ export default function QuizRadio({ text, getValue }) {
         onChange={handleRadioChange}
       />
 
-      <label className="quiz__radio-label secondary-text" htmlFor={text}>
+      <label
+        role="button"
+        className="quiz__radio-label secondary-text"
+        htmlFor={text}
+        aria-label=" "
+      >
         {text}
+        {". "}
+        <span className="visibility-hidden">
+          {selectedOption === text ? "selected" : "unselected"}
+        </span>
       </label>
     </div>
   );

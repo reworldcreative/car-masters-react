@@ -30,6 +30,7 @@ import InventorySelect from "./components/InventorySelect/InventorySelect";
 import CarCard from "./components/CarCard/CarCard";
 import carsData from "@/data/cars.json";
 import Pagination from "@/components/Pagination/Pagination";
+import { useLocation } from "react-router-dom";
 
 export default function Inventory() {
   // useEffect(() => {

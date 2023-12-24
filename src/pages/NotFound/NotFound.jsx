@@ -2,7 +2,7 @@ import React from "react";
 import "./notFound.scss";
 
 import car from "@/img/icons/moving-car_icon.svg";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function NotFound() {
   return (

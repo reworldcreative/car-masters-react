@@ -15,6 +15,8 @@ import missionDecoration from "@/img/cars/Kia.png";
 import convenienceDecoration from "@/img/cars/Nissan.png";
 import teamImage from "@/img/TeamPhoto_2.jpg";
 import teamFeatures from "@/img/TeamFeatures_2.jpg";
+import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function About() {
   return (
@@ -37,7 +39,10 @@ export default function About() {
               style={{ height: "45px", width: "fit-content" }}
               className="mission__button-wrapper"
             >
-              <Button addclass="mission__button accent">Request a Car</Button>
+              {/* <Button addclass="mission__button accent">Request a Car</Button> */}
+              <Link to={"/quiz"} className="button accent mission__button">
+                Request a car
+              </Link>
             </div>
           </div>
 
@@ -77,7 +82,10 @@ export default function About() {
           </div>
 
           <ul className="dream__list" aria-label="dream steps">
-            <p className="visibility-hidden">dream steps</p>
+            {/* <p className="visibility-hidden">dream steps</p> */}
+            <li className="visibility-hidden" role="group">
+              <p>dream steps</p>
+            </li>
             <CarStep
               step="1"
               title="Quickly"
@@ -171,7 +179,10 @@ export default function About() {
               style={{ height: "45px", width: "fit-content" }}
               className="mission__button-wrapper"
             >
-              <Button addclass="mission__button accent">Request a Car</Button>
+              {/* <Button addclass="mission__button accent">Request a Car</Button> */}
+              <Link to={"/quiz"} className="button accent mission__button">
+                Request a Car
+              </Link>
             </div>
           </div>
         </div>

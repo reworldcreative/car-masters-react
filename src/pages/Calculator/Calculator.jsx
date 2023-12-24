@@ -6,6 +6,7 @@ import Footer from "@/components/Footer/Footer";
 
 import PageTitle from "@/components/PageTitle/PageTitle";
 import CalculatorContainer from "@/components/Calculator/Calculator";
+import { useLocation } from "react-router-dom";
 
 export default function Calculator() {
   return (

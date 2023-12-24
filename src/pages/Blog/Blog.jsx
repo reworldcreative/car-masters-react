@@ -7,6 +7,7 @@ import Footer from "@/components/Footer/Footer";
 import articles from "@/data/articles.json";
 import InterestingItem from "@/components/Interesting/InterestingItem";
 import Pagination from "@/components/Pagination/Pagination";
+import { useLocation } from "react-router-dom";
 
 export default function Blog() {
   const [isTabletScreen, setIsTabletScreen] = useState(

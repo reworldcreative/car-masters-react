@@ -30,10 +30,12 @@ export default function Burger({ close }) {
   };
 
   useEffect(() => {
-    document.body.style.overflow = "hidden";
+    // document.body.style.overflow = "hidden";
+    document.body.classList.add("no-scroll");
 
     const resetOverflow = () => {
-      document.body.style.overflow = "auto";
+      // document.body.style.overflow = "auto";
+      document.body.classList.remove("no-scroll");
     };
 
     if (burgerMenuRef.current) {
@@ -94,6 +96,7 @@ export default function Burger({ close }) {
             width="27"
             height="27"
             aria-hidden="true"
+            loading="eager"
           />
         </button>
 

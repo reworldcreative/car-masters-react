@@ -26,6 +26,10 @@
 
   &__title {
     margin-bottom: 5px;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &__content {
@@ -109,6 +113,16 @@
     }
   }
 
+  &__error {
+    margin-bottom: 10px;
+    display: none;
+  }
+
+  &__error-text {
+    color: red;
+    font-size: 14px;
+  }
+
   &__buttons {
     display: flex;
     align-items: center;
@@ -121,6 +135,9 @@
       display: flex;
       align-items: center;
       text-transform: uppercase;
+
+      font-weight: 700;
+      line-height: 89.775%;
 
       gap: 15px;
       color: $second;
@@ -157,14 +174,18 @@
   &__row {
     display: flex;
     gap: 10px;
+    width: 100%;
     .quiz__input {
       width: 49%;
     }
   }
 
   &__address {
-    display: grid;
+    // display: grid;
     gap: 10px;
+
+    display: flex;
+    flex-wrap: wrap;
   }
 
   &__success {
@@ -177,6 +198,9 @@
 
   &__success-title {
     margin-bottom: 5px;
+    &:focus {
+      outline: none;
+    }
   }
 
   &__confirmation {
@@ -229,6 +253,10 @@
       width: 100%;
     }
 
+    &__radio-wrapper {
+      width: 100%;
+    }
+
     &__buttons {
       .back-button {
         width: 100%;
@@ -249,10 +277,40 @@
       }
     }
 
+    &__row {
+      flex-wrap: wrap;
+      .quiz__input {
+        width: 100%;
+      }
+    }
+
     &__success {
       .success-icon {
         width: 50px;
         height: 50px;
+      }
+    }
+
+    &__successButton_wrapper {
+      width: 100% !important;
+    }
+
+    .successButton {
+      &:hover,
+      &:focus {
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .quiz {
+    &__header {
+      .header {
+        &__buttons {
+          height: 35px;
+        }
       }
     }
   }

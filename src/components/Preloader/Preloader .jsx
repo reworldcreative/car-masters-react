@@ -4,9 +4,9 @@ import "./preloader.scss";
 // import logo from "@/img/icons/preloader-icon.svg";
 import logo from "@/img/icons/preloader-logo.svg";
 
-export default function Preloader() {
+export default function Preloader({ style }) {
   return (
-    <div className="preloader">
+    <div className="preloader" style={style}>
       <div className="preloader__wrapper">
         <img
           src={logo}

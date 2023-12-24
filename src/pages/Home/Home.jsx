@@ -30,7 +30,8 @@ import Interesting from "@/components/Interesting/Interesting";
 import Footer from "@/components/Footer/Footer";
 
 import articles from "@/data/articles.json";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function Home() {
   const [buttonText, setbuttonText] = useState("suv");
@@ -85,9 +86,13 @@ export default function Home() {
               ) : (
                 false
               )}
-              <Button addclass="home-hero__button">
+              {/* <Button addclass="home-hero__button">
                 Request a {buttonText}
-              </Button>
+              </Button> */}
+
+              <Link to={"/inventory"} className="button home-hero__button">
+                Request a {buttonText}
+              </Link>
             </div>
 
             {!isSmallScreen ? (

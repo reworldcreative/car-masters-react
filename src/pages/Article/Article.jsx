@@ -13,7 +13,7 @@ import PictureComponent from "@/../plugins/PictureComponent";
 import articles from "@/data/articles.json";
 import Interesting from "@/components/Interesting/Interesting";
 import backArrow from "@/img/icons/arrow-down.svg";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 export default function Article() {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 import Home from "./pages/Home/Home";
 import { register } from "swiper/element/bundle";
@@ -19,46 +19,110 @@ import Quiz from "./pages/Quiz/Quiz";
 register();
 
 export default function App() {
-  const [loading, setLoading] = useState(true);
+  const [load, setLoad] = useState(false);
+
+  // useEffect(() => {
+  //   // const handleLoad = () => {
+  //   //   setLoading(false);
+  //   // };
+  //   // window.addEventListener("load", handleLoad);
+  //   // return () => {
+  //   //   window.removeEventListener("load", handleLoad);
+  //   // };
+
+  //   const simulatePageLoad = () => {
+  //     setTimeout(() => {
+  //       setLoad(true);
+  //     }, 1000);
+  //   };
+  //   simulatePageLoad();
+  // }, []);
+
+  const handleLoad = () => {
+    setLoad(true);
+    document.body.classList.remove("no-scroll");
+  };
+
+  const preloaderStyles = {
+    display: load ? "none" : "flex",
+  };
+
+  const location = useLocation();
 
   useEffect(() => {
-    // const handleLoad = () => {
-    //   setLoading(false);
-    // };
-    // window.addEventListener("load", handleLoad);
-    // return () => {
-    //   window.removeEventListener("load", handleLoad);
-    // };
+    window.scrollTo({ top: 0, behavior: "auto" });
+    document.activeElement.blur();
 
-    const simulatePageLoad = () => {
+    const handleBeforeUnload = () => {
+      window.scrollTo(0, 0);
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    setLoad(false);
+    document.body.classList.add("no-scroll");
+
+    const handlePageLoad = () => {
       setTimeout(() => {
-        setLoading(false);
+        handleLoad();
       }, 1000);
     };
-    simulatePageLoad();
+    window.addEventListener("load", handlePageLoad);
+    return () => {
+      window.removeEventListener("load", handlePageLoad);
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
   }, []);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+    document.activeElement.blur();
+
+    const handleBeforeUnload = () => {
+      window.scrollTo(0, 0);
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    setLoad(false);
+    document.body.classList.add("no-scroll");
+    const handleImageLoad = () => {
+      setTimeout(() => {
+        handleLoad();
+      }, 1000);
+    };
+
+    const images = document.querySelectorAll("img");
+
+    images.forEach((image) => {
+      image.addEventListener("load", handleImageLoad);
+    });
+
+    return () => {
+      images.forEach((image) => {
+        image.removeEventListener("load", handleImageLoad);
+      });
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [location.pathname]);
+
   return (
     <>
-      {loading ? (
-        <Preloader />
-      ) : (
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/calculator" element={<Calculator />} />
-          <Route exact path="/videos" element={<VideosPage />} />
-          <Route exact path="/about" element={<About />} />
-          <Route exact path="/loan" element={<Loan />} />
-          <Route exact path="/terms" element={<Terms />} />
-          <Route exact path="/privacy" element={<Privacy />} />
-          <Route exact path="/blog" element={<Blog />} />
-          <Route exact path="/article/:id" element={<Article />} />
-          <Route exact path="/car/:id" element={<CarPage />} />
-          <Route exact path="/inventory" element={<Inventory />} />
-          <Route exact path="/quiz" element={<Quiz />} />
-          <Route exact path="/404" element={<NotFound />} />
-          <Route exact path="*" element={<NotFound />} />
-        </Routes>
-      )}
+      <Preloader style={preloaderStyles} />
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/calculator" element={<Calculator />} />
+        <Route exact path="/videos" element={<VideosPage />} />
+        <Route exact path="/about" element={<About />} />
+        <Route exact path="/loan" element={<Loan />} />
+        <Route exact path="/terms" element={<Terms />} />
+        <Route exact path="/privacy" element={<Privacy />} />
+        <Route exact path="/blog" element={<Blog />} />
+        <Route exact path="/article/:id" element={<Article />} />
+        <Route exact path="/car/:id" element={<CarPage />} />
+        <Route exact path="/inventory" element={<Inventory />} />
+        <Route exact path="/quiz" element={<Quiz />} />
+        <Route exact path="/404" element={<NotFound />} />
+        <Route exact path="*" element={<NotFound />} />
+      </Routes>
     </>
   );
 }

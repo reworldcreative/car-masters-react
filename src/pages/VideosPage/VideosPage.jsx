@@ -18,6 +18,7 @@ import videoImage_4 from "@/img/videoImage/video_4-2.jpg";
 import videosData from "@/data/videos.json";
 
 import VideoItem from "./VideoItem/VideoItem";
+import { useLocation } from "react-router-dom";
 export default function VideosPage() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [popUpLink, setPopUpLink] = useState("");

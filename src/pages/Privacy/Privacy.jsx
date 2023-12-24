@@ -7,6 +7,7 @@ import Footer from "@/components/Footer/Footer";
 
 import privacyData from "@/data/privacy.json";
 import DropDownList from "@/components/DropDown/DropDownList";
+import { useLocation } from "react-router-dom";
 
 export default function Privacy() {
   return (
