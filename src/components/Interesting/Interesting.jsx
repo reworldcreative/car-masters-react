@@ -3,7 +3,9 @@ import "./interesting.scss";
 import Button from "../Button/Button";
 
 import interesting_1 from "@/img/interesting/interesting_1.jpg";
+import interesting_1_2 from "@/img/interesting/interesting_1-2.jpg";
 import interesting_2 from "@/img/interesting/interesting_2.jpg";
+import interesting_2_2 from "@/img/interesting/interesting_2-2.jpg";
 import interesting_3 from "@/img/interesting/interesting_3.jpg";
 import interesting_4 from "@/img/interesting/interesting_4.jpg";
 import interesting_5 from "@/img/interesting/interesting_5.jpg";
@@ -109,6 +111,9 @@ export default function Interesting({ sliderNavigation, caption, articles }) {
                 <swiper-slide key={article.id}>
                   <InterestingItem
                     image={article.image}
+                    imageMedium={
+                      article.imageMedium ? article.imageMedium : false
+                    }
                     imageDescription={article.imageDescription}
                     data={article.data}
                     title={article.title}

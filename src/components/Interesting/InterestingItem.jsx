@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function InterestingItem({
   image,
+  imageMedium,
   imageDescription,
   data,
   title,
@@ -20,6 +21,7 @@ export default function InterestingItem({
         <div className="interesting__img-wrapper" style={{ height: "230px" }}>
           <PictureComponent
             src={image}
+            mediumSrc={imageMedium}
             alt={"Article image. " + imageDescription}
             width="387"
             height="230"
