@@ -73,35 +73,51 @@ export default function App() {
   //   };
   // }, []);
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "auto" });
-    document.activeElement.blur();
-
-    const handleBeforeUnload = () => {
-      window.scrollTo(0, 0);
-    };
-
-    window.addEventListener("beforeunload", handleBeforeUnload);
+  document.addEventListener("DOMContentLoaded", function () {
     setLoad(false);
     document.body.classList.add("no-scroll");
-    const handleImageLoad = () => {
-      setTimeout(() => {
-        handleLoad();
-      }, 1000);
-    };
+  });
 
-    const images = document.querySelectorAll("img");
+  window.addEventListener("load", function () {
+    window.scrollTo({ top: 0, behavior: "auto" });
+    document.activeElement.blur();
+    setTimeout(() => {
+      handleLoad();
+    }, 100);
+  });
 
-    images.forEach((image) => {
-      image.addEventListener("load", handleImageLoad);
-    });
+  useEffect(() => {
+    document.activeElement.blur();
+    window.scrollTo({ top: 0, behavior: "auto" });
 
-    return () => {
-      images.forEach((image) => {
-        image.removeEventListener("load", handleImageLoad);
-      });
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-    };
+    // const handleBeforeUnload = () => {
+    //   window.scrollTo(0, 0);
+    // };
+
+    // window.addEventListener("beforeunload", handleBeforeUnload);
+    setLoad(false);
+    document.body.classList.add("no-scroll");
+    setTimeout(() => {
+      handleLoad();
+    }, 1000);
+    // const handleImageLoad = () => {
+    //   setTimeout(() => {
+    //     handleLoad();
+    //   }, 1000);
+    // };
+
+    // const images = document.querySelectorAll("img");
+
+    // images.forEach((image) => {
+    //   image.addEventListener("load", handleImageLoad);
+    // });
+
+    // return () => {
+    //   images.forEach((image) => {
+    //     image.removeEventListener("load", handleImageLoad);
+    //   });
+    //   window.removeEventListener("beforeunload", handleBeforeUnload);
+    // };
   }, [location.pathname]);
 
   return (
