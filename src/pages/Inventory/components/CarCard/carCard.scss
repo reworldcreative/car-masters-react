@@ -71,9 +71,11 @@
     height: calc(2.71875rem + 12vw);
 
     border-radius: 5px 5px 0 0;
+    max-height: 215px;
 
     &_empty {
       width: 100%;
+      max-height: 215px;
       // height: 216px;
       height: calc(2.71875rem + 12vw);
       object-fit: cover;
