@@ -28,8 +28,18 @@ const PictureComponent: React.FC<{
       <source
         type="image/webp"
         srcSet={mediumSrc ? webpMediumSrc : webpSrc}
+        media="(max-width: 1200px)"
+      />
+      {/* <source
+        type="image/webp"
+        srcSet={mediumSrc ? webpMediumSrc : webpSrc}
         media="(min-width: 768px) and (max-width: 1200px)"
       />
+      <source
+        type="image/webp"
+        srcSet={mediumSrc ? webpMediumSrc : webpSrc}
+        media="(max-width: 768px)"
+      /> */}
       <img
         id={id}
         src={src}

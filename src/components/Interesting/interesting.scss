@@ -205,6 +205,11 @@
     &__button {
       width: 100%;
       padding: 10px 5px !important;
+
+      &:hover,
+      &:focus {
+        transform: scale(1);
+      }
     }
 
     &__title {
