@@ -8,8 +8,8 @@ export default function InfoList({ children, ariaLabel }) {
       <ul
         className="info-list"
         aria-label={ariaLabel}
-        aria-labelledby="info-label"
         role="group"
+        tabIndex="0"
       >
         <li className="visibility-hidden" role="group">
           <p id="info-label" className="visibility-hidden">

@@ -93,6 +93,7 @@
       &:hover,
       &:focus {
         color: $base-color;
+        outline: none;
       }
 
       &.focused {
