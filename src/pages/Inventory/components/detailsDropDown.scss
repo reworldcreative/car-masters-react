@@ -3,6 +3,7 @@
 
 .detailsDropDown {
   &__item {
+    appearance: none;
     max-width: 300px;
     box-sizing: border-box;
     border-radius: 2px;
@@ -26,6 +27,7 @@
 
   &__top {
     list-style: none;
+    appearance: none;
 
     &:focus {
       outline: none;

@@ -151,6 +151,11 @@ module.exports = {
         // ],
       },
 
+      // {
+      //   test: /\.fbx$/,
+      //   use: "file-loader",
+      // },
+
       {
         test: /\.html$/i,
         loader: "html-loader",

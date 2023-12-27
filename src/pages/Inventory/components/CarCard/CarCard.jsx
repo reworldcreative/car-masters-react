@@ -1,6 +1,9 @@
 import React, { useRef, useEffect } from "react";
 import "./carCard.scss";
 
+import { useLoader } from "@react-three/fiber";
+import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
+
 import PictureComponent from "@/../plugins/PictureComponent";
 // import carsData from "@/data/cars.json";
 
@@ -39,6 +42,8 @@ import car21 from "@/img/cars/Audi/Audi_2.jpg";
 
 import log from "@/img/logo/logo.svg";
 import { Link } from "react-router-dom";
+import { Canvas } from "@react-three/fiber";
+import { useFBX } from "@react-three/drei";
 
 export default function CarCard({ carData }) {
   const swiperRef = useRef(null);
@@ -58,11 +63,27 @@ export default function CarCard({ carData }) {
     }
   });
 
+  // const fbx = useLoader(FBXLoader, '@/img/porsche-panamera-gts/source/Porsche_Panamera_GTS/Poimandres.fbx')
+  // const fbx = useFBX("./Porsche_Panamera_GTS/Poimandres.fbx");
+
   return (
     <article className="carCard" aria-label="car card">
       <p className="visibility-hidden ">car card</p>
       <div className="carCard__pictures">
         <p className="visibility-hidden ">car pictures</p>
+
+        {/* <Canvas
+          frameLoop="demand"
+          camera={{ position: [0, 0, 5], fov: 30 }}
+          gl={{ preserveDrawingBuffer: true }}
+        >
+          <OrbitControls enableZoom={false} />
+          <mesh>
+            <hemisphereLight intensity={0.15} groundColor={"black"} />
+            <pointLight intensity={1} />
+            <primitive object={fbx} />
+          </mesh>
+        </Canvas> */}
         <swiper-container
           ref={swiperRef}
           slides-per-view="1"

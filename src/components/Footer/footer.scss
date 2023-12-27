@@ -3,6 +3,9 @@
 
 .footer {
   background: $base-color;
+  // position: absolute;
+  // bottom: 0px;
+  // width: 100%;
   &__wrapper {
     padding: 40px 120px 57px;
     display: flex;

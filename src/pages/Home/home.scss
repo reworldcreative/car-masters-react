@@ -50,6 +50,7 @@ $lengthOfAdvantages: 3;
 
   &__slider-prev,
   &__slider-next {
+    cursor: pointer;
     border: none;
     color: $base-color;
     font-size: 20px;

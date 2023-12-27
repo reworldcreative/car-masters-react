@@ -9,6 +9,7 @@
   }
 
   &__item {
+    appearance: none;
     border: 1px solid #d7d7d7;
     background: $white;
     transition: all 0.5s ease-in-out;
@@ -36,6 +37,7 @@
   &__title {
     color: $main;
     list-style: none;
+    appearance: none;
 
     display: flex;
     align-items: center;
