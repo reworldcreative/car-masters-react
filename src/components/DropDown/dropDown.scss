@@ -51,6 +51,11 @@
     &:focus {
       outline: none;
     }
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+    list-style-type: none;
   }
 
   &__text {
