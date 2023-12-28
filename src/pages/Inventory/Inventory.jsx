@@ -405,288 +405,295 @@ export default function Inventory() {
 
   return (
     <>
-      <div className="inventory-header">
-        <Header />
-      </div>
+      <div className="inventory__Main">
+        <div className="inventory-header">
+          <Header />
+        </div>
 
-      <section className="inventory">
-        <div className="inventory__wrapper">
-          {FilterSettings ? (
-            <>
-              <div className="inventory-characteristics">
-                <button
-                  className="closeButton"
-                  aria-label="close filter settings"
-                  onClick={handleFilterSettings}
-                >
-                  <img
-                    src={closeIcon}
-                    alt="close icon"
-                    width="24"
-                    height="24"
-                    aria-hidden="true"
-                  />
-                </button>
-                <div className="inventory-characteristics__top">
-                  <p className="inventory-characteristics__title title">
-                    Detailed search
-                  </p>
+        <section className="inventory">
+          <div className="inventory__wrapper">
+            {FilterSettings ? (
+              <>
+                <div className="inventory-characteristics">
+                  <button
+                    className="closeButton"
+                    aria-label="close filter settings"
+                    onClick={handleFilterSettings}
+                  >
+                    <img
+                      src={closeIcon}
+                      alt="close icon"
+                      width="24"
+                      height="24"
+                      aria-hidden="true"
+                    />
+                  </button>
+                  <div className="inventory-characteristics__top">
+                    <p className="inventory-characteristics__title title">
+                      Detailed search
+                    </p>
 
-                  {changes ? (
-                    <button
-                      className="inventory-characteristics__clean .secondary-text"
-                      onClick={clearAll}
+                    {changes ? (
+                      <button
+                        className="inventory-characteristics__clean .secondary-text"
+                        onClick={clearAll}
+                      >
+                        Clear filters
+                      </button>
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+
+                  <div
+                    className="inventory-characteristics__form"
+                    id="inventory-characteristics__form"
+                  >
+                    <DetailsDropDown
+                      title="Marke, Model"
+                      tags={carName}
+                      removeTag={carNameRemove}
                     >
-                      Clear filters
-                    </button>
-                  ) : (
-                    <></>
-                  )}
+                      <div className="inventory-characteristics__container">
+                        <p className="secondary-text inventory-characteristics__dropdownCaption">
+                          Marke
+                        </p>
+                        <DetailsSearch
+                          placeholder="Search Marke..."
+                          suggestions={Object.keys(carsModels)}
+                          setData={handleSetCarMark}
+                          id="carMark"
+                          inputValue={carMark}
+                        />
+                      </div>
+
+                      <div className="inventory-characteristics__container">
+                        <p className="secondary-text inventory-characteristics__dropdownCaption">
+                          Model
+                        </p>
+                        <DetailsSearch
+                          placeholder="Search Model..."
+                          suggestions={
+                            carMark ? carsModels[CarsModelByIndex] : []
+                          }
+                          setData={handleSetCarModel}
+                          id="carModel"
+                          inputValue={carModel}
+                        />
+                      </div>
+                    </DetailsDropDown>
+                    <DetailsDropDown
+                      title="Body type"
+                      tags={bodyTypes}
+                      removeTag={bodyTypesRemove}
+                    >
+                      <div className="bodyTypesList">
+                        {bodyTypesData &&
+                          bodyTypesData.map((bodyType) => (
+                            <DetailsCheckbox
+                              key={bodyType.id}
+                              icon={bodyType.icon}
+                              text={bodyType.title}
+                              iconWidth={bodyType.iconWidth}
+                              iconHeight={bodyType.iconHeight}
+                              TypesChange={bodyTypesChange}
+                              TypesRemove={bodyTypesRemove}
+                              checked={bodyTypes.includes(bodyType.title)}
+                            />
+                          ))}
+                      </div>
+                    </DetailsDropDown>
+                    <DetailsDropDown
+                      title="Transmission"
+                      tags={transmission}
+                      removeTag={transmissionRemove}
+                    >
+                      <div className="inventory-characteristics__container">
+                        <DetailsCheckbox
+                          text="Automatic"
+                          TypesChange={transmissionChange}
+                          TypesRemove={transmissionRemove}
+                          checked={transmission.includes("Automatic")}
+                        />
+
+                        <DetailsCheckbox
+                          text="Manual"
+                          TypesChange={transmissionChange}
+                          TypesRemove={transmissionRemove}
+                          checked={transmission.includes("Manual")}
+                        />
+                      </div>
+                    </DetailsDropDown>
+                    <DetailsDropDown
+                      title="Price"
+                      tags={pricesTags}
+                      removeTag={pricesRemove}
+                    >
+                      <DualRangeSlider
+                        min="1000"
+                        max="1000000"
+                        fromValue={prices[0]}
+                        toValue={prices[1]}
+                        ariaLabel="select car price"
+                        change={pricesChange}
+                        type="money"
+                      />
+                    </DetailsDropDown>
+                    <DetailsDropDown
+                      title="Year"
+                      tags={yearsTags}
+                      removeTag={yearsRemove}
+                    >
+                      <DualRangeSlider
+                        // min="100"
+                        // max="1000"
+                        min="1980"
+                        max={new Date().getFullYear()}
+                        fromValue={years[0]}
+                        toValue={years[1]}
+                        ariaLabel="select car year"
+                        change={yearsChange}
+                        type="years"
+                      />
+                    </DetailsDropDown>
+                    <DetailsDropDown
+                      title="Kilometers"
+                      tags={kilometersTag}
+                      removeTag={kilometersRemove}
+                    >
+                      <div className="inventory-characteristics__kilometers">
+                        <CalculatorSlider
+                          defaultValue={kilometers[0]}
+                          text=""
+                          type="kilometers"
+                          min="0"
+                          max="500000"
+                          ariaLabel="select car mileage"
+                          change={kilometersChange}
+                        />
+                      </div>
+                    </DetailsDropDown>
+                  </div>
                 </div>
 
                 <div
-                  className="inventory-characteristics__form"
-                  id="inventory-characteristics__form"
-                >
-                  <DetailsDropDown
-                    title="Marke, Model"
-                    tags={carName}
-                    removeTag={carNameRemove}
-                  >
-                    <div className="inventory-characteristics__container">
-                      <p className="secondary-text inventory-characteristics__dropdownCaption">
-                        Marke
-                      </p>
-                      <DetailsSearch
-                        placeholder="Search Marke..."
-                        suggestions={Object.keys(carsModels)}
-                        setData={handleSetCarMark}
-                        id="carMark"
-                        inputValue={carMark}
-                      />
-                    </div>
+                  className="inventory-characteristics__bg"
+                  aria-hidden="true"
+                  onClick={handleFilterSettings}
+                />
+              </>
+            ) : (
+              <></>
+            )}
 
-                    <div className="inventory-characteristics__container">
-                      <p className="secondary-text inventory-characteristics__dropdownCaption">
-                        Model
-                      </p>
-                      <DetailsSearch
-                        placeholder="Search Model..."
-                        suggestions={
-                          carMark ? carsModels[CarsModelByIndex] : []
-                        }
-                        setData={handleSetCarModel}
-                        id="carModel"
-                        inputValue={carModel}
-                      />
-                    </div>
-                  </DetailsDropDown>
-                  <DetailsDropDown
-                    title="Body type"
-                    tags={bodyTypes}
-                    removeTag={bodyTypesRemove}
+            <div className="inventory-content">
+              <div className="inventory-content__top">
+                <div className="inventory-content__filter">
+                  <button
+                    aria-label={
+                      !FilterSettings ? "open " : "close " + "filter settings"
+                    }
+                    className="inventory-content__filter-button"
+                    onClick={handleFilterSettings}
                   >
-                    <div className="bodyTypesList">
-                      {bodyTypesData &&
-                        bodyTypesData.map((bodyType) => (
-                          <DetailsCheckbox
-                            key={bodyType.id}
-                            icon={bodyType.icon}
-                            text={bodyType.title}
-                            iconWidth={bodyType.iconWidth}
-                            iconHeight={bodyType.iconHeight}
-                            TypesChange={bodyTypesChange}
-                            TypesRemove={bodyTypesRemove}
-                            checked={bodyTypes.includes(bodyType.title)}
-                          />
-                        ))}
-                    </div>
-                  </DetailsDropDown>
-                  <DetailsDropDown
-                    title="Transmission"
-                    tags={transmission}
-                    removeTag={transmissionRemove}
-                  >
-                    <div className="inventory-characteristics__container">
-                      <DetailsCheckbox
-                        text="Automatic"
-                        TypesChange={transmissionChange}
-                        TypesRemove={transmissionRemove}
-                        checked={transmission.includes("Automatic")}
-                      />
+                    <img
+                      src={filterIcon}
+                      alt="filter icon"
+                      width="26"
+                      height="22"
+                      aria-hidden="true"
+                    />
+                  </button>
 
-                      <DetailsCheckbox
-                        text="Manual"
-                        TypesChange={transmissionChange}
-                        TypesRemove={transmissionRemove}
-                        checked={transmission.includes("Manual")}
-                      />
-                    </div>
-                  </DetailsDropDown>
-                  <DetailsDropDown
-                    title="Price"
-                    tags={pricesTags}
-                    removeTag={pricesRemove}
-                  >
-                    <DualRangeSlider
-                      min="1000"
-                      max="1000000"
-                      fromValue={prices[0]}
-                      toValue={prices[1]}
-                      ariaLabel="select car price"
-                      change={pricesChange}
-                      type="money"
+                  <p className="secondary-text search-text" aria-hidden="true">
+                    Search Filter
+                  </p>
+                </div>
+                <div className="inventory-content__search">
+                  <DetailsSearch
+                    placeholder="Find a dream car..."
+                    suggestions={Object.values(sortedData).map(
+                      (car) => car.name
+                    )}
+                    // suggestions={Object.values(carsData).map((car) => car.name)}
+                    setData={handleSetCarFull}
+                    id="carMarkTop"
+                    inputValue={carFull}
+                  />
+
+                  <button className="share" aria-label="share cars">
+                    <img
+                      className="share__icon"
+                      src={share}
+                      alt="share icon"
+                      width="22"
+                      height="22"
+                      aria-hidden="true"
                     />
-                  </DetailsDropDown>
-                  <DetailsDropDown
-                    title="Year"
-                    tags={yearsTags}
-                    removeTag={yearsRemove}
-                  >
-                    <DualRangeSlider
-                      // min="100"
-                      // max="1000"
-                      min="1980"
-                      max={new Date().getFullYear()}
-                      fromValue={years[0]}
-                      toValue={years[1]}
-                      ariaLabel="select car year"
-                      change={yearsChange}
-                      type="years"
-                    />
-                  </DetailsDropDown>
-                  <DetailsDropDown
-                    title="Kilometers"
-                    tags={kilometersTag}
-                    removeTag={kilometersRemove}
-                  >
-                    <div className="inventory-characteristics__kilometers">
-                      <CalculatorSlider
-                        defaultValue={kilometers[0]}
-                        text=""
-                        type="kilometers"
-                        min="0"
-                        max="500000"
-                        ariaLabel="select car mileage"
-                        change={kilometersChange}
-                      />
-                    </div>
-                  </DetailsDropDown>
+                  </button>
+                </div>
+
+                <div className="inventory-content__sorted">
+                  <p className="secondary-text sorted-text">Sorted by</p>
+
+                  <InventorySelect
+                    defaultValue="Recommendations"
+                    getValue={sortedByChange}
+                  />
                 </div>
               </div>
 
               <div
-                className="inventory-characteristics__bg"
-                aria-hidden="true"
-                onClick={handleFilterSettings}
+                className="inventory-content__list"
+                tabIndex="0"
+                ref={listRef}
+              >
+                {currentItems.length ? (
+                  currentItems.map((car) => (
+                    <CarCard key={car.id} carData={car} />
+                  ))
+                ) : (
+                  <div className="inventory-content__empty">
+                    <img
+                      src={carEmpty}
+                      alt="moving car icon"
+                      width="69"
+                      height="30"
+                      aria-hidden="true"
+                      // className="inventory-content__empty-icon"
+                    />
+
+                    <p className="title">
+                      Unfortunately there are no matches for your query.
+                    </p>
+                    <p className="secondary-text">
+                      Try using other filter settings or request a car of your
+                      choice.
+                    </p>
+
+                    <a
+                      className="secondary-text inventory-content__emptyLink"
+                      href="#"
+                    >
+                      Request a car
+                    </a>
+                  </div>
+                )}
+              </div>
+
+              <Pagination
+                currentPage={currentPage}
+                totalPages={Math.min(
+                  Math.ceil(sortedData.length / itemsPerPage),
+                  maxPages
+                )}
+                onPageChange={setCurrentPage}
               />
-            </>
-          ) : (
-            <></>
-          )}
-
-          <div className="inventory-content">
-            <div className="inventory-content__top">
-              <div className="inventory-content__filter">
-                <button
-                  aria-label={
-                    !FilterSettings ? "open " : "close " + "filter settings"
-                  }
-                  className="inventory-content__filter-button"
-                  onClick={handleFilterSettings}
-                >
-                  <img
-                    src={filterIcon}
-                    alt="filter icon"
-                    width="26"
-                    height="22"
-                    aria-hidden="true"
-                  />
-                </button>
-
-                <p className="secondary-text search-text" aria-hidden="true">
-                  Search Filter
-                </p>
-              </div>
-              <div className="inventory-content__search">
-                <DetailsSearch
-                  placeholder="Find a dream car..."
-                  suggestions={Object.values(sortedData).map((car) => car.name)}
-                  // suggestions={Object.values(carsData).map((car) => car.name)}
-                  setData={handleSetCarFull}
-                  id="carMarkTop"
-                  inputValue={carFull}
-                />
-
-                <button className="share" aria-label="share cars">
-                  <img
-                    className="share__icon"
-                    src={share}
-                    alt="share icon"
-                    width="22"
-                    height="22"
-                    aria-hidden="true"
-                  />
-                </button>
-              </div>
-
-              <div className="inventory-content__sorted">
-                <p className="secondary-text sorted-text">Sorted by</p>
-
-                <InventorySelect
-                  defaultValue="Recommendations"
-                  getValue={sortedByChange}
-                />
-              </div>
             </div>
-
-            <div className="inventory-content__list" tabIndex="0" ref={listRef}>
-              {currentItems.length ? (
-                currentItems.map((car) => (
-                  <CarCard key={car.id} carData={car} />
-                ))
-              ) : (
-                <div className="inventory-content__empty">
-                  <img
-                    src={carEmpty}
-                    alt="moving car icon"
-                    width="69"
-                    height="30"
-                    aria-hidden="true"
-                    // className="inventory-content__empty-icon"
-                  />
-
-                  <p className="title">
-                    Unfortunately there are no matches for your query.
-                  </p>
-                  <p className="secondary-text">
-                    Try using other filter settings or request a car of your
-                    choice.
-                  </p>
-
-                  <a
-                    className="secondary-text inventory-content__emptyLink"
-                    href="#"
-                  >
-                    Request a car
-                  </a>
-                </div>
-              )}
-            </div>
-
-            <Pagination
-              currentPage={currentPage}
-              totalPages={Math.min(
-                Math.ceil(sortedData.length / itemsPerPage),
-                maxPages
-              )}
-              onPageChange={setCurrentPage}
-            />
           </div>
-        </div>
-      </section>
-
-      <Footer />
+        </section>
+        <Footer />
+      </div>
     </>
   );
 }

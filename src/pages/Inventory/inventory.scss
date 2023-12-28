@@ -41,7 +41,17 @@
   }
 }
 
+.inventory__Main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .inventory {
+  // min-height: 100vh;
+  // display: flex;
+  // flex-direction: column;
+  flex: 1;
   &__wrapper {
     padding: 40px 120px;
     max-width: 1200px;
