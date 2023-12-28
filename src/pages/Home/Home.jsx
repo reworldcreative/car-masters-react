@@ -242,7 +242,7 @@ export default function Home() {
                   style={{
                     height: "50px",
                     width: "fit-content",
-                    display: "flex",
+                    // display: "flex",
                   }}
                   className="home-choose__button-wrapper"
                 >

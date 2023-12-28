@@ -16,7 +16,7 @@
 
   &__button {
     width: fit-content;
-
+    display: block;
     padding: 16px 39px !important;
   }
 
@@ -476,7 +476,8 @@
 
     .button {
       &.accent {
-        padding: 10px 12px !important;
+        // padding: 10px 12px !important;
+        padding: 10px 0px !important;
       }
     }
   }
@@ -641,6 +642,10 @@
     &__wrapper {
       padding: 30px 0px 80px;
       overflow: clip;
+    }
+
+    .button.accent {
+      padding: 10px 5px !important;
     }
   }
 

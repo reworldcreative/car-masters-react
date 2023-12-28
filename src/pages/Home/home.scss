@@ -21,6 +21,8 @@ $lengthOfAdvantages: 3;
     gap: 50px;
     max-width: 44%;
     .button {
+      display: block;
+      // margin: auto;
       // width: fit-content;
       height: fit-content;
       // padding: 16px 39px;
@@ -430,6 +432,11 @@ $lengthOfAdvantages: 3;
     display: grid;
     gap: 40px;
   }
+
+  &__button {
+    display: block;
+    width: auto;
+  }
 }
 
 .happy-customers {
@@ -627,6 +634,10 @@ $lengthOfAdvantages: 3;
       max-width: 100%;
       display: block;
       text-align: center;
+
+      .button {
+        margin: auto;
+      }
     }
 
     &__slider-container {
@@ -1185,11 +1196,15 @@ $lengthOfAdvantages: 3;
 
   .home-choose {
     &__wrapper {
-      gap: 34px;
+      gap: 49px;
     }
     &__container {
+      .home-choose__button-wrapper {
+        height: 35px !important;
+      }
       .button {
         width: 100%;
+        padding: 10px 25px !important;
       }
     }
 

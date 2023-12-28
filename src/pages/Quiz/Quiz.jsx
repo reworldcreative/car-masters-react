@@ -246,16 +246,24 @@ export default function Quiz() {
         case 8:
           if (employmentStatus === "Retired / Pension") {
             setCurrentQuestion(5);
-          }
-
-          if (
-            employmentStatus !== "Retired / Pension" ||
-            employmentStatus !== "Employed" ||
-            employmentStatus !== "Self-Employed" ||
-            employmentStatus !== "Student"
+          } else if (
+            employmentStatus === "Employed" ||
+            employmentStatus === "Self-Employed" ||
+            employmentStatus === "Student"
           ) {
+            setCurrentQuestion(7);
+          } else {
             setCurrentQuestion(4);
           }
+
+          // if (
+          //   employmentStatus !== "Retired / Pension" ||
+          //   employmentStatus !== "Employed" ||
+          //   employmentStatus !== "Self-Employed" ||
+          //   employmentStatus !== "Student"
+          // ) {
+          //   setCurrentQuestion(4);
+          // }
           break;
         default:
           setCurrentQuestion(currentQuestion - 1);

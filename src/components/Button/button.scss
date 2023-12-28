@@ -2,6 +2,7 @@
 @import "rfs/scss";
 
 .button {
+  // display: block;
   @include Font(16px, 700, 89.775%);
   border-radius: 2px;
   border: 1px solid $base-color;

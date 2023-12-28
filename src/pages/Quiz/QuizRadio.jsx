@@ -33,8 +33,8 @@ export default function QuizRadio({ text, getValue }) {
         aria-label=" "
       >
         {text}
-        {". "}
         <span className="visibility-hidden">
+          {". "}
           {selectedOption === text ? "selected" : "unselected"}
         </span>
       </label>

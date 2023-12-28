@@ -22,6 +22,7 @@
 
   &__button {
     text-transform: uppercase;
+    display: block;
     padding: 16px 37px !important;
   }
 
@@ -205,7 +206,8 @@
 
     &__button {
       width: 100%;
-      padding: 10px 5px !important;
+      // padding: 10px 5px !important;
+      padding: 10px 0px !important;
 
       &:hover,
       &:focus {

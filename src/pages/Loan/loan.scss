@@ -17,7 +17,7 @@
 
   &__button {
     width: fit-content;
-
+    display: block;
     padding: 16px 39px !important;
   }
 
@@ -75,6 +75,10 @@
 
   &__button-wrapper {
     margin-top: 20px;
+  }
+
+  &__button {
+    display: block;
   }
 
   &__img {
@@ -251,6 +255,7 @@
     .button {
       &.accent {
         padding: 10px 12px !important;
+        width: -webkit-fill-available;
       }
     }
 
@@ -271,6 +276,7 @@
 
     &__button {
       width: 100%;
+      width: -webkit-fill-available;
     }
 
     .button {
