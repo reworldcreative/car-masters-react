@@ -239,7 +239,11 @@ export default function Home() {
                   your car to your liking.
                 </p>
                 <div
-                  style={{ height: "50px", width: "fit-content" }}
+                  style={{
+                    height: "50px",
+                    width: "fit-content",
+                    display: "flex",
+                  }}
                   className="home-choose__button-wrapper"
                 >
                   {/* <Button addclass="home-choose__button accent">
@@ -283,7 +287,11 @@ export default function Home() {
                 </p>
 
                 <div
-                  style={{ width: "fit-content", height: "45px" }}
+                  style={{
+                    width: "fit-content",
+                    height: "45px",
+                    display: "flex",
+                  }}
                   className="happy-customers__button-wrapper"
                 >
                   {/* <Button addclass="happy-customers__button accent">
