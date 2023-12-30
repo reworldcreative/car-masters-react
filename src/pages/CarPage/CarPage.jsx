@@ -1,6 +1,11 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import "./carPage.scss";
+
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, useFBX } from "@react-three/drei";
+import { useLoader } from "@react-three/fiber";
+import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 
 import cars from "@/data/cars.json";
 import log from "@/img/logo/logo.svg";
@@ -12,6 +17,9 @@ import Footer from "@/components/Footer/Footer";
 import Calculator from "@/components/Calculator/Calculator";
 import PictureComponent from "@/../plugins/PictureComponent";
 import Button from "@/components/Button/Button";
+import { MeshStandardMaterial } from "three";
+
+import threeModel from "@/img/porsche-panamera-gts/Porsche_Panamera_GTS.fbx";
 
 export default function CarPage() {
   const [currentCar, setCurrentCar] = useState({ ...cars[0] });
@@ -55,11 +63,39 @@ export default function CarPage() {
       window.removeEventListener("popstate", updateCurrentCar);
     };
   }, [id]);
+
+  // const fbx = useLoader(FBXLoader, '@/img/porsche-panamera-gts/Porsche_Panamera_GTS.fbx')
+  const fbx = useFBX("./models/Porsche_Panamera_GTS.fbx");
   return (
     <>
       <div className="carPage__header">
         <Header />
       </div>
+      {/* <Suspense fallback={null}>
+        <Canvas
+          camera={{ position: [0, 70, 50], fov: 70 }}
+          gl={{ preserveDrawingBuffer: true }}
+          shadows
+        >
+          <OrbitControls
+            enableZoom={false}
+            maxPolarAngle={Math.PI / 2}
+            minPolarAngle={Math.PI / 2}
+          />
+          <hemisphereLight intensity={0.15} groundColor={"black"} />
+          <pointLight intensity={1} />
+          <mesh
+            scale={[0.3, 0.3, 0.3]}
+            position={[800, -100, -1000]}
+          > */}
+      {/* <hemisphereLight intensity={0.15} groundColor={"black"} />
+          <pointLight intensity={1} /> */}
+      {/* <boxGeometry />
+            <meshStandardMaterial color="blue" /> */}
+      {/* <primitive object={fbx} />
+          </mesh>
+        </Canvas>
+      </Suspense>  */}
       <section className="carPage">
         <div className="carPage__wrapper">
           <div className="carPage__top">

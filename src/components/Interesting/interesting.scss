@@ -34,14 +34,24 @@
     max-width: fit-content;
     margin: auto;
     position: relative;
+    filter: drop-shadow(0px 20px 25px rgba(0, 0, 0, 0.1));
   }
 
   &__item {
     background: $white;
-    filter: drop-shadow(0px 20px 25px rgba(0, 0, 0, 0.1));
+    // filter: drop-shadow(0px 20px 25px rgba(0, 0, 0, 0.1));
     border-radius: 5px;
     width: fit-content;
     margin-bottom: 40px;
+
+    transition: all 0.5s ease-in-out;
+
+    &:hover,
+    &:focus {
+      filter: drop-shadow(2px 4px 6px black);
+      transform: scale(1.05);
+      outline: none;
+    }
   }
 
   &__img {
@@ -176,6 +186,12 @@
 
     &__item {
       margin-bottom: 30px;
+
+      &:hover,
+      &:focus {
+        filter: drop-shadow(2px 4px 6px black);
+        transform: scale(1);
+      }
     }
 
     swiper-slide {
@@ -205,7 +221,7 @@
     }
 
     &__button {
-      width: 100%;
+      width: -webkit-fill-available;
       // padding: 10px 5px !important;
       padding: 10px 0px !important;
 

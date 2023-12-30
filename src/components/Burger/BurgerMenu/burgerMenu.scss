@@ -8,13 +8,16 @@
     padding: 0;
     display: grid;
     gap: 20px;
+    outline: none;
   }
 
   &__link {
     background: none;
     border: none;
     padding: 0;
-    &:hover {
+    outline: none;
+    &:hover,
+    &:focus {
       color: $base-color;
     }
   }
@@ -24,7 +27,8 @@
     // position: absolute;
 
     // margin-top: 40vh;
-    margin-top: 29.5vh;
+    margin-top: 29.45vh;
+
     position: relative;
   }
 }
@@ -34,6 +38,10 @@
     &__link {
       font-size: 25px;
     }
+
+    .socialsList {
+      margin-top: 43.85vh;
+    }
   }
 }
 
@@ -41,6 +49,11 @@
   .burgerMenu {
     &__list {
       gap: 25px;
+      padding: 0px 19px;
+
+      & + address .socialsList {
+        padding: 0px 19px;
+      }
     }
 
     &__link {
@@ -50,7 +63,29 @@
 
     .socialsList {
       // bottom: 50px;
-      margin-top: 17vh;
+      margin-top: 17.82vh;
+    }
+
+    .contactMenu {
+      gap: 30px;
+
+      .contact__button-wrapper {
+        height: 35px !important;
+        margin-top: 20px;
+      }
+
+      &__links {
+        margin-top: 30px;
+      }
+
+      &__input {
+        font-size: 14px;
+        padding: 10px 10px 11px 43px;
+
+        &::placeholder {
+          font-size: 14px;
+        }
+      }
     }
   }
 }

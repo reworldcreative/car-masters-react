@@ -151,10 +151,13 @@ module.exports = {
         // ],
       },
 
-      // {
-      //   test: /\.fbx$/,
-      //   use: "file-loader",
-      // },
+      {
+        test: /\.(fbx|obj)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "models/[name][ext]",
+        },
+      },
 
       {
         test: /\.html$/i,

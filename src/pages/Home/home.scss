@@ -40,6 +40,7 @@ $lengthOfAdvantages: 3;
   &__slider-container {
     max-width: 50%;
     position: relative;
+    width: 50vw;
   }
 
   &__slider {
@@ -476,6 +477,10 @@ $lengthOfAdvantages: 3;
   .info-list {
     flex: 1;
     height: fit-content;
+
+    &:focus {
+      outline: none;
+    }
   }
 }
 
@@ -642,6 +647,7 @@ $lengthOfAdvantages: 3;
 
     &__slider-container {
       max-width: 100%;
+      width: 89vw;
     }
 
     &__slider {
@@ -913,6 +919,7 @@ $lengthOfAdvantages: 3;
 
     &__text {
       width: -webkit-fill-available;
+      width: -moz-available;
     }
     // .section-title {
     //   @include font-size(45px);
@@ -1213,7 +1220,7 @@ $lengthOfAdvantages: 3;
     }
 
     .button {
-      padding: 10px 12px !important;
+      padding: 10px 0px !important;
     }
 
     &__img {

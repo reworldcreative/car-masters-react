@@ -7,7 +7,7 @@
   // bottom: 0px;
   // width: 100%;
   &__wrapper {
-    padding: 40px 120px 57px;
+    padding: 42px 120px 60px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -85,7 +85,7 @@
 @media screen and (max-width: 1200px) {
   .footer {
     &__wrapper {
-      padding: 41px 8.5vw 62px;
+      padding: 42px 8.5vw 62px;
       flex-wrap: wrap;
       gap: 45px;
 
@@ -96,15 +96,25 @@
     &__copyright-wrapper {
       width: 100%;
       justify-content: flex-end;
-      gap: 27.9vw;
+      gap: 28vw;
+    }
+
+    &__container {
+      align-items: center;
+      gap: 12px;
     }
 
     .socialsList {
-      margin-right: 15.7vw;
+      margin-right: 15.8vw;
+      gap: 11px;
     }
 
     &__copyright {
       margin-right: 35px;
+    }
+
+    &__links {
+      margin-bottom: 0px;
     }
   }
 }
@@ -112,7 +122,7 @@
 @media screen and (max-width: 800px) {
   .footer {
     &__wrapper {
-      padding: 41px 32px 62px;
+      padding: 41px 32px 61px;
     }
   }
 }

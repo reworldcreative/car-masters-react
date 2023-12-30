@@ -23,7 +23,7 @@
     border: 1px solid #d7d7d7;
     outline: none;
     width: 100%;
-    padding: 10px 10px 10px 44px;
+    padding: 9px 10px 9px 43px;
 
     @include Font(16px, 500, 159%, $main);
 
@@ -37,7 +37,7 @@
     }
 
     &.car-model {
-      padding: 10px 20px;
+      padding: 9px 20px;
 
       &::placeholder {
         @include Font(16px, 500, 159%, $second);
@@ -76,7 +76,7 @@
 
     position: absolute;
 
-    left: 13px;
+    left: 10px;
   }
 
   &__icon {

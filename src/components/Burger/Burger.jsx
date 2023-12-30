@@ -6,6 +6,7 @@ import closeIcon from "@/img/icons/close_icon.svg";
 import BurgerMenu from "./BurgerMenu/BurgerMenu";
 import ContactMenu from "./ContactMenu/ContactMenu";
 import Successful from "./ContactMenu/Successful/Successful";
+import { useLocation } from "react-router-dom";
 
 export default function Burger({ close }) {
   const burgerMenuRef = useRef(null);

@@ -14,7 +14,7 @@
   box-sizing: border-box;
 
   overflow-y: scroll;
-  padding: 15.85vh 8.69vw 10.38vh 60px;
+  padding: 15.85vh 8.34vw 10.38vh 60px;
   // padding-top: 15.85vh;
   // padding-bottom: 10.38vh;
   // padding-right:  8.69vw ;
@@ -35,8 +35,10 @@
     border: none;
     padding: 0px;
     cursor: pointer;
+    outline: none;
 
-    &:hover {
+    &:hover,
+    &:focus {
       filter: invert(61%) sepia(41%) saturate(6824%) hue-rotate(213deg)
         brightness(102%) contrast(104%);
     }
@@ -55,7 +57,8 @@
   .burgerMenu {
     // width: 65.625vw;
     // max-width: 390px;
-    padding: 15.85vh 7.04vw 10.38vh 60px;
+    // padding: 15.85vh 7.04vw 10.38vh 60px;
+    padding: 100px 7.04vw 105px 60px;
 
     // &__close {
     //   right: 28px;
@@ -67,7 +70,7 @@
 @media screen and (max-width: 500px) {
   .burgerMenu {
     width: 100vw;
-    padding: 100px 44px;
+    padding: 100px 20px 50px;
 
     // &__close {
     //   right: 17px;

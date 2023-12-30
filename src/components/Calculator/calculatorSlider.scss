@@ -58,8 +58,12 @@
     &::-moz-range-track {
       -moz-appearance: none;
       appearance: none;
+    }
+
+    &::-moz-range-thumb {
       width: 18px;
       height: 18px;
+      border: none;
       border-radius: 2px;
       background: $base-color;
       cursor: pointer;

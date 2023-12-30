@@ -126,7 +126,7 @@ export default function ContactMenu({ success }) {
                 required: "The field is required",
                 pattern: {
                   value: /^(\+?38)?0\d{9}$/u,
-                  message: "The field can contain nine numbers",
+                  message: "The field can contain 380 + nine numbers",
                 },
               })}
             />

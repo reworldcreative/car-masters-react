@@ -4,14 +4,14 @@
 .socialsList {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
   margin: 0;
   padding: 0;
 
   height: fit-content;
 
   &__item {
-    padding: 6.5px;
+    padding: 7px;
     border-radius: 2px;
     background: $base-color;
     display: flex;
@@ -20,8 +20,9 @@
 
     transition: transform 0.5s ease-out;
     height: fit-content;
+    outline: none;
     &:hover {
-      background: #6270ff;
+      // background: #6270ff;
       filter: drop-shadow(2px 4px 6px black);
       transform: scale(1.1);
     }
@@ -31,9 +32,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    outline: none;
 
     &:focus {
-      background: #6270ff;
+      // background: #6270ff;
       filter: drop-shadow(2px 4px 6px black);
       transform: scale(1.1);
     }
