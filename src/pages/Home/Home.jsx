@@ -325,7 +325,8 @@ export default function Home() {
         <Calculator />
 
         <Interesting
-          sliderNavigation={isMobileScreen ? true : false}
+          // sliderNavigation={isMobileScreen ? true : false}
+          sliderNavigation={true}
           caption="Interesting to read"
           articles={articles.slice(0, 6)}
         />

@@ -8,20 +8,22 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer__wrapper">
-        <div className="footer__container">
-          <Logo />
+        <div className="footer__wrapper-first">
+          <div className="footer__container">
+            <Logo />
 
-          <div className="footer__links">
-            <Link to={"/terms"} className="footer__link footer-text">
-              Terms
-            </Link>
-            <Link to={"/privacy"} className="footer__link footer-text">
-              Privacy
-            </Link>
+            <div className="footer__links">
+              <Link to={"/terms"} className="footer__link footer-text">
+                Terms
+              </Link>
+              <Link to={"/privacy"} className="footer__link footer-text">
+                Privacy
+              </Link>
+            </div>
           </div>
-        </div>
 
-        <SocialsList />
+          <SocialsList />
+        </div>
 
         <div className="footer__copyright-wrapper">
           <p className="footer__copyright-title footer-text">Created by</p>

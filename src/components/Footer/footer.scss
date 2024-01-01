@@ -7,13 +7,21 @@
   // bottom: 0px;
   // width: 100%;
   &__wrapper {
-    padding: 42px 120px 60px;
+    // padding: 42px 120px 60px;
+    padding: 42px 127px 60px;
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: flex-end;
 
-    margin-left: 7.3px;
-    margin-right: 52px;
+    // margin-left: 7.3px;
+    // margin-right: 52px;
+
+    justify-content: space-between;
+    max-width: 79.4%;
+  }
+
+  &__wrapper-first {
+    display: flex;
   }
 
   &__container {
@@ -49,6 +57,8 @@
   }
 
   .socialsList {
+    margin-left: 7.57vw;
+    // margin-right: 13.27vw;
     &__item {
       background: $white;
 
@@ -93,6 +103,12 @@
       margin-right: 0px;
     }
 
+    &__wrapper-first {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+    }
+
     &__copyright-wrapper {
       width: 100%;
       justify-content: flex-end;
@@ -106,7 +122,8 @@
 
     .socialsList {
       margin-right: 15.8vw;
-      gap: 11px;
+      margin-left: auto;
+      gap: 10px;
     }
 
     &__copyright {
@@ -123,6 +140,7 @@
   .footer {
     &__wrapper {
       padding: 41px 32px 61px;
+      max-width: fit-content;
     }
   }
 }
@@ -148,6 +166,10 @@
     &__wrapper {
       padding: 20px;
       gap: 30px 10px;
+    }
+
+    &__wrapper-first {
+      gap:30px;
     }
 
     &__copyright-wrapper {

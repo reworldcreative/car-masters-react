@@ -21,7 +21,15 @@
     display: flex;
     justify-content: space-between;
     width: 357px;
+    height: 45px;
     // gap: 20px;
+
+    .button {
+      padding: 16px 24px 15px;
+    }
+    .button.accent {
+      padding: 16px 39px 15px;
+    }
   }
 }
 
@@ -44,6 +52,13 @@
 
     &__buttons {
       width: 335px;
+
+      .button {
+        padding: 16px 23px 15px;
+      }
+      .button.accent {
+        padding: 16px 29px 15px;
+      }
     }
   }
 }
@@ -76,6 +91,12 @@
 
     &__buttons {
       height: 35px;
+      .button {
+        padding: 10px;
+      }
+      .button.accent {
+        padding: 10px 11px;
+      }
     }
   }
 }

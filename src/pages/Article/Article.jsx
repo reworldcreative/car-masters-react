@@ -80,8 +80,8 @@ export default function Article() {
               className="article-back__icon"
               alt="back arrow"
               aria-hidden="true"
-              width="16"
-              height="8"
+              width="20"
+              height="9"
             />
             <p className="secondary-text">Back</p>
           </a>

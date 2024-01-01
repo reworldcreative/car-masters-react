@@ -30,6 +30,7 @@ $lengthOfAdvantages: 3;
 
       padding: 16px 10px;
       width: 200px;
+      height: 45px;
     }
   }
 
@@ -79,13 +80,13 @@ $lengthOfAdvantages: 3;
 
   &__slider-next {
     right: 0px;
-    top: 48.5%;
+    top: 49%;
   }
 
   &__slider-prev {
     transform: rotate(180deg);
     left: 0px;
-    top: 48.5%;
+    top: 49%;
   }
 
   &__slider-next:hover,
@@ -122,7 +123,7 @@ $lengthOfAdvantages: 3;
     border-radius: 5px;
     background-color: $white;
     padding: 60px 60px 64px;
-    margin: -42px auto 0px;
+    margin: -40px auto 0px;
 
     width: 605px;
     text-align: center;
@@ -506,6 +507,32 @@ $lengthOfAdvantages: 3;
   }
 }
 
+@media screen and (min-width: 1700px) {
+  .home-advantages {
+    &__item {
+      padding: 138px 80px 64px;
+
+      &:nth-child(2n),
+      .home-advantages__item:nth-child(3n + 2) {
+        padding: 33px 140px 111px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .home-advantages {
+    &__item {
+      padding: 138px 60px 64px;
+
+      &:nth-child(2n),
+      .home-advantages__item:nth-child(3n + 2) {
+        padding: 33px 120px 111px;
+      }
+    }
+  }
+}
+
 @media screen and (min-width: 1500px) {
   .perfect-car {
     &__wrapper {
@@ -525,10 +552,20 @@ $lengthOfAdvantages: 3;
     }
 
     &__item {
+      padding: 138px 50px 64px;
       &:nth-child(2n),
       &:nth-child(3n),
       &:nth-child(5) {
         left: 0px;
+      }
+
+      &:nth-child(2n),
+      .home-advantages__item:nth-child(3n + 2) {
+        padding: 33px 110px 111px;
+      }
+
+      &::before {
+        background-size: 100%;
       }
     }
   }
@@ -568,14 +605,25 @@ $lengthOfAdvantages: 3;
 
     &__item {
       &:nth-child(3n) {
-        left: 0px;
+        // left: 0px;
+        left: -80px;
       }
 
       &:nth-child(2n) {
-        left: -120px;
+        // left: -120px;
+        left: -40px;
       }
       &:nth-child(5) {
         left: 0px;
+      }
+      padding: 138px 40px 64px;
+      &:nth-child(2n),
+      &:nth-child(3n + 2) {
+        padding: 33px 100px 111px;
+      }
+
+      &::before {
+        background-size: 100%;
       }
     }
   }
@@ -651,7 +699,7 @@ $lengthOfAdvantages: 3;
     }
 
     &__slider {
-      margin: 60px 0 54px;
+      margin: 63px 0 55px;
     }
 
     &__slider-next,
@@ -691,9 +739,7 @@ $lengthOfAdvantages: 3;
       width: 100%;
     }
   }
-}
 
-@media screen and (max-width: 1100px) {
   .home-advantages {
     &__container {
       justify-content: center;
@@ -702,8 +748,8 @@ $lengthOfAdvantages: 3;
       gap: 47px;
       margin: 0px;
     }
-
     &__item {
+      padding: 138px 80px 64px;
       &:nth-child(2n) {
         left: 0px;
         padding: 138px 80px 64px;
@@ -718,8 +764,41 @@ $lengthOfAdvantages: 3;
           max-height: 130px;
         }
       }
+
+      &:nth-child(3n) {
+        left: 0px;
+      }
     }
   }
+}
+
+@media screen and (max-width: 1100px) {
+  // .home-advantages {
+  // &__container {
+  //   justify-content: center;
+  //   max-width: -webkit-fill-available;
+  //   width: auto;
+  //   gap: 47px;
+  //   margin: 0px;
+  // }
+
+  // &__item {
+  //   &:nth-child(2n) {
+  //     left: 0px;
+  //     padding: 138px 80px 64px;
+
+  //     &::before {
+  //       transform: rotate(0deg);
+  //     }
+
+  //     .secondary-text {
+  //       width: 320px;
+  //       -webkit-line-clamp: 4;
+  //       max-height: 130px;
+  //     }
+  //   }
+  // }
+  // }
 
   .home-choose {
     &__wrapper {
@@ -846,7 +925,7 @@ $lengthOfAdvantages: 3;
     &__container {
       padding: 40px;
       width: 565px;
-      margin: -40px auto 0;
+      margin: -37px auto 0;
     }
 
     &__text {
@@ -1011,6 +1090,7 @@ $lengthOfAdvantages: 3;
     .button {
       padding: 10px 16px;
       width: 214px;
+      height: 35px;
     }
 
     &__slider-prev,
@@ -1021,7 +1101,7 @@ $lengthOfAdvantages: 3;
     }
 
     &__slider {
-      margin: 40px 0 37px;
+      margin: 40px 0 35px;
     }
 
     &__slider-icon {
@@ -1255,7 +1335,7 @@ $lengthOfAdvantages: 3;
     .button {
       width: 100%;
       margin-top: 10px;
-      padding: 10px 39px !important;
+      padding: 11px 39px !important;
     }
 
     &__caption {

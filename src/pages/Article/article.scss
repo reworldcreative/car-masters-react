@@ -26,8 +26,9 @@
   position: absolute;
 
   display: flex;
-  gap: 13px;
+  gap: 10px;
   align-items: center;
+  outline: none;
 
   .secondary-text {
     color: $second;
@@ -47,7 +48,8 @@
       brightness(96%) contrast(87%);
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: $base-color;
     .article-back__icon {
       filter: invert(51%) sepia(23%) saturate(4444%) hue-rotate(211deg)
@@ -69,7 +71,7 @@
   box-sizing: border-box;
   max-width: 1000px;
   margin: auto;
-  margin-top: -83px;
+  margin-top: -79px;
 
   &__title {
     color: $main;
@@ -85,7 +87,7 @@
   &__container {
     margin-top: 20px;
     display: grid;
-    gap: 23px;
+    gap: 20px;
 
     // h3 {
     //   @include Font(25px, 700, 140.5%, $main);
@@ -99,16 +101,18 @@
   }
 
   &__container--second {
-    margin-top: 30px;
+    margin-top: 40px;
   }
 
   &__text-block-second {
     display: grid;
-    gap: 10px;
+    gap: 13px;
   }
 
   &__image-description {
     font-size: 14px;
+    margin-top: 5px;
+    line-height: 159%;
   }
 
   &__img {
@@ -116,15 +120,16 @@
     width: 100%;
     height: auto;
     margin: auto;
+    display: flex;
   }
 
   &__caption {
-    @include Font(25px, 700, 140.5%, $main);
+    @include Font(25px, 700, 140%, $main);
     letter-spacing: 0.5px;
   }
 
   &__text {
-    @include Font(16px, 400, 180%, #7c7a84);
+    @include Font(16px, 400, 29px, #7c7a84);
     letter-spacing: 0.32px;
   }
 
@@ -134,7 +139,7 @@
     justify-content: space-between;
     gap: 10px;
 
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     .article-body__img {
       max-width: 430px;
       width: 29.87vw;
@@ -176,12 +181,12 @@
 @media screen and (max-width: 1000px) {
   .article-body {
     max-width: 93.75vw;
-    margin: -75px auto auto;
+    margin: -70px auto auto;
     padding: 40px 60px 43px;
 
-    &__text {
-      line-height: 181%;
-    }
+    // &__text {
+    //   line-height: 181%;
+    // }
 
     &__row {
       .article-body__img {
@@ -231,7 +236,7 @@
     &__row {
       display: grid;
       margin-bottom: 4px;
-      gap: 8px;
+      gap: 10px;
 
       .article-body__img {
         width: 100%;
@@ -240,7 +245,7 @@
 
     &__container {
       margin-top: 10px;
-      gap: 13px;
+      gap: 10px;
     }
 
     &__container--second {

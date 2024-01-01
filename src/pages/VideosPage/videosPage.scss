@@ -78,6 +78,13 @@
       width: 100vw;
     }
   }
+
+  .pupUpVideo {
+    iframe {
+      height: calc(4.5125rem + 39.53vw);
+      width: calc(6.54375rem + 64.5vw);
+    }
+  }
 }
 
 @media screen and (max-width: 760px) {
@@ -95,6 +102,15 @@
           height: 15px;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .pupUpVideo {
+    iframe {
+      height: calc(4.5125rem + 35.55vw);
+      width: calc(6.54375rem + 59.89vw);
     }
   }
 }
