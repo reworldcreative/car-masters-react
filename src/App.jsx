@@ -131,7 +131,7 @@ export default function App() {
         <Route exact path="/loan" element={<Loan />} />
         <Route exact path="/terms" element={<Terms />} />
         <Route exact path="/privacy" element={<Privacy />} />
-        <Route exact path="/blog" element={<Blog />} />
+        <Route exact path="/blog/:page" element={<Blog />} />
         <Route exact path="/article/:id" element={<Article />} />
         <Route exact path="/car/:id" element={<CarPage />} />
         <Route exact path="/inventory" element={<Inventory />} />

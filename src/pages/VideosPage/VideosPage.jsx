@@ -15,6 +15,8 @@ import videoImage_2 from "@/img/videoImage/video_2-2.jpg";
 import videoImage_3 from "@/img/videoImage/video_3-2.jpg";
 import videoImage_4 from "@/img/videoImage/video_4-2.jpg";
 
+import closeIcon from "@/img/icons/close_icon.svg";
+
 import videosData from "@/data/videos.json";
 
 import VideoItem from "./VideoItem/VideoItem";
@@ -53,49 +55,71 @@ export default function VideosPage() {
 
   return (
     <>
-      <Header />
+      <div className="videoMain">
+        <Header />
 
-      <PageTitle>Vehicle videos</PageTitle>
+        <PageTitle>Vehicle videos</PageTitle>
+        <div className="videos__wrapper">
+          {isLoaded && (
+            <div className="pupUpVideo" onClick={handleVideoClose}>
+              <div className="pupUpVideo__wrapper">
+                <iframe
+                  className="pupUpVideo__video"
+                  width="867"
+                  height="542"
+                  src={"https://www.youtube.com/embed/" + popUpLink}
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allowFullScreen="allowfullscreen"
+                ></iframe>
+                <button
+                  className="pupUpVideo__button"
+                  aria-label="close video"
+                  onClick={handleVideoClose}
+                  tabIndex="0"
+                >
+                  <img
+                    src={closeIcon}
+                    alt="close video icon"
+                    width="24"
+                    height="24"
+                    aria-hidden="true"
+                    loading="eager"
+                  />
+                </button>
+              </div>
+            </div>
+          )}
 
-      {isLoaded && (
-        <div className="pupUpVideo" onClick={handleVideoClose}>
-          <iframe
-            className="pupUpVideo__video"
-            width="867"
-            height="542"
-            src={"https://www.youtube.com/embed/" + popUpLink}
-            title="YouTube video player"
-            frameBorder="0"
-          ></iframe>
+          <div className="videos__container">
+            <p className="visibility-hidden">list of videos</p>
+            {currentItems.length ? (
+              currentItems.map((video) => (
+                <VideoItem
+                  key={video.id}
+                  buttonClick={handleButtonClick}
+                  image={video.image}
+                  title={video.title}
+                  imgDescription={video.imageDescription}
+                  link={video.link}
+                />
+              ))
+            ) : (
+              <></>
+            )}
+          </div>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={Math.min(
+              Math.ceil(videosData.length / itemsPerPage),
+              maxPages
+            )}
+            onPageChange={setCurrentPage}
+          />
         </div>
-      )}
 
-      <div className="videos__container">
-        <p className="visibility-hidden">list of videos</p>
-        {currentItems.length ? (
-          currentItems.map((video) => (
-            <VideoItem
-              key={video.id}
-              buttonClick={handleButtonClick}
-              image={video.image}
-              title={video.title}
-              imgDescription={video.imageDescription}
-              link={video.link}
-            />
-          ))
-        ) : (
-          <></>
-        )}
+        <Footer />
       </div>
-      <Pagination
-        currentPage={currentPage}
-        totalPages={Math.min(
-          Math.ceil(videosData.length / itemsPerPage),
-          maxPages
-        )}
-        onPageChange={setCurrentPage}
-      />
-      <Footer />
     </>
   );
 }

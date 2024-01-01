@@ -12,7 +12,7 @@ export default function BurgerMenu({ openContact }) {
   // console.log(location);
 
   useEffect(() => {
-    switch (location.pathname) {
+    switch (location.pathname.replace(/\/\d+$/, "")) {
       case "/inventory":
         setActivePage("inventory");
         break;
@@ -110,7 +110,7 @@ export default function BurgerMenu({ openContact }) {
         </li>
         <li className="burgerMenu__item">
           <Link
-            to={"/blog"}
+            to={"/blog/1"}
             className="burgerMenu__link caption"
             style={{
               color: activePage === "blog" ? "#7481ff" : false,

@@ -7,9 +7,17 @@ import Footer from "@/components/Footer/Footer";
 import articles from "@/data/articles.json";
 import InterestingItem from "@/components/Interesting/InterestingItem";
 import Pagination from "@/components/Pagination/Pagination";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 export default function Blog() {
+  const navigate = useNavigate();
+  const { page } = useParams();
+
+  useEffect(() => {
+    const currentPage = parseInt(page) || 1;
+    setCurrentPage(currentPage);
+  }, [page]);
+
   const [isTabletScreen, setIsTabletScreen] = useState(
     window.innerWidth <= 1000
   );
@@ -37,41 +45,48 @@ export default function Blog() {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = articles.slice(indexOfFirstItem, indexOfLastItem);
+
   return (
     <>
-      <Header />
+      <div className="blogMain">
+        <Header />
 
-      <PageTitle>Our blog</PageTitle>
+        <PageTitle>Our blog</PageTitle>
+        <div className="blogMain__wrapper">
+          <section className="blogSection">
+            <div className="blogSection__wrapper">
+              {currentItems.length ? (
+                currentItems.map((article) => (
+                  <InterestingItem
+                    key={article.id}
+                    image={article.image}
+                    imageDescription={article.imageDescription}
+                    data={article.data}
+                    title={article.title}
+                    id={article.id}
+                  />
+                ))
+              ) : (
+                <></>
+              )}
+            </div>
+          </section>
 
-      <section className="blogSection">
-        <div className="blogSection__wrapper">
-          {currentItems.length ? (
-            currentItems.map((article) => (
-              <InterestingItem
-                key={article.id}
-                image={article.image}
-                imageDescription={article.imageDescription}
-                data={article.data}
-                title={article.title}
-                id={article.id}
-              />
-            ))
-          ) : (
-            <></>
-          )}
+          <Pagination
+            currentPage={currentPage}
+            totalPages={Math.min(
+              Math.ceil(articles.length / itemsPerPage),
+              maxPages
+            )}
+            // onPageChange={setCurrentPage}
+            onPageChange={(newPage) => {
+              setCurrentPage(newPage);
+              navigate(`/blog/${newPage}`);
+            }}
+          />
         </div>
-      </section>
-
-      <Pagination
-        currentPage={currentPage}
-        totalPages={Math.min(
-          Math.ceil(articles.length / itemsPerPage),
-          maxPages
-        )}
-        onPageChange={setCurrentPage}
-      />
-
-      <Footer />
+        <Footer />
+      </div>
     </>
   );
 }
