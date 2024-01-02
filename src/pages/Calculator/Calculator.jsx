@@ -13,7 +13,7 @@ export default function Calculator() {
     <>
       <Header />
 
-      <PageTitle>Use our free calculator</PageTitle>
+      <PageTitle>Use our free calculator!</PageTitle>
 
       <div className="calculator-page__container">
         <CalculatorContainer />

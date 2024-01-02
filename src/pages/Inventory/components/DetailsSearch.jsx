@@ -66,6 +66,8 @@ export default function DetailsSearch({
         ))
       : null;
 
+    filtered.length === 0 ? (filtered = ["Nothing found"]) : false;
+
     // Оновлюємо стан фільтрованих підказок
     setFilteredSuggestions(filtered);
   };

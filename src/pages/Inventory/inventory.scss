@@ -78,13 +78,15 @@
     top: 40px;
 
     img {
-      opacity: 0.5;
+      // opacity: 0.5;
       display: flex;
     }
 
     &:hover {
       img {
-        opacity: 1;
+        // opacity: 1;
+        filter: invert(54%) sepia(75%) saturate(3388%) hue-rotate(213deg)
+          brightness(101%) contrast(101%);
       }
     }
 
@@ -657,6 +659,19 @@
     &__search {
       .detailsSearch {
         width: 60vw !important;
+      }
+    }
+  }
+
+  .inventory-characteristics {
+    &__form {
+      // display: block;
+      .detailsSearch {
+        &__input {
+          width: 100%;
+          // max-width: fit-content;
+          max-width: -webkit-fill-available;
+        }
       }
     }
   }

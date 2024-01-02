@@ -65,7 +65,7 @@ export default function CarPage() {
   }, [id]);
 
   // const fbx = useLoader(FBXLoader, '@/img/porsche-panamera-gts/Porsche_Panamera_GTS.fbx')
-  const fbx = useFBX("./models/Porsche_Panamera_GTS.fbx");
+  // const fbx = useFBX("./models/Porsche_Panamera_GTS.fbx");
   return (
     <>
       <div className="carPage__header">
