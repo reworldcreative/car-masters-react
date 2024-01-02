@@ -57,7 +57,7 @@
         padding: 16px 23px 15px;
       }
       .button.accent {
-        padding: 16px 29px 15px;
+        padding: 16px 28px 15px;
       }
     }
   }
@@ -65,7 +65,8 @@
 
 @media screen and (max-width: 768px) {
   .header {
-    @include padding(16px 24px 17px 35px);
+    // @include padding(16px 24px 17px 35px);
+    padding: 17px 24px 18px 31px;
   }
 }
 

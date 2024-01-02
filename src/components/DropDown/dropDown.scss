@@ -44,7 +44,8 @@
     justify-content: space-between;
     gap: 20px;
     // padding: 20px 30px;
-    padding: 20px 30px 26.5px;
+    // padding: 20px 30px 26.5px;
+    padding: 20px 30px 27px;
 
     cursor: pointer;
 
@@ -59,7 +60,8 @@
   }
 
   &__text {
-    padding: 14.5px 95px 33px 30px;
+    // padding: 14.5px 95px 33px 30px;
+    padding: 13px 95px 33px 30px;
 
     max-height: 170px;
     overflow-y: scroll;
@@ -105,17 +107,27 @@
 @media screen and (max-width: 800px) {
   .drop-down {
     &__list {
-      padding: 38px 24px 40px;
+      padding: 40px 24px 40px;
       gap: 10px;
     }
 
     &__title {
-      align-items: baseline;
-      padding: 20px 30px 23px;
+      // align-items: baseline;
+      align-items: unset;
+      // padding: 20px 30px 23px;
+      // padding: 16px 30px 21px;
+
+      // padding: 19px 30px;
+      padding: 19px 30px 26px;
     }
 
     &__text {
-      padding: 10px 69px 33px 30px;
+      // padding: 10px 69px 33px 30px;
+      padding: 13px 69px 33px 30px;
+    }
+
+    &__icon {
+      padding-top: 12px;
     }
   }
 }
@@ -140,7 +152,14 @@
     }
 
     &__title {
-      padding: 19px 23px 18px 19px;
+      // padding: 19px 23px 18px 19px;
+      gap: 5px;
+      padding: 19px 19px 18.3px 19px;
+
+      .title {
+        line-height: 25px;
+        width: fit-content;
+      }
     }
 
     &__text {

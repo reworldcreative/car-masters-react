@@ -11,7 +11,8 @@
     padding: 42px 127px 60px;
     display: flex;
     // justify-content: space-between;
-    align-items: flex-end;
+    // align-items: flex-end;
+    align-items: center;
 
     // margin-left: 7.3px;
     // margin-right: 52px;
@@ -141,6 +142,11 @@
     &__wrapper {
       padding: 41px 32px 61px;
       max-width: fit-content;
+      gap: 43px;
+    }
+
+    &__copyright-wrapper {
+      align-items: center;
     }
   }
 }
@@ -169,7 +175,7 @@
     }
 
     &__wrapper-first {
-      gap:30px;
+      gap: 30px;
     }
 
     &__copyright-wrapper {

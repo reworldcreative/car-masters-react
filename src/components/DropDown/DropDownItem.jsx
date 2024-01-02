@@ -14,8 +14,10 @@ export default function DropDownItem({ title, text }) {
             // className="drop-down__icon"
             src={downArrow}
             alt="open details"
-            width="16"
-            height="8"
+            // width="16"
+            // height="8"
+            width="18"
+            height="9"
             role="button"
             aria-hidden="true"
           />
