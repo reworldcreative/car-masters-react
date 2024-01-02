@@ -579,7 +579,7 @@ export default function Inventory() {
                 <div
                   className="inventory-characteristics__bg"
                   aria-hidden="true"
-                  onClick={handleFilterSettings}
+                  // onClick={handleFilterSettings}
                 />
               </>
             ) : (
