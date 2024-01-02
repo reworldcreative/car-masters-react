@@ -221,12 +221,14 @@
     border: none;
     background: none;
     cursor: pointer;
+    outline: none;
 
     img {
       display: flex;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       img {
         filter: invert(0%) sepia(50) saturate(1000%) hue-rotate(165deg)
           brightness(95%) contrast(335%);
@@ -235,7 +237,7 @@
   }
 
   &__search {
-    display: flex;
+    display: grid;
     align-items: center;
     gap: 20px;
 
