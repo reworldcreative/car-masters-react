@@ -203,11 +203,36 @@ export default function DetailsSearch({
     }
   };
 
+  const handleTouchOutside = (event) => {
+    if (filteredSuggestions.length === 0) {
+      return;
+    }
+
+    if (inputRef.current && !inputRef.current.contains(event.target)) {
+      const eventValue = inputRef.current.value;
+      const lowerCaseSuggestions = suggestions.map((item) =>
+        item.toLowerCase()
+      );
+      const lowerCaseValue = eventValue.toLowerCase();
+
+      if (
+        lowerCaseSuggestions.includes(lowerCaseValue) ||
+        lowerCaseValue === ""
+      ) {
+        setValue(eventValue);
+        setData(eventValue);
+      }
+      onInputClear();
+    }
+  };
+
   useEffect(() => {
     document.addEventListener("click", handleClickOutside);
+    document.addEventListener("touchend", handleTouchOutside);
 
     return () => {
       document.removeEventListener("click", handleClickOutside);
+      document.removeEventListener("touchend", handleTouchOutside);
     };
   }, [filteredSuggestions]);
 
