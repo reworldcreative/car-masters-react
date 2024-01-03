@@ -35,6 +35,7 @@
     white-space: nowrap;
     font-weight: 500;
     line-height: 159%;
+    letter-spacing: 0px;
     color: $main;
 
     &:hover {
@@ -42,7 +43,9 @@
     }
   }
   &__select {
-    padding: 8px 19px;
+    // padding: 8px 19px;
+    padding: 8px 15px 8px 19px;
+
     box-sizing: border-box;
     border-radius: 2px;
     border: 1px solid #d7d7d7;
@@ -58,6 +61,7 @@
     .secondary-text {
       font-weight: 500;
       line-height: 159%;
+      letter-spacing: 0px;
       color: #41456b;
 
       max-width: -webkit-fill-available;

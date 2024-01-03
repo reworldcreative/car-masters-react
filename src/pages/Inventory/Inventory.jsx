@@ -219,6 +219,11 @@ export default function Inventory() {
       setCarFull(carFullNew);
     } else {
       setSearchedData([carsData.find((item) => item.name === carFullNew)]);
+      // setSearchedData([
+      //   carsData.find((item) =>
+      //     item.name.toLowerCase().includes(carFullNew.toLowerCase())
+      //   ),
+      // ]);
     }
 
     window.scrollTo({ top: 0, behavior: "auto" });
@@ -459,16 +464,16 @@ export default function Inventory() {
                     id="inventory-characteristics__form"
                   >
                     <DetailsDropDown
-                      title="Marke, Model"
+                      title="Make, Model"
                       tags={carName}
                       removeTag={carNameRemove}
                     >
                       <div className="inventory-characteristics__container">
                         <p className="secondary-text inventory-characteristics__dropdownCaption">
-                          Marke
+                          Make
                         </p>
                         <DetailsSearch
-                          placeholder="Search Marke..."
+                          placeholder="Search Make..."
                           suggestions={Object.keys(carsModels)}
                           setData={handleSetCarMark}
                           id="carMark"

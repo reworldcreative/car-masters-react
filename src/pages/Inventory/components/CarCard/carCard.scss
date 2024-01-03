@@ -108,8 +108,10 @@
     // height: 50px;
     overflow: hidden;
     text-overflow: ellipsis;
+    outline: none;
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: $base-color;
     }
   }

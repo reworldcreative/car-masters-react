@@ -62,8 +62,8 @@ function InventorySelect({ defaultValue, getValue }) {
           className="inventory-content__arrowIcon"
           src={arrowDown}
           alt="open details"
-          width="16"
-          height="8"
+          width="18"
+          height="9"
           role="button"
           aria-hidden="true"
         />

@@ -21,6 +21,7 @@
     position: absolute;
     pointer-events: none;
     width: -webkit-fill-available;
+    width: -moz-available;
 
     &__inputsWrapper {
       position: relative;

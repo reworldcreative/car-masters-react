@@ -184,7 +184,6 @@ export default function DetailsSearch({
     }
     // const selectWrapper = document.querySelector(".detailsSearch__wrapper");
 
-    console.log(inputRef.current, "   ", event.target);
     if (inputRef.current && !inputRef.current.contains(event.target)) {
       const eventValue = inputRef.current.value;
       const lowerCaseSuggestions = suggestions.map((item) =>
