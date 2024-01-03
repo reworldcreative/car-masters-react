@@ -131,6 +131,11 @@ export default function DetailsSearch({
         );
         const lowerCaseValue = eventValue.toLowerCase();
 
+        // if (inputRef.current.id === "carMarkTop") {
+        //   setValue(eventValue);
+        //   setData(eventValue);
+        // }
+
         if (
           lowerCaseSuggestions.includes(lowerCaseValue) ||
           lowerCaseValue === ""

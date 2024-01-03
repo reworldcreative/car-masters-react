@@ -34,12 +34,28 @@ export default function CarPage() {
   const [swiperMainKey, setSwiperMainKey] = useState(0);
   const [swiperListKey, setSwiperListKey] = useState(0);
 
-  const swapPicturesType = () => {
-    setIsExterior(!isExterior);
-    setIsInterior(!isInterior);
+  // const swapPicturesType = () => {
+  //   setIsExterior(!isExterior);
+  //   setIsInterior(!isInterior);
 
-    setSwiperMainKey((prevKey) => prevKey + 1);
-    setSwiperListKey((prevKey) => prevKey + 1);
+  //   setSwiperMainKey((prevKey) => prevKey + 1);
+  //   setSwiperListKey((prevKey) => prevKey + 1);
+  // };
+
+  const HandleSetInterior = () => {
+    setIsInterior(true);
+    setIsExterior(false);
+
+    swiperMainKey ? setSwiperMainKey((prevKey) => prevKey + 1) : false;
+    swiperListKey ? setSwiperListKey((prevKey) => prevKey + 1) : false;
+  };
+
+  const HandleSetExterior = () => {
+    setIsExterior(true);
+    setIsInterior(false);
+
+    swiperMainKey ? setSwiperMainKey((prevKey) => prevKey + 1) : false;
+    swiperListKey ? setSwiperListKey((prevKey) => prevKey + 1) : false;
   };
 
   useEffect(() => {
@@ -64,13 +80,77 @@ export default function CarPage() {
     };
   }, [id]);
 
+  const scaleImage = () => {
+    const currentSlideIndex =
+      swiperMainRef.current && swiperMainRef.current.swiper
+        ? swiperMainRef.current.swiper.activeIndex
+        : null;
+
+    // Отримання активного слайда
+    const activeSlide =
+      swiperMainRef.current && swiperMainRef.current.swiper
+        ? swiperMainRef.current.swiper.slides[currentSlideIndex]
+        : null;
+
+    // Отримання зображення всередині активного слайда
+    const activeSlideImage = activeSlide
+      ? activeSlide.querySelector("img")
+      : null;
+    setActiveSlideImage(activeSlideImage.src);
+    setActiveSlideImageAlt(activeSlideImage.alt);
+    toggleImagePopUp();
+    // console.log("Зображення активного слайда:", activeSlideImage.alt);
+  };
+
+  const [activeSlideImage, setActiveSlideImage] = useState();
+  const [activeSlideImageAlt, setActiveSlideImageAlt] = useState("");
+  const [imagePopUp, setImagePopUp] = useState(false);
+
+  const toggleImagePopUp = () => {
+    setImagePopUp(!imagePopUp);
+  };
+
   // const fbx = useLoader(FBXLoader, '@/img/porsche-panamera-gts/Porsche_Panamera_GTS.fbx')
   // const fbx = useFBX("./models/Porsche_Panamera_GTS.fbx");
   return (
     <>
+      {imagePopUp ? (
+        <div className="carPage__popUpImage">
+          <div style={{ position: "relative" }}>
+            <img
+              src={activeSlideImage}
+              alt={activeSlideImageAlt}
+              width="500"
+              height="500"
+              className="carPage__popUpImage-img"
+            />
+            <div className="carPage__popUpImage-bottom">
+              <button
+                className="share"
+                aria-label="share cars"
+                onClick={toggleImagePopUp}
+              >
+                <img
+                  className="share__icon"
+                  src={share}
+                  alt="share icon"
+                  width="22"
+                  height="22"
+                  aria-hidden="true"
+                />
+              </button>
+            </div>
+          </div>
+          <div className="carPage__popUpImage-bg" onClick={toggleImagePopUp} />
+        </div>
+      ) : (
+        false
+      )}
+
       <div className="carPage__header">
         <Header />
       </div>
+
       {/* <Suspense fallback={null}>
         <Canvas
           camera={{ position: [0, 70, 50], fov: 70 }}
@@ -114,7 +194,7 @@ export default function CarPage() {
                         "carPage__pictures-type secondary-text " +
                         (isExterior ? "active" : "")
                       }
-                      onClick={swapPicturesType}
+                      onClick={HandleSetExterior}
                       aria-label={
                         "show exterior pictures. " +
                         (isExterior ? "active" : "")
@@ -127,7 +207,7 @@ export default function CarPage() {
                         "carPage__pictures-type secondary-text " +
                         (isInterior ? "active" : "")
                       }
-                      onClick={swapPicturesType}
+                      onClick={HandleSetInterior}
                       aria-label={
                         "show interior pictures. " +
                         (isInterior ? "active" : "")
@@ -136,7 +216,11 @@ export default function CarPage() {
                       <span aria-hidden="true">Interior</span>
                     </button>
                   </div>
-                  <button className="share" aria-label="share cars">
+                  <button
+                    className="share"
+                    aria-label="share cars"
+                    onClick={scaleImage}
+                  >
                     <img
                       className="share__icon"
                       src={share}
@@ -352,8 +436,10 @@ export default function CarPage() {
                   </div>
 
                   <div className="carPage__details">
-                    {currentCar.detail.slice(0, 8).map((carDetail) => (
-                      <p className="carPage__detailsItem title">{carDetail}</p>
+                    {currentCar.detail.slice(0, 8).map((carDetail, index) => (
+                      <p className="carPage__detailsItem title" key={index}>
+                        {carDetail}
+                      </p>
                     ))}
                   </div>
                 </div>

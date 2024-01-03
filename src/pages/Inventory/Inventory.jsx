@@ -31,6 +31,7 @@ import CarCard from "./components/CarCard/CarCard";
 import carsData from "@/data/cars.json";
 import Pagination from "@/components/Pagination/Pagination";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Inventory() {
   // useEffect(() => {
@@ -214,6 +215,7 @@ export default function Inventory() {
   };
 
   const handleSetCarFull = (carFullNew) => {
+    console.log(carFullNew);
     if (carFullNew === "") {
       setSearchedData(carsData.filter(meetsFilterCriteria));
       setCarFull(carFullNew);
@@ -449,7 +451,7 @@ export default function Inventory() {
 
                     {changes ? (
                       <button
-                        className="inventory-characteristics__clean .secondary-text"
+                        className="inventory-characteristics__clean secondary-text"
                         onClick={clearAll}
                       >
                         Clear filters
@@ -671,7 +673,7 @@ export default function Inventory() {
                     <img
                       src={carEmpty}
                       alt="moving car icon"
-                      width="69"
+                      width="89"
                       height="30"
                       aria-hidden="true"
                       // className="inventory-content__empty-icon"
@@ -685,12 +687,12 @@ export default function Inventory() {
                       choice.
                     </p>
 
-                    <a
+                    <Link
+                      to={"/quiz"}
                       className="secondary-text inventory-content__emptyLink"
-                      href="#"
                     >
                       Request a car
-                    </a>
+                    </Link>
                   </div>
                 )}
               </div>
