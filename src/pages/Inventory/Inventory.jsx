@@ -59,13 +59,22 @@ export default function Inventory() {
     setIsSmallScreen(window.innerWidth < 1000);
     setIsMobileScreen(window.innerWidth < 650);
 
-    window.innerWidth < 1000
-      ? setFilterSettings(false)
-      : setFilterSettings(true);
+    // window.innerWidth < 1000
+    //   ? setFilterSettings(false)
+    //   : setFilterSettings(true);
+
+    const isInputFocused =
+      document.activeElement.tagName.toLowerCase() === "input";
+
+    if (!isInputFocused) {
+      window.innerWidth < 1000
+        ? setFilterSettings(false)
+        : setFilterSettings(true);
+    }
     window.innerWidth < 650 ? setItemsPerPage(4) : setItemsPerPage(6);
     window.innerWidth < 650 ? setMaxPages(6) : setMaxPages(3);
 
-    !FilterSettings
+    FilterSettings
       ? document.body.classList.add("no-scroll")
       : document.body.classList.remove("no-scroll");
   };
@@ -579,7 +588,7 @@ export default function Inventory() {
                 <div
                   className="inventory-characteristics__bg"
                   aria-hidden="true"
-                  // onClick={handleFilterSettings}
+                  onClick={handleFilterSettings}
                 />
               </>
             ) : (

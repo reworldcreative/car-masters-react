@@ -231,7 +231,7 @@ export default function DetailsSearch({
           onChange={onInputChange}
           onKeyDown={handleKeyDown}
           // onBlur={onInputBlur}
-          
+
           value={value}
           id={id}
         />
