@@ -131,10 +131,10 @@ export default function DetailsSearch({
         );
         const lowerCaseValue = eventValue.toLowerCase();
 
-        // if (inputRef.current.id === "carMarkTop") {
-        //   setValue(eventValue);
-        //   setData(eventValue);
-        // }
+        if (inputRef.current.id === "carMarkTop") {
+          setValue(eventValue);
+          setData(eventValue);
+        }
 
         if (
           lowerCaseSuggestions.includes(lowerCaseValue) ||
@@ -154,6 +154,8 @@ export default function DetailsSearch({
         setData(event.target.innerText);
         onInputClear();
       }
+
+      setFilteredSuggestions([]);
     } else if (event.key === "ArrowDown") {
       event.preventDefault();
       const nextIndex = focusedSuggestion === null ? 0 : focusedSuggestion + 1;

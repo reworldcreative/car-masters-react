@@ -215,17 +215,16 @@ export default function Inventory() {
   };
 
   const handleSetCarFull = (carFullNew) => {
-    console.log(carFullNew);
     if (carFullNew === "") {
       setSearchedData(carsData.filter(meetsFilterCriteria));
       setCarFull(carFullNew);
     } else {
-      setSearchedData([carsData.find((item) => item.name === carFullNew)]);
-      // setSearchedData([
-      //   carsData.find((item) =>
-      //     item.name.toLowerCase().includes(carFullNew.toLowerCase())
-      //   ),
-      // ]);
+      // setSearchedData([carsData.find((item) => item.name === carFullNew)]);
+      setSearchedData(
+        carsData.filter((item) =>
+          item.name.toLowerCase().includes(carFullNew.toLowerCase())
+        )
+      );
     }
 
     window.scrollTo({ top: 0, behavior: "auto" });
@@ -636,9 +635,15 @@ export default function Inventory() {
                 <div className="inventory-content__search">
                   <DetailsSearch
                     placeholder="Find a dream car..."
-                    suggestions={Object.values(sortedData).map(
-                      (car) => car.name
-                    )}
+                    // suggestions={Object.values(sortedData).map(
+                    //   (car) => car.name
+                    // )}
+
+                    suggestions={Object.values(
+                      carsData.filter((item) =>
+                        item.name.toLowerCase().includes(carFull.toLowerCase())
+                      )
+                    ).map((car) => car.name)}
                     // suggestions={Object.values(carsData).map((car) => car.name)}
                     setData={handleSetCarFull}
                     id="carMarkTop"
