@@ -214,6 +214,41 @@
     }
   }
 
+  &__listLoader {
+    margin-top: 40px;
+    margin-bottom: 20px;
+
+    display: grid;
+    justify-content: center;
+    gap: 20px;
+
+    &-dotList {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    &-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      opacity: 0.3;
+      background: $second;
+      border: none;
+      padding: 0;
+
+      animation: dot-animation 1.5s infinite;
+
+      &.dot-2 {
+        animation-delay: 0.5s;
+      }
+
+      &.dot-3 {
+        animation-delay: 0.7s;
+      }
+    }
+  }
+
   &__filter {
     // display: flex;
     display: none;
@@ -754,5 +789,16 @@
         width: 82vw !important;
       }
     }
+  }
+}
+
+@keyframes dot-animation {
+  0%,
+  80% {
+    opacity: 0;
+  }
+  10%,
+  50% {
+    opacity: 1;
   }
 }

@@ -54,20 +54,37 @@
     width: 100%;
     height: 100%;
     display: flex;
+    gap: 20px;
     justify-content: center;
     align-items: center;
     z-index: 30;
 
     &-img {
-      // height: 80vh;
+      object-fit: cover;
       width: 100%;
-      object-fit: contain;
+      height: 100%;
+    }
+
+    &-container {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    &-wrapper {
+      order: 1;
     }
 
     &-bottom {
       position: absolute;
+      box-sizing: border-box;
+
+      width: 100%;
       bottom: 25px;
-      right: 20px;
+      display: flex;
+      justify-content: space-between;
+      // right: 20px;
+      padding: 0px 20px;
       .share {
         border: none;
         background: none;
@@ -79,8 +96,59 @@
           filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(137deg)
             brightness(106%) contrast(101%);
         }
+
+        &:hover,
+        &:focus {
+          img {
+            filter: invert(54%) sepia(75%) saturate(3388%) hue-rotate(213deg)
+              brightness(101%) contrast(101%);
+          }
+        }
+      }
+
+      .zoom {
+        border: none;
+        background: none;
+        padding: 0;
+        outline: none;
+        cursor: pointer;
+
+        &:hover {
+          img {
+            filter: invert(54%) sepia(75%) saturate(3388%) hue-rotate(213deg)
+              brightness(101%) contrast(101%);
+          }
+        }
       }
     }
+    &-closeButton {
+      order: 2;
+      border: none;
+      background: none;
+      padding: 0;
+      outline: none;
+      cursor: pointer;
+
+      img {
+        filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(137deg)
+          brightness(106%) contrast(101%);
+      }
+
+      &:hover,
+      &:focus {
+        img {
+          filter: invert(54%) sepia(75%) saturate(3388%) hue-rotate(213deg)
+            brightness(101%) contrast(101%);
+        }
+      }
+    }
+  }
+
+  &__popUpImage-wrapper {
+    position: relative;
+    height: calc(4.5125rem + 32.63vw);
+    width: calc(6.54375rem + 52.94vw);
+    overflow: hidden;
   }
 
   &__popUpImage-bg {
@@ -154,6 +222,14 @@
             display: flex;
             filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(137deg)
               brightness(106%) contrast(101%);
+          }
+
+          &:hover,
+          &:focus {
+            img {
+              filter: invert(54%) sepia(75%) saturate(3388%) hue-rotate(213deg)
+                brightness(101%) contrast(101%);
+            }
           }
         }
       }
@@ -594,6 +670,42 @@
         &__img {
           height: 50px;
         }
+      }
+    }
+
+    &__popUpImage {
+      &-bottom {
+        .zoom,
+        .share {
+          img {
+            width: 15px;
+            height: 15px;
+          }
+        }
+      }
+
+      &-wrapper {
+        order: 2;
+      }
+
+      &-container {
+        display: grid;
+        gap: 10px;
+        align-items: flex-end;
+      }
+
+      &-closeButton {
+        order: 1;
+        margin: 0px 0px 0px auto;
+
+        img {
+          width: 15px;
+          height: 15px;
+        }
+      }
+
+      &-bottom {
+        bottom: 15px;
       }
     }
   }

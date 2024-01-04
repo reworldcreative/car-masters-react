@@ -11,6 +11,9 @@ import cars from "@/data/cars.json";
 import log from "@/img/logo/logo.svg";
 import nextArrow from "@/img/icons/next_arrow.svg";
 import share from "@/img/icons/Share.svg";
+import zoomUp from "@/img/icons/zoomUp.svg";
+import zoomDown from "@/img/icons/zoomDown.svg";
+import closeIcon from "@/img/icons/close_icon.svg";
 
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
@@ -46,16 +49,25 @@ export default function CarPage() {
     setIsInterior(true);
     setIsExterior(false);
 
-    swiperMainKey ? setSwiperMainKey((prevKey) => prevKey + 1) : false;
-    swiperListKey ? setSwiperListKey((prevKey) => prevKey + 1) : false;
+    // swiperMainKey ? setSwiperMainKey((prevKey) => prevKey + 1) : false;
+    // swiperListKey ? setSwiperListKey((prevKey) => prevKey + 1) : false;
+
+    if (!isInterior) {
+      setSwiperMainKey((prevKey) => prevKey + 1);
+      setSwiperListKey((prevKey) => prevKey + 1);
+    }
   };
 
   const HandleSetExterior = () => {
     setIsExterior(true);
     setIsInterior(false);
 
-    swiperMainKey ? setSwiperMainKey((prevKey) => prevKey + 1) : false;
-    swiperListKey ? setSwiperListKey((prevKey) => prevKey + 1) : false;
+    // swiperMainKey ? setSwiperMainKey((prevKey) => prevKey + 1) : false;
+    // swiperListKey ? setSwiperListKey((prevKey) => prevKey + 1) : false;
+    if (!isExterior) {
+      setSwiperMainKey((prevKey) => prevKey + 1);
+      setSwiperListKey((prevKey) => prevKey + 1);
+    }
   };
 
   useEffect(() => {
@@ -108,6 +120,12 @@ export default function CarPage() {
 
   const toggleImagePopUp = () => {
     setImagePopUp(!imagePopUp);
+    setScale(false);
+  };
+
+  const [scale, setScale] = useState(false);
+  const handleScaleChange = () => {
+    setScale(!scale);
   };
 
   // const fbx = useLoader(FBXLoader, '@/img/porsche-panamera-gts/Porsche_Panamera_GTS.fbx')
@@ -116,31 +134,65 @@ export default function CarPage() {
     <>
       {imagePopUp ? (
         <div className="carPage__popUpImage">
-          <div style={{ position: "relative" }}>
-            <img
-              src={activeSlideImage}
-              alt={activeSlideImageAlt}
-              width="500"
-              height="500"
-              className="carPage__popUpImage-img"
-            />
-            <div className="carPage__popUpImage-bottom">
-              <button
-                className="share"
-                aria-label="share cars"
-                onClick={toggleImagePopUp}
-              >
-                <img
-                  className="share__icon"
-                  src={share}
-                  alt="share icon"
-                  width="22"
-                  height="22"
-                  aria-hidden="true"
-                />
-              </button>
+          <div className="carPage__popUpImage-container">
+            <div className="carPage__popUpImage-wrapper">
+              <img
+                src={activeSlideImage}
+                alt={activeSlideImageAlt}
+                width="500"
+                height="500"
+                className="carPage__popUpImage-img"
+                style={{ transform: scale ? "scale(1.5)" : "scale(1)" }}
+              />
+              <div className="carPage__popUpImage-bottom">
+                <button
+                  className="zoom"
+                  aria-label="zoom cars image"
+                  onClick={handleScaleChange}
+                >
+                  <img
+                    className="zoom__icon"
+                    src={!scale ? zoomUp : zoomDown}
+                    alt="zoom icon"
+                    width="22"
+                    height="22"
+                    aria-hidden="true"
+                  />
+                </button>
+
+                <button
+                  className="share"
+                  aria-label="share cars"
+                  onClick={toggleImagePopUp}
+                >
+                  <img
+                    className="share__icon"
+                    src={share}
+                    alt="share icon"
+                    width="22"
+                    height="22"
+                    aria-hidden="true"
+                  />
+                </button>
+              </div>
             </div>
+            <button
+              className="carPage__popUpImage-closeButton"
+              aria-label="close image"
+              onClick={toggleImagePopUp}
+              tabIndex="0"
+            >
+              <img
+                src={closeIcon}
+                alt="close image icon"
+                width="24"
+                height="24"
+                aria-hidden="true"
+                loading="eager"
+              />
+            </button>
           </div>
+
           <div className="carPage__popUpImage-bg" onClick={toggleImagePopUp} />
         </div>
       ) : (

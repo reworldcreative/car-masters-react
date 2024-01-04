@@ -360,9 +360,12 @@ export default function Inventory() {
     [searchedData]
   );
 
+  const [isListLoading, setIsListLoading] = useState(false);
+
   const [sortedData, setSortedData] = useState(DataToSort);
 
   useEffect(() => {
+    setIsListLoading(true);
     switch (sortedBy) {
       case "Recommendations":
         setSortedData(DataToSort);
@@ -385,6 +388,11 @@ export default function Inventory() {
       default:
         setSortedData(DataToSort);
     }
+
+    setTimeout(() => {
+      setIsListLoading(false);
+    }, 1000);
+
     // if (sortedBy !== "Recommendations") {
     //   setSortedData(
     //     DataToSort
@@ -658,7 +666,20 @@ export default function Inventory() {
                   />
                 </div>
               </div>
-
+              {isListLoading ? (
+                <div className="inventory-content__listLoader">
+                  <div className="inventory-content__listLoader-dotList">
+                    <span className="inventory-content__listLoader-dot dot-1" />
+                    <span className="inventory-content__listLoader-dot dot-2" />
+                    <span className="inventory-content__listLoader-dot dot-3" />
+                  </div>
+                  <p className="inventory-content__listLoader-text title">
+                    Your search is loading...
+                  </p>
+                </div>
+              ) : (
+                <></>
+              )}
               <div
                 className="inventory-content__list"
                 tabIndex="0"
@@ -696,7 +717,6 @@ export default function Inventory() {
                   </div>
                 )}
               </div>
-
               <Pagination
                 currentPage={currentPage}
                 totalPages={Math.min(
