@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import "./carPage.scss";
 
@@ -11,6 +11,7 @@ import cars from "@/data/cars.json";
 import log from "@/img/logo/logo.svg";
 import nextArrow from "@/img/icons/next_arrow.svg";
 import share from "@/img/icons/Share.svg";
+import shareDown from "@/img/icons/ShareDown.svg";
 import zoomUp from "@/img/icons/zoomUp.svg";
 import zoomDown from "@/img/icons/zoomDown.svg";
 import closeIcon from "@/img/icons/close_icon.svg";
@@ -23,6 +24,7 @@ import Button from "@/components/Button/Button";
 import { MeshStandardMaterial } from "three";
 
 import threeModel from "@/img/porsche-panamera-gts/Porsche_Panamera_GTS.fbx";
+import { Link } from "react-router-dom";
 
 export default function CarPage() {
   const [currentCar, setCurrentCar] = useState({ ...cars[0] });
@@ -121,11 +123,115 @@ export default function CarPage() {
   const toggleImagePopUp = () => {
     setImagePopUp(!imagePopUp);
     setScale(false);
+    setPosition({ x: 0, y: 0 });
   };
 
   const [scale, setScale] = useState(false);
   const handleScaleChange = () => {
     setScale(!scale);
+    setPosition({ x: 0, y: 0 });
+  };
+
+  useEffect(() => {
+    if (imagePopUp) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }, [imagePopUp]);
+
+  // переміщення pop-up зображення
+  const [isDragging, setIsDragging] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [mousePressOffset, setMousePressOffset] = useState({ x: 0, y: 0 });
+
+  // Отримати розміри контейнера
+  const container = document.querySelector(".carPage__popUpImage-wrapper");
+  const containerRect = container ? container.getBoundingClientRect() : false;
+
+  const handleMouseDown = (e) => {
+    const imageRect = document.querySelector(".carPage__popUpImage-img")
+      ? document
+          .querySelector(".carPage__popUpImage-img")
+          .getBoundingClientRect()
+      : false;
+    // Визначити позицію курсора відносно верхнього лівого кута об'єкта
+    // const offsetX = e.clientX - containerRect.left - imageRect.left;
+    // const offsetY = e.clientY - containerRect.top - imageRect.top;
+
+    // Визначити поточну позицію об'єкта
+    const offsetX = e.clientX - imageRect.left;
+    const offsetY = e.clientY - imageRect.top;
+
+    // console.log(
+    //   e.clientX,
+    //   offsetX,
+    //   "------",
+    //   e.clientY,
+    //   offsetY,
+    //   "----",
+    //   imageRect,
+    //   "----",
+    //   containerRect
+    // );
+
+    setMousePressOffset({ x: offsetX, y: offsetY });
+
+    setIsDragging(true);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+
+    // Визначити поточну позицію об'єкта
+    const imageRect = document.querySelector(".carPage__popUpImage-img")
+      ? document
+          .querySelector(".carPage__popUpImage-img")
+          .getBoundingClientRect()
+      : false;
+
+    // Визначити нову позицію відносно контейнера
+    const newX =
+      e.clientX -
+      mousePressOffset.x -
+      containerRect.left -
+      (containerRect.width - imageRect.width) / 2;
+    const newY =
+      e.clientY -
+      mousePressOffset.y -
+      containerRect.top -
+      (containerRect.height - imageRect.height) / 2;
+
+    // Обмеження для руху всередині контейнера
+    const maxX = -(containerRect.width - imageRect.width) / 2;
+    const maxY = -(containerRect.height - imageRect.height) / 2;
+
+    const minX = (containerRect.width - imageRect.width) / 2;
+    const minY = (containerRect.height - imageRect.height) / 2;
+
+    // Забезпечити, що нова позиція не виходить за межі контейнера
+    const constrainedX = Math.min(Math.max(newX, minX), maxX);
+    const constrainedY = Math.min(Math.max(newY, minY), maxY);
+
+    // console.log({
+    //   "New X ": newX,
+    //   "New Y ": newY,
+    //   "Max X ": maxX,
+    //   "Max Y ": maxY,
+    //   "Min X ": minX,
+    //   "Min Y ": minY,
+    //   "Container Rectangle": containerRect,
+    //   "Image Rectangle": imageRect,
+    //   "Final X ": constrainedX,
+    //   "Final Y ": constrainedY,
+    // });
+    // setPosition({ x: newX, y: newY });
+
+    setPosition({ x: constrainedX, y: constrainedY });
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
   };
 
   // const fbx = useLoader(FBXLoader, '@/img/porsche-panamera-gts/Porsche_Panamera_GTS.fbx')
@@ -142,7 +248,20 @@ export default function CarPage() {
                 width="500"
                 height="500"
                 className="carPage__popUpImage-img"
-                style={{ transform: scale ? "scale(1.5)" : "scale(1)" }}
+                style={{
+                  transform: scale ? "scale(1.5)" : "scale(1)",
+                  left: `${position.x}px`,
+                  top: `${position.y}px`,
+                  position: "absolute",
+                  cursor: scale ? (isDragging ? "grabbing" : "grab") : false,
+                }}
+                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onMouseUp={handleMouseUp}
+                onDragStart={(e) => {
+                  e.preventDefault();
+                  return false;
+                }}
               />
               <div className="carPage__popUpImage-bottom">
                 <button
@@ -167,7 +286,7 @@ export default function CarPage() {
                 >
                   <img
                     className="share__icon"
-                    src={share}
+                    src={shareDown}
                     alt="share icon"
                     width="22"
                     height="22"
@@ -176,7 +295,7 @@ export default function CarPage() {
                 </button>
               </div>
             </div>
-            <button
+            {/* <button
               className="carPage__popUpImage-closeButton"
               aria-label="close image"
               onClick={toggleImagePopUp}
@@ -190,7 +309,7 @@ export default function CarPage() {
                 aria-hidden="true"
                 loading="eager"
               />
-            </button>
+            </button> */}
           </div>
 
           <div className="carPage__popUpImage-bg" onClick={toggleImagePopUp} />
@@ -524,9 +643,16 @@ export default function CarPage() {
                 style={{ height: "45px", width: "fit-content" }}
                 className="carPage__RequestCarButton_wrapper"
               >
-                <Button addclass="accent carPage__RequestCarButton">
+                <Link
+                  className="carPage__RequestCarButton accent button"
+                  to={"/quiz"}
+                  aria-label="Move to quiz page"
+                >
                   Request more information
-                </Button>
+                </Link>
+                {/* <Button addclass="accent carPage__RequestCarButton">
+                  Request more information
+                </Button> */}
               </div>
             </div>
           </div>

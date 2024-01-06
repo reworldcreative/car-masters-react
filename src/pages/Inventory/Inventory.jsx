@@ -672,7 +672,10 @@ export default function Inventory() {
                 </div>
               </div>
               {isListLoading ? (
-                <div className="inventory-content__listLoader">
+                <div
+                  className="inventory-content__listLoader"
+                  aria-hidden="true"
+                >
                   <div className="inventory-content__listLoader-dotList">
                     <span className="inventory-content__listLoader-dot dot-1" />
                     <span className="inventory-content__listLoader-dot dot-2" />

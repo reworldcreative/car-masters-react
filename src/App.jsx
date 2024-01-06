@@ -21,23 +21,6 @@ register();
 export default function App() {
   const [load, setLoad] = useState(false);
 
-  // useEffect(() => {
-  //   // const handleLoad = () => {
-  //   //   setLoading(false);
-  //   // };
-  //   // window.addEventListener("load", handleLoad);
-  //   // return () => {
-  //   //   window.removeEventListener("load", handleLoad);
-  //   // };
-
-  //   const simulatePageLoad = () => {
-  //     setTimeout(() => {
-  //       setLoad(true);
-  //     }, 1000);
-  //   };
-  //   simulatePageLoad();
-  // }, []);
-
   const handleLoad = () => {
     setLoad(true);
     document.body.classList.remove("no-scroll");
@@ -54,29 +37,23 @@ export default function App() {
   //   document.activeElement.blur();
 
   //   const handleBeforeUnload = () => {
-  //     window.scrollTo(0, 0);
+  //     setLoad(false);
+  //     document.body.classList.add("no-scroll");
   //   };
 
-  //   window.addEventListener("beforeunload", handleBeforeUnload);
-  //   setLoad(false);
-  //   document.body.classList.add("no-scroll");
+  //   window.addEventListener("DOMContentLoaded", handleBeforeUnload);
 
-  //   const handlePageLoad = () => {
-  //     setTimeout(() => {
-  //       handleLoad();
-  //     }, 1000);
-  //   };
-  //   window.addEventListener("load", handlePageLoad);
+  //   window.addEventListener("load", handleLoad);
   //   return () => {
-  //     window.removeEventListener("load", handlePageLoad);
-  //     window.removeEventListener("beforeunload", handleBeforeUnload);
+  //     window.removeEventListener("load", handleLoad);
+  //     window.removeEventListener("DOMContentLoaded", handleBeforeUnload);
   //   };
   // }, []);
 
-  document.addEventListener("DOMContentLoaded", function () {
-    setLoad(false);
-    document.body.classList.add("no-scroll");
-  });
+  // document.addEventListener("DOMContentLoaded", function () {
+  //   setLoad(false);
+  //   document.body.classList.add("no-scroll");
+  // });
 
   window.addEventListener("load", function () {
     window.scrollTo({ top: 0, behavior: "auto" });
@@ -123,22 +100,24 @@ export default function App() {
   return (
     <>
       <Preloader style={preloaderStyles} />
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/calculator" element={<Calculator />} />
-        <Route exact path="/videos" element={<VideosPage />} />
-        <Route exact path="/about" element={<About />} />
-        <Route exact path="/loan" element={<Loan />} />
-        <Route exact path="/terms" element={<Terms />} />
-        <Route exact path="/privacy" element={<Privacy />} />
-        <Route exact path="/blog/:page" element={<Blog />} />
-        <Route exact path="/article/:id" element={<Article />} />
-        <Route exact path="/car/:id" element={<CarPage />} />
-        <Route exact path="/inventory" element={<Inventory />} />
-        <Route exact path="/quiz" element={<Quiz />} />
-        <Route exact path="/404" element={<NotFound />} />
-        <Route exact path="*" element={<NotFound />} />
-      </Routes>
+      {load && (
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/calculator" element={<Calculator />} />
+          <Route exact path="/videos" element={<VideosPage />} />
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/loan" element={<Loan />} />
+          <Route exact path="/terms" element={<Terms />} />
+          <Route exact path="/privacy" element={<Privacy />} />
+          <Route exact path="/blog/:page" element={<Blog />} />
+          <Route exact path="/article/:id" element={<Article />} />
+          <Route exact path="/car/:id" element={<CarPage />} />
+          <Route exact path="/inventory" element={<Inventory />} />
+          <Route exact path="/quiz" element={<Quiz />} />
+          <Route exact path="/404" element={<NotFound />} />
+          <Route exact path="*" element={<NotFound />} />
+        </Routes>
+      )}
     </>
   );
 }

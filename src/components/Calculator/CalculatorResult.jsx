@@ -89,8 +89,8 @@ export default function CalculatorResult({ priceAmount, months, status }) {
       >
         <Link
           className="calculator-results__button accent button"
-          to={"/calculator"}
-          aria-label="Move to calculator page"
+          to={"/quiz"}
+          aria-label="Move to quiz page"
         >
           Request a car
         </Link>
