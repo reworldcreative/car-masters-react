@@ -180,6 +180,7 @@
     .carPage {
       &__img {
         width: -webkit-fill-available;
+        width: -moz-available;
         height: 370px;
         display: flex;
         border-radius: 2px;
@@ -272,9 +273,13 @@
       }
       swiper-slide {
         max-width: fit-content;
-        &.swiper-slide-active {
-          border: 2px solid $base-color;
-        }
+        // &.swiper-slide-active {
+        //   border: 2px solid $base-color;
+        // }
+      }
+
+      .swiper-slide-thumb-active {
+        border: 2px solid $base-color;
       }
     }
     .carPage {

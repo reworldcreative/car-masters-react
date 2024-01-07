@@ -75,7 +75,7 @@ export default function Inventory() {
     window.innerWidth < 650 ? setItemsPerPage(4) : setItemsPerPage(6);
     window.innerWidth < 650 ? setMaxPages(6) : setMaxPages(3);
 
-    FilterSettings
+    !FilterSettings
       ? document.body.classList.add("no-scroll")
       : document.body.classList.remove("no-scroll");
   };
@@ -650,7 +650,7 @@ export default function Inventory() {
                     inputValue={carFull}
                   />
 
-                  <button className="share" aria-label="share cars">
+                  {/* <button className="share" aria-label="share cars">
                     <img
                       className="share__icon"
                       src={share}
@@ -659,7 +659,7 @@ export default function Inventory() {
                       height="22"
                       aria-hidden="true"
                     />
-                  </button>
+                  </button> */}
                 </div>
 
                 <div className="inventory-content__sorted">

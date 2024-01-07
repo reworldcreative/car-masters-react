@@ -346,10 +346,34 @@
   }
 }
 
-@media screen and (min-width: 1700px) {
+@media screen and (min-width: 1600px) {
   .inventory__wrapper {
     max-width: 1400px;
     padding: 40px 0px;
+  }
+
+  .inventory-content {
+    width: 65vw;
+    &__list {
+      .carCard {
+        max-width: 480px;
+        width: 50%;
+
+        &__pictures {
+          max-width: 100%;
+        }
+
+        &__characteristicItem {
+          &:nth-child(4) {
+            border-right: 1px solid #d7d7d7;
+          }
+
+          &:nth-child(5) {
+            padding: 0px 0px 0px 20px;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -386,6 +410,27 @@
     &__sorted {
       .sorted-text {
         display: none;
+      }
+    }
+
+    &__list {
+      .carCard {
+        // &__characteristics {
+        //   width: 85%;
+        // }
+
+        &__characteristicItem {
+          width: 90px;
+          &:nth-child(4) {
+            border-right: 1px solid #d7d7d7;
+            padding: 0px 20px 0px 0px;
+          }
+
+          &:nth-child(5) {
+            border-right: 1px solid #d7d7d7;
+            padding: 0px 20px 0px 20px;
+          }
+        }
       }
     }
   }
@@ -504,8 +549,25 @@
         height: 216px;
       }
 
-      &__characteristics {
-        width: 90%;
+      // &__characteristics {
+      //   width: 90%;
+      // }
+    }
+
+    &__list {
+      .carCard {
+        &__characteristicItem {
+          width: auto;
+          &:nth-child(4) {
+            border-right: none;
+            padding: 0px 20px 0px 20px;
+          }
+
+          &:nth-child(5) {
+            border-right: none;
+            padding: 0px 20px 0px 0px;
+          }
+        }
       }
     }
   }
@@ -546,6 +608,7 @@
 
   .inventory-content {
     &__top {
+      // justify-content: center;
       flex-wrap: wrap;
       gap: 10px;
     }
@@ -559,6 +622,33 @@
 
     &__sorted {
       margin: auto 0px auto auto;
+      // margin: auto 0 auto 20%;
+      // margin: auto 8% auto auto;
+
+      .inventory-content__select-wrapper {
+        width: 45vw;
+      }
+    }
+
+    &__list {
+      .carCard {
+        // &__characteristics {
+        //   width: 85%;
+        // }
+
+        &__characteristicItem {
+          width: 90px;
+          &:nth-child(4) {
+            border-right: 1px solid #d7d7d7;
+            padding: 0px 20px 0px 0px;
+          }
+
+          &:nth-child(5) {
+            border-right: 1px solid #d7d7d7;
+            padding: 0px 20px 0px 20px;
+          }
+        }
+      }
     }
   }
 }
@@ -596,6 +686,23 @@
 
     &__empty {
       padding: 20px;
+    }
+
+    &__list {
+      .carCard {
+        &__characteristicItem {
+          width: auto;
+          &:nth-child(4) {
+            border-right: none;
+            padding: 0px 20px 0px 20px;
+          }
+
+          &:nth-child(5) {
+            border-right: none;
+            padding: 0px 20px 0px 0px;
+          }
+        }
+      }
     }
   }
 }
@@ -644,6 +751,10 @@
         }
         &__select-item {
           font-size: 14px;
+        }
+
+        &__select-wrapper {
+          width: 60vw;
         }
       }
     }
@@ -704,9 +815,24 @@
       &__content {
         height: 200px;
       }
+    }
 
-      &__characteristicItem {
-        padding: 0 10px 0 0;
+    &__list {
+      .carCard {
+        &__characteristicItem {
+          padding: 0px 10px 0px 10px;
+
+          &:nth-child(2) {
+            padding: 0px 10px 0px 0px;
+          }
+          &:nth-child(4) {
+            padding: 0px 10px 0px 10px;
+          }
+
+          &:nth-child(5) {
+            padding: 0px 10px 0px 0px;
+          }
+        }
       }
     }
   }
@@ -735,6 +861,27 @@
   }
 }
 
+@media screen and (max-width: 320px) {
+  .inventory-content {
+    &__list {
+      .carCard {
+        &__characteristicItem {
+          width: 75px;
+          &:nth-child(4) {
+            border-right: 1px solid #d7d7d7;
+            padding: 0px 10px 0px 0px;
+          }
+
+          &:nth-child(5) {
+            border-right: 1px solid #d7d7d7;
+            padding: 0px 10px 0px 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 300px) {
   .inventory-content {
     &__top {
@@ -747,7 +894,7 @@
       flex-wrap: wrap;
       gap: 10px;
       .detailsSearch {
-        width: 69vw !important;
+        width: 100vw !important;
       }
     }
   }
@@ -782,11 +929,54 @@
   }
 }
 
+@media screen and (max-width: 270px) {
+  .inventory-content {
+    &__list {
+      .carCard {
+        &__characteristics {
+          justify-content: space-between;
+        }
+        &__characteristicItem {
+          width: auto;
+          &:nth-child(3) {
+            border-right: none;
+            padding: 0px 0px 0px 0px;
+          }
+          &:nth-child(4) {
+            border-right: 1px solid #d7d7d7;
+            padding: 0px 10px 0px 0px;
+          }
+
+          &:nth-child(5) {
+            border-right: none;
+            padding: 0px 0px 0px 0px;
+          }
+        }
+      }
+    }
+
+    .carCard__content {
+      height: fit-content;
+    }
+  }
+}
+
 @media screen and (max-width: 250px) {
   .inventory-content {
     &__search {
       .detailsSearch {
         width: 82vw !important;
+      }
+    }
+
+    &__list {
+      .carCard {
+        &__characteristicItem {
+          border: none;
+          &:nth-child(4) {
+            border-right: none;
+          }
+        }
       }
     }
   }
