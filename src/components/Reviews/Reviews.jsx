@@ -57,7 +57,7 @@ export default function Reviews() {
             mousewheel-force-to-axis="true"
             initial-slide="0"
             // a11y-enabled="true"
-            a11y-slide-role="listItem"
+            // a11y-slide-role="listItem"
             a11y-slide-label-message="null"
           >
             {reviewsData.length ? (

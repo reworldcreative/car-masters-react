@@ -246,7 +246,7 @@
 @media screen and (max-width: 550px) {
   .quiz {
     &__wrapper {
-      padding: 40px 20px;
+      padding: 30px 20px;
     }
 
     &__content {
@@ -261,6 +261,14 @@
       .back-button {
         width: 100%;
         justify-content: center;
+        font-size: 14px;
+      }
+    }
+
+    &__input {
+      font-size: 14px;
+      &::placeholder {
+        font-size: 14px;
       }
     }
 
@@ -275,6 +283,14 @@
       &:focus {
         transform: scale(1);
       }
+    }
+
+    &__question {
+      margin-top: 30px;
+    }
+
+    &__radio-label {
+      font-size: 14px;
     }
 
     &__row {

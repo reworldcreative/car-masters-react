@@ -1,11 +1,17 @@
 import React from "react";
 import "./quiz.scss";
 
-export default function QuizInput({ placeholder, getValue, regular }) {
-  const [inputValue, setInputValue] = useState("");
+export default function QuizInput({
+  placeholder,
+  getValue,
+  regular,
+  value,
+  maxLength,
+}) {
+  const [inputValue, setInputValue] = useState(value);
 
   useEffect(() => {
-    setInputValue("");
+    setInputValue(value);
   }, [placeholder]);
 
   const handleChange = (e) => {
@@ -29,6 +35,7 @@ export default function QuizInput({ placeholder, getValue, regular }) {
       placeholder={placeholder}
       value={inputValue}
       onChange={handleChange}
+      maxLength={maxLength}
     />
   );
 }

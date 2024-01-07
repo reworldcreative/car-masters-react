@@ -20,6 +20,8 @@ export default function Quiz() {
 
   const [budget, setBudget] = useState("");
   const [employmentStatus, setEmploymentStatus] = useState("");
+  const [employmentStatusMore, setEmploymentStatusMore] = useState("");
+
   const [monthlyIncome, setMonthlyIncome] = useState("");
   const [workingNow, setWorkingNow] = useState("");
 
@@ -154,8 +156,9 @@ export default function Quiz() {
           }
           break;
         case 3:
-          employmentStatus !== "" && employmentStatus !== "Other"
-            ? (setCurrentQuestion(currentQuestion + 1), handleRemoveError())
+          employmentStatusMore !== "" && employmentStatus !== ""
+            ? // && employmentStatus !== "Other"
+              (setCurrentQuestion(currentQuestion + 1), handleRemoveError())
             : handleSetError();
           break;
         case 4:
@@ -298,7 +301,7 @@ export default function Quiz() {
         setEmploymentStatus(value);
         break;
       case 3:
-        setEmploymentStatus(value);
+        setEmploymentStatusMore(value);
         break;
       case 5:
         setWorkingNow(value);
@@ -310,19 +313,19 @@ export default function Quiz() {
   };
 
   const getInputValue = (value) => {
-    if (value !== "") {
-      switch (currentQuestion) {
-        case 4:
-          setMonthlyIncome(value);
-          break;
-        case 8:
-          setReceivingTime(value);
-          break;
+    // if (value !== "") {
+    switch (currentQuestion) {
+      case 4:
+        setMonthlyIncome(value);
+        break;
+      case 8:
+        setReceivingTime(value);
+        break;
 
-        default:
-          break;
-      }
+      default:
+        break;
     }
+    // }
   };
 
   useEffect(() => {
@@ -383,6 +386,17 @@ export default function Quiz() {
                             text={answer}
                             key={index}
                             getValue={getRadioValue}
+                            selected={
+                              currentItem.id === 1
+                                ? budget
+                                : currentItem.id === 2
+                                ? employmentStatus
+                                : currentItem.id === 3
+                                ? employmentStatusMore
+                                : currentItem.id === 5
+                                ? workingNow
+                                : ""
+                            }
                           />
                         ))
                       ) : currentItem.type === "input" ? (
@@ -390,6 +404,14 @@ export default function Quiz() {
                           placeholder={currentItem.placeholder}
                           getValue={getInputValue}
                           regular={currentQuestion === 4 ? "number" : ""}
+                          value={
+                            currentItem.id === 4
+                              ? monthlyIncome
+                              : currentItem.id === 8
+                              ? receivingTime
+                              : false
+                          }
+                          maxLength={15}
                         />
                       ) : currentItem.type === "inputEmployment" ? (
                         <div className="quiz__inputEmployment">
@@ -397,11 +419,13 @@ export default function Quiz() {
                             placeholder={currentItem.placeholderEmployer}
                             getValue={getEmploymentEmployer}
                             regular={""}
+                            value={employmentEmployer}
                           />
                           <QuizInput
                             placeholder={currentItem.placeholderTitle}
                             getValue={getEmploymentTitle}
                             regular={""}
+                            value={employmentTitle}
                           />
                         </div>
                       ) : currentItem.type === "inputData" ? (
@@ -410,11 +434,13 @@ export default function Quiz() {
                             placeholder={currentItem.placeholderYears}
                             getValue={getYears}
                             regular={"number"}
+                            value={years}
                           />
                           <QuizInput
                             placeholder={currentItem.placeholderMonths}
                             getValue={getMonths}
                             regular={""}
+                            value={months}
                           />
                         </div>
                       ) : currentItem.type === "address" ? (
@@ -423,22 +449,26 @@ export default function Quiz() {
                             placeholder={currentItem.placeholderStreet}
                             getValue={getStreet}
                             regular={""}
+                            value={street}
                           />
                           <QuizInput
                             placeholder={currentItem.placeholderCity}
                             getValue={getCity}
                             regular={""}
+                            value={city}
                           />
                           <div className="quiz__row">
                             <QuizInput
                               placeholder={currentItem.placeholderProvince}
                               getValue={getProvince}
                               regular={""}
+                              value={province}
                             />
                             <QuizInput
                               placeholder={currentItem.placeholderPostal}
                               getValue={getPostal}
                               regular={"number"}
+                              value={postal}
                             />
                           </div>
                         </div>
@@ -448,17 +478,20 @@ export default function Quiz() {
                             placeholder={currentItem.placeholderYear}
                             getValue={getBornYear}
                             regular={"number"}
+                            value={bornYear}
                           />
                           <div className="quiz__row">
                             <QuizInput
                               placeholder={currentItem.placeholderMonth}
                               getValue={getBornMonth}
                               regular={""}
+                              value={bornMonth}
                             />
                             <QuizInput
                               placeholder={currentItem.placeholderDay}
                               getValue={getBornDay}
                               regular={"number"}
+                              value={bornDay}
                             />
                           </div>
                         </div>
@@ -469,22 +502,26 @@ export default function Quiz() {
                               placeholder={currentItem.placeholderFirstName}
                               getValue={getFirstName}
                               regular={""}
+                              value={firstName}
                             />
                             <QuizInput
                               placeholder={currentItem.placeholderLastName}
                               getValue={getLastName}
                               regular={""}
+                              value={lastName}
                             />
                           </div>
                           <QuizInput
                             placeholder={currentItem.placeholderEmail}
                             getValue={getEmail}
                             regular={""}
+                            value={email}
                           />
                           <QuizInput
                             placeholder={currentItem.placeholderPhone}
                             getValue={getPhone}
                             regular={"number"}
+                            value={phone}
                           />
                         </div>
                       ) : (

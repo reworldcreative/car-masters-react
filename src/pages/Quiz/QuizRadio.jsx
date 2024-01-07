@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import "./quiz.scss";
 
-export default function QuizRadio({ text, getValue }) {
-  const [selectedOption, setSelectedOption] = useState(null);
+export default function QuizRadio({ text, getValue, selected }) {
+  const [selectedOption, setSelectedOption] = useState(selected);
 
   const handleRadioChange = (event) => {
     setSelectedOption(event.target.value);
@@ -11,7 +11,7 @@ export default function QuizRadio({ text, getValue }) {
   };
 
   useEffect(() => {
-    setSelectedOption(null);
+    setSelectedOption(selected);
   }, [text]);
 
   return (
