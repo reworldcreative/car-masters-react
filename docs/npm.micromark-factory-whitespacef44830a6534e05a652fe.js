@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebpackreact=self.webpackChunkwebpackreact||[]).push([[7492],{6226:function(n,e,i){i.d(e,{S:function(){return u}});var r=i(2761),t=i(5459);function u(n,e){let i;return function u(c){if((0,t.Ch)(c))return n.enter("lineEnding"),n.consume(c),n.exit("lineEnding"),i=!0,u;if((0,t.xz)(c))return(0,r.f)(n,u,i?"linePrefix":"lineSuffix")(c);return e(c)}}}}]);

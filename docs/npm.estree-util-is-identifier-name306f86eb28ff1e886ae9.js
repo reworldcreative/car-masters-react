@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebpackreact=self.webpackChunkwebpackreact||[]).push([[6090],{240:function(t,u,n){n.d(u,{u2:function(){return r}});const e=/^[$_\p{ID_Start}][$_\u{200C}\u{200D}\p{ID_Continue}]*$/u,c=/^[$_\p{ID_Start}][-$_\u{200C}\u{200D}\p{ID_Continue}]*$/u,p={};function r(t,u){return((u||p).jsx?c:e).test(t)}}}]);
