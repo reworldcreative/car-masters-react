@@ -6,8 +6,11 @@ import nextArrow from "@/img/icons/next_arrow.svg";
 
 import reviewPhoto1 from "@/img/reviews/review_1.jpg";
 import reviewPhoto2 from "@/img/reviews/review_2.jpg";
+import reviewPhoto2Small from "@/img/reviews/review_2_small.jpg";
 import reviewPhoto3 from "@/img/reviews/review_3.jpg";
+import reviewPhoto3Small from "@/img/reviews/review_3_small.jpg";
 import reviewPhoto4 from "@/img/reviews/review_4.jpg";
+import reviewPhoto4Small from "@/img/reviews/review_4_small.jpg";
 
 import reviewsData from "@/data/reviews.json";
 
@@ -69,6 +72,7 @@ export default function Reviews() {
                   >
                     <PictureComponent
                       src={review.image}
+                      smallSrc={review.imageSmall ? review.imageSmall : false}
                       alt={"User review image. " + review.imageDescription}
                       width="465"
                       height="324"
