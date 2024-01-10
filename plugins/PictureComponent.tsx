@@ -4,6 +4,7 @@ const PictureComponent: React.FC<{
   id?: string;
   src: string;
   mediumSrc?: string;
+  smallSrc?: string;
   alt?: string;
   className?: string;
   width?: string;
@@ -13,6 +14,7 @@ const PictureComponent: React.FC<{
   id,
   src,
   mediumSrc = "",
+  smallSrc = "",
   alt,
   className,
   width,
@@ -21,6 +23,7 @@ const PictureComponent: React.FC<{
 }) => {
   const webpSrc = src.replace(/\.\w+$/, ".webp");
   const webpMediumSrc = mediumSrc ? mediumSrc.replace(/\.\w+$/, ".webp") : "";
+  const webpSmallSrc = smallSrc ? smallSrc.replace(/\.\w+$/, ".webp") : "";
 
   return (
     <picture>
@@ -29,6 +32,11 @@ const PictureComponent: React.FC<{
         type="image/webp"
         srcSet={mediumSrc ? webpMediumSrc : webpSrc}
         media="(max-width: 1200px)"
+      />
+      <source
+        type="image/webp"
+        srcSet={smallSrc ? webpSmallSrc : webpSrc}
+        media="(max-width: 500px)"
       />
       {/* <source
         type="image/webp"

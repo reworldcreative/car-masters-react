@@ -14,7 +14,9 @@ import Calculator from "@/components/Calculator/Calculator";
 import missionDecoration from "@/img/cars/Kia.png";
 import convenienceDecoration from "@/img/cars/Nissan.png";
 import teamImage from "@/img/TeamPhoto_2.jpg";
+import teamImageSmall from "@/img/TeamPhoto_2_small.jpg";
 import teamFeatures from "@/img/TeamFeatures_2.jpg";
+import teamFeaturesSmall from "@/img/TeamFeatures_2_small.jpg";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -262,6 +264,7 @@ export default function About() {
           <div className="AboutTeam__image-container" aria-hidden="true">
             <PictureComponent
               src={teamImage}
+              smallSrc={teamImageSmall}
               alt="team image"
               width="600"
               height="540"
@@ -276,6 +279,7 @@ export default function About() {
           <div className="AboutFeatures__image-container" aria-hidden="true">
             <PictureComponent
               src={teamFeatures}
+              smallSrc={teamFeaturesSmall}
               alt="team features image"
               width="540"
               height="494"

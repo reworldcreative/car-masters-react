@@ -537,6 +537,12 @@
 
       .button.accent {
         padding: 10px 12px !important;
+        width: auto;
+
+        &:hover,
+        &:focus {
+          transform: scale(1);
+        }
       }
     }
   }
@@ -563,7 +569,7 @@
     }
 
     &__img {
-      max-width: 319px;
+      // max-width: 319px;
       max-height: 227px;
 
       width: calc(4.5125rem + 68.9vw);
@@ -598,7 +604,7 @@
     }
 
     &__img {
-      max-width: 320px;
+      // max-width: 320px;
       max-height: 228px;
 
       width: calc(4.5125rem + 68.9vw);
