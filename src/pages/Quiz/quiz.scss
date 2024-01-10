@@ -78,11 +78,6 @@
       //   border: 1px solid $base-color;
       outline: 1px solid $base-color;
     }
-
-    &:focus {
-      border: 1px solid #f1f1f1;
-      outline: none;
-    }
   }
 
   &__radio-label {
@@ -98,6 +93,11 @@
     height: 100%;
     box-sizing: border-box;
     display: block;
+
+    &:focus {
+      border: 1px solid #f1f1f1;
+      outline: none;
+    }
   }
 
   &__input {

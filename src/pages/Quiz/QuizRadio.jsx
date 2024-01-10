@@ -2,17 +2,17 @@ import React, { useEffect } from "react";
 import "./quiz.scss";
 
 export default function QuizRadio({ text, getValue, selected }) {
-  const [selectedOption, setSelectedOption] = useState(selected);
+  // const [selectedOption, setSelectedOption] = useState(selected);
 
   const handleRadioChange = (event) => {
-    setSelectedOption(event.target.value);
+    // setSelectedOption(event.target.value);
     getValue(event.target.value);
-    // console.log("Вибрана опція:", event.target.value);
+    // console.log("Вибрана опція:", event.target.value, "selected", selected);
   };
 
-  useEffect(() => {
-    setSelectedOption(selected);
-  }, [text]);
+  // useEffect(() => {
+  //   setSelectedOption(selected);
+  // }, [text]);
 
   return (
     <div className="quiz__radio-wrapper">
@@ -22,7 +22,7 @@ export default function QuizRadio({ text, getValue, selected }) {
         id={text}
         value={text}
         name="quizRadioGroup"
-        checked={selectedOption === text}
+        checked={selected === text}
         onChange={handleRadioChange}
       />
 
@@ -35,7 +35,7 @@ export default function QuizRadio({ text, getValue, selected }) {
         {text}
         <span className="visibility-hidden">
           {". "}
-          {selectedOption === text ? "selected" : "unselected"}
+          {selected === text ? "selected" : "unselected"}
         </span>
       </label>
     </div>
