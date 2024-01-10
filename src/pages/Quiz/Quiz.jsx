@@ -480,7 +480,7 @@ export default function Quiz() {
                             regular={"number"}
                             value={bornYear}
                           />
-                          <div className="quiz__row">
+                          <div className="quiz__row minrow">
                             <QuizInput
                               placeholder={currentItem.placeholderMonth}
                               getValue={getBornMonth}
