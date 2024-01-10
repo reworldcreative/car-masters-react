@@ -120,7 +120,11 @@ export default function CarPage() {
   const [activeSlideImageAlt, setActiveSlideImageAlt] = useState("");
   const [imagePopUp, setImagePopUp] = useState(false);
 
+  const [scaleIconBg, setScaleImageBg] = useState(0);
+  const [shareIconBg, setShareImageBg] = useState(0);
+
   const toggleImagePopUp = () => {
+    window.scrollTo({ top: 0, left: 0 });
     setImagePopUp(!imagePopUp);
     setScale(false);
     setPosition({ x: 0, y: 0 });
@@ -128,13 +132,31 @@ export default function CarPage() {
 
   const [scale, setScale] = useState(false);
   const handleScaleChange = () => {
+    const container = document.querySelector(".carPage__popUpImage-wrapper");
+    const containerRect = container ? container.getBoundingClientRect() : false;
     setScale(!scale);
     setPosition({ x: 0, y: 0 });
+    setScaleImageBg(
+      mostPixelsColor(containerRect.left + 20, containerRect.bottom - 47)
+    );
+    setShareImageBg(
+      mostPixelsColor(containerRect.right - 42, containerRect.bottom - 47)
+    );
   };
 
   useEffect(() => {
     if (imagePopUp) {
       document.body.classList.add("no-scroll");
+      const container = document.querySelector(".carPage__popUpImage-wrapper");
+      const containerRect = container
+        ? container.getBoundingClientRect()
+        : false;
+      setScaleImageBg(
+        mostPixelsColor(containerRect.left + 20, containerRect.bottom - 47)
+      );
+      setShareImageBg(
+        mostPixelsColor(containerRect.right - 42, containerRect.bottom - 47)
+      );
     } else {
       document.body.classList.remove("no-scroll");
     }
@@ -148,6 +170,128 @@ export default function CarPage() {
   // Отримати розміри контейнера
   const container = document.querySelector(".carPage__popUpImage-wrapper");
   const containerRect = container ? container.getBoundingClientRect() : false;
+  const canvas = document.createElement("canvas");
+  const context = canvas.getContext("2d");
+  context.willReadFrequently = true;
+  const imageElement = document.querySelector(".carPage__popUpImage-img");
+
+  if (imageElement) {
+    const imageRect = imageElement.getBoundingClientRect();
+
+    const originalWidth = imageElement.naturalWidth;
+    const originalHeight = imageElement.naturalHeight;
+
+    const scale = Math.max(
+      imageRect.width / originalWidth,
+      imageRect.height / originalHeight
+    );
+
+    const offsetX = (imageRect.width - originalWidth * scale) / 2;
+    const offsetY = (imageRect.height - originalHeight * scale) / 2;
+
+    canvas.width = imageRect.width;
+    canvas.height = imageRect.height;
+
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.drawImage(
+      imageElement,
+      0,
+      0,
+      originalWidth,
+      originalHeight,
+      offsetX,
+      offsetY,
+      imageRect.width - offsetX * 2,
+      imageRect.height - offsetY * 2
+    );
+  }
+
+  const bgColor = (eventX, eventY) => {
+    // колір пікселів
+    const imageElement = document.querySelector(".carPage__popUpImage-img");
+    if (imageElement) {
+      const imageRect = imageElement.getBoundingClientRect();
+
+      // const originalWidth = imageElement.naturalWidth;
+      // const originalHeight = imageElement.naturalHeight;
+
+      // console.log(
+      //   "Оригінальний розмір зображення:",
+      //   originalWidth,
+      //   "x",
+      //   originalHeight
+      // );
+
+      // const scale = Math.max(
+      //   imageRect.width / originalWidth,
+      //   imageRect.height / originalHeight
+      // );
+
+      // const offsetX = (imageRect.width - originalWidth * scale) / 2;
+      // const offsetY = (imageRect.height - originalHeight * scale) / 2;
+
+      // Отримання розташування та розмірів відображення зображення на екрані
+      const xImage = eventX - imageRect.left;
+      const yImage = eventY - imageRect.top;
+
+      // const xContainer = eventX - containerRect.left;
+      // const yContainer = eventY - containerRect.top;
+
+      // Встановлення розмірів canvas, відповідних розмірам зображення
+      // canvas.width = imageRect.width;
+      // canvas.height = imageRect.height;
+
+      // Встановлення оригінального зображення на canvas
+      // context.drawImage(imageElement, 0, 0, canvas.width, canvas.height);
+      // context.clearRect(0, 0, canvas.width, canvas.height);
+      // context.drawImage(
+      //   imageElement,
+      //   0,
+      //   0,
+      //   originalWidth,
+      //   originalHeight,
+      //   offsetX,
+      //   offsetY,
+      //   imageRect.width - offsetX * 2,
+      //   imageRect.height - offsetY * 2
+      // );
+
+      // Отримання даних пікселя
+      const pixelData = context.getImageData(xImage, yImage, 1, 1).data;
+      const red = pixelData[0];
+      const green = pixelData[1];
+      const blue = pixelData[2];
+      const pixelColor = "RGB(" + red + ", " + green + ", " + blue + ")";
+
+      // Розрахунок середнього значення компонент кольору
+      const averageColor = (red + green + blue) / 3;
+
+      // Визначення, чи є піксель темним чи світлим (в даному прикладі, якщо середнє значення менше 128 - темний)
+      const isDarkPixel = averageColor < 128;
+
+      // console.log(isDarkPixel ? "Піксель темний" : "Піксель світлий");
+
+      // console.log(xImage, yImage, "--", xContainer, yContainer, pixelColor);
+      return {
+        pixelColor: `RGB(${red}, ${green}, ${blue})`,
+        isDarkPixel: (red + green + blue) / 3 < 128,
+      };
+    }
+    return null;
+  };
+
+  const mostPixelsColor = (pixelX, pixelY) => {
+    let mostPixels = 0;
+
+    for (let i = pixelX; i < pixelX + 22; i++) {
+      for (let j = pixelY; j < pixelY + 22; j++) {
+        const color = bgColor(i, j).isDarkPixel;
+        color ? mostPixels-- : mostPixels++;
+      }
+    }
+    // console.log(mostPixels);
+    return mostPixels;
+  };
 
   const handleMouseDown = (e) => {
     const imageRect = document.querySelector(".carPage__popUpImage-img")
@@ -155,6 +299,7 @@ export default function CarPage() {
           .querySelector(".carPage__popUpImage-img")
           .getBoundingClientRect()
       : false;
+
     // Визначити позицію курсора відносно верхнього лівого кута об'єкта
     // const offsetX = e.clientX - containerRect.left - imageRect.left;
     // const offsetY = e.clientY - containerRect.top - imageRect.top;
@@ -178,6 +323,16 @@ export default function CarPage() {
     setMousePressOffset({ x: offsetX, y: offsetY });
 
     setIsDragging(true);
+
+    // bgColor(e.clientX, e.clientY);
+
+    // Отримати розміри контейнера
+    // const container = document.querySelector(".carPage__popUpImage-wrapper");
+    // const containerRect = container ? container.getBoundingClientRect() : false;
+    // console.log(containerRect, imageRect, "----------------------");
+    // bgColor(containerRect.right  - 42, containerRect.bottom  - 47);
+
+    // mostPixelsColor(containerRect.left + 20, containerRect.bottom - 47);
   };
 
   const handleMouseMove = (e) => {
@@ -232,6 +387,14 @@ export default function CarPage() {
 
   const handleMouseUp = () => {
     setIsDragging(false);
+    // mostPixelsColor(containerRect.left + 20, containerRect.bottom - 47);
+
+    setScaleImageBg(
+      mostPixelsColor(containerRect.left + 20, containerRect.bottom - 47)
+    );
+    setShareImageBg(
+      mostPixelsColor(containerRect.right - 42, containerRect.bottom - 47)
+    );
   };
 
   // const fbx = useLoader(FBXLoader, '@/img/porsche-panamera-gts/Porsche_Panamera_GTS.fbx')
@@ -268,6 +431,12 @@ export default function CarPage() {
                   className="zoom"
                   aria-label="zoom cars image"
                   onClick={handleScaleChange}
+                  style={{
+                    filter:
+                      scaleIconBg > 0
+                        ? "drop-shadow(1px 1px 3px white)"
+                        : "drop-shadow(1px 1px 1px black)",
+                  }}
                 >
                   <img
                     className="zoom__icon"
@@ -276,6 +445,12 @@ export default function CarPage() {
                     width="22"
                     height="22"
                     aria-hidden="true"
+                    style={{
+                      filter:
+                        scaleIconBg > 0
+                          ? "invert(100%) sepia(100%) saturate(2%) hue-rotate(137deg) brightness(106%) contrast(101%) drop-shadow(1px 1px 3px white)"
+                          : "drop-shadow(1px 1px 1px black)",
+                    }}
                   />
                 </button>
 
@@ -283,6 +458,12 @@ export default function CarPage() {
                   className="share"
                   aria-label="share cars"
                   onClick={toggleImagePopUp}
+                  style={{
+                    filter:
+                      shareIconBg > 0
+                        ? "drop-shadow(1px 1px 3px white)"
+                        : "drop-shadow(1px 1px 1px black)",
+                  }}
                 >
                   <img
                     className="share__icon"
@@ -291,6 +472,12 @@ export default function CarPage() {
                     width="22"
                     height="22"
                     aria-hidden="true"
+                    style={{
+                      filter:
+                        shareIconBg > 0
+                          ? "invert(0%) sepia(100%) saturate(2%) hue-rotate(137deg) brightness(0%) contrast(101%) drop-shadow(1px 1px 3px white)"
+                          : "invert(100%) sepia(100%) saturate(2%) hue-rotate(137deg) brightness(106%) contrast(101%) drop-shadow(1px 1px 1px black)",
+                    }}
                   />
                 </button>
               </div>

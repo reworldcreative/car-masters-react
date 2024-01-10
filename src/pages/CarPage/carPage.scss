@@ -91,17 +91,19 @@
         padding: 0;
         outline: none;
         cursor: pointer;
+        filter: drop-shadow(2px 3px 6px black);
 
         img {
+          display: flex;
           filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(137deg)
-            brightness(106%) contrast(101%);
+            brightness(106%) contrast(101%) drop-shadow(1px 1px 1px black);
         }
 
         &:hover,
         &:focus {
           img {
             filter: invert(54%) sepia(75%) saturate(3388%) hue-rotate(213deg)
-              brightness(101%) contrast(101%);
+              brightness(101%) contrast(101%) drop-shadow(1px 1px 1px black) !important;
           }
         }
       }
@@ -112,11 +114,17 @@
         padding: 0;
         outline: none;
         cursor: pointer;
+        filter: drop-shadow(2px 3px 6px black);
+
+        img {
+          display: flex;
+          filter: drop-shadow(1px 1px 1px black);
+        }
 
         &:hover {
           img {
             filter: invert(54%) sepia(75%) saturate(3388%) hue-rotate(213deg)
-              brightness(101%) contrast(101%);
+              brightness(101%) contrast(101%) !important;
           }
         }
       }
@@ -222,14 +230,14 @@
           &__icon {
             display: flex;
             filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(137deg)
-              brightness(106%) contrast(101%);
+              brightness(106%) contrast(101%) drop-shadow(1px 1px 1px black);
           }
 
           &:hover,
           &:focus {
             img {
               filter: invert(54%) sepia(75%) saturate(3388%) hue-rotate(213deg)
-                brightness(101%) contrast(101%);
+                brightness(101%) contrast(101%) !important;
             }
           }
         }

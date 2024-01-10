@@ -421,13 +421,17 @@
 
         &__characteristicItem {
           width: 90px;
+          &:nth-child(3) {
+            border: none;
+          }
+
           &:nth-child(4) {
             border-right: 1px solid #d7d7d7;
             padding: 0px 20px 0px 0px;
           }
 
           &:nth-child(5) {
-            border-right: 1px solid #d7d7d7;
+            // border-right: 1px solid #d7d7d7;
             padding: 0px 20px 0px 20px;
           }
         }
@@ -558,6 +562,11 @@
       .carCard {
         &__characteristicItem {
           width: auto;
+
+          &:nth-child(3) {
+            border-right: 1px solid #d7d7d7;
+          }
+
           &:nth-child(4) {
             border-right: none;
             padding: 0px 20px 0px 20px;
@@ -614,6 +623,7 @@
     }
 
     &__search {
+      margin: 0 20% 0 0;
       .detailsSearch {
         width: 45vw !important;
         // width: 100% !important;
@@ -621,7 +631,8 @@
     }
 
     &__sorted {
-      margin: auto 0px auto auto;
+      // margin: auto 0px auto auto;
+      margin: 0 20% 0 auto;
       // margin: auto 0 auto 20%;
       // margin: auto 8% auto auto;
 
@@ -638,13 +649,17 @@
 
         &__characteristicItem {
           width: 90px;
+
+          &:nth-child(3) {
+            border: none;
+          }
           &:nth-child(4) {
             border-right: 1px solid #d7d7d7;
             padding: 0px 20px 0px 0px;
           }
 
           &:nth-child(5) {
-            border-right: 1px solid #d7d7d7;
+            border-right: none;
             padding: 0px 20px 0px 20px;
           }
         }
@@ -692,6 +707,9 @@
       .carCard {
         &__characteristicItem {
           width: auto;
+          &:nth-child(3) {
+            border-right: 1px solid #d7d7d7;
+          }
           &:nth-child(4) {
             border-right: none;
             padding: 0px 20px 0px 20px;
@@ -711,6 +729,7 @@
   .inventory-header {
     .header {
       padding: 10px 20px 10px 25px;
+      gap: 0px;
       &__navigation {
         gap: 23px;
       }
@@ -791,12 +810,14 @@
   .inventory-content {
     &__sorted {
       width: 100%;
+      margin: 0 auto;
       .inventory-content__select-wrapper {
         width: 100%;
       }
     }
 
     &__search {
+      margin: 0px;
       .detailsSearch {
         width: 64.2vw !important;
       }
@@ -867,13 +888,16 @@
       .carCard {
         &__characteristicItem {
           width: 75px;
+          &:nth-child(3) {
+            border-right: none;
+          }
           &:nth-child(4) {
             border-right: 1px solid #d7d7d7;
             padding: 0px 10px 0px 0px;
           }
 
           &:nth-child(5) {
-            border-right: 1px solid #d7d7d7;
+            border-right: none;
             padding: 0px 10px 0px 10px;
           }
         }
@@ -883,6 +907,11 @@
 }
 
 @media screen and (max-width: 300px) {
+  .inventory-header {
+    .header {
+      gap: 10px;
+    }
+  }
   .inventory-content {
     &__top {
       .suggestions-list__wrapper {
@@ -894,7 +923,7 @@
       flex-wrap: wrap;
       gap: 10px;
       .detailsSearch {
-        width: 100vw !important;
+        width: 100% !important;
       }
     }
   }
@@ -938,6 +967,8 @@
         }
         &__characteristicItem {
           width: auto;
+          border: none;
+          border-right: none;
           &:nth-child(3) {
             border-right: none;
             padding: 0px 0px 0px 0px;
