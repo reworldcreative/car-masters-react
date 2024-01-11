@@ -420,12 +420,14 @@ export default function Quiz() {
                             getValue={getEmploymentEmployer}
                             regular={""}
                             value={employmentEmployer}
+                            maxLength={100}
                           />
                           <QuizInput
                             placeholder={currentItem.placeholderTitle}
                             getValue={getEmploymentTitle}
                             regular={""}
                             value={employmentTitle}
+                            maxLength={150}
                           />
                         </div>
                       ) : currentItem.type === "inputData" ? (
@@ -433,7 +435,7 @@ export default function Quiz() {
                           <QuizInput
                             placeholder={currentItem.placeholderYears}
                             getValue={getYears}
-                            regular={"number"}
+                            regular={"years"}
                             value={years}
                           />
                           <QuizInput
@@ -456,6 +458,7 @@ export default function Quiz() {
                             getValue={getCity}
                             regular={""}
                             value={city}
+                            maxLength={50}
                           />
                           <div className="quiz__row">
                             <QuizInput
@@ -477,7 +480,7 @@ export default function Quiz() {
                           <QuizInput
                             placeholder={currentItem.placeholderYear}
                             getValue={getBornYear}
-                            regular={"number"}
+                            regular={"years"}
                             value={bornYear}
                           />
                           <div className="quiz__row minrow">

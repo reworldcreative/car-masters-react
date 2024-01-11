@@ -623,21 +623,21 @@
     }
 
     &__search {
-      margin: 0 20% 0 0;
+      // margin: 0 20% 0 0;
       .detailsSearch {
-        width: 45vw !important;
+        width: 50vw !important;
         // width: 100% !important;
       }
     }
 
     &__sorted {
       // margin: auto 0px auto auto;
-      margin: 0 20% 0 auto;
+      margin: 0 0 0 auto;
       // margin: auto 0 auto 20%;
       // margin: auto 8% auto auto;
 
       .inventory-content__select-wrapper {
-        width: 45vw;
+        width: 50vw;
       }
     }
 
@@ -819,7 +819,8 @@
     &__search {
       margin: 0px;
       .detailsSearch {
-        width: 64.2vw !important;
+        // width: 64.2vw !important;
+        width: 70vw !important;
       }
     }
 
@@ -863,7 +864,8 @@
   .inventory-content {
     &__search {
       .detailsSearch {
-        width: 60vw !important;
+        // width: 60vw !important;
+        width: 70vw !important;
       }
     }
   }

@@ -115,3 +115,22 @@
     }
   }
 }
+
+@media screen and (max-width: 350px) {
+  .slider-group {
+    .slider {
+      &::-webkit-slider-thumb {
+        width: 21px;
+        height: 21px;
+      }
+      &::-moz-range-thumb {
+        width: 21px;
+        height: 21px;
+      }
+      &::-ms-thumb {
+        width: 21px;
+        height: 21px;
+      }
+    }
+  }
+}

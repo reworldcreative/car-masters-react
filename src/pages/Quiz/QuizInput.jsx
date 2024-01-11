@@ -15,7 +15,14 @@ export default function QuizInput({
   }, [placeholder]);
 
   const handleChange = (e) => {
-    const onlyRegular = regular === "number" ? /^[0-9]*$/ : "";
+    const onlyRegular =
+      regular === "number"
+        ? /^[0-9]*$/
+        : "years"
+        ? /^((1|)(19)?|((2|)(20)?))((^(19|20)\d)?)((^((19|20)\d)\d)?)$/
+        : "text"
+        ? /[^\d]/
+        : regular;
 
     if (regular !== null && regular !== "") {
       if (onlyRegular.test(e.target.value)) {

@@ -94,6 +94,7 @@
       height: 35px;
       .button {
         padding: 10px;
+        line-height: inherit;
       }
       .button.accent {
         padding: 10px 11px;
@@ -112,8 +113,16 @@
       justify-content: space-between;
     }
 
-    // &__buttons {
-    //   height: 45px;
-    // }
+    &__buttons {
+      height: 30px;
+      .button {
+        line-height: normal;
+
+        &:hover,
+        &:focus {
+          transform: scale(1);
+        }
+      }
+    }
   }
 }
