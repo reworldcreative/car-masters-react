@@ -31,7 +31,8 @@ const PictureComponent: React.FC<{
       <source
         type="image/webp"
         srcSet={mediumSrc ? webpMediumSrc : webpSrc}
-        media="(max-width: 1200px)"
+        // media="(max-width: 1200px)"
+        media="(min-width: 500px) and (max-width: 1200px)"
       />
       <source
         type="image/webp"
@@ -56,6 +57,8 @@ const PictureComponent: React.FC<{
         width={width}
         height={height}
         aria-hidden={ariaHidden}
+        data-src={src}
+        loading="lazy"
       />
     </picture>
   );

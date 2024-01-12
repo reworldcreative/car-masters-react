@@ -7,13 +7,19 @@ import PictureComponent from "@/../plugins/PictureComponent";
 import car from "@/img/cars/Porsche/Porsche_1.jpg";
 import car2 from "@/img/cars/Porsche/Porsche_2.jpg";
 import car3 from "@/img/cars/Porsche/Porsche_3.jpg";
+import car3_small from "@/img/cars/Porsche/Porsche_3_small.jpg";
 import car4 from "@/img/cars/Porsche/Porsche_4.jpg";
+import car4_small from "@/img/cars/Porsche/Porsche_4_small.jpg";
 import car5 from "@/img/cars/Porsche/Porsche_5.jpg";
+import car5_small from "@/img/cars/Porsche/Porsche_5_small.jpg";
 import car6 from "@/img/cars/Porsche/Porsche_6.jpg";
+import car6_small from "@/img/cars/Porsche/Porsche_6_small.jpg";
 import car27 from "@/img/cars/Porsche/Porsche_7.jpg";
 import car28 from "@/img/cars/Porsche/Porsche_8.jpg";
+import car28_small from "@/img/cars/Porsche/Porsche_8_small.jpg";
 import car29 from "@/img/cars/Porsche/Porsche_9.jpg";
 import car30 from "@/img/cars/Porsche/Porsche_10.jpg";
+import car30_small from "@/img/cars/Porsche/Porsche_10_small.jpg";
 import car31 from "@/img/cars/Porsche/Porsche_11.jpg";
 import car32 from "@/img/cars/Porsche/Porsche_12.jpg";
 
@@ -82,6 +88,7 @@ export default function CarCard({ carData }) {
               <swiper-slide key={carImg.id}>
                 <PictureComponent
                   src={carImg.image}
+                  smallSrc={carImg.imageSmall}
                   alt={carImg.imageDescription}
                   width="420"
                   height="216"

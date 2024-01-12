@@ -7,6 +7,8 @@ import HomeSwiper from "./components/HomeSwiper";
 import PictureComponent from "@/../plugins/PictureComponent";
 import car1 from "@/img/cars/Lexus.png";
 import car2 from "@/img/cars/Honda-Accord.png";
+import car1_small from "@/img/cars/Lexus_small.png";
+import car2_small from "@/img/cars/Honda-Accord_small.png";
 import CarStep from "./components/CarStep";
 
 import chooseCar1 from "@/img/cars/Honda_1.png";
@@ -108,6 +110,7 @@ export default function Home() {
             <div aria-hidden="true" className="home-info__decoration">
               <PictureComponent
                 src={car1}
+                smallSrc={car1_small}
                 alt="lexus car"
                 width="500"
                 height="255"
@@ -116,6 +119,7 @@ export default function Home() {
 
               <PictureComponent
                 src={car2}
+                smallSrc={car2_small}
                 alt="honda accord car"
                 width="500"
                 height="209"

@@ -56,6 +56,7 @@ export default function HomeSwiper({ handleSlideChange }) {
 
       <swiper-container
         slides-per-view="1"
+        // lazy="true"
         // space-between="150"
         space-between="10"
         navigation-prev-el=".home-hero__slider-prev"

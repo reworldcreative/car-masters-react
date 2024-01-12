@@ -17,24 +17,28 @@
       {
         "id": 3,
         "image": "./img/cars/Porsche/Porsche_3.jpg",
+        "imageSmall": "./img/cars/Porsche/Porsche_3_small.jpg",
         "imageDescription": "The photo shows the interior of a Porsche Panamera car. The car's center console has a large touch screen that displays various car functions such as navigation, radio and climate control. Below the screen are buttons for controlling some of the main functions of the car. Next to the screen is the drive mode selector, which allows the driver to choose between different drive modes, such as economy, sport or comfort.",
         "imageType": "Interior"
       },
       {
         "id": 4,
         "image": "./img/cars/Porsche/Porsche_4.jpg",
+        "imageSmall": "./img/cars/Porsche/Porsche_4_small.jpg",
         "imageDescription": "The photo shows the thresholds of the Porsche Panamera Turbo S. The thresholds have a chrome finish and the Porsche and Panamera Turbo S logos are applied to them. The threshold has a smooth surface and a small protrusion that makes it easier to get in and out of the car.",
         "imageType": "Interior"
       },
       {
         "id": 5,
         "image": "./img/cars/Porsche/Porsche_5.jpg",
+        "imageSmall": "./img/cars/Porsche/Porsche_5_small.jpg",
         "imageDescription": "The photo shows the interior of a Porsche Panamera car. The dashboard has two main parts: a digital instrument panel and a central touch screen. The photo also shows that the car has red leather seats and door trim. The seats have a sporty design.",
         "imageType": "Interior"
       },
       {
         "id": 6,
         "image": "./img/cars/Porsche/Porsche_6.jpg",
+        "imageSmall": "./img/cars/Porsche/Porsche_6_small.jpg",
         "imageDescription": "The photo shows the engine of the Porsche Panamera Turbo S E-Hybrid. It is a hybrid engine consisting of a 4.0-liter V8 gasoline engine and an electric motor. The total power of the engine is 680 horsepower.",
         "imageType": "Interior"
       },
@@ -47,6 +51,7 @@
       {
         "id": 8,
         "image": "./img/cars/Porsche/Porsche_8.jpg",
+        "imageSmall": "./img/cars/Porsche/Porsche_8_small.jpg",
         "imageDescription": "The photo shows a gray Porsche Panamera parked in a parking lot.",
         "imageType": "Exterior"
       },
@@ -59,6 +64,7 @@
       {
         "id": 10,
         "image": "./img/cars/Porsche/Porsche_10.jpg",
+        "imageSmall": "./img/cars/Porsche/Porsche_10_small.jpg",
         "imageDescription": "The photo shows a gray Porsche Panamera driving on the road.",
         "imageType": "Exterior"
       },
