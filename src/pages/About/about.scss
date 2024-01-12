@@ -482,6 +482,11 @@
     }
   }
 
+  .qualified__container.card .button.accent {
+    height: 35px;
+    padding: 12px 15px 9px !important;
+  }
+
   .dream {
     &__wrapper {
       padding: 0px 20px;
@@ -651,8 +656,13 @@
     }
 
     .button.accent {
-      padding: 10px 5px !important;
+      // padding: 10px 5px !important;
+      padding: 12px 0 9px !important;
     }
+  }
+
+  .bestPrices__block .button.accent {
+    padding: 12px 12px 9px !important;
   }
 
   .reviewsAbout .reviews__wrapper {

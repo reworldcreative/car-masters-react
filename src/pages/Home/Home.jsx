@@ -151,8 +151,8 @@ export default function Home() {
                       <CarStep
                         key={carsStep.id}
                         step={carsStep.id}
-                        title={carsStep.title}
-                        text={carsStep.text}
+                        title={carsStep.title.slice(0, 200)}
+                        text={carsStep.text.slice(0, 200)}
                       />
                     ))
                 ) : (

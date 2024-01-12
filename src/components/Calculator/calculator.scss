@@ -270,6 +270,9 @@
     &__type {
       flex-wrap: wrap;
       gap: 10px;
+      .radio-label {
+        padding: 12px 17.5px 9px;
+      }
     }
 
     .slider-group {
@@ -277,6 +280,12 @@
         gap: 10px;
         flex-wrap: wrap;
       }
+    }
+  }
+
+  .calculator-results {
+    &__button {
+      padding: 12px 12px 9px !important;
     }
   }
 }
