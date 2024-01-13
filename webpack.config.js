@@ -340,11 +340,11 @@ module.exports = {
       },
     }),
 
-    new InjectManifest.GenerateSW({
-      swDest: "sw.js",
-      clientsClaim: true,
-      skipWaiting: true,
-      maximumFileSizeToCacheInBytes: 20 * 1024 * 1024,
-    }),
+    // new InjectManifest.GenerateSW({
+    //   swDest: "sw.js",
+    //   clientsClaim: true,
+    //   skipWaiting: true,
+    //   maximumFileSizeToCacheInBytes: 20 * 1024 * 1024,
+    // }),
   ],
 };

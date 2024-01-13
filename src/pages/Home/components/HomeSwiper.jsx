@@ -76,6 +76,7 @@ export default function HomeSwiper({ handleSlideChange }) {
             width="494"
             height="240"
             className="home-hero__slider-img"
+            loadingPriority="eager"
           />
         </swiper-slide>
         <swiper-slide>

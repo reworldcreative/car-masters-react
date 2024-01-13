@@ -10,6 +10,7 @@ const PictureComponent: React.FC<{
   width?: string;
   height?: string;
   ariaHidden?: boolean;
+  loadingPriority?: string;
 }> = ({
   id,
   src,
@@ -20,6 +21,7 @@ const PictureComponent: React.FC<{
   width,
   height,
   ariaHidden,
+  loadingPriority,
 }) => {
   const webpSrc = src.replace(/\.\w+$/, ".webp");
   const webpMediumSrc = mediumSrc ? mediumSrc.replace(/\.\w+$/, ".webp") : "";
@@ -59,6 +61,10 @@ const PictureComponent: React.FC<{
         aria-hidden={ariaHidden}
         // data-src={src}
         // loading="lazy"
+        {...(loadingPriority
+          ? { loading: loadingPriority === "eager" ? "eager" : "lazy" }
+          : false)}
+        // loading={loadingPriority === "eager" ? "eager" : "lazy"}
       />
     </picture>
   );
