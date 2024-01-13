@@ -11,7 +11,7 @@ const HtmlCriticalWebpackPlugin = require("html-critical-webpack-plugin");
 const webpack = require("webpack");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
-// const InjectManifest = require("workbox-webpack-plugin");
+const InjectManifest = require("workbox-webpack-plugin");
 
 module.exports = {
   mode: isProduction ? "production" : "development",
@@ -340,11 +340,11 @@ module.exports = {
       },
     }),
 
-    // new InjectManifest.GenerateSW({
-    //   swDest: "sw.js",
-    //   clientsClaim: true,
-    //   skipWaiting: true,
-    //   maximumFileSizeToCacheInBytes: 20 * 1024 * 1024,
-    // }),
+    new InjectManifest.GenerateSW({
+      swDest: "sw.js",
+      clientsClaim: true,
+      skipWaiting: true,
+      maximumFileSizeToCacheInBytes: 20 * 1024 * 1024,
+    }),
   ],
 };

@@ -274,7 +274,7 @@
     position: relative;
     .swiperList {
       &::part(wrapper) {
-        width: 82%;
+        // width: 82%;
         height: 100%;
         margin-left: auto;
         margin-right: auto;
@@ -545,7 +545,7 @@
       }
 
       .swiperList::part(wrapper) {
-        width: 88%;
+        // width: 88%;
       }
     }
 
@@ -606,6 +606,7 @@
       .carPage {
         &__img {
           width: 25vw;
+          height: 70px;
         }
       }
     }
@@ -751,7 +752,7 @@
 
     &__picturesList {
       .swiperList::part(wrapper) {
-        width: 70%;
+        // width: 70%;
       }
 
       .carPage {

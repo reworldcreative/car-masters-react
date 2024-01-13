@@ -1,4 +1,5 @@
 const cacheName = "my-cache";
+const cacheLifetime = 30 * 60;
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -32,7 +33,21 @@ self.addEventListener("install", (event) => {
 self.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
+      if (response) {
+        return response;
+      }
+
+      return fetch(event.request).then((fetchResponse) => {
+        // Клонуємо відповідь
+        const clonedResponse = fetchResponse.clone();
+
+        caches.open(cacheName).then((cache) => {
+          const cacheRequest = event.request.clone();
+          cache.put(cacheRequest, clonedResponse);
+        });
+
+        return fetchResponse;
+      });
     })
   );
 });

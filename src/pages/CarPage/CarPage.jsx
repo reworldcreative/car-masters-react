@@ -260,7 +260,7 @@ export default function CarPage() {
                     mousewheel-force-to-axis="true"
                     navigation-prev-el=".carPage__slider-prev"
                     navigation-next-el=".carPage__slider-next"
-                    loop="true"
+                    // loop="true"
                     thumbs-swiper=".swiperList"
                     // zoom="true"
                   >
@@ -343,7 +343,7 @@ export default function CarPage() {
                     mousewheel="true"
                     mousewheel-threshold-delta="70"
                     mousewheel-force-to-axis="true"
-                    loop="true"
+                    // loop="true"
                     // free-mode="true"
                     watch-slides-progress="true"
                     navigation-prev-el=".carPage__slider-prev"

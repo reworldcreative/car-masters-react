@@ -57,8 +57,8 @@ const PictureComponent: React.FC<{
         width={width}
         height={height}
         aria-hidden={ariaHidden}
-        data-src={src}
-        loading="lazy"
+        // data-src={src}
+        // loading="lazy"
       />
     </picture>
   );
