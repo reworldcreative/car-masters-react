@@ -217,6 +217,8 @@ module.exports = {
       filename: "index.html",
       template: "src/index.html",
       criticalImages: true,
+      scriptLoading: "defer",
+      // scriptLoading: "async",
       // criticalImages: {
       //   sizes: 200, // для визначення мінімального розміру зображення, який вважається критичним. (пікселів)
       // },

@@ -251,7 +251,7 @@ export default function CarPage() {
                     key={swiperMainKey}
                     slides-per-view="1"
                     space-between="10"
-                    centered-slides="true"
+                    // centered-slides="true"
                     class="swiperMain"
                     a11y="true"
                     keyboard="true"
@@ -263,7 +263,6 @@ export default function CarPage() {
                     // loop="true"
                     thumbs-swiper=".swiperList"
                     // zoom="true"
-                    passive-events="true"
                   >
                     {currentCar.images
                       .filter(
@@ -346,10 +345,9 @@ export default function CarPage() {
                     mousewheel-force-to-axis="true"
                     // loop="true"
                     // free-mode="true"
-                    passive-events="true"
                     watch-slides-progress="true"
-                    navigation-prev-el=".carPage__slider-prev"
-                    navigation-next-el=".carPage__slider-next"
+                    // navigation-prev-el=".carPage__slider-prev"
+                    // navigation-next-el=".carPage__slider-next"
                     breakpoints={JSON.stringify({
                       400: { spaceBetween: "10" },
                       10: { spaceBetween: "5" },
