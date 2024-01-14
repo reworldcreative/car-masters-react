@@ -29,12 +29,12 @@ const PictureComponent: React.FC<{
 
   return (
     <picture>
-      <source type="image/webp" srcSet={webpSrc} media="(min-width: 1200px)" />
+      <source type="image/webp" srcSet={webpSrc} media="(min-width: 1920px)" />
       <source
         type="image/webp"
         srcSet={mediumSrc ? webpMediumSrc : webpSrc}
         // media="(max-width: 1200px)"
-        media="(min-width: 500px) and (max-width: 1200px)"
+        media="(min-width: 500px) and (max-width: 1920px)"
       />
       <source
         type="image/webp"

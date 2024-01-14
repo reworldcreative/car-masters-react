@@ -8,6 +8,11 @@ import carCar from "@/img/cars/Ford_CAR.png";
 import truckCar from "@/img/cars/Ram_TRUCK.png";
 import vanCar from "@/img/cars/Dodge_VAN.png";
 
+import suvCar_small from "@/img/cars/Nissan_SUV_small.png";
+import carCar_small from "@/img/cars/Ford_CAR_small.png";
+import truckCar_small from "@/img/cars/Ram_TRUCK_small.png";
+import vanCar_small from "@/img/cars/Dodge_VAN_small.png";
+
 import nextArrow from "@/img/icons/next_arrow.svg";
 
 export default function HomeSwiper({ handleSlideChange }) {
@@ -68,10 +73,12 @@ export default function HomeSwiper({ handleSlideChange }) {
         mousewheel="true"
         mousewheel-threshold-delta="70"
         mousewheel-force-to-axis="true"
+        passive-events="true"
       >
         <swiper-slide>
           <PictureComponent
             src={suvCar}
+            smallSrc={suvCar_small}
             alt="Nissan Kicks, a stylish and versatile vehicle designed to elevate your driving experience."
             width="494"
             height="240"
@@ -82,6 +89,7 @@ export default function HomeSwiper({ handleSlideChange }) {
         <swiper-slide>
           <PictureComponent
             src={carCar}
+            smallSrc={carCar_small}
             alt="The Ford Fusion, this sedan provides a smooth and comfortable ride for both driver and passengers. "
             width="490"
             height="202"
@@ -91,6 +99,7 @@ export default function HomeSwiper({ handleSlideChange }) {
         <swiper-slide>
           <PictureComponent
             src={truckCar}
+            smallSrc={truckCar_small}
             alt="Ram 3500 is a powerful and reliable pickup truck that comes in a sleek white color."
             width="490"
             height="230"
@@ -100,6 +109,7 @@ export default function HomeSwiper({ handleSlideChange }) {
         <swiper-slide>
           <PictureComponent
             src={vanCar}
+            smallSrc={vanCar_small}
             alt="The Dodge Grand Caravan is a versatile and compact van that offers both style and functionality."
             width="490"
             height="222"
