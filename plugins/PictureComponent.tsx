@@ -64,7 +64,6 @@ const PictureComponent: React.FC<{
         {...(loadingPriority
           ? { loading: loadingPriority === "eager" ? "eager" : "lazy" }
           : false)}
-        // loading={loadingPriority === "eager" ? "eager" : "lazy"}
       />
     </picture>
   );

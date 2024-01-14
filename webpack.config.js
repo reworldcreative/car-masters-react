@@ -11,7 +11,7 @@ const HtmlCriticalWebpackPlugin = require("html-critical-webpack-plugin");
 const webpack = require("webpack");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
-const InjectManifest = require("workbox-webpack-plugin");
+// const InjectManifest = require("workbox-webpack-plugin");
 
 module.exports = {
   mode: isProduction ? "production" : "development",
@@ -38,6 +38,13 @@ module.exports = {
           maxInitialRequests: Infinity,
           minSize: 0,
           cacheGroups: {
+            styles: {
+              name: "styles",
+              test: /\.(css|scss)$/,
+              chunks: "all",
+              // enforce: true,
+              enforce: false,
+            },
             vendor: {
               test: /[\\/]node_modules[\\/]/,
               name(module) {
@@ -209,6 +216,36 @@ module.exports = {
     new htmlWebpackPlugin({
       filename: "index.html",
       template: "src/index.html",
+      criticalImages: true,
+      // criticalImages: {
+      //   sizes: 200, // для визначення мінімального розміру зображення, який вважається критичним. (пікселів)
+      // },
+      autoResolveFontExtensions: true,
+      // autoResolveFontExtensions: ["woff2", "ttf", "eot"],
+      preload: [
+        {
+          // Завантажте зображення якомога раніше
+          href: "/img/icons/preloader-icons.svg",
+          as: "image",
+        },
+        {
+          href: "/img/logo/logo.svg",
+          as: "image",
+        },
+        {
+          // Завантажте шрифт основного тексту якомога раніше
+          // href: "/fonts/Gilroy-Bold.woff2",
+          hrefs: [
+            "/fonts/Gilroy-Bold.woff2",
+            "/fonts/Gilroy-ExtraBold.woff2",
+            "/fonts/Gilroy-Medium.woff2",
+            "/fonts/Gilroy-Regular.woff2",
+            "/fonts/Gilroy-SemiBold.woff2",
+          ],
+          as: "font",
+          label: "Gilroy",
+        },
+      ],
     }),
     new MiniCssExtractPlugin({
       filename: "[name][contenthash].css",
@@ -217,6 +254,9 @@ module.exports = {
       minimizer: {
         implementation: ImageMinimizerPlugin.imageminMinify,
         options: {
+          // sizes: [ // Генерувати зображення розміром 300 пікселів для екранів шириною 640 пікселів або менше
+          //   [640, 300],
+          // ],
           plugins: [
             [
               "gifsicle",
@@ -285,10 +325,11 @@ module.exports = {
           base: path.join(path.resolve(__dirname), "docs"),
           src: "index.html",
           dest: "index.html",
-          // css: ["./src/styles/main.scss"],
+          css: ["./src/styles/main.scss"],
           inline: true,
           minify: true,
-          extract: false,
+          extract: false, // CSS буде встроюватися безпосередньо в HTML-файл
+          // extract: true, // CSS  буде виділятися в окремий файл
         })
       : false,
 
