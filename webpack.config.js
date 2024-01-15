@@ -264,9 +264,9 @@ module.exports = {
               "gifsicle",
               {
                 optimizationLevel: 5,
-                // interlaced: true,
-                // colors: 256,
-                // lossy: 80,
+                interlaced: true,
+                colors: 256,
+                lossy: 80,
               },
             ],
             [
@@ -322,6 +322,19 @@ module.exports = {
       },
     }),
     new ImageminWebpWebpackPlugin(),
+    //   {
+    //   config: [
+    //     {
+    //       test: /\.(jpe?g|png)/,
+    //       options: {
+    //         quality: 75,
+    //         method: 3,
+    //         alphaQuality: 90,
+    //         filterStrength: 50,
+    //       },
+    //     },
+    //   ],
+    // }
     isProduction
       ? new HtmlCriticalWebpackPlugin({
           base: path.join(path.resolve(__dirname), "docs"),
