@@ -330,6 +330,8 @@ module.exports = {
             method: 6,
             alphaQuality: 90,
             filterStrength: 50,
+            compression: 6,
+            sns: 70,
           },
         },
       ],
