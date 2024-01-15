@@ -321,20 +321,19 @@ module.exports = {
         // filename: "img/[name][ext]",
       },
     }),
-    new ImageminWebpWebpackPlugin(),
-    //   {
-    //   config: [
-    //     {
-    //       test: /\.(jpe?g|png)/,
-    //       options: {
-    //         quality: 75,
-    //         method: 3,
-    //         alphaQuality: 90,
-    //         filterStrength: 50,
-    //       },
-    //     },
-    //   ],
-    // }
+    new ImageminWebpWebpackPlugin({
+      config: [
+        {
+          test: /\.(jpe?g|png)/,
+          options: {
+            quality: 75,
+            method: 6,
+            alphaQuality: 90,
+            filterStrength: 50,
+          },
+        },
+      ],
+    }),
     isProduction
       ? new HtmlCriticalWebpackPlugin({
           base: path.join(path.resolve(__dirname), "docs"),
