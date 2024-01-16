@@ -18,6 +18,7 @@ module.exports = {
   devtool: isProduction ? false : "inline-source-map",
   entry: {
     filename: path.resolve(__dirname, "src/index.jsx"),
+    styles: path.resolve(__dirname, "src/styles/main.scss"),
   },
   output: {
     filename: "[name][contenthash].js",
@@ -38,13 +39,13 @@ module.exports = {
           maxInitialRequests: Infinity,
           minSize: 0,
           cacheGroups: {
-            styles: {
-              name: "styles",
-              test: /\.(css|scss)$/,
-              chunks: "all",
-              // enforce: true,
-              enforce: false,
-            },
+            // styles: {
+            //   name: "styles",
+            //   test: /\.(css|scss)$/,
+            //   chunks: "all",
+            //   // enforce: true,
+            //   enforce: false,
+            // },
             vendor: {
               test: /[\\/]node_modules[\\/]/,
               name(module) {
@@ -336,18 +337,18 @@ module.exports = {
         },
       ],
     }),
-    // isProduction
-    //   ? new HtmlCriticalWebpackPlugin({
-    //       base: path.join(path.resolve(__dirname), "docs"),
-    //       src: "index.html",
-    //       dest: "index.html",
-    //       css: ["./src/styles/main.scss"],
-    //       inline: true,
-    //       minify: true,
-    //       extract: false, // CSS буде встроюватися безпосередньо в HTML-файл
-    //       // extract: true, // CSS  буде виділятися в окремий файл
-    //     })
-    //   : false,
+    isProduction
+      ? new HtmlCriticalWebpackPlugin({
+          base: path.join(path.resolve(__dirname), "docs"),
+          src: "index.html",
+          dest: "index.html",
+          css: ["./src/styles/main.scss"],
+          inline: true,
+          minify: true,
+          extract: false, // CSS буде встроюватися безпосередньо в HTML-файл
+          // extract: true, // CSS  буде виділятися в окремий файл
+        })
+      : false,
 
     new webpack.ProvidePlugin({
       $: "jquery",
