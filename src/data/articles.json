@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "image": "./img/interesting/interesting_1.jpg",
+    "image": "./img/interesting/interesting_1-2.jpg",
     "imageMedium": "./img/interesting/interesting_1-2.jpg",
     "imageDescription": "The photo shows a white low-slung sports car driving down the road. The forest and mountains can be seen in the background. The weather in the photo is sunny, and the sky is blue.",
     "data": "10 May, 2020",
@@ -10,7 +10,7 @@
   },
   {
     "id": 2,
-    "image": "./img/interesting/interesting_2.jpg",
+    "image": "./img/interesting/interesting_2-2.jpg",
     "imageMedium": "./img/interesting/interesting_2-2.jpg",
     "imageDescription": "The photo shows the palm of a person holding a red maple leaf against a forest background.",
     "data": "10 May, 2020",

@@ -6,6 +6,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useFBX } from "@react-three/drei";
 import { useLoader } from "@react-three/fiber";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
+import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 
 import cars from "@/data/cars.json";
 import log from "@/img/logo/logo.svg";
@@ -24,6 +25,7 @@ import Button from "@/components/Button/Button";
 import { MeshStandardMaterial } from "three";
 
 import threeModel from "@/img/porsche-panamera-gts/Porsche_Panamera_GTS.fbx";
+import mustangModel from "@/img/Mustang/Mustang.obj";
 import { Link } from "react-router-dom";
 import CarPopUp from "./CarPopUp";
 
@@ -146,6 +148,7 @@ export default function CarPage() {
 
   // const fbx = useLoader(FBXLoader, '@/img/porsche-panamera-gts/Porsche_Panamera_GTS.fbx')
   // const fbx = useFBX("./models/Porsche_Panamera_GTS.fbx");
+  // const fbx = useLoader(OBJLoader, "./models/Mustang.obj");
   return (
     <>
       {imagePopUp ? (
@@ -164,7 +167,7 @@ export default function CarPage() {
 
       {/* <Suspense fallback={null}>
         <Canvas
-          camera={{ position: [0, 70, 50], fov: 70 }}
+          perspectiveCamera={{ position: [0, 0, 0], fov: 70 }}
           gl={{ preserveDrawingBuffer: true }}
           shadows
         >
@@ -175,10 +178,7 @@ export default function CarPage() {
           />
           <hemisphereLight intensity={0.15} groundColor={"black"} />
           <pointLight intensity={1} />
-          <mesh
-            scale={[0.3, 0.3, 0.3]}
-            position={[800, -100, -1000]}
-          > */}
+          <mesh scale={[1, 1, 1]} position={[0, 0, 5]}> */}
       {/* <hemisphereLight intensity={0.15} groundColor={"black"} />
           <pointLight intensity={1} /> */}
       {/* <boxGeometry />
@@ -186,7 +186,7 @@ export default function CarPage() {
       {/* <primitive object={fbx} />
           </mesh>
         </Canvas>
-      </Suspense>  */}
+      </Suspense> */}
       <section className="carPage">
         <div className="carPage__wrapper">
           <div className="carPage__top">

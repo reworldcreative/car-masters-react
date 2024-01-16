@@ -8,7 +8,9 @@ import pictureBanner from "@/img/interesting/interesting_1.jpg";
 import article_1 from "@/img/articles/article_1.jpg";
 import article_2 from "@/img/articles/article_2.jpg";
 import article_3 from "@/img/articles/article_3.jpg";
+import article_3_small from "@/img/articles/article_3_small.jpg";
 import article_4 from "@/img/articles/article_4.jpg";
+import article_4_small from "@/img/articles/article_4_small.jpg";
 import PictureComponent from "@/../plugins/PictureComponent";
 import articles from "@/data/articles.json";
 import Interesting from "@/components/Interesting/Interesting";
@@ -201,6 +203,7 @@ export default function Article() {
           <div className="article-body__img">
             <PictureComponent
               src={article_3}
+              smallSrc={article_3_small}
               alt="The image shows a white Audi A5 car parked in an underground parking lot."
               width="880"
               height="496"
@@ -272,6 +275,7 @@ export default function Article() {
           <div className="article-body__image-block">
             <PictureComponent
               src={article_4}
+              smallSrc={article_4_small}
               alt="The picture shows a Volkswagen Polo parked on the side of the road. The car has a bright blue color that makes it stand out against the green lawn and trees."
               width="880"
               height="496"
