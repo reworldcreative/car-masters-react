@@ -90,7 +90,7 @@ export default function Reviews() {
               ))
             ) : (
               <>
-                <p className=" title">empty list</p>
+                <p className="title">empty list</p>
               </>
             )}
           </swiper-container>

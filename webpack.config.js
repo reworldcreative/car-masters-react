@@ -336,18 +336,18 @@ module.exports = {
         },
       ],
     }),
-    isProduction
-      ? new HtmlCriticalWebpackPlugin({
-          base: path.join(path.resolve(__dirname), "docs"),
-          src: "index.html",
-          dest: "index.html",
-          css: ["./src/styles/main.scss"],
-          inline: true,
-          minify: true,
-          extract: false, // CSS буде встроюватися безпосередньо в HTML-файл
-          // extract: true, // CSS  буде виділятися в окремий файл
-        })
-      : false,
+    // isProduction
+    //   ? new HtmlCriticalWebpackPlugin({
+    //       base: path.join(path.resolve(__dirname), "docs"),
+    //       src: "index.html",
+    //       dest: "index.html",
+    //       css: ["./src/styles/main.scss"],
+    //       inline: true,
+    //       minify: true,
+    //       extract: false, // CSS буде встроюватися безпосередньо в HTML-файл
+    //       // extract: true, // CSS  буде виділятися в окремий файл
+    //     })
+    //   : false,
 
     new webpack.ProvidePlugin({
       $: "jquery",
