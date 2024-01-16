@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebpackreact=self.webpackChunkwebpackreact||[]).push([[5307],{1049:function(n,t,s){s.d(t,{Z:function(){return a}});var e=s(1811);function a(n){const t=this;t.parser=function(s){return(0,e.V)(s,{...t.data("settings"),...n,extensions:t.data("micromarkExtensions")||[],mdastExtensions:t.data("fromMarkdownExtensions")||[]})}}}}]);
