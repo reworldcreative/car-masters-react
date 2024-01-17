@@ -25,6 +25,8 @@ export default function VideosPage() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [popUpLink, setPopUpLink] = useState("");
 
+  const [iframeRef, setIframeRef] = useState(null);
+
   const handlePopUpLink = (link) => {
     setPopUpLink(link);
   };
@@ -37,7 +39,14 @@ export default function VideosPage() {
     //   behavior: "smooth",
     // });
     setIsLoaded(true);
-    document.body.classList.add("no-scroll");
+  };
+
+  const handleIframeRefChange = (iframe) => {
+    setIframeRef(iframe);
+
+    if (iframe) {
+      iframe.focus();
+    }
   };
 
   const handleVideoClose = () => {
@@ -61,7 +70,12 @@ export default function VideosPage() {
         <PageTitle>Vehicle videos</PageTitle>
         <div className="videos__wrapper">
           {isLoaded && (
-            <div className="pupUpVideo" onClick={handleVideoClose}>
+            <div
+              className="pupUpVideo"
+              onClick={handleVideoClose}
+              ref={handleIframeRefChange}
+              tabIndex="0"
+            >
               <div className="pupUpVideo__wrapper">
                 <iframe
                   className="pupUpVideo__video"
@@ -71,6 +85,7 @@ export default function VideosPage() {
                   title="YouTube video player"
                   frameBorder="0"
                   allowFullScreen="allowfullscreen"
+                  tabIndex="0"
                 ></iframe>
                 <button
                   className="pupUpVideo__button"

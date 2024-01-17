@@ -9,7 +9,7 @@ export default function InfoList({ children, ariaLabel }) {
         className="info-list"
         aria-label={ariaLabel}
         role="group"
-        tabIndex="0"
+        tabIndex="-1"
       >
         <div className="visibility-hidden" role="group">
           <p id="info-label" className="visibility-hidden">
