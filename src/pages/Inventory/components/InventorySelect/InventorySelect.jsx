@@ -50,7 +50,9 @@ function InventorySelect({ defaultValue, getValue }) {
           "inventory-content__select secondary-text" +
           (openSelect ? " open" : "")
         }
-        aria-label={openSelect ? "expanded" : "collapsed. enter to get detail"}
+        aria-label={`Select sorted by. ${
+          openSelect ? "expanded" : "collapsed"
+        }. Press enter to get details`}
         onClick={toggleSelect}
         onKeyDown={handleKeyDown}
       >

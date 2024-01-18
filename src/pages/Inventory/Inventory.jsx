@@ -426,6 +426,18 @@ export default function Inventory() {
   //   }, 10);
   // }, []);
 
+  const [initialLoad, setInitialLoad] = useState(true);
+
+  useEffect(() => {
+    if (!initialLoad && listRef.current) {
+      listRef.current.focus();
+    }
+  }, [currentPage]);
+
+  useEffect(() => {
+    setInitialLoad(false);
+  }, []);
+
   return (
     <>
       <div className="inventory__Main">

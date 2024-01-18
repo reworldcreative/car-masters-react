@@ -10,10 +10,15 @@ export default function DetailsDropDown({ children, title, tags, removeTag }) {
     <details className="detailsDropDown__item">
       <summary
         className="detailsDropDown__top"
-        aria-label="enter to get details"
+        aria-label={title + ". Enter to get details"}
       >
         <div className="detailsDropDown__title-wrapper">
-          <span className="detailsDropDown__title secondary-text">{title}</span>
+          <span
+            className="detailsDropDown__title secondary-text"
+            aria-hidden="true"
+          >
+            {title}
+          </span>
           <div className="detailsDropDown__icon">
             <img
               className="detailsDropDown__icon"

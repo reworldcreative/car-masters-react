@@ -12,7 +12,7 @@ export default function InterestingItem({
   id,
 }) {
   return (
-    <article className="interesting__item" id={id}>
+    <article className="interesting__item" id={id} tabIndex="0">
       <Link
         to={`/article/${id}`}
         aria-label="One article preview, go to view the full article"

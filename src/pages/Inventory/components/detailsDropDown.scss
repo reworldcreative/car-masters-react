@@ -31,7 +31,8 @@
     appearance: none;
 
     &:focus {
-      outline: none;
+      // outline: none;
+      outline: 1px solid $base-color;
     }
 
     &::-webkit-details-marker {

@@ -26,6 +26,7 @@ export default function VideosPage() {
   const [popUpLink, setPopUpLink] = useState("");
 
   const [iframeRef, setIframeRef] = useState(null);
+  const videosWrapperRef = useRef(null);
 
   const handlePopUpLink = (link) => {
     setPopUpLink(link);
@@ -62,13 +63,25 @@ export default function VideosPage() {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = videosData.slice(indexOfFirstItem, indexOfLastItem);
 
+  const [initialLoad, setInitialLoad] = useState(true);
+
+  useEffect(() => {
+    if (!initialLoad && videosWrapperRef.current) {
+      videosWrapperRef.current.focus();
+    }
+  }, [currentPage]);
+
+  useEffect(() => {
+    setInitialLoad(false);
+  }, []);
+
   return (
     <>
       <div className="videoMain">
         <Header />
 
         <PageTitle>Vehicle videos</PageTitle>
-        <div className="videos__wrapper">
+        <div className="videos__wrapper" ref={videosWrapperRef} tabIndex="0">
           {isLoaded && (
             <div
               className="pupUpVideo"

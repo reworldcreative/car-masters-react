@@ -46,6 +46,19 @@ export default function Blog() {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = articles.slice(indexOfFirstItem, indexOfLastItem);
 
+  const blogWrapperRef = useRef(null);
+  const [initialLoad, setInitialLoad] = useState(true);
+
+  useEffect(() => {
+    if (!initialLoad && blogWrapperRef.current) {
+      blogWrapperRef.current.focus();
+    }
+  }, [currentPage]);
+
+  useEffect(() => {
+    setInitialLoad(false);
+  }, []);
+
   return (
     <>
       <div className="blogMain">
@@ -54,7 +67,11 @@ export default function Blog() {
         <PageTitle>Our blog</PageTitle>
         <div className="blogMain__wrapper">
           <section className="blogSection">
-            <div className="blogSection__wrapper">
+            <div
+              className="blogSection__wrapper"
+              ref={blogWrapperRef}
+              tabIndex="0"
+            >
               {currentItems.length ? (
                 currentItems.map((article) => (
                   <InterestingItem

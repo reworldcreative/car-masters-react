@@ -65,8 +65,11 @@ export default function CarCard({ carData }) {
   });
 
   return (
-    <article className="carCard" aria-label="car card">
-      <p className="visibility-hidden ">car card</p>
+    <article
+      className="carCard"
+      // aria-label="car card"
+    >
+      <p className="visibility-hidden">car card</p>
       <div className="carCard__pictures">
         <p className="visibility-hidden ">car pictures</p>
 
