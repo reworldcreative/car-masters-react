@@ -33,11 +33,36 @@ export default function HomeSwiper({ handleSlideChange }) {
     }
   }, [handleSlideChange]);
 
+  function announceSlideChange() {
+    var liveRegion = document.getElementById("live-region-HomePage");
+    if (liveRegion) {
+      liveRegion.setAttribute("aria-hidden", "false");
+      setTimeout(() => {
+        liveRegion.textContent =
+          "slides have been changed. current: " +
+          (swiperRef.current.swiper.activeIndex + 1);
+      }, 100);
+    }
+  }
+
   return (
     <div className="home-hero__slider-container">
       {/* <div className="home-hero__slider-buttons"> */}
+      <div
+        className="visibility-hidden"
+        id="live-region-HomePage"
+        aria-live="polite"
+        aria-atomic="true"
+        aria-hidden="true"
+      >
+        slides have been changed. current:
+      </div>
       <p className="visibility-hidden">slider of our popular models</p>
-      <button className="home-hero__slider-prev" aria-label="previous slide">
+      <button
+        className="home-hero__slider-prev"
+        aria-label="previous slide"
+        onClick={announceSlideChange}
+      >
         <img
           src={nextArrow}
           alt="previous arrow"
@@ -47,7 +72,11 @@ export default function HomeSwiper({ handleSlideChange }) {
           className="home-hero__slider-icon"
         />
       </button>
-      <button className="home-hero__slider-next" aria-label="next slide">
+      <button
+        className="home-hero__slider-next"
+        aria-label="next slide"
+        onClick={announceSlideChange}
+      >
         <img
           src={nextArrow}
           alt="next arrow"

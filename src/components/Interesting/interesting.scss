@@ -47,11 +47,19 @@
 
     transition: all 0.5s ease-in-out;
 
-    &:hover,
-    &:focus {
+    &:hover
+    // &:focus
+    {
       filter: drop-shadow(2px 4px 6px black);
       transform: scale(1.05);
       outline: none;
+    }
+  }
+
+  &__link {
+    display: block;
+    &:focus {
+      outline: 1px solid $base-color;
     }
   }
 

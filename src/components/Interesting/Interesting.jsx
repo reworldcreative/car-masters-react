@@ -35,6 +35,18 @@ export default function Interesting({ sliderNavigation, caption, articles }) {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  function announceSlideChange() {
+    var liveRegion = document.getElementById("live-region-InterestingPage");
+    if (liveRegion) {
+      liveRegion.setAttribute("aria-hidden", "false");
+      setTimeout(() => {
+        liveRegion.textContent =
+          "slides have been changed. current: " +
+          (swiperInterestingRef.current.swiper.activeIndex + 1);
+      }, 100);
+    }
+  }
   return (
     <section className="interesting">
       <div className="interesting__wrapper">
@@ -54,11 +66,22 @@ export default function Interesting({ sliderNavigation, caption, articles }) {
 
         <div className="interesting__container">
           <p className="visibility-hidden">list of interesting articles</p>
+          <div
+            className="visibility-hidden"
+            id="live-region-InterestingPage"
+            aria-live="polite"
+            aria-atomic="true"
+            aria-hidden="true"
+          >
+           slides have been changed. current:
+          </div>
+
           {sliderNavigation === true ? (
             <>
               <button
                 className="interesting__slider-prev"
                 aria-label="previous slide"
+                onClick={announceSlideChange}
               >
                 <img
                   src={nextArrow}
@@ -72,6 +95,7 @@ export default function Interesting({ sliderNavigation, caption, articles }) {
               <button
                 className="interesting__slider-next"
                 aria-label="next slide"
+                onClick={announceSlideChange}
               >
                 <img
                   src={nextArrow}

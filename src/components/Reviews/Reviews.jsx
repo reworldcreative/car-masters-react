@@ -16,6 +16,18 @@ import reviewsData from "@/data/reviews.json";
 
 export default function Reviews() {
   const swiperInfoRef = useRef(null);
+
+  function announceSlideChange() {
+    var liveRegion = document.getElementById("live-region-Reviews");
+    if (liveRegion) {
+      liveRegion.setAttribute("aria-hidden", "false");
+      setTimeout(() => {
+        liveRegion.textContent =
+          "slides have been changed. current: " +
+          (swiperInfoRef.current.swiper.activeIndex + 1);
+      }, 100);
+    }
+  }
   return (
     <section className="reviews">
       <div className="reviews__wrapper">
@@ -26,7 +38,20 @@ export default function Reviews() {
           aria-label="slider of users reviews"
         >
           <p className="visibility-hidden">slider of users reviews</p>
-          <button className="reviews__slider-prev" aria-label="previous slide">
+          <div
+            className="visibility-hidden"
+            id="live-region-Reviews"
+            aria-live="polite"
+            aria-atomic="true"
+            aria-hidden="true"
+          >
+            slides have been changed. current:
+          </div>
+          <button
+            className="reviews__slider-prev"
+            aria-label="previous slide"
+            onClick={announceSlideChange}
+          >
             <img
               src={nextArrow}
               alt="previous arrow"
@@ -36,7 +61,11 @@ export default function Reviews() {
               className="reviews__slider-icon"
             />
           </button>
-          <button className="reviews__slider-next" aria-label="next slide">
+          <button
+            className="reviews__slider-next"
+            aria-label="next slide"
+            onClick={announceSlideChange}
+          >
             <img
               src={nextArrow}
               alt="next arrow"

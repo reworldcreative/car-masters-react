@@ -25,6 +25,7 @@ import Button from "@/components/Button/Button";
 import { MeshStandardMaterial } from "three";
 
 import threeModel from "@/img/porsche-panamera-gts/Porsche_Panamera_GTS.fbx";
+import Porsche_2 from "@/img/porsche-panamera-gts/Porsche_2.fbx";
 import mustangModel from "@/img/Mustang/Mustang.obj";
 import { Link } from "react-router-dom";
 import CarPopUp from "./CarPopUp";
@@ -149,6 +150,7 @@ export default function CarPage() {
   // const fbx = useLoader(FBXLoader, '@/img/porsche-panamera-gts/Porsche_Panamera_GTS.fbx')
   // const fbx = useFBX("./models/Porsche_Panamera_GTS.fbx");
   // const fbx = useLoader(OBJLoader, "./models/Mustang.obj");
+  // const fbx = useFBX("./models/Porsche_2.fbx");
   return (
     <>
       {imagePopUp ? (
@@ -178,7 +180,9 @@ export default function CarPage() {
           />
           <hemisphereLight intensity={0.15} groundColor={"black"} />
           <pointLight intensity={1} />
-          <mesh scale={[1, 1, 1]} position={[0, 0, 5]}> */}
+          <mesh scale={[1, 1, 1]} position={[0, 0, 5]}
+            // rotation={[-90, 0, 0]}
+          > */}
       {/* <hemisphereLight intensity={0.15} groundColor={"black"} />
           <pointLight intensity={1} /> */}
       {/* <boxGeometry />

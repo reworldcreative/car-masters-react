@@ -12,12 +12,16 @@ export default function InterestingItem({
   id,
 }) {
   return (
-    <article className="interesting__item" id={id} tabIndex="0">
+    <article className="interesting__item" id={id}>
       <Link
         to={`/article/${id}`}
-        aria-label="One article preview, go to view the full article"
+        aria-labelledby={`article-label-${id}`}
+        tabIndex="0"
+        className="interesting__link"
       >
-        {/* <p className="visibility-hidden">One article preview</p> */}
+        <p id={`article-label-${id}`} className="visibility-hidden">
+          One article preview, go to view the full article
+        </p>
         <div className="interesting__img-wrapper" style={{ height: "230px" }}>
           <PictureComponent
             src={image}
