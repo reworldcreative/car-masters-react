@@ -436,6 +436,7 @@ export default function Inventory() {
 
   useEffect(() => {
     setInitialLoad(false);
+    document.title = "CarMasters - Inventory";
   }, []);
 
   return (

@@ -330,6 +330,7 @@ export default function Quiz() {
 
   useEffect(() => {
     title.current.blur();
+    document.title = `CarMasters - Quiz`;
   }, []);
 
   useEffect(() => {

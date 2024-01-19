@@ -57,6 +57,7 @@ export default function Blog() {
 
   useEffect(() => {
     setInitialLoad(false);
+    document.title = "CarMasters - Blog";
   }, []);
 
   return (

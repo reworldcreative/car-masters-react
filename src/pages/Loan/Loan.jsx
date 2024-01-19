@@ -16,6 +16,10 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export default function Loan() {
+  useEffect(() => {
+    document.title = `CarMasters - Loan`;
+  }, []);
+
   return (
     <>
       <Header />

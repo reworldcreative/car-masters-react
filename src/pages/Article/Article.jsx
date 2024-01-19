@@ -48,6 +48,7 @@ export default function Article() {
     updateCurrentArticle();
 
     window.addEventListener("popstate", updateCurrentArticle);
+    document.title = `CarMasters - ${currentArticle.title}`;
 
     return () => {
       window.removeEventListener("popstate", updateCurrentArticle);

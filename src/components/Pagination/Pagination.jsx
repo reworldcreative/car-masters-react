@@ -11,9 +11,14 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
   return (
     <>
       {/* <p className="visibility-hidden">pagination</p> */}
-      <ul className="pagination">
+      <div
+        className="pagination"
+        aria-live="polite"
+        aria-atomic="false"
+        aria-relevant="text"
+      >
         {pageNumbers.map((number) => (
-          <li
+          <div
             key={number}
             className={
               "pagination__item " + `${currentPage === number ? "active" : ""}`
@@ -28,9 +33,9 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
                 `${currentPage === number ? "active" : "inactive"}`
               }
             ></button>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </>
   );
 }

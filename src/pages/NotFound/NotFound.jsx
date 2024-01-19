@@ -5,6 +5,9 @@ import car from "@/img/icons/moving-car_icon.svg";
 import { Link, useLocation } from "react-router-dom";
 
 export default function NotFound() {
+  useEffect(() => {
+    document.title = `CarMasters - Not found page`;
+  }, []);
   return (
     <section className="not-found">
       <div className="not-found__wrapper">

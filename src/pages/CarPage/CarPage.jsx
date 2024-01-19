@@ -92,6 +92,7 @@ export default function CarPage() {
     updateCurrentCar();
 
     window.addEventListener("popstate", updateCurrentCar);
+    document.title = `CarMasters - ${currentCar.name}`;
 
     return () => {
       window.removeEventListener("popstate", updateCurrentCar);

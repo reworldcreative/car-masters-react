@@ -36,17 +36,25 @@ export default function Interesting({ sliderNavigation, caption, articles }) {
     };
   }, []);
 
+  // var liveRegionInteresting = document.getElementById(
+  //   "live-region-InterestingPage"
+  // );
+
+  const liveRegionInteresting = useRef(null);
   function announceSlideChange() {
-    var liveRegion = document.getElementById("live-region-InterestingPage");
-    if (liveRegion) {
-      liveRegion.setAttribute("aria-hidden", "false");
+    if (liveRegionInteresting.current) {
+      liveRegionInteresting.current.setAttribute("aria-hidden", "false");
       setTimeout(() => {
-        liveRegion.textContent =
+        liveRegionInteresting.current.textContent =
           "slides have been changed. current: " +
           (swiperInterestingRef.current.swiper.activeIndex + 1);
       }, 100);
     }
   }
+
+  useEffect(() => {
+    liveRegionInteresting.current.setAttribute("aria-hidden", "true");
+  }, []);
   return (
     <section className="interesting">
       <div className="interesting__wrapper">
@@ -72,8 +80,9 @@ export default function Interesting({ sliderNavigation, caption, articles }) {
             aria-live="polite"
             aria-atomic="true"
             aria-hidden="true"
+            ref={liveRegionInteresting}
           >
-           slides have been changed. current:
+            slides have been changed. current:
           </div>
 
           {sliderNavigation === true ? (

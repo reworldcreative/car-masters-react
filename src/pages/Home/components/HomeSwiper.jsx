@@ -33,17 +33,23 @@ export default function HomeSwiper({ handleSlideChange }) {
     }
   }, [handleSlideChange]);
 
+  // var liveRegionHomePage = document.getElementById("live-region-HomePage");
+
+  const liveRegionHomePage = useRef(null);
   function announceSlideChange() {
-    var liveRegion = document.getElementById("live-region-HomePage");
-    if (liveRegion) {
-      liveRegion.setAttribute("aria-hidden", "false");
+    if (liveRegionHomePage.current) {
+      liveRegionHomePage.current.setAttribute("aria-hidden", "false");
       setTimeout(() => {
-        liveRegion.textContent =
+        liveRegionHomePage.current.textContent =
           "slides have been changed. current: " +
           (swiperRef.current.swiper.activeIndex + 1);
       }, 100);
     }
   }
+
+  useEffect(() => {
+    liveRegionHomePage.current.setAttribute("aria-hidden", "true");
+  }, []);
 
   return (
     <div className="home-hero__slider-container">
@@ -54,6 +60,7 @@ export default function HomeSwiper({ handleSlideChange }) {
         aria-live="polite"
         aria-atomic="true"
         aria-hidden="true"
+        ref={liveRegionHomePage}
       >
         slides have been changed. current:
       </div>

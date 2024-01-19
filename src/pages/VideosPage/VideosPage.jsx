@@ -73,6 +73,7 @@ export default function VideosPage() {
 
   useEffect(() => {
     setInitialLoad(false);
+    document.title = `CarMasters - Videos`;
   }, []);
 
   return (

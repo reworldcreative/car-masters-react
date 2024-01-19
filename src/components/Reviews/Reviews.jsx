@@ -16,18 +16,23 @@ import reviewsData from "@/data/reviews.json";
 
 export default function Reviews() {
   const swiperInfoRef = useRef(null);
+  // var liveRegionReviews = document.getElementById("live-region-Reviews");
 
+  const liveRegionReviews = useRef(null);
   function announceSlideChange() {
-    var liveRegion = document.getElementById("live-region-Reviews");
-    if (liveRegion) {
-      liveRegion.setAttribute("aria-hidden", "false");
+    if (liveRegionReviews.current) {
+      liveRegionReviews.current.setAttribute("aria-hidden", "false");
       setTimeout(() => {
-        liveRegion.textContent =
+        liveRegionReviews.current.textContent =
           "slides have been changed. current: " +
           (swiperInfoRef.current.swiper.activeIndex + 1);
       }, 100);
     }
   }
+
+  useEffect(() => {
+    liveRegionReviews.current.setAttribute("aria-hidden", "true");
+  }, []);
   return (
     <section className="reviews">
       <div className="reviews__wrapper">
@@ -44,6 +49,7 @@ export default function Reviews() {
             aria-live="polite"
             aria-atomic="true"
             aria-hidden="true"
+            ref={liveRegionReviews}
           >
             slides have been changed. current:
           </div>

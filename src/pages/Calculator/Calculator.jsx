@@ -9,6 +9,10 @@ import CalculatorContainer from "@/components/Calculator/Calculator";
 import { useLocation } from "react-router-dom";
 
 export default function Calculator() {
+  useEffect(() => {
+    document.title = "CarMasters - Calculator";
+  }, []);
+
   return (
     <>
       <Header />

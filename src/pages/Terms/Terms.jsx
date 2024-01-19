@@ -9,6 +9,9 @@ import DropDownList from "@/components/DropDown/DropDownList";
 import { useLocation } from "react-router-dom";
 
 export default function Terms() {
+  useEffect(() => {
+    document.title = `CarMasters - Terms`;
+  }, []);
   return (
     <>
       <Header />

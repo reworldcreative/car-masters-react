@@ -21,6 +21,10 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export default function About() {
+  useEffect(() => {
+    document.title = "CarMasters - About";
+  }, []);
+
   return (
     <>
       <Header />

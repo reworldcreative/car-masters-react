@@ -10,6 +10,9 @@ import DropDownList from "@/components/DropDown/DropDownList";
 import { useLocation } from "react-router-dom";
 
 export default function Privacy() {
+  useEffect(() => {
+    document.title = `CarMasters - Privacy`;
+  }, []);
   return (
     <>
       <Header />

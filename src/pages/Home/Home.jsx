@@ -64,6 +64,7 @@ export default function Home() {
       setIsSmallScreen(window.innerWidth < 1350);
       setIsMobileScreen(window.innerWidth < 500);
     };
+    document.title = "CarMasters";
 
     window.addEventListener("resize", handleResize, { passive: true });
 
