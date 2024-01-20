@@ -67,6 +67,10 @@
       color: $white;
     }
 
+    input[type="radio"]:focus + label {
+      outline: 1px solid $base-color;
+    }
+
     .radio-label {
       font-weight: 700;
       line-height: 89.775%;

@@ -79,6 +79,9 @@
 
   &__button {
     display: block;
+    // display: inline;
+    width: fit-content;
+    // box-sizing: border-box;
   }
 
   &__img {

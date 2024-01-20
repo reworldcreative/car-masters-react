@@ -399,16 +399,21 @@ export default function CarPage() {
                     <h2 className="carPage__infoItem_title secondary-text">
                       Price
                     </h2>
-                    <p className="carPage__price caption" aria-hidden="true">
-                      {parseInt(
-                        currentCar.price.replace(/\s/g, ""),
-                        10
-                      ).toLocaleString()}{" "}
-                      $
+                    <p className="carPage__price caption">
+                      <span className="visibility-hidden">
+                        {parseInt(currentCar.price.replace(/\s/g, ""), 10)}$
+                      </span>
+                      <span aria-hidden="true">
+                        {parseInt(
+                          currentCar.price.replace(/\s/g, ""),
+                          10
+                        ).toLocaleString()}{" "}
+                        $
+                      </span>
                     </p>
-                    <p className="visibility-hidden">
+                    {/* <p className="visibility-hidden">
                       {parseInt(currentCar.price.replace(/\s/g, ""), 10)}$
-                    </p>
+                    </p> */}
                   </div>
                 </div>
                 <div className="carPage__info">
@@ -436,15 +441,20 @@ export default function CarPage() {
                     <p className="carPage__infoItem_title secondary-text">
                       Kilometers
                     </p>
-                    <p className="caption" aria-hidden="true">
-                      {parseInt(
-                        currentCar.mileage.replace(/\s/g, ""),
-                        10
-                      ).toLocaleString()}
+                    <p className="caption">
+                      <span className="visibility-hidden">
+                        {parseInt(currentCar.mileage.replace(/\s/g, ""), 10)}
+                      </span>
+                      <span aria-hidden="true">
+                        {parseInt(
+                          currentCar.mileage.replace(/\s/g, ""),
+                          10
+                        ).toLocaleString()}
+                      </span>
                     </p>
-                    <p className="visibility-hidden">
+                    {/* <p className="visibility-hidden">
                       {parseInt(currentCar.mileage.replace(/\s/g, ""), 10)}
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>

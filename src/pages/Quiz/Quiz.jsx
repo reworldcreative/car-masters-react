@@ -537,10 +537,21 @@ export default function Quiz() {
                   <></>
                 )}
 
-                <div className="quiz__error" style={errorStyle}>
-                  <p className="quiz__error-text secondary-text">
-                    select one or fill all fields
-                  </p>
+                <div aria-live="polite" aria-relevant="all">
+                  {error ? (
+                    <div className="quiz__error" style={errorStyle}>
+                      <p className="quiz__error-text secondary-text">
+                        select one or fill all fields
+                      </p>
+                    </div>
+                  ) : (
+                    <p
+                      className="quiz__error-text secondary-text visibility-hidden"
+                      // aria-hidden="true"
+                    >
+                      no error
+                    </p>
+                  )}
                 </div>
 
                 <div className="quiz__buttons">

@@ -390,6 +390,7 @@ export default function Inventory() {
 
     setTimeout(() => {
       setIsListLoading(false);
+      announceSlideChange();
     }, 1000);
 
     // if (sortedBy !== "Recommendations") {
@@ -434,10 +435,23 @@ export default function Inventory() {
     }
   }, [currentPage]);
 
+  const liveRegionInventoryList = useRef(null);
+
   useEffect(() => {
     setInitialLoad(false);
     document.title = "CarMasters - Inventory";
+    liveRegionInventoryList.current.setAttribute("aria-hidden", "true");
   }, []);
+
+  function announceSlideChange() {
+    if (liveRegionInventoryList.current) {
+      liveRegionInventoryList.current.setAttribute("aria-hidden", "false");
+      setTimeout(() => {
+        liveRegionInventoryList.current.textContent =
+          "current car cards amount: " + currentItems.length;
+      }, 100);
+    }
+  }
 
   return (
     <>
@@ -706,6 +720,16 @@ export default function Inventory() {
                 tabIndex="0"
                 ref={listRef}
               >
+                <div
+                  className="visibility-hidden"
+                  id="live-region-InterestingPage"
+                  aria-live="polite"
+                  aria-atomic="true"
+                  aria-hidden="true"
+                  ref={liveRegionInventoryList}
+                >
+                  current amount:
+                </div>
                 {currentItems.length ? (
                   currentItems.map((car) => (
                     <CarCard key={car.id} carData={car} />

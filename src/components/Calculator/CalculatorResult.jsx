@@ -39,11 +39,9 @@ export default function CalculatorResult({ priceAmount, months, status }) {
         <div className="calculator-results__block">
           <p className="secondary-text">Bi-Weekly Payment</p>
           {/* <p className="calculator-results__amount caption accent">$ 483</p> */}
-          <p
-            aria-hidden="true"
-            className="calculator-results__amount caption accent"
-          >
-            $ {biWeeklyPayment.toLocaleString()}
+          <p className="calculator-results__amount caption accent">
+            <span className="visibility-hidden">{biWeeklyPayment}$</span>
+            <span aria-hidden="true">$ {biWeeklyPayment.toLocaleString()}</span>
             {/* {biWeeklyPayment
             .toLocaleString("en-US", {
               style: "currency",
@@ -54,32 +52,30 @@ export default function CalculatorResult({ priceAmount, months, status }) {
             .replace(/(\D)(\d)/, "$1 $2")
             .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} */}
           </p>
-          <p className="visibility-hidden">{biWeeklyPayment}$</p>
+          {/* <p className="visibility-hidden">{biWeeklyPayment}$</p> */}
         </div>
 
         <div className="calculator-results__container">
           <div className="calculator-results__block">
             <p className="secondary-text">Monthly Payment</p>
             {/* <p className="calculator-results__amount caption">$ 966</p> */}
-            <p
-              aria-hidden="true"
-              className="calculator-results__amount caption"
-            >
-              $ {monthlyPayment.toLocaleString()}
+            <p className="calculator-results__amount caption">
+              <span className="visibility-hidden">{monthlyPayment}$</span>
+              <span aria-hidden="true">
+                $ {monthlyPayment.toLocaleString()}
+              </span>
             </p>
-            <p className="visibility-hidden">{monthlyPayment}$</p>
+            {/* <p className="visibility-hidden">{monthlyPayment}$</p> */}
           </div>
 
           <div className="calculator-results__block">
             <p className="secondary-text">Weekly Payment</p>
             {/* <p className="calculator-results__amount caption">$ 241</p> */}
-            <p
-              aria-hidden="true"
-              className="calculator-results__amount caption"
-            >
-              $ {weeklyPayment.toLocaleString()}
+            <p className="calculator-results__amount caption">
+              <span className="visibility-hidden">{weeklyPayment}$</span>
+              <span aria-hidden="true">$ {weeklyPayment.toLocaleString()}</span>
             </p>
-            <p className="visibility-hidden">{weeklyPayment}$</p>
+            {/* <p className="visibility-hidden">{weeklyPayment}$</p> */}
           </div>
         </div>
       </div>

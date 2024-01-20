@@ -67,8 +67,13 @@ export default function Calculator() {
                     defaultChecked
                     className="visibility-hidden"
                     onClick={ChangeCarStatus}
+                    // tabIndex="0"
                   />
-                  <label className="secondary-text radio-label" htmlFor="Poor">
+                  <label
+                    className="secondary-text radio-label"
+                    htmlFor="Poor"
+                    tabIndex="0"
+                  >
                     Poor
                   </label>
                 </div>
@@ -81,10 +86,12 @@ export default function Calculator() {
                     value="average"
                     className="visibility-hidden"
                     onChange={ChangeCarStatus}
+                    // tabIndex="0"
                   />
                   <label
                     className="secondary-text radio-label"
                     htmlFor="Average"
+                    tabIndex="0"
                   >
                     Average
                   </label>
@@ -98,8 +105,13 @@ export default function Calculator() {
                     value="good"
                     className="visibility-hidden"
                     onChange={ChangeCarStatus}
+                    // tabIndex="0"
                   />
-                  <label className="secondary-text radio-label" htmlFor="Good">
+                  <label
+                    className="secondary-text radio-label"
+                    htmlFor="Good"
+                    tabIndex="0"
+                  >
                     Good
                   </label>
                 </div>

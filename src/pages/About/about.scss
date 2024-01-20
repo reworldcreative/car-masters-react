@@ -16,7 +16,7 @@
 
   &__button {
     width: fit-content;
-    display: block;
+    // display: block;
     padding: 16px 39px !important;
   }
 
@@ -101,6 +101,7 @@
 
       .button.accent {
         padding: 16px 28px !important;
+        display: inline;
       }
     }
   }
