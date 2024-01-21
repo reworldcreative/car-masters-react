@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import "./reviews.scss";
 
 import PictureComponent from "@/../plugins/PictureComponent";
@@ -109,7 +109,7 @@ export default function Reviews() {
                       src={review.image}
                       smallSrc={review.imageSmall ? review.imageSmall : false}
                       alt={"User review image. " + review.imageDescription}
-                      width="465"
+                      width="460"
                       height="324"
                       className="reviews__slider-img"
                     />

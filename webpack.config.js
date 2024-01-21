@@ -39,13 +39,13 @@ module.exports = {
           maxInitialRequests: Infinity,
           minSize: 0,
           cacheGroups: {
-            // styles: {
-            //   name: "styles",
-            //   test: /\.(css|scss)$/,
-            //   chunks: "all",
-            //   // enforce: true,
-            //   enforce: false,
-            // },
+            styles: {
+              // name: "styles",
+              test: /\.(css|scss)$/,
+              chunks: "all",
+              enforce: true,
+              // enforce: false,
+            },
             vendor: {
               test: /[\\/]node_modules[\\/]/,
               name(module) {

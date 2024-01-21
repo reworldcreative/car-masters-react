@@ -1,4 +1,5 @@
 import React from "react";
+import "@/components/InfoList/infoList.scss";
 import "./about.scss";
 import Header from "@/components/Header/Header";
 import PageTitle from "@/components/PageTitle/PageTitle";
@@ -87,30 +88,36 @@ export default function About() {
             </div>
           </div>
 
-          <div>
-            <p className="visibility-hidden">dream steps</p>
-            <ul className="dream__list" aria-label="dream steps">
-              {/* <p className="visibility-hidden">dream steps</p> */}
-              {/* <li className="visibility-hidden" role="group">
+          {/* <div> */}
+          <p className="visibility-hidden" id="dreamStepLabel">
+            dream steps
+          </p>
+          <ul
+            className="dream__list"
+            // aria-label="dream steps"
+            aria-labelledby="dreamStepLabel"
+          >
+            {/* <p className="visibility-hidden">dream steps</p> */}
+            {/* <li className="visibility-hidden" role="group">
               <p>dream steps</p>
             </li> */}
-              <CarStep
-                step="1"
-                title="Quickly"
-                text="You do not spend a lot of your time going to car dealerships"
-              />
-              <CarStep
-                step="2"
-                title="Simply"
-                text="You can order your dream car just by talking to our specialist by phone"
-              />
-              <CarStep
-                step="3"
-                title="Conveniently"
-                text="We will deliver the car directly to the doorstep of your home or office"
-              />
-            </ul>
-          </div>
+            <CarStep
+              step="1"
+              title="Quickly"
+              text="You do not spend a lot of your time going to car dealerships"
+            />
+            <CarStep
+              step="2"
+              title="Simply"
+              text="You can order your dream car just by talking to our specialist by phone"
+            />
+            <CarStep
+              step="3"
+              title="Conveniently"
+              text="We will deliver the car directly to the doorstep of your home or office"
+            />
+          </ul>
+          {/* </div> */}
         </div>
       </section>
 

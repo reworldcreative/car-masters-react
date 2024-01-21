@@ -702,12 +702,14 @@ $lengthOfAdvantages: 3;
     }
 
     &__slider {
-      margin: 63px 0 55px;
+      // margin: 63px 0 55px;
+      margin: 60px 0 55px;
     }
 
     &__slider-next,
     &__slider-prev {
-      top: 36.5%;
+      // top: 36.5%;
+      top: 37%;
     }
   }
 
@@ -736,6 +738,7 @@ $lengthOfAdvantages: 3;
   .happy-customers {
     &__text {
       width: 100%;
+      gap: 22px;
     }
 
     .secondary-text {
