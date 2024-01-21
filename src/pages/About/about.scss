@@ -69,7 +69,8 @@
 
   &__button {
     width: fit-content;
-    // display: block;
+    display: block;
+    box-sizing: border-box;
     padding: 16px 39px !important;
   }
 
@@ -82,6 +83,9 @@
 }
 
 .dream {
+  &__wrapper {
+    align-items: center;
+  }
   &__title {
     max-width: 450px;
   }
@@ -140,7 +144,8 @@
 
 .qualified {
   &__wrapper {
-    padding: 195px 120px 0px;
+    // padding: 195px 120px 0px;
+    padding: 191px 120px 0px;
     align-items: flex-start;
   }
 
@@ -208,6 +213,10 @@
   &__wrapper {
     padding: 220px 120px;
     align-items: flex-start;
+  }
+
+  &__title {
+    max-width: 600px;
   }
 
   &__text-wrapper {

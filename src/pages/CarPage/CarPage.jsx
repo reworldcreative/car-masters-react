@@ -387,9 +387,12 @@ export default function CarPage() {
               style={{ height: "35px", width: "fit-content" }}
               className="carPage__ApplyButton_wrapper"
             >
-              <Button addclass="accent carPage__ApplyButton">
+              <Link to={"/quiz"} className="button accent carPage__ApplyButton">
                 apply for this vehicle
-              </Button>
+              </Link>
+              {/* <Button addclass="accent carPage__ApplyButton">
+                apply for this vehicle
+              </Button> */}
             </div>
 
             <div className="carPage__content">
