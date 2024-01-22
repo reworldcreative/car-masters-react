@@ -232,6 +232,7 @@
     margin-top: 20px;
 
     .info-list {
+      outline: none;
       &:focus {
         overflow: none;
       }
