@@ -22,13 +22,22 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export default function About() {
+  const [openContact, setOpenContact] = useState(false);
+
+  const handleOpenContact = () => {
+    setOpenContact(true);
+  };
+
+  const handleCloseContact = () => {
+    setOpenContact(false);
+  };
   useEffect(() => {
     document.title = "CarMasters - About";
   }, []);
 
   return (
     <>
-      <Header />
+      <Header openContact={openContact} closeContact={handleCloseContact} />
 
       <PageTitle>About CM </PageTitle>
 
@@ -215,7 +224,12 @@ export default function About() {
               style={{ height: "45px", width: "fit-content" }}
               className="mission__button-wrapper"
             >
-              <Button addclass="mission__button accent">Contact Us Now</Button>
+              <Button
+                addclass="mission__button accent"
+                click={handleOpenContact}
+              >
+                Contact Us Now
+              </Button>
               {/* <Link className="button active mission__button accent">
                 Contact Us Now
               </Link> */}

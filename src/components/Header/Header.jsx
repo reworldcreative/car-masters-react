@@ -6,7 +6,7 @@ import BurgerButton from "../Burger/BurgerButton/BurgerButton";
 import Burger from "../Burger/Burger";
 import { Link } from "react-router-dom";
 
-export default function Header() {
+export default function Header({ openContact, closeContact }) {
   const [isOpenBurger, setIsOpenBurger] = useState(false);
 
   const [BurgerButtonFocus, setBurgerButtonFocus] = useState(false);
@@ -19,11 +19,24 @@ export default function Header() {
     } else {
       // document.body.style.overflow = "auto";
       setBurgerButtonFocus(true);
+      closeContact();
     }
   };
+
+  useEffect(() => {
+    if (openContact) {
+      window.scrollTo({ top: 0, behavior: "auto" });
+      setIsOpenBurger(true);
+    }
+  }, [openContact]);
+
   return (
     <>
-      {isOpenBurger ? <Burger close={toggleMenu} /> : false}
+      {isOpenBurger ? (
+        <Burger close={toggleMenu} openContact={openContact} />
+      ) : (
+        false
+      )}
       <header className="header">
         <Logo />
 

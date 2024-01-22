@@ -8,7 +8,7 @@ import ContactMenu from "./ContactMenu/ContactMenu";
 import Successful from "./ContactMenu/Successful/Successful";
 import { useLocation } from "react-router-dom";
 
-export default function Burger({ close }) {
+export default function Burger({ close, openContact }) {
   const burgerMenuRef = useRef(null);
   const [isContact, setIsContact] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -29,6 +29,12 @@ export default function Burger({ close }) {
   const openContactMenu = () => {
     setIsContact(true);
   };
+
+  useEffect(() => {
+    if (openContact) {
+      openContactMenu();
+    }
+  }, [openContact]);
 
   useEffect(() => {
     // document.body.style.overflow = "hidden";
