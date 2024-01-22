@@ -365,6 +365,7 @@ export default function Inventory() {
 
   useEffect(() => {
     setIsListLoading(true);
+    setCurrentPage(1);
     switch (sortedBy) {
       case "Recommendations":
         setSortedData(DataToSort);
