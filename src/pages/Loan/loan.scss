@@ -21,6 +21,10 @@
     padding: 16px 39px !important;
   }
 
+  &__decoration {
+    margin-bottom: 12px;
+  }
+
   &__img {
     max-width: 548px;
     max-height: 242px;
@@ -121,6 +125,7 @@
     &__decoration {
       justify-content: center;
       display: flex;
+      margin-bottom: 0px;
     }
 
     &__text {
@@ -159,7 +164,8 @@
   .benefits {
     &__wrapper {
       justify-content: center;
-      padding-bottom: 160px;
+      // padding-bottom: 160px;
+      padding-bottom: 155px;
     }
 
     &__container {
@@ -270,6 +276,10 @@
   .benefits {
     &__wrapper {
       display: block;
+    }
+
+    &__container {
+      gap: 11px;
     }
 
     &__button-wrapper {

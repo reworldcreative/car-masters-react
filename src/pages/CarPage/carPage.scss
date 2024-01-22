@@ -211,11 +211,11 @@
       }
 
       &__pictures-bottom {
-        width: 94%;
+        width: 94.1%;
 
         position: absolute;
         z-index: 10;
-        bottom: 20px;
+        bottom: 17px;
         left: 20px;
         top: auto;
         display: flex;
@@ -425,7 +425,9 @@
   }
 
   &__RequestCarButton {
-    padding: 16px 25px !important;
+    // padding: 16px 25px !important;
+    padding: 17px 25px 14px !important;
+    display: block;
   }
 
   &__Calculator {
@@ -442,7 +444,7 @@
 @media screen and (max-width: 1300px) {
   .carPage {
     &__wrapper {
-      padding: 37px 84px 160px;
+      padding: 40px 84px 160px;
     }
 
     &__picturesMain {
@@ -485,6 +487,10 @@
           height: 370px;
         }
       }
+    }
+
+    &__pictures-bottom {
+      bottom: 20px;
     }
 
     &__picturesList {
@@ -624,6 +630,7 @@
 
         &__pictures-bottom {
           left: 10px;
+          width: 93.7%;
         }
       }
     }
@@ -747,7 +754,9 @@
     }
 
     &__ApplyButton {
-      width: 100%;
+      // width: 100%;
+      display: block;
+      width: auto;
     }
 
     &__picturesList {

@@ -181,8 +181,8 @@
 @media screen and (max-width: 1000px) {
   .article-body {
     max-width: 93.75vw;
-    margin: -70px auto auto;
-    padding: 40px 60px 43px;
+    margin: -73px auto auto;
+    padding: 40px 60px 45px;
 
     // &__text {
     //   line-height: 181%;
@@ -291,6 +291,17 @@
   .article-page__interesting {
     .interesting__item {
       margin-bottom: 32px;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .article-body {
+    &__row {
+      .article-body__img {
+        height: 224px;
+        width: 100%;
+      }
     }
   }
 }

@@ -543,9 +543,18 @@
       }
     }
 
+    &__select-wrapper {
+      width: 240px;
+    }
+
     .carCard {
       &__img {
         height: revert-layer;
+      }
+
+      &__content {
+        height: 217px;
+        padding: 20px 20px 27px;
       }
 
       &__img_empty {
@@ -553,12 +562,14 @@
         height: 216px;
       }
 
-      // &__characteristics {
-      //   width: 90%;
-      // }
+      &__characteristics {
+        // width: 90%;
+        gap: 6px 0px;
+      }
     }
 
     &__list {
+      margin-bottom: 12px;
       .carCard {
         &__characteristicItem {
           width: auto;
@@ -638,6 +649,16 @@
 
       .inventory-content__select-wrapper {
         width: 50vw;
+      }
+    }
+
+    .carCard {
+      &__content {
+        padding: 20px;
+      }
+
+      &__characteristics {
+        gap: 0px;
       }
     }
 
