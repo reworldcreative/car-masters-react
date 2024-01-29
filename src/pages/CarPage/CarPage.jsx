@@ -83,6 +83,8 @@ export default function CarPage() {
 
   useEffect(() => {
     const updateCurrentCar = () => {
+      setSwiperMainKey((prevKey) => prevKey + 1);
+      setSwiperListKey((prevKey) => prevKey + 1);
       const newCar = cars.find((el) => el.id === +id);
       setCurrentCar(newCar);
       window.scrollTo({ top: 0, behavior: "smooth" });

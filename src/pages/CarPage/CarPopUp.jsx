@@ -208,6 +208,15 @@ export default function CarPopUp({
     // mostPixelsColor(containerRect.left + 20, containerRect.bottom - 47);
   };
 
+  const handleTouchStart = (e) => {
+    const touch = e.touches[0];
+    const imageRect = document.querySelector(".carPage__popUpImage-img")
+      ? document
+          .querySelector(".carPage__popUpImage-img")
+          .getBoundingClientRect()
+      : false;
+  };
+
   const handleMouseMove = (e) => {
     if (!isDragging) return;
 
@@ -258,9 +267,53 @@ export default function CarPopUp({
     setPosition({ x: constrainedX, y: constrainedY });
   };
 
+  const handleTouchMove = (e) => {
+    if (!isDragging) return;
+    const touch = e.touches[0];
+
+    const imageRect = document.querySelector(".carPage__popUpImage-img")
+      ? document
+          .querySelector(".carPage__popUpImage-img")
+          .getBoundingClientRect()
+      : false;
+
+    const newX =
+      touch.clientX -
+      mousePressOffset.x -
+      containerRect.left -
+      (containerRect.width - imageRect.width) / 2;
+    const newY =
+      touch.clientY -
+      mousePressOffset.y -
+      containerRect.top -
+      (containerRect.height - imageRect.height) / 2;
+
+    const maxX = -(containerRect.width - imageRect.width) / 2;
+    const maxY = -(containerRect.height - imageRect.height) / 2;
+
+    const minX = (containerRect.width - imageRect.width) / 2;
+    const minY = (containerRect.height - imageRect.height) / 2;
+
+    const constrainedX = Math.min(Math.max(newX, minX), maxX);
+    const constrainedY = Math.min(Math.max(newY, minY), maxY);
+
+    setPosition({ x: constrainedX, y: constrainedY });
+  };
+
   const handleMouseUp = () => {
     setIsDragging(false);
     // mostPixelsColor(containerRect.left + 20, containerRect.bottom - 47);
+
+    setScaleImageBg(
+      mostPixelsColor(containerRect.left + 20, containerRect.bottom - 47)
+    );
+    setShareImageBg(
+      mostPixelsColor(containerRect.right - 42, containerRect.bottom - 47)
+    );
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
 
     setScaleImageBg(
       mostPixelsColor(containerRect.left + 20, containerRect.bottom - 47)
@@ -289,6 +342,9 @@ export default function CarPopUp({
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
             onDragStart={(e) => {
               e.preventDefault();
               return false;
