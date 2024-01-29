@@ -215,6 +215,11 @@ export default function CarPopUp({
           .querySelector(".carPage__popUpImage-img")
           .getBoundingClientRect()
       : false;
+
+    const offsetX = touch.clientX - imageRect.left;
+    const offsetY = touch.clientY - imageRect.top;
+    setMousePressOffset({ x: offsetX, y: offsetY });
+    setIsDragging(true);
   };
 
   const handleMouseMove = (e) => {
