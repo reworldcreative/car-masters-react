@@ -196,6 +196,12 @@
     .slider-group {
       gap: 20px;
     }
+
+    .calculator-results {
+      &__button-wrapper {
+        margin: auto;
+      }
+    }
   }
 }
 

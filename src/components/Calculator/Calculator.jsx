@@ -4,10 +4,10 @@ import CalculatorSlider from "./CalculatorSlider";
 import CalculatorResult from "./CalculatorResult";
 
 export default function Calculator() {
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1000);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 1000);
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 1000);
+      setIsSmallScreen(window.innerWidth <= 1000);
     };
 
     window.addEventListener("resize", handleResize);

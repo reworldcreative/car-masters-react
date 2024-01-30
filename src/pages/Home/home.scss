@@ -1067,6 +1067,10 @@ $lengthOfAdvantages: 3;
     &__text-container {
       gap: 30px;
     }
+
+    &__button-wrapper {
+      margin: auto;
+    }
   }
 
   .happy-customers {
@@ -1077,6 +1081,13 @@ $lengthOfAdvantages: 3;
 
     .info-list {
       gap: 10px;
+    }
+
+    &__caption {
+      max-width: fit-content;
+    }
+    &__button-wrapper {
+      margin: auto;
     }
   }
 }
