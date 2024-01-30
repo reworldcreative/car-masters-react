@@ -1,4 +1,6 @@
 import React from "react";
+import { useParams } from "react-router-dom";
+
 import "./calculatorResult.scss";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
@@ -7,6 +9,18 @@ export default function CalculatorResult({ priceAmount, months, status }) {
   const [biWeeklyPayment, setBiWeeklyPayment] = useState(0);
   const [monthlyPayment, setMonthlyPayment] = useState(0);
   const [weeklyPayment, setWeeklyPayment] = useState(0);
+
+  const [isCarPage, setIsCarPage] = useState(false);
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    if (id) {
+      setIsCarPage(true);
+    } else {
+      setIsCarPage(false);
+    }
+  }, [id]);
 
   useEffect(() => {
     //   const newMonthlyPayment = Math.ceil(priceAmount / months);
@@ -88,7 +102,7 @@ export default function CalculatorResult({ priceAmount, months, status }) {
           to={"/quiz"}
           aria-label="Move to quiz page"
         >
-          Request a car
+          {isCarPage ? "apply for this vehicle" : "Request a car"}
         </Link>
         {/* <Button addclass="calculator-results__button accent">
           Request a car
