@@ -454,6 +454,10 @@ export default function Inventory() {
     }
   }
 
+  useEffect(() => {
+    announceSlideChange();
+  }, [currentItems]);
+
   return (
     <>
       <div className="inventory__Main">

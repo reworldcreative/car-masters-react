@@ -207,7 +207,11 @@ export default function Quiz() {
             : handleSetError();
           break;
         case 11:
-          firstName !== "" && lastName !== "" && email !== "" && phone !== ""
+          firstName !== "" &&
+          lastName !== "" &&
+          email !== "" &&
+          /\S+@\S+\.\S+/.test(email) &&
+          phone !== ""
             ? (handleSetSuccess(), handleRemoveError())
             : handleSetError();
           break;
@@ -453,6 +457,7 @@ export default function Quiz() {
                             getValue={getStreet}
                             regular={""}
                             value={street}
+                            maxLength={150}
                           />
                           <QuizInput
                             placeholder={currentItem.placeholderCity}
@@ -467,12 +472,14 @@ export default function Quiz() {
                               getValue={getProvince}
                               regular={""}
                               value={province}
+                              maxLength={100}
                             />
                             <QuizInput
                               placeholder={currentItem.placeholderPostal}
                               getValue={getPostal}
                               regular={"number"}
                               value={postal}
+                              maxLength={30}
                             />
                           </div>
                         </div>
@@ -507,12 +514,14 @@ export default function Quiz() {
                               getValue={getFirstName}
                               regular={""}
                               value={firstName}
+                              maxLength={50}
                             />
                             <QuizInput
                               placeholder={currentItem.placeholderLastName}
                               getValue={getLastName}
                               regular={""}
                               value={lastName}
+                              maxLength={50}
                             />
                           </div>
                           <QuizInput
@@ -526,6 +535,7 @@ export default function Quiz() {
                             getValue={getPhone}
                             regular={"number"}
                             value={phone}
+                            maxLength={15}
                           />
                         </div>
                       ) : (
