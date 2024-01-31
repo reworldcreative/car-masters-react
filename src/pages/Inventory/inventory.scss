@@ -649,6 +649,7 @@
 
       .inventory-content__select-wrapper {
         width: 50vw;
+        max-width: 350px;
       }
     }
 
@@ -834,6 +835,7 @@
       margin: 0 auto;
       .inventory-content__select-wrapper {
         width: 100%;
+        max-width: 100%;
       }
     }
 
