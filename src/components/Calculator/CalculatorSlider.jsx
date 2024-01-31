@@ -9,6 +9,7 @@ export default function CalculatorSlider({
   max,
   ariaLabel,
   change,
+  disabled,
 }) {
   const [loanAmount, setLoanAmount] = useState(defaultValue);
 
@@ -22,9 +23,11 @@ export default function CalculatorSlider({
   };
 
   const fillStyle = {
-    background: `linear-gradient(to right, var(--base-color) 0%, var(--base-color) ${
-      (loanAmount / max) * 100
-    }%, #d7d7d7 ${(loanAmount / max) * 100}%, #d7d7d7 100%)`,
+    background: !disabled
+      ? `linear-gradient(to right, var(--base-color) 0%, var(--base-color) ${
+          (loanAmount / max) * 100
+        }%, #d7d7d7 ${(loanAmount / max) * 100}%, #d7d7d7 100%)`
+      : "#d7d7d7",
   };
 
   return (
@@ -61,11 +64,12 @@ export default function CalculatorSlider({
         max={max}
         // defaultValue={defaultValue}
         onChange={handleSliderChange}
-        className="slider"
+        className={`slider ${disabled ? "disabled" : ""}`}
         id={type + "Range"}
         style={fillStyle}
         step="1"
         value={loanAmount}
+        disabled={disabled ? true : false}
       ></input>
     </fieldset>
   );

@@ -39,6 +39,36 @@
     height: 8px;
     transition: all 0.3s ease-in-out;
 
+    &.disabled {
+      cursor: auto;
+      height: 1px;
+      &::-webkit-slider-thumb {
+        display: none;
+      }
+
+      &::-moz-range-thumb {
+        width: 0px;
+        height: 0px;
+        display: none;
+      }
+
+      &::-ms-thumb {
+        display: none;
+      }
+
+      &::-ms-track {
+        height: 1px;
+      }
+
+      &::-ms-fill-lower {
+        height: 1px;
+      }
+
+      &::-ms-fill-upper {
+        height: 1px;
+      }
+    }
+
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;

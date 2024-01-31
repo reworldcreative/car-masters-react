@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { useParams, useLocation } from "react-router-dom";
 import "./calculator.scss";
 import CalculatorSlider from "./CalculatorSlider";
 import CalculatorResult from "./CalculatorResult";
 
+import cars from "@/data/cars.json";
+
 export default function Calculator() {
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 1000);
+  const { id } = useParams();
+  const location = useLocation();
+
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth <= 1000);
@@ -21,8 +27,26 @@ export default function Calculator() {
   const [months, setMonths] = useState(18);
   const [carStatus, setCarStatus] = useState("poor");
 
+  useEffect(() => {
+    if (id) {
+      if (id && location.pathname.replace(/\/\d+$/, "") === "/car") {
+        setPriceAmount(
+          parseInt(cars.find((car) => car.id === +id).price.replace(/\s/g, "")),
+          10
+        );
+      }
+    }
+  }, [id]);
+
   const ChangePrice = (amount) => {
-    setPriceAmount(amount);
+    if (id && location.pathname.replace(/\/\d+$/, "") === "/car") {
+      setPriceAmount(
+        parseInt(cars.find((car) => car.id === +id).price.replace(/\s/g, "")),
+        10
+      );
+    } else {
+      setPriceAmount(amount);
+    }
   };
 
   const ChangeMonths = (amount) => {
@@ -119,13 +143,18 @@ export default function Calculator() {
 
               <div className="calculator-form__wrapper sliders">
                 <CalculatorSlider
-                  defaultValue="150000"
+                  defaultValue={priceAmount}
                   text="Loan Amount"
                   type="money"
                   min="10000"
                   max="500000"
                   ariaLabel="select price of the car"
                   change={ChangePrice}
+                  disabled={
+                    id && location.pathname.replace(/\/\d+$/, "") === "/car"
+                      ? true
+                      : false
+                  }
                 />
                 <CalculatorSlider
                   defaultValue="18"

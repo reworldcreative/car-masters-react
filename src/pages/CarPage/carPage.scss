@@ -441,6 +441,18 @@
   }
 }
 
+@media screen and (max-width: 1370px) {
+  .carPage {
+    &__Calculator {
+      .calculator {
+        .calculator-results {
+          width: 35.3vw;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 1300px) {
   .carPage {
     &__wrapper {
@@ -497,6 +509,29 @@
       .carPage {
         &__img {
           width: 22.3vw;
+        }
+      }
+    }
+
+    &__Calculator {
+      .calculator {
+        .calculator-results {
+          width: 38.3vw;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .carPage {
+    &__Calculator {
+      .calculator {
+        .calculator-results {
+          width: 100%;
+          &__button {
+            width: auto;
+          }
         }
       }
     }
