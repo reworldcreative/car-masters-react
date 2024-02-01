@@ -50,8 +50,13 @@ export default function Quiz() {
 
   const [error, setError] = useState(false);
 
-  const handleSetError = () => {
+  const [errorText, setErrorText] = useState("select one or fill all fields");
+
+  const handleSetError = (errorText) => {
     setError(true);
+    errorText
+      ? setErrorText(errorText)
+      : setErrorText("select one or fill all fields");
   };
 
   const handleRemoveError = () => {
@@ -213,7 +218,9 @@ export default function Quiz() {
           /\S+@\S+\.\S+/.test(email) &&
           phone !== ""
             ? (handleSetSuccess(), handleRemoveError())
-            : handleSetError();
+            : /\S+@\S+\.\S+/.test(email)
+            ? handleSetError()
+            : handleSetError("incorrect email");
           break;
 
         default:
@@ -551,7 +558,7 @@ export default function Quiz() {
                   {error ? (
                     <div className="quiz__error" style={errorStyle}>
                       <p className="quiz__error-text secondary-text">
-                        select one or fill all fields
+                        {errorText}
                       </p>
                     </div>
                   ) : (
