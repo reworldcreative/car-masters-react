@@ -27,6 +27,8 @@ export default function Calculator() {
   const [months, setMonths] = useState(18);
   const [carStatus, setCarStatus] = useState("poor");
 
+  const [isCarPage, setIsCarPage] = useState(false);
+
   useEffect(() => {
     if (id) {
       if (id && location.pathname.replace(/\/\d+$/, "") === "/car") {
@@ -34,7 +36,11 @@ export default function Calculator() {
           parseInt(cars.find((car) => car.id === +id).price.replace(/\s/g, "")),
           10
         );
+
+        setIsCarPage(true);
       }
+    } else {
+      setIsCarPage(false);
     }
   }, [id]);
 
@@ -61,14 +67,24 @@ export default function Calculator() {
     <section className="calculator">
       <div className="calculator__wrapper">
         <div className="calculator__head">
-          <h2 className="section-title">
-            Let’s figure out how much you can afford
-          </h2>
-          <p className="secondary-text ">
-            Before you start shopping, let’s figure out how much you can afford.
-            Move the sliders to see how the loan duration and the total loan
-            amount affect your monthly payments.
-          </p>
+          {isCarPage ? (
+            <h2 className="section-title">
+              Calculate the installment plan for this car.
+            </h2>
+          ) : (
+            <h2 className="section-title">
+              Let’s figure out how much you can afford
+            </h2>
+          )}
+          {!isCarPage ? (
+            <p className="secondary-text ">
+              Before you start shopping, let’s figure out how much you can
+              afford. Move the sliders to see how the loan duration and the
+              total loan amount affect your monthly payments.
+            </p>
+          ) : (
+            <></>
+          )}
         </div>
 
         <div className="calculator__container">

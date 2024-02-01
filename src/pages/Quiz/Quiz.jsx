@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+// import "react-datetime/css/react-datetime.css";
+// import DateTime from "react-datetime";
+
 import "./quiz.scss";
 import Header from "@/components/Header/Header";
 import QuizRadio from "./QuizRadio";
@@ -352,6 +355,17 @@ export default function Quiz() {
     }
   }, [currentItem, success]);
 
+  const currentData = new Date();
+  const minYear = 1990;
+  const maxYear = currentData.getFullYear();
+
+  const renderYear = (props, year) => {
+    if (year >= minYear && year <= maxYear) {
+      return <td {...props}>{year}</td>;
+    }
+    return null;
+  };
+
   return (
     <>
       <div className="quiz__header">
@@ -444,6 +458,32 @@ export default function Quiz() {
                         </div>
                       ) : currentItem.type === "inputData" ? (
                         <div className="quiz__row">
+                          {/* <DateTime
+                            className="quiz__input secondary-text"
+                            viewMode="years"
+                            dateFormat="YYYY"
+                            timeFormat={false}
+                            renderYear={renderYear}
+                            closeOnSelect
+                            onChange={getYears}
+                            value={years}
+                            inputProps={{
+                              placeholder: currentItem.placeholderYears,
+                            }}
+                          />
+
+                          <DateTime
+                            className="quiz__input secondary-text"
+                            dateFormat="MM"
+                            viewMode="months"
+                            timeFormat={false}
+                            closeOnSelect
+                            onChange={getMonths}
+                            value={months}
+                            inputProps={{
+                              placeholder: currentItem.placeholderMonths,
+                            }}
+                          /> */}
                           <QuizInput
                             placeholder={currentItem.placeholderYears}
                             getValue={getYears}
@@ -492,6 +532,19 @@ export default function Quiz() {
                         </div>
                       ) : currentItem.type === "born" ? (
                         <div className="quiz__row">
+                          {/* <DateTime
+                            className="quiz__input secondary-text"
+                            viewMode="years"
+                            dateFormat="YYYY"
+                            timeFormat={false}
+                            renderYear={renderYear}
+                            closeOnSelect
+                            onChange={getBornYear}
+                            value={bornYear}
+                            inputProps={{
+                              placeholder: currentItem.placeholderYears,
+                            }}
+                          /> */}
                           <QuizInput
                             placeholder={currentItem.placeholderYear}
                             getValue={getBornYear}
@@ -499,6 +552,32 @@ export default function Quiz() {
                             value={bornYear}
                           />
                           <div className="quiz__row minrow">
+                            {/* <DateTime
+                              className="quiz__input secondary-text"
+                              dateFormat="MM"
+                              viewMode="months"
+                              timeFormat={false}
+                              closeOnSelect
+                              onChange={getBornMonth}
+                              value={bornMonth}
+                              inputProps={{
+                                placeholder: currentItem.placeholderMonths,
+                              }}
+                            />
+
+                            <DateTime
+                              className="quiz__input secondary-text"
+                              dateFormat="DD"
+                              viewMode="days"
+                              timeFormat={false}
+                              closeOnSelect
+                              onChange={getBornDay}
+                              value={bornDay}
+                              inputProps={{
+                                placeholder: currentItem.placeholderDay,
+                              }}
+                            /> */}
+
                             <QuizInput
                               placeholder={currentItem.placeholderMonth}
                               getValue={getBornMonth}
