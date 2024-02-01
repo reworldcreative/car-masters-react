@@ -201,7 +201,11 @@ export default function About() {
             </p>
 
             <div
-              style={{ height: "45px", width: "fit-content" }}
+              style={{
+                height: "45px",
+                width: "fit-content",
+                position: "relative",
+              }}
               className="mission__button-wrapper"
             >
               {/* <Button addclass="mission__button accent">Request a Car</Button> */}
@@ -221,7 +225,11 @@ export default function About() {
             </h3>
 
             <div
-              style={{ height: "45px", width: "fit-content" }}
+              style={{
+                height: "45px",
+                width: "fit-content",
+                position: "relative",
+              }}
               className="mission__button-wrapper"
             >
               <Button

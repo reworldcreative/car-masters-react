@@ -248,6 +248,7 @@ export default function Home() {
                     height: "50px",
                     width: "fit-content",
                     // display: "flex",
+                    position: "relative",
                   }}
                   className="home-choose__button-wrapper"
                 >
@@ -295,7 +296,8 @@ export default function Home() {
                   style={{
                     width: "fit-content",
                     height: "45px",
-                    display: "flex",
+                    // display: "flex",
+                    position: "relative",
                   }}
                   className="happy-customers__button-wrapper"
                 >

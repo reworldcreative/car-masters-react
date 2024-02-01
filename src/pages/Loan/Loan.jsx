@@ -140,7 +140,11 @@ export default function Loan() {
               what details of the loan are before you sign anything.
             </p>
             <div
-              style={{ height: "45px", width: "fit-content" }}
+              style={{
+                height: "45px",
+                width: "fit-content",
+                position: "relative",
+              }}
               className="benefits__button-wrapper"
             >
               {/* <Button addclass="benefits__button accent">Request a Car</Button> */}

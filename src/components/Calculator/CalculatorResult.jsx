@@ -94,7 +94,7 @@ export default function CalculatorResult({ priceAmount, months, status }) {
         </div>
       </div>
       <div
-        style={{ width: "100%", height: "45px" }}
+        style={{ width: "100%", height: "45px", position: "relative" }}
         className="calculator-results__button-wrapper"
       >
         <Link

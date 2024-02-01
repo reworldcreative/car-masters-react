@@ -162,9 +162,14 @@ export default function Interesting({ sliderNavigation, caption, articles }) {
         {isMobileScreen ? (
           <>
             {/* <Button addclass="interesting__button">all articles</Button> */}
-            <Link to={"/blog"} className="interesting__button button">
-              all articles
-            </Link>
+            <div
+              style={{ position: "relative" }}
+              className="interesting__button-wrapper"
+            >
+              <Link to={"/blog"} className="interesting__button button">
+                all articles
+              </Link>
+            </div>
           </>
         ) : (
           <></>
