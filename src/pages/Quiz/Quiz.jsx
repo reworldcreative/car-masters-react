@@ -544,7 +544,7 @@ export default function Quiz() {
                               getValue={getPostal}
                               regular={""}
                               value={postal}
-                              maxLength={10}
+                              maxLength={15}
                             />
                           </div>
                         </div>
