@@ -2,11 +2,11 @@ import React, { Suspense, useEffect } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import "./carPage.scss";
 
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, useFBX } from "@react-three/drei";
-import { useLoader } from "@react-three/fiber";
-import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
-import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
+// import { Canvas } from "@react-three/fiber";
+// import { OrbitControls, useFBX } from "@react-three/drei";
+// import { useLoader } from "@react-three/fiber";
+// import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
+// import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 
 import cars from "@/data/cars.json";
 import log from "@/img/logo/logo.svg";
@@ -22,11 +22,11 @@ import Footer from "@/components/Footer/Footer";
 import Calculator from "@/components/Calculator/Calculator";
 import PictureComponent from "@/../plugins/PictureComponent";
 import Button from "@/components/Button/Button";
-import { MeshStandardMaterial } from "three";
+// import { MeshStandardMaterial } from "three";
 
-import threeModel from "@/img/porsche-panamera-gts/Porsche_Panamera_GTS.fbx";
-import Porsche_2 from "@/img/porsche-panamera-gts/Porsche_2.fbx";
-import mustangModel from "@/img/Mustang/Mustang.obj";
+// import threeModel from "@/img/porsche-panamera-gts/Porsche_Panamera_GTS.fbx";
+// import Porsche_2 from "@/img/porsche-panamera-gts/Porsche_2.fbx";
+// import mustangModel from "@/img/Mustang/Mustang.obj";
 import { Link } from "react-router-dom";
 import CarPopUp from "./CarPopUp";
 

@@ -192,7 +192,9 @@ export default function Quiz() {
             : handleSetError();
           break;
         case 6:
-          employmentEmployer !== "" && employmentTitle !== ""
+          // employmentEmployer !== "" && employmentTitle !== ""
+          employmentEmployer.trim().length !== 0 &&
+          employmentTitle.trim().length !== 0
             ? (setCurrentQuestion(currentQuestion + 1), handleRemoveError())
             : handleSetError();
           break;
