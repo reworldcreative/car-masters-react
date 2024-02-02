@@ -195,9 +195,13 @@ export default function Quiz() {
             : handleSetError();
           break;
         case 7:
-          years !== "" && months !== ""
-            ? (setCurrentQuestion(currentQuestion + 1), handleRemoveError())
-            : handleSetError();
+          years === "" || months === ""
+            ? handleSetError()
+            : parseInt(years) < 0 || parseInt(years) > 50
+            ? handleSetError("incorrect year")
+            : parseInt(months) < 0 || parseInt(months) > 12
+            ? handleSetError("incorrect months")
+            : (setCurrentQuestion(currentQuestion + 1), handleRemoveError());
           break;
         case 8:
           receivingTime !== ""
@@ -210,9 +214,21 @@ export default function Quiz() {
             : handleSetError();
           break;
         case 10:
-          bornYear !== "" && bornMonth !== "" && bornDay !== ""
-            ? (setCurrentQuestion(currentQuestion + 1), handleRemoveError())
-            : handleSetError();
+          // bornYear !== "" && bornMonth !== "" && bornDay !== ""
+          //   ? (setCurrentQuestion(currentQuestion + 1), handleRemoveError())
+          //   : handleSetError();
+
+          bornYear === "" || months === "" || bornDay === ""
+            ? handleSetError()
+            : parseInt(bornYear) < 1900 || parseInt(bornYear) > maxYear
+            ? handleSetError("incorrect year")
+            : maxYear - parseInt(bornYear) < 18
+            ? handleSetError("age is lower than 18")
+            : parseInt(bornMonth) < 1 || parseInt(bornMonth) > 12
+            ? handleSetError("incorrect months")
+            : parseInt(bornDay) < 1 || parseInt(bornDay) > 31
+            ? handleSetError("incorrect day")
+            : (setCurrentQuestion(currentQuestion + 1), handleRemoveError());
           break;
         case 11:
           firstName !== "" &&
@@ -487,14 +503,16 @@ export default function Quiz() {
                           <QuizInput
                             placeholder={currentItem.placeholderYears}
                             getValue={getYears}
-                            regular={"years"}
+                            regular={"number"}
                             value={years}
+                            maxLength={2}
                           />
                           <QuizInput
                             placeholder={currentItem.placeholderMonths}
                             getValue={getMonths}
-                            regular={""}
+                            regular={"number"}
                             value={months}
+                            maxLength={2}
                           />
                         </div>
                       ) : currentItem.type === "address" ? (
@@ -524,9 +542,9 @@ export default function Quiz() {
                             <QuizInput
                               placeholder={currentItem.placeholderPostal}
                               getValue={getPostal}
-                              regular={"number"}
+                              regular={""}
                               value={postal}
-                              maxLength={30}
+                              maxLength={10}
                             />
                           </div>
                         </div>
@@ -550,6 +568,7 @@ export default function Quiz() {
                             getValue={getBornYear}
                             regular={"years"}
                             value={bornYear}
+                            maxLength={4}
                           />
                           <div className="quiz__row minrow">
                             {/* <DateTime
@@ -581,14 +600,16 @@ export default function Quiz() {
                             <QuizInput
                               placeholder={currentItem.placeholderMonth}
                               getValue={getBornMonth}
-                              regular={""}
+                              regular={"number"}
                               value={bornMonth}
+                              maxLength={2}
                             />
                             <QuizInput
                               placeholder={currentItem.placeholderDay}
                               getValue={getBornDay}
                               regular={"number"}
                               value={bornDay}
+                              maxLength={2}
                             />
                           </div>
                         </div>

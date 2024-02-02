@@ -204,7 +204,7 @@ export default function CarPage() {
           </div>
           <div className="carPage__container">
             <div className="carPage__pictures">
-              <div className="carPage__picturesMain">
+              <div className="carPage__picturesMain" id="carPage__picturesMain">
                 <div className="carPage__pictures-bottom">
                   <div className="carPage__pictures-buttons">
                     <button
@@ -312,6 +312,7 @@ export default function CarPage() {
                     <button
                       className="carPage__slider-prev"
                       aria-label="previous slide"
+                      aria-controls={["carPage__picturesMain"]}
                     >
                       <img
                         src={nextArrow}
@@ -325,6 +326,7 @@ export default function CarPage() {
                     <button
                       className="carPage__slider-next"
                       aria-label="next slide"
+                      aria-controls={["carPage__picturesMain"]}
                     >
                       <img
                         src={nextArrow}

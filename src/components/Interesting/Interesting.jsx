@@ -54,6 +54,11 @@ export default function Interesting({ sliderNavigation, caption, articles }) {
 
   useEffect(() => {
     liveRegionInteresting.current.setAttribute("aria-hidden", "true");
+    document
+      .querySelectorAll(".interesting__slider-prev, .interesting__slider-next")
+      .forEach(function (button) {
+        button.removeAttribute("aria-controls");
+      });
   }, []);
   return (
     <section className="interesting">
@@ -72,7 +77,7 @@ export default function Interesting({ sliderNavigation, caption, articles }) {
           )}
         </div>
 
-        <div className="interesting__container">
+        <div className="interesting__container" id="interesting__container">
           <p className="visibility-hidden">list of interesting articles</p>
           <div
             className="visibility-hidden"
@@ -91,6 +96,7 @@ export default function Interesting({ sliderNavigation, caption, articles }) {
                 className="interesting__slider-prev"
                 aria-label="previous slide"
                 onClick={announceSlideChange}
+                aria-controls={["interesting__container"]}
               >
                 <img
                   src={nextArrow}
@@ -105,6 +111,7 @@ export default function Interesting({ sliderNavigation, caption, articles }) {
                 className="interesting__slider-next"
                 aria-label="next slide"
                 onClick={announceSlideChange}
+                aria-controls={["interesting__container"]}
               >
                 <img
                   src={nextArrow}

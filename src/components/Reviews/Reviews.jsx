@@ -32,6 +32,11 @@ export default function Reviews() {
 
   useEffect(() => {
     liveRegionReviews.current.setAttribute("aria-hidden", "true");
+    document
+      .querySelectorAll(".reviews__slider-prev, .reviews__slider-next")
+      .forEach(function (button) {
+        button.removeAttribute("aria-controls");
+      });
   }, []);
   return (
     <section className="reviews">
@@ -41,6 +46,7 @@ export default function Reviews() {
         <div
           className="reviews__container"
           aria-label="slider of users reviews"
+          id="reviews__container"
         >
           <p className="visibility-hidden">slider of users reviews</p>
           <div
@@ -57,6 +63,7 @@ export default function Reviews() {
             className="reviews__slider-prev"
             aria-label="previous slide"
             onClick={announceSlideChange}
+            aria-controls={["reviews__container"]}
           >
             <img
               src={nextArrow}
@@ -71,6 +78,7 @@ export default function Reviews() {
             className="reviews__slider-next"
             aria-label="next slide"
             onClick={announceSlideChange}
+            aria-controls={["reviews__container"]}
           >
             <img
               src={nextArrow}

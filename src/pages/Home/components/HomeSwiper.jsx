@@ -49,10 +49,18 @@ export default function HomeSwiper({ handleSlideChange }) {
 
   useEffect(() => {
     liveRegionHomePage.current.setAttribute("aria-hidden", "true");
+    document
+      .querySelectorAll(".home-hero__slider-prev, .home-hero__slider-next")
+      .forEach(function (button) {
+        button.removeAttribute("aria-controls");
+      });
   }, []);
 
   return (
-    <div className="home-hero__slider-container">
+    <div
+      className="home-hero__slider-container"
+      id="home-hero__slider-container"
+    >
       {/* <div className="home-hero__slider-buttons"> */}
       <div
         className="visibility-hidden"
@@ -69,6 +77,7 @@ export default function HomeSwiper({ handleSlideChange }) {
         className="home-hero__slider-prev"
         aria-label="previous slide"
         onClick={announceSlideChange}
+        aria-controls={["home-hero__slider-container"]}
       >
         <img
           src={nextArrow}
@@ -83,6 +92,7 @@ export default function HomeSwiper({ handleSlideChange }) {
         className="home-hero__slider-next"
         aria-label="next slide"
         onClick={announceSlideChange}
+        aria-controls={["home-hero__slider-container"]}
       >
         <img
           src={nextArrow}

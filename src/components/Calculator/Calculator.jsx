@@ -68,7 +68,7 @@ export default function Calculator() {
       <div className="calculator__wrapper">
         <div className="calculator__head">
           {isCarPage ? (
-            <h2 className="section-title">
+            <h2 className="section-title" style={{ maxWidth: "100%" }}>
               Calculate the installment plan for this car.
             </h2>
           ) : (

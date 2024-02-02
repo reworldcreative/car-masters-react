@@ -193,7 +193,7 @@ export default function Home() {
 
             <ul
               className="home-advantages__container"
-              aria-labelledby="advantages list"
+              // aria-labelledby="advantages list"
             >
               {carsAdvantagesData.length ? (
                 carsAdvantagesData

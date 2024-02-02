@@ -98,18 +98,18 @@ export default function About() {
           </div>
 
           {/* <div> */}
-          <p className="visibility-hidden" id="dreamStepLabel">
+          {/* <p className="visibility-hidden" id="dreamStepLabel">
             dream steps
-          </p>
+          </p> */}
           <ul
             className="dream__list"
             // aria-label="dream steps"
             aria-labelledby="dreamStepLabel"
           >
             {/* <p className="visibility-hidden">dream steps</p> */}
-            {/* <li className="visibility-hidden" role="group">
-              <p>dream steps</p>
-            </li> */}
+            <li className="visibility-hidden" role="group" id="dreamStepLabel">
+              dream steps
+            </li>
             <CarStep
               step="1"
               title="Quickly"
