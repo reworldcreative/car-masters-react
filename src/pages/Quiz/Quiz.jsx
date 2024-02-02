@@ -164,7 +164,9 @@ export default function Quiz() {
           }
           break;
         case 3:
-          employmentStatusMore !== "" && employmentStatus !== ""
+          // employmentStatusMore !== "" && employmentStatus !== ""
+          employmentStatusMore.trim().length !== 0 &&
+          employmentStatus.trim().length !== 0
             ? // && employmentStatus !== "Other"
               (setCurrentQuestion(currentQuestion + 1), handleRemoveError())
             : handleSetError();
@@ -204,12 +206,17 @@ export default function Quiz() {
             : (setCurrentQuestion(currentQuestion + 1), handleRemoveError());
           break;
         case 8:
-          receivingTime !== ""
+          // receivingTime !== ""
+          receivingTime.trim().length !== 0
             ? (setCurrentQuestion(currentQuestion + 1), handleRemoveError())
             : handleSetError();
           break;
         case 9:
-          street !== "" && city !== "" && province !== "" && postal !== ""
+          // street !== "" && city !== "" && province !== "" && postal !== ""
+          street.trim().length.trim().length !== 0 &&
+          city.trim().length !== 0 &&
+          province.trim().length !== 0 &&
+          postal.trim().length !== 0
             ? (setCurrentQuestion(currentQuestion + 1), handleRemoveError())
             : handleSetError();
           break;
@@ -231,8 +238,10 @@ export default function Quiz() {
             : (setCurrentQuestion(currentQuestion + 1), handleRemoveError());
           break;
         case 11:
-          firstName !== "" &&
-          lastName !== "" &&
+          // firstName !== "" &&
+          // lastName !== "" &&
+          firstName.trim().length !== 0 &&
+          lastName.trim().length !== 0 &&
           email !== "" &&
           /\S+@\S+\.\S+/.test(email) &&
           phone !== ""
