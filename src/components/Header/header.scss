@@ -11,6 +11,8 @@
   // padding: 15px 120px 18px 127.4px;
   padding: 17px 8.4vw 18px 8.9vw;
 
+  width: -webkit-fill-available;
+
   &__navigation {
     display: flex;
     align-items: center;
@@ -37,7 +39,7 @@
   .header {
     max-width: 1440px;
     margin: auto;
-    width: 100%;
+    // width: 100%;
   }
 }
 
