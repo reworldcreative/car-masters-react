@@ -11,6 +11,7 @@
       {
         "id": 2,
         "image": "./img/cars/Porsche/Porsche_2.jpg",
+        "imageSmall": "./img/cars/Porsche/Porsche_2_small.jpg",
         "imageDescription": "The photo shows a gray Porsche Panamera parked on a cobblestone street in front of a brick building.",
         "imageType": "Exterior"
       },

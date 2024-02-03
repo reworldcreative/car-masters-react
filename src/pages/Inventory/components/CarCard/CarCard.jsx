@@ -6,6 +6,7 @@ import PictureComponent from "@/../plugins/PictureComponent";
 
 import car from "@/img/cars/Porsche/Porsche_1.jpg";
 import car2 from "@/img/cars/Porsche/Porsche_2.jpg";
+import car2_small from "@/img/cars/Porsche/Porsche_2_small.jpg";
 import car3 from "@/img/cars/Porsche/Porsche_3.jpg";
 import car3_small from "@/img/cars/Porsche/Porsche_3_small.jpg";
 import car4 from "@/img/cars/Porsche/Porsche_4.jpg";
@@ -41,7 +42,7 @@ import car14_small from "@/img/cars/Mercedes-Benz/Mercedes-Benz_5_small.jpg";
 
 import car15 from "@/img/cars/Mercedes-Benz/Mercedes-Benz_6.jpg";
 import car16 from "@/img/cars/Mercedes-Benz/Mercedes-Benz_7.jpg";
-import car16_small from "@/img/cars/Mercedes-Benz/Mercedes-Benz_7.jpg";
+import car16_small from "@/img/cars/Mercedes-Benz/Mercedes-Benz_7_small.jpg";
 import car17 from "@/img/cars/Mercedes-Benz/Mercedes-Benz_8.jpg";
 
 import car18 from "@/img/cars/Mercedes-Benz/Mercedes-Benz_10.jpg";
