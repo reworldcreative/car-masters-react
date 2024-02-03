@@ -215,7 +215,7 @@ export default function Quiz() {
           break;
         case 9:
           // street !== "" && city !== "" && province !== "" && postal !== ""
-          street.trim().length.trim().length !== 0 &&
+          street.trim().length !== 0 &&
           city.trim().length !== 0 &&
           province.trim().length !== 0 &&
           postal.trim().length !== 0
