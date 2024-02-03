@@ -282,6 +282,7 @@ export default function CarPage() {
                         <swiper-slide key={carImg.id} onClick={scaleImage}>
                           <PictureComponent
                             src={carImg.image}
+                            smallSrc={carImg.imageSmall}
                             alt={carImg.imageDescription}
                             width="420"
                             height="216"
@@ -373,6 +374,7 @@ export default function CarPage() {
                         <swiper-slide key={carImg.id}>
                           <PictureComponent
                             src={carImg.image}
+                            smallSrc={carImg.imageSmall}
                             alt={carImg.imageDescription}
                             width="420"
                             height="216"

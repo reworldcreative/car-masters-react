@@ -25,6 +25,7 @@ import car32 from "@/img/cars/Porsche/Porsche_12.jpg";
 
 import car7 from "@/img/cars/Mitsubishi/Mitsubishi_1.jpg";
 import car8 from "@/img/cars/Mitsubishi/Mitsubishi_2.jpg";
+import car8_small from "@/img/cars/Mitsubishi/Mitsubishi_2_small.jpg";
 import car9 from "@/img/cars/Mitsubishi/Mitsubishi_3.jpg";
 
 import car10 from "@/img/cars/Mercedes-Benz/Mercedes-Benz_1.jpg";
@@ -33,15 +34,23 @@ import car12 from "@/img/cars/Mercedes-Benz/Mercedes-Benz_3.jpg";
 import car13 from "@/img/cars/Mercedes-Benz/Mercedes-Benz_4.jpg";
 import car14 from "@/img/cars/Mercedes-Benz/Mercedes-Benz_5.jpg";
 
+import car11_small from "@/img/cars/Mercedes-Benz/Mercedes-Benz_2_small.jpg";
+import car12_small from "@/img/cars/Mercedes-Benz/Mercedes-Benz_3_small.jpg";
+import car13_small from "@/img/cars/Mercedes-Benz/Mercedes-Benz_4_small.jpg";
+import car14_small from "@/img/cars/Mercedes-Benz/Mercedes-Benz_5_small.jpg";
+
 import car15 from "@/img/cars/Mercedes-Benz/Mercedes-Benz_6.jpg";
 import car16 from "@/img/cars/Mercedes-Benz/Mercedes-Benz_7.jpg";
+import car16_small from "@/img/cars/Mercedes-Benz/Mercedes-Benz_7.jpg";
 import car17 from "@/img/cars/Mercedes-Benz/Mercedes-Benz_8.jpg";
 
 import car18 from "@/img/cars/Mercedes-Benz/Mercedes-Benz_10.jpg";
-import car19 from "@/img/cars/Mercedes-Benz/Mercedes-Benz_11.jpg";
+import car19 from "@/img/cars/Mercedes-Benz/Mercedes-Benz_11_small.jpg";
+import car19_small from "@/img/cars/Mercedes-Benz/Mercedes-Benz_11_small.jpg";
 
 import car20 from "@/img/cars/Audi/Audi_1.jpg";
 import car21 from "@/img/cars/Audi/Audi_2.jpg";
+import car21_small from "@/img/cars/Audi/Audi_2_small.jpg";
 
 import log from "@/img/logo/logo.svg";
 import { Link } from "react-router-dom";
