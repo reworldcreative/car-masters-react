@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
-import { register } from "swiper/element/bundle";
+// import { register } from "swiper/element/bundle";
+import { register } from "swiper/element";
 
 // import Home from "./pages/Home/Home";
 import Calculator from "./pages/Calculator/Calculator";

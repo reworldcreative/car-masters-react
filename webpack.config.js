@@ -47,7 +47,7 @@ module.exports = {
               // enforce: false,
             },
             vendor: {
-              test: /[\\/]node_modules[\\/]/,
+              test: /[\\/]node_modules[\\/](?!swiper)[\\/]/,
               name(module) {
                 const packageName = module.context.match(
                   /[\\/]node_modules[\\/](.*?)([\\/]|$)/

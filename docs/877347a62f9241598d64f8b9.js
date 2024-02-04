@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebpackreact=self.webpackChunkwebpackreact||[]).push([[8773],{8773:function(e,c,s){e.exports=s.p+"img/icons/next_arrow.svg"}}]);

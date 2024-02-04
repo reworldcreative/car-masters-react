@@ -46,7 +46,7 @@ import car16_small from "@/img/cars/Mercedes-Benz/Mercedes-Benz_7_small.jpg";
 import car17 from "@/img/cars/Mercedes-Benz/Mercedes-Benz_8.jpg";
 
 import car18 from "@/img/cars/Mercedes-Benz/Mercedes-Benz_10.jpg";
-import car19 from "@/img/cars/Mercedes-Benz/Mercedes-Benz_11_small.jpg";
+import car19 from "@/img/cars/Mercedes-Benz/Mercedes-Benz_11.jpg";
 import car19_small from "@/img/cars/Mercedes-Benz/Mercedes-Benz_11_small.jpg";
 
 import car20 from "@/img/cars/Audi/Audi_1.jpg";
@@ -55,9 +55,42 @@ import car21_small from "@/img/cars/Audi/Audi_2_small.jpg";
 
 import log from "@/img/logo/logo.svg";
 import { Link } from "react-router-dom";
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  Controller,
+  Keyboard,
+  Manipulation,
+  Mousewheel,
+} from "swiper/modules";
 
 export default function CarCard({ carData }) {
   const swiperRef = useRef(null);
+  const paginationRef = useRef(null);
+  const paginationFillRef = useRef(null);
+
+  useEffect(() => {
+    if (swiperRef.current) {
+      const params = {
+        modules: [
+          Navigation,
+          Pagination,
+          Scrollbar,
+          A11y,
+          Controller,
+          Keyboard,
+          Manipulation,
+          Mousewheel,
+        ],
+      };
+
+      Object.assign(swiperRef.current, params);
+
+      swiperRef.current.initialize();
+    }
+  }, [swiperRef]);
 
   useEffect(() => {
     const swiperInstance = swiperRef.current.swiper;
@@ -74,6 +107,22 @@ export default function CarCard({ carData }) {
     }
   });
 
+  const [currentSlide, setCurrentSlide] = useState(1);
+  const [maxSlides, setMaxSlides] = useState(1);
+
+  useEffect(() => {
+    if (swiperRef.current) {
+      swiperRef.current.swiper.on("slideChange", () => {
+        setCurrentSlide(swiperRef.current.swiper.activeIndex + 1);
+      });
+      setMaxSlides(swiperRef.current.swiper.slides.length);
+    }
+  }, [swiperRef]);
+
+  // useEffect(() => {
+  //   console.log(currentSlide);
+  // }, [currentSlide]);
+
   return (
     <article
       className="carCard"
@@ -82,6 +131,14 @@ export default function CarCard({ carData }) {
       <p className="visibility-hidden">car card</p>
       <div className="carCard__pictures">
         <p className="visibility-hidden ">car pictures</p>
+
+        <div ref={paginationRef} className="carCard__pagination">
+          <div
+            ref={paginationFillRef}
+            className="carCard__pagination-fill"
+            style={{ width: `${(currentSlide / maxSlides) * 100}%` }}
+          ></div>
+        </div>
 
         <swiper-container
           ref={swiperRef}
@@ -94,6 +151,7 @@ export default function CarCard({ carData }) {
           mousewheel-threshold-delta="70"
           mousewheel-force-to-axis="true"
           pagination-type="progressbar"
+          // pagination-el={paginationRef}
           // scrollbar="true"
         >
           {carData.images.length ? (

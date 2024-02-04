@@ -20,8 +20,37 @@ import { Link } from "react-router-dom";
 
 // import articles from "@/data/articles.json";
 
+import {
+  Navigation,
+  Pagination,
+  A11y,
+  Controller,
+  Keyboard,
+  Manipulation,
+  Mousewheel,
+} from "swiper/modules";
+
 export default function Interesting({ sliderNavigation, caption, articles }) {
   const swiperInterestingRef = useRef(null);
+  useEffect(() => {
+    if (swiperInterestingRef.current) {
+      const params = {
+        modules: [
+          Navigation,
+          Pagination,
+          A11y,
+          Controller,
+          Keyboard,
+          Manipulation,
+          Mousewheel,
+        ],
+      };
+
+      Object.assign(swiperInterestingRef.current, params);
+
+      swiperInterestingRef.current.initialize();
+    }
+  }, []);
   const [isMobileScreen, setIsMobileScreen] = useState(window.innerWidth < 500);
 
   useEffect(() => {
@@ -134,6 +163,8 @@ export default function Interesting({ sliderNavigation, caption, articles }) {
             navigation-next-el=".interesting__slider-next"
             class="interesting__slider"
             ref={swiperInterestingRef}
+            id="swiperInteresting-container"
+            init="false"
             a11y="true"
             keyboard="true"
             mousewheel="true"

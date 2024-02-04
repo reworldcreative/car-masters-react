@@ -13,9 +13,37 @@ import reviewPhoto4 from "@/img/reviews/review_4.jpg";
 import reviewPhoto4Small from "@/img/reviews/review_4_small.jpg";
 
 import reviewsData from "@/data/reviews.json";
+import {
+  Navigation,
+  Pagination,
+  A11y,
+  Controller,
+  Keyboard,
+  Manipulation,
+  Mousewheel,
+} from "swiper/modules";
 
 export default function Reviews() {
   const swiperInfoRef = useRef(null);
+  useEffect(() => {
+    if (swiperInfoRef.current) {
+      const params = {
+        modules: [
+          Navigation,
+          Pagination,
+          A11y,
+          Controller,
+          Keyboard,
+          Manipulation,
+          Mousewheel,
+        ],
+      };
+
+      Object.assign(swiperInfoRef.current, params);
+
+      swiperInfoRef.current.initialize();
+    }
+  }, []);
   // var liveRegionReviews = document.getElementById("live-region-Reviews");
 
   const liveRegionReviews = useRef(null);
@@ -96,6 +124,8 @@ export default function Reviews() {
             navigation-next-el=".reviews__slider-next"
             class="reviews__slider"
             ref={swiperInfoRef}
+            id="swiperInfo-container"
+            init="false"
             a11y="true"
             keyboard="true"
             mousewheel="true"

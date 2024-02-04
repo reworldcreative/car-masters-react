@@ -14,9 +14,38 @@ import truckCar_small from "@/img/cars/Ram_TRUCK_small.png";
 import vanCar_small from "@/img/cars/Dodge_VAN_small.png";
 
 import nextArrow from "@/img/icons/next_arrow.svg";
+import {
+  Navigation,
+  Pagination,
+  A11y,
+  Controller,
+  Keyboard,
+  Manipulation,
+  Mousewheel,
+} from "swiper/modules";
 
 export default function HomeSwiper({ handleSlideChange }) {
   const swiperRef = useRef(null);
+
+  useEffect(() => {
+    if (swiperRef.current) {
+      const params = {
+        modules: [
+          Navigation,
+          Pagination,
+          A11y,
+          Controller,
+          Keyboard,
+          Manipulation,
+          Mousewheel,
+        ],
+      };
+
+      Object.assign(swiperRef.current, params);
+
+      swiperRef.current.initialize();
+    }
+  }, []);
 
   const getActiveSlideNumber = () => {
     if (swiperRef.current) {
@@ -114,6 +143,8 @@ export default function HomeSwiper({ handleSlideChange }) {
         navigation-next-el=".home-hero__slider-next"
         class="home-hero__slider"
         ref={swiperRef}
+        id="swiperHome-container"
+        init="false"
         a11y="true"
         keyboard="true"
         mousewheel="true"

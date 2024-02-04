@@ -29,6 +29,17 @@ import Button from "@/components/Button/Button";
 // import mustangModel from "@/img/Mustang/Mustang.obj";
 import { Link } from "react-router-dom";
 import CarPopUp from "./CarPopUp";
+import {
+  Navigation,
+  Pagination,
+  Thumbs,
+  Scrollbar,
+  A11y,
+  Controller,
+  Keyboard,
+  Manipulation,
+  Mousewheel,
+} from "swiper/modules";
 
 export default function CarPage() {
   const [currentCar, setCurrentCar] = useState({ ...cars[0] });
@@ -42,6 +53,49 @@ export default function CarPage() {
 
   const [swiperMainKey, setSwiperMainKey] = useState(0);
   const [swiperListKey, setSwiperListKey] = useState(0);
+
+  useEffect(() => {
+    if (swiperMainRef.current) {
+      const params = {
+        modules: [
+          Navigation,
+          Pagination,
+          Thumbs,
+          Scrollbar,
+          A11y,
+          Controller,
+          Keyboard,
+          Manipulation,
+          Mousewheel,
+        ],
+      };
+
+      Object.assign(swiperMainRef.current, params);
+
+      swiperMainRef.current.initialize();
+    }
+  }, [swiperMainKey]);
+
+  useEffect(() => {
+    if (swiperListRef.current) {
+      const params = {
+        modules: [
+          Navigation,
+          Pagination,
+          Thumbs,
+          Scrollbar,
+          A11y,
+          Controller,
+          Keyboard,
+          Manipulation,
+          Mousewheel,
+        ],
+      };
+
+      Object.assign(swiperListRef.current, params);
+      swiperListRef.current.initialize();
+    }
+  }, [swiperListKey]);
 
   // const swapPicturesType = () => {
   //   setIsExterior(!isExterior);
@@ -256,6 +310,7 @@ export default function CarPage() {
                   <swiper-container
                     ref={swiperMainRef}
                     key={swiperMainKey}
+                    init="false"
                     slides-per-view="1"
                     space-between="10"
                     // centered-slides="true"
@@ -342,6 +397,7 @@ export default function CarPage() {
                   <swiper-container
                     ref={swiperListRef}
                     key={swiperListKey}
+                    init="false"
                     slides-per-view="auto"
                     space-between="10"
                     class="swiperList"
