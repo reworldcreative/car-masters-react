@@ -71,26 +71,26 @@ export default function CarCard({ carData }) {
   const paginationRef = useRef(null);
   const paginationFillRef = useRef(null);
 
-  useEffect(() => {
-    if (swiperRef.current) {
-      const params = {
-        modules: [
-          Navigation,
-          Pagination,
-          Scrollbar,
-          A11y,
-          Controller,
-          Keyboard,
-          Manipulation,
-          Mousewheel,
-        ],
-      };
+  // useEffect(() => {
+  //   if (swiperRef.current) {
+  //     const params = {
+  //       modules: [
+  //         Navigation,
+  //         Pagination,
+  //         Scrollbar,
+  //         A11y,
+  //         Controller,
+  //         Keyboard,
+  //         Manipulation,
+  //         Mousewheel,
+  //       ],
+  //     };
 
-      Object.assign(swiperRef.current, params);
+  //     Object.assign(swiperRef.current, params);
 
-      swiperRef.current.initialize();
-    }
-  }, [swiperRef]);
+  //     swiperRef.current.initialize();
+  //   }
+  // }, [swiperRef]);
 
   useEffect(() => {
     const swiperInstance = swiperRef.current.swiper;
@@ -132,17 +132,18 @@ export default function CarCard({ carData }) {
       <div className="carCard__pictures">
         <p className="visibility-hidden ">car pictures</p>
 
-        <div ref={paginationRef} className="carCard__pagination">
+        {/* <div ref={paginationRef} className="carCard__pagination">
           <div
             ref={paginationFillRef}
             className="carCard__pagination-fill"
             style={{ width: `${(currentSlide / maxSlides) * 100}%` }}
           ></div>
-        </div>
+        </div> */}
 
         <swiper-container
           ref={swiperRef}
           slides-per-view="1"
+          // init="false"
           space-between="10"
           class="carCard__slider"
           a11y="true"

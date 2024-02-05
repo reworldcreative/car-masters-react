@@ -27,25 +27,25 @@ import {
 export default function HomeSwiper({ handleSlideChange }) {
   const swiperRef = useRef(null);
 
-  useEffect(() => {
-    if (swiperRef.current) {
-      const params = {
-        modules: [
-          Navigation,
-          Pagination,
-          A11y,
-          Controller,
-          Keyboard,
-          Manipulation,
-          Mousewheel,
-        ],
-      };
+  // useEffect(() => {
+  //   if (swiperRef.current) {
+  //     const params = {
+  //       modules: [
+  //         Navigation,
+  //         Pagination,
+  //         A11y,
+  //         Controller,
+  //         Keyboard,
+  //         Manipulation,
+  //         Mousewheel,
+  //       ],
+  //     };
 
-      Object.assign(swiperRef.current, params);
+  //     Object.assign(swiperRef.current, params);
 
-      swiperRef.current.initialize();
-    }
-  }, []);
+  //     swiperRef.current.initialize();
+  //   }
+  // }, []);
 
   const getActiveSlideNumber = () => {
     if (swiperRef.current) {
@@ -144,7 +144,7 @@ export default function HomeSwiper({ handleSlideChange }) {
         class="home-hero__slider"
         ref={swiperRef}
         id="swiperHome-container"
-        init="false"
+        // init="false"
         a11y="true"
         keyboard="true"
         mousewheel="true"
