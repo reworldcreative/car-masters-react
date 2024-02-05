@@ -422,6 +422,7 @@
 
   &__RequestCarButton_wrapper {
     margin-top: 45px;
+    display: block;
   }
 
   &__RequestCarButton {
@@ -637,6 +638,10 @@
 
     &__ApplyButton_wrapper {
       display: block;
+    }
+
+    &__RequestCarButton_wrapper {
+      display: none;
     }
 
     &__content {

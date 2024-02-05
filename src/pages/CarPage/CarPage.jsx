@@ -70,8 +70,11 @@ export default function CarPage() {
         ],
       };
 
-      Object.assign(swiperMainRef.current, params);
+      //   if (swiperMainRef.current && swiperMainRef.current.initialized) {
+      //     swiperMainRef.current.destroy(true, true);
+      // }
 
+      Object.assign(swiperMainRef.current, params);
       swiperMainRef.current.initialize();
     }
   }, [swiperMainKey]);
@@ -363,7 +366,7 @@ export default function CarPage() {
                 (carImg) =>
                   carImg.imageType === (isExterior ? "Exterior" : "Interior")
               ).length ? (
-                <div className="carPage__picturesList" aria-hidden="true">
+                <div className="carPage__picturesList">
                   <>
                     <button
                       className="carPage__slider-prev"
@@ -395,6 +398,7 @@ export default function CarPage() {
                     </button>
                   </>
                   <swiper-container
+                    aria-hidden="true"
                     ref={swiperListRef}
                     key={swiperListKey}
                     init="false"
@@ -446,7 +450,11 @@ export default function CarPage() {
             </div>
 
             <div
-              style={{ height: "35px", width: "fit-content" }}
+              style={{
+                height: "35px",
+                width: "fit-content",
+                position: "relative",
+              }}
               className="carPage__ApplyButton_wrapper"
             >
               <Link to={"/quiz"} className="button accent carPage__ApplyButton">
