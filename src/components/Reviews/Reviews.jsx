@@ -25,25 +25,25 @@ import {
 
 export default function Reviews() {
   const swiperInfoRef = useRef(null);
-  useEffect(() => {
-    if (swiperInfoRef.current) {
-      const params = {
-        modules: [
-          Navigation,
-          Pagination,
-          A11y,
-          Controller,
-          Keyboard,
-          Manipulation,
-          Mousewheel,
-        ],
-      };
+  // useEffect(() => {
+  //   if (swiperInfoRef.current) {
+  //     const params = {
+  //       modules: [
+  //         Navigation,
+  //         Pagination,
+  //         A11y,
+  //         Controller,
+  //         Keyboard,
+  //         Manipulation,
+  //         Mousewheel,
+  //       ],
+  //     };
 
-      Object.assign(swiperInfoRef.current, params);
+  //     Object.assign(swiperInfoRef.current, params);
 
-      swiperInfoRef.current.initialize();
-    }
-  }, []);
+  //     swiperInfoRef.current.initialize();
+  //   }
+  // }, []);
 
   // var liveRegionReviews = document.getElementById("live-region-Reviews");
 
@@ -126,7 +126,7 @@ export default function Reviews() {
             class="reviews__slider"
             ref={swiperInfoRef}
             id="swiperInfo-container"
-            init="false"
+            // init="false"
             a11y="true"
             keyboard="true"
             mousewheel="true"

@@ -49,12 +49,12 @@ module.exports = {
               // enforce: false,
               reuseExistingChunk: true,
             },
-            swiperElements: {
-              test: /[\\/]node_modules[\\/]swiper[\\/]/,
-              name: "swiper-elements",
-              chunks: "all",
-              reuseExistingChunk: true,
-            },
+            // swiperElements: {
+            //   test: /[\\/]node_modules[\\/]swiper[\\/]/,
+            //   name: "swiper-elements",
+            //   chunks: "all",
+            //   reuseExistingChunk: true,
+            // },
             vendor: {
               test: /[\\/]node_modules[\\/]/,
               priority: -10,
@@ -66,11 +66,11 @@ module.exports = {
                 return `npm.${packageName.replace("@", "")}`;
               },
             },
-            default: {
-              minChunks: 2,
-              priority: -20,
-              reuseExistingChunk: true,
-            },
+            // default: {
+            //   minChunks: 2,
+            //   priority: -20,
+            //   reuseExistingChunk: true,
+            // },
           },
         },
         usedExports: true,
