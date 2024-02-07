@@ -32,25 +32,25 @@ import {
 
 export default function Interesting({ sliderNavigation, caption, articles }) {
   const swiperInterestingRef = useRef(null);
-  // useEffect(() => {
-  //   if (swiperInterestingRef.current) {
-  //     const params = {
-  //       modules: [
-  //         Navigation,
-  //         Pagination,
-  //         A11y,
-  //         Controller,
-  //         Keyboard,
-  //         Manipulation,
-  //         Mousewheel,
-  //       ],
-  //     };
+  useEffect(() => {
+    if (swiperInterestingRef.current) {
+      const params = {
+        modules: [
+          Navigation,
+          Pagination,
+          A11y,
+          Controller,
+          Keyboard,
+          Manipulation,
+          Mousewheel,
+        ],
+      };
 
-  //     Object.assign(swiperInterestingRef.current, params);
+      Object.assign(swiperInterestingRef.current, params);
 
-  //     swiperInterestingRef.current.initialize();
-  //   }
-  // }, []);
+      swiperInterestingRef.current.initialize();
+    }
+  }, []);
   const [isMobileScreen, setIsMobileScreen] = useState(window.innerWidth < 500);
 
   useEffect(() => {
@@ -164,7 +164,7 @@ export default function Interesting({ sliderNavigation, caption, articles }) {
             class="interesting__slider"
             ref={swiperInterestingRef}
             id="swiperInteresting-container"
-            // init="false"
+            init="false"
             a11y="true"
             keyboard="true"
             mousewheel="true"

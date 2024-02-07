@@ -608,6 +608,10 @@
       &__img_empty {
         max-height: 180px;
       }
+
+      &__pictures {
+        min-height: 180px;
+      }
     }
   }
 }
@@ -859,6 +863,10 @@
 
       &__content {
         height: 200px;
+      }
+
+      &__pictures {
+        min-height: 160px;
       }
     }
 

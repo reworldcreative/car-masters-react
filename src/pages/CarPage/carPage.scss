@@ -185,6 +185,7 @@
   &__picturesMain {
     position: relative;
     max-height: 366px;
+    min-height: 366px;
     .carPage {
       &__img {
         width: -webkit-fill-available;
@@ -272,6 +273,7 @@
 
   &__picturesList {
     position: relative;
+    min-height: 90px;
     .swiperList {
       &::part(wrapper) {
         // width: 82%;
@@ -462,6 +464,7 @@
 
     &__picturesMain {
       height: calc(2.71875rem + 22.5vw);
+      min-height: calc(2.71875rem + 22.5vw);
       .carPage {
         &__img,
         &__img_empty {
@@ -494,6 +497,7 @@
 
     &__picturesMain {
       height: auto;
+      min-height: 360px;
       .carPage {
         &__img,
         &__img_empty {
@@ -555,6 +559,7 @@
 
     &__picturesMain {
       margin-bottom: 17px;
+      min-height: 330px;
       .carPage {
         &__img,
         &__img_empty {
@@ -649,6 +654,7 @@
     }
 
     &__picturesList {
+      min-height: 70px;
       .carPage {
         &__img {
           width: 25vw;
@@ -662,6 +668,7 @@
 @media screen and (max-width: 650px) {
   .carPage {
     &__picturesMain {
+      min-height: 270px;
       .carPage {
         &__img,
         &__img_empty {
@@ -706,6 +713,7 @@
     }
     &__picturesMain {
       margin-bottom: 8px;
+      min-height: 200px;
       .carPage {
         &__img,
         &__img_empty {
@@ -727,6 +735,7 @@
     }
 
     &__picturesList {
+      min-height: 30px;
       .carPage {
         &__img {
           height: 50px;
@@ -780,6 +789,7 @@
       }
     }
     &__picturesMain {
+      min-height: 170px;
       .carPage {
         &__img,
         &__img_empty {
@@ -800,6 +810,7 @@
     }
 
     &__picturesList {
+      min-height: 50px;
       .swiperList::part(wrapper) {
         // width: 70%;
       }

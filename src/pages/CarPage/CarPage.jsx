@@ -54,47 +54,47 @@ export default function CarPage() {
   const [swiperMainKey, setSwiperMainKey] = useState(0);
   const [swiperListKey, setSwiperListKey] = useState(0);
 
-  // useEffect(() => {
-  //   if (swiperMainRef.current) {
-  //     const params = {
-  //       modules: [
-  //         Navigation,
-  //         Pagination,
-  //         Thumbs,
-  //         Scrollbar,
-  //         A11y,
-  //         Controller,
-  //         Keyboard,
-  //         Manipulation,
-  //         Mousewheel,
-  //       ],
-  //     };
+  useEffect(() => {
+    if (swiperMainRef.current) {
+      const params = {
+        modules: [
+          Navigation,
+          Pagination,
+          Thumbs,
+          Scrollbar,
+          A11y,
+          Controller,
+          Keyboard,
+          Manipulation,
+          Mousewheel,
+        ],
+      };
 
-  //     Object.assign(swiperMainRef.current, params);
-  //     swiperMainRef.current.initialize();
-  //   }
-  // }, [swiperMainKey]);
+      Object.assign(swiperMainRef.current, params);
+      swiperMainRef.current.initialize();
+    }
+  }, [swiperMainKey]);
 
-  // useEffect(() => {
-  //   if (swiperListRef.current) {
-  //     const params = {
-  //       modules: [
-  //         Navigation,
-  //         Pagination,
-  //         Thumbs,
-  //         Scrollbar,
-  //         A11y,
-  //         Controller,
-  //         Keyboard,
-  //         Manipulation,
-  //         Mousewheel,
-  //       ],
-  //     };
+  useEffect(() => {
+    if (swiperListRef.current) {
+      const params = {
+        modules: [
+          Navigation,
+          Pagination,
+          Thumbs,
+          Scrollbar,
+          A11y,
+          Controller,
+          Keyboard,
+          Manipulation,
+          Mousewheel,
+        ],
+      };
 
-  //     Object.assign(swiperListRef.current, params);
-  //     swiperListRef.current.initialize();
-  //   }
-  // }, [swiperListKey]);
+      Object.assign(swiperListRef.current, params);
+      swiperListRef.current.initialize();
+    }
+  }, [swiperListKey]);
 
   // const swapPicturesType = () => {
   //   setIsExterior(!isExterior);
@@ -309,7 +309,7 @@ export default function CarPage() {
                   <swiper-container
                     ref={swiperMainRef}
                     key={swiperMainKey}
-                    // init="false"
+                    init="false"
                     slides-per-view="1"
                     space-between="10"
                     // centered-slides="true"
@@ -397,7 +397,7 @@ export default function CarPage() {
                     aria-hidden="true"
                     ref={swiperListRef}
                     key={swiperListKey}
-                    // init="false"
+                    init="false"
                     slides-per-view="auto"
                     space-between="10"
                     class="swiperList"
