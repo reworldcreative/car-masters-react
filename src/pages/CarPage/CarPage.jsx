@@ -324,17 +324,6 @@ export default function CarPage() {
                     // loop="true"
                     thumbs-swiper=".swiperList"
                     // zoom="true"
-                    modules={[
-                      Navigation,
-                      Pagination,
-                      Thumbs,
-                      Scrollbar,
-                      A11y,
-                      Controller,
-                      Keyboard,
-                      Manipulation,
-                      Mousewheel,
-                    ]}
                   >
                     {currentCar.images
                       .filter(

@@ -36,8 +36,8 @@ module.exports = {
         runtimeChunk: "single",
         splitChunks: {
           chunks: "all",
-          maxInitialRequests: 7,
-          minSize: 5000,
+          maxInitialRequests: 15,
+          minSize: 2000,
           // maxInitialRequests: Infinity,
           // minSize: 0,
           cacheGroups: {
