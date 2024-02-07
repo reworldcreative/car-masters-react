@@ -44,6 +44,7 @@ export default function Reviews() {
   //     swiperInfoRef.current.initialize();
   //   }
   // }, []);
+
   // var liveRegionReviews = document.getElementById("live-region-Reviews");
 
   const liveRegionReviews = useRef(null);

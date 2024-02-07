@@ -36,8 +36,10 @@ module.exports = {
         runtimeChunk: "single",
         splitChunks: {
           chunks: "all",
-          maxInitialRequests: Infinity,
-          minSize: 0,
+          maxInitialRequests: 7,
+          minSize: 5000,
+          // maxInitialRequests: Infinity,
+          // minSize: 0,
           cacheGroups: {
             styles: {
               // name: "styles",
@@ -45,15 +47,29 @@ module.exports = {
               chunks: "all",
               enforce: true,
               // enforce: false,
+              reuseExistingChunk: true,
+            },
+            swiperElements: {
+              test: /[\\/]node_modules[\\/]swiper[\\/]/,
+              name: "swiper-elements",
+              chunks: "all",
+              reuseExistingChunk: true,
             },
             vendor: {
               test: /[\\/]node_modules[\\/]/,
+              priority: -10,
+              reuseExistingChunk: true,
               name(module) {
                 const packageName = module.context.match(
                   /[\\/]node_modules[\\/](.*?)([\\/]|$)/
                 )[1];
                 return `npm.${packageName.replace("@", "")}`;
               },
+            },
+            default: {
+              minChunks: 2,
+              priority: -20,
+              reuseExistingChunk: true,
             },
           },
         },
